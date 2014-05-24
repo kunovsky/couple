@@ -4,9 +4,9 @@ CP.module "Views.Quiz", (Quiz, App, Backbone, Marionette, $, _) ->
     template: CPT["user/quiz/layout"]
 
     regions:
-      part1Region: "#part1-region"
-      part2Region: "#part2-region"
-      part3Region: "#part3-region"
+      firstSectionRegion: "#first-section-region"
+      secondSectionRegion: "#second-section-region"
+      thirdSectionRegion: "#third-section-region"
 
     onRender: ->
-      @part1Region.show new CP.Views.Quiz.Part1
+      @firstSectionRegion.show new CP.Views.Quiz.FirstSection

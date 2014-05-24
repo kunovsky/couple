@@ -1,4 +1,4 @@
-.units-row.part-1
+.units-row.first-section
   %h3 Overall Happiness Section
   .unit-50.overall-happiness.js-question-container
-    
+

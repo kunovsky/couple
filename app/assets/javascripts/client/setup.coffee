@@ -1,4 +1,4 @@
-Backbone.Marionette.Renderer.render = (template, data) ->
+Backbone.Marionette.Renderer.render = (template, data) -> 
   return throw new Error("Cannot find template") unless template?
   return template(data)
 

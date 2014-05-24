@@ -1,7 +1,7 @@
 CP.module "Views.Quiz", (Quiz, App, Backbone, Marionette, $, _) ->
 
-  class @Part1 extends Marionette.CompositeView
-    template: CPT["user/quiz/part1"]
+  class @FirstSection extends Marionette.CompositeView
+    template: CPT["user/quiz/overall_happiness"]
     itemView: Quiz.Question
     itemViewContainer: '.js-question-container'
 
@@ -13,3 +13,4 @@ CP.module "Views.Quiz", (Quiz, App, Backbone, Marionette, $, _) ->
 
     fetchCollection: ->
       @collection.fetch()
+       
