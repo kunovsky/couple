@@ -1,0 +1,13 @@
+{
+  "name": "backbone",
+  "_cacheHeaders": {
+    "ETag": "\"28e9e30eb8e080ac87a40f749de90afd9d618518\"",
+    "Content-Length": "64331",
+    "Content-Type": "text/plain; charset=utf-8"
+  },
+  "_release": "e-tag:28e9e30eb",
+  "main": "index.js",
+  "_source": "https://raw.github.com/documentcloud/backbone/master/backbone.js",
+  "_target": "*",
+  "_originalSource": "https://raw.github.com/documentcloud/backbone/master/backbone.js"
+}

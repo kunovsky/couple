@@ -1,0 +1,26 @@
+-#Structure Specific Meta
+%meta{ charset: "utf-8" }
+%meta{ content: "IE=edge,chrome=1", "http-equiv" => "X-UA-Compatible" }
+%meta{ name: "viewport", content: "width=1050" }
+%meta{ name: 'apple-mobile-web-app-capable', content: "yes"}
+%meta{ name: 'apple-mobile-web-app-status-bar-style', content: 'black-translucent'}
+
+-#Site title
+%title Couple
+
+-#Search engine metas
+%meta{ name: 'description', content: 'Google Analytics For Your Relationship.' }
+
+-#Icons
+%link{rel: 'icon', href: '/favicon.ico', type: 'image/x-icon'}
+%link{rel: 'shortcut icon', href: '/favicon.ico', type: 'image/x-icon'}
+
+-#Site CSS
+=stylesheet_link_tag "application", :media => "all"
+=stylesheet_link_tag "https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,600,700,800", "https://fonts.googleapis.com/css?family=Allura", :media => "all"
+
+-# HTML5Shiv
+<!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+-#CSRF Protection
+=csrf_meta_tags

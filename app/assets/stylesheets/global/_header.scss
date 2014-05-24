@@ -1,0 +1,24 @@
+header {
+  background-color: #279fc6;
+}
+
+header.group {
+    height: 75px;
+  }
+
+.navbar-left ul li h3 {
+  padding-left: 200px;
+  padding-top: 20px;
+  color: #fff;
+  
+}
+
+.navbar-right ul { 
+  li {
+    padding-top: 21px;
+  }
+  li:last-child {
+    padding-right: 200px;
+    padding-left: 30px;
+  }
+}

@@ -1,0 +1,32 @@
+.welcome_explination {
+  background-color: #fff;
+  min-height: 500px;
+  margin-bottom: 0px;
+
+  h3 {
+    padding-top: 40px;
+    margin-left: 100px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+  .unit-25  {
+    margin-top: 100px;
+    min-height: 150px;
+    border-radius: 20px; 
+    background-color: #3d7cd1;
+    h4 {
+      color: #fff;
+      padding-top: 60px;
+      text-align: center;
+    }
+  }
+}
+
+.unit-25:last-child h4:last-child {
+      padding-top: 50px;
+    } 
+
+.answer-questions.unit-25 {
+   margin-left: 150px;
+}
+

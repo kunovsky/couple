@@ -1,0 +1,27 @@
+{
+   "lib": {
+    "name": "bower-rails generated lib assets",
+    "dependencies": {
+    }
+  },
+  "vendor": {
+    "name": "bower-rails generated vendor assets",
+    "dependencies": {
+      "jquery"     : "https://raw.github.com/components/jquery/master/jquery.js",
+      "jquery-ui"  : "https://github.com/components/jqueryui/raw/master/ui/jquery.ui.core.js",
+      "jquery.scrollto"  : "https://raw.github.com/johnantoni/jquery.scrollto/master/jquery.scrollTo-min.js",
+      "keyboard.js" : "https://raw.github.com/RobertWHurst/KeyboardJS/master/keyboard.js",
+      "underscore" : "https://raw.github.com/documentcloud/underscore/master/underscore.js",
+      "underscore.string" : "https://raw.github.com/epeli/underscore.string/master/dist/underscore.string.min.js",
+      "moment"     : "https://raw.github.com/timrwood/moment/develop/min/moment.min.js",
+      "backbone"   : "https://raw.github.com/documentcloud/backbone/master/backbone.js",
+      "backbone.marionette"   : "https://raw.github.com/marionettejs/backbone.marionette/master/lib/backbone.marionette.js",
+      "backbone.routefilter"  : "https://raw.github.com/boazsender/backbone.routefilter/master/dist/backbone.routefilter.min.js",
+      "backbone.pagination"  : "https://raw.github.com/backbone-paginator/backbone.paginator/0.8.1/dist/backbone.paginator.min.js",
+      "backbone.validation"  : "https://raw.github.com/thedersen/backbone.validation/master/dist/backbone-validation-min.js",
+      "backbone.stickit"     : "https://raw.github.com/NYTimes/backbone.stickit/master/backbone.stickit.js",
+      "spin"      : "https://raw.github.com/hakimel/Ladda/master/dist/spin.min.js",
+      "ladda"     : "https://raw.github.com/hakimel/Ladda/master/js/ladda.js"
+    }
+  }
+}

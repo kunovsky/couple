@@ -1,0 +1,13 @@
+{
+  "name": "spin",
+  "_cacheHeaders": {
+    "ETag": "\"8d1463e2717a767069efb96dd33640b2b52ecc1d\"",
+    "Content-Length": "4441",
+    "Content-Type": "text/plain; charset=utf-8"
+  },
+  "_release": "e-tag:8d1463e27",
+  "main": "index.js",
+  "_source": "https://raw.github.com/hakimel/Ladda/master/dist/spin.min.js",
+  "_target": "*",
+  "_originalSource": "https://raw.github.com/hakimel/Ladda/master/dist/spin.min.js"
+}

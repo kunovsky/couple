@@ -1,0 +1,13 @@
+{
+  "name": "backbone.pagination",
+  "_cacheHeaders": {
+    "ETag": "\"43db942a6fe6e5338d9683aeb0b21ff78ccee42b\"",
+    "Content-Length": "11217",
+    "Content-Type": "text/plain; charset=utf-8"
+  },
+  "_release": "e-tag:43db942a6",
+  "main": "index.js",
+  "_source": "https://raw.github.com/backbone-paginator/backbone.paginator/0.8.1/dist/backbone.paginator.min.js",
+  "_target": "*",
+  "_originalSource": "https://raw.github.com/backbone-paginator/backbone.paginator/0.8.1/dist/backbone.paginator.min.js"
+}

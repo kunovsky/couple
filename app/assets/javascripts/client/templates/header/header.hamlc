@@ -1,0 +1,11 @@
+%header.group
+  %nav.navbar.navbar-left
+    %ul
+      %li 
+        %h3 Couple
+  %nav.navbar.navbar-right
+    %ul
+      %li
+        %button.btn.btn-white Link 1
+      %li
+        %button.btn.btn-white Link 2

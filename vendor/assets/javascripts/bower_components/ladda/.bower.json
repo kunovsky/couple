@@ -1,0 +1,13 @@
+{
+  "name": "ladda",
+  "_cacheHeaders": {
+    "ETag": "\"d61ab7e6c51f7508cbdd51a2ec516aff3f9eab06\"",
+    "Content-Length": "8448",
+    "Content-Type": "text/plain; charset=utf-8"
+  },
+  "_release": "e-tag:d61ab7e6c",
+  "main": "index.js",
+  "_source": "https://raw.github.com/hakimel/Ladda/master/js/ladda.js",
+  "_target": "*",
+  "_originalSource": "https://raw.github.com/hakimel/Ladda/master/js/ladda.js"
+}

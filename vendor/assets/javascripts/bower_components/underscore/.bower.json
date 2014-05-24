@@ -1,0 +1,13 @@
+{
+  "name": "underscore",
+  "_cacheHeaders": {
+    "ETag": "\"6c2b30497ba3d72c5178b03c4e79032a80921044\"",
+    "Content-Length": "45881",
+    "Content-Type": "text/plain; charset=utf-8"
+  },
+  "_release": "e-tag:6c2b30497",
+  "main": "index.js",
+  "_source": "https://raw.github.com/documentcloud/underscore/master/underscore.js",
+  "_target": "*",
+  "_originalSource": "https://raw.github.com/documentcloud/underscore/master/underscore.js"
+}

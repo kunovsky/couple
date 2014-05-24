@@ -1,0 +1,13 @@
+{
+  "name": "keyboard.js",
+  "_cacheHeaders": {
+    "ETag": "\"93417e8a434d67aa50ec3209c44c4b99af490b7d\"",
+    "Content-Length": "28109",
+    "Content-Type": "text/plain; charset=utf-8"
+  },
+  "_release": "e-tag:93417e8a4",
+  "main": "index.js",
+  "_source": "https://raw.github.com/RobertWHurst/KeyboardJS/master/keyboard.js",
+  "_target": "*",
+  "_originalSource": "https://raw.github.com/RobertWHurst/KeyboardJS/master/keyboard.js"
+}

@@ -1,0 +1,13 @@
+{
+  "name": "jquery-ui",
+  "_cacheHeaders": {
+    "ETag": "\"6df91628dea45d890538bf6d80863054cc7d8a38\"",
+    "Content-Length": "8198",
+    "Content-Type": "text/plain; charset=utf-8"
+  },
+  "_release": "e-tag:6df91628d",
+  "main": "index.js",
+  "_source": "https://github.com/components/jqueryui/raw/master/ui/jquery.ui.core.js",
+  "_target": "*",
+  "_originalSource": "https://github.com/components/jqueryui/raw/master/ui/jquery.ui.core.js"
+}

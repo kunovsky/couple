@@ -1,0 +1,13 @@
+{
+  "name": "jquery",
+  "_cacheHeaders": {
+    "ETag": "\"f7f422773d9dcedcd11869151d7bcf5ade218a2d\"",
+    "Content-Length": "244963",
+    "Content-Type": "text/plain; charset=utf-8"
+  },
+  "_release": "e-tag:f7f422773",
+  "main": "index.js",
+  "_source": "https://raw.github.com/components/jquery/master/jquery.js",
+  "_target": "*",
+  "_originalSource": "https://raw.github.com/components/jquery/master/jquery.js"
+}

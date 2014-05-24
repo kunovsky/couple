@@ -1,0 +1,13 @@
+{
+  "name": "backbone.marionette",
+  "_cacheHeaders": {
+    "ETag": "\"93d7dfc096290ffbd0676ca18516e212e066cc98\"",
+    "Content-Length": "90717",
+    "Content-Type": "text/plain; charset=utf-8"
+  },
+  "_release": "e-tag:93d7dfc09",
+  "main": "index.js",
+  "_source": "https://raw.github.com/marionettejs/backbone.marionette/master/lib/backbone.marionette.js",
+  "_target": "*",
+  "_originalSource": "https://raw.github.com/marionettejs/backbone.marionette/master/lib/backbone.marionette.js"
+}

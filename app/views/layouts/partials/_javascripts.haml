@@ -1,0 +1,11 @@
+.js-container
+  =javascript_include_tag "application"
+  .js-bootstrap-data
+    =render partial: 'layouts/partials/bootstrap'
+
+  :javascript
+    $(function() {
+      window.CPBootstrap();
+    });
+
+

@@ -1,0 +1,13 @@
+{
+  "name": "backbone.validation",
+  "_cacheHeaders": {
+    "ETag": "\"4b62a7dfed304f7dff70da5d928cf75acb6c024e\"",
+    "Content-Length": "8781",
+    "Content-Type": "text/plain; charset=utf-8"
+  },
+  "_release": "e-tag:4b62a7dfe",
+  "main": "index.js",
+  "_source": "https://raw.github.com/thedersen/backbone.validation/master/dist/backbone-validation-min.js",
+  "_target": "*",
+  "_originalSource": "https://raw.github.com/thedersen/backbone.validation/master/dist/backbone-validation-min.js"
+}

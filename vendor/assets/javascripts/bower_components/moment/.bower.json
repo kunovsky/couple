@@ -1,0 +1,13 @@
+{
+  "name": "moment",
+  "_cacheHeaders": {
+    "ETag": "\"3fe82adf13246e96fb251da403363752f3a20e40\"",
+    "Content-Length": "27524",
+    "Content-Type": "text/plain; charset=utf-8"
+  },
+  "_release": "e-tag:3fe82adf1",
+  "main": "index.js",
+  "_source": "https://raw.github.com/timrwood/moment/develop/min/moment.min.js",
+  "_target": "*",
+  "_originalSource": "https://raw.github.com/timrwood/moment/develop/min/moment.min.js"
+}
