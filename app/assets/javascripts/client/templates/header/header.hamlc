@@ -2,7 +2,7 @@
   %nav.navbar.navbar-left
     %ul
       %li 
-        %h3 Couple
+        %h3 Gottman Checkup Site
   %nav.navbar.navbar-right
     %ul
       %li

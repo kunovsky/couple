@@ -1,2 +1,2 @@
-.response
-  = @content
+.possible-response
+  =@content
