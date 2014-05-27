@@ -1,4 +1,5 @@
 .question
- =@content
-
-- console.log @possibleResponses
+  =@content
+  %ul
+    -for resp in @possibleResponses
+      %li=resp.content

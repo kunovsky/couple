@@ -1,15 +1,19 @@
 CP.module "Models", (Models, App, Backbone, Marionette, $, _) ->
 
   class @Question extends Backbone.Model
+    initialize: (question) ->
+      options = {sId: question?.survey_id, qId: question?.id}
+      @possibleResponses = new CP.Models.PossibleResponses
+      @possibleResponses.options =  options
 
-    # initialize: (question) ->
-    #   options = {sId: question?.survey_id, qId: question?.id}
-    #   possibleResponses = new CP.Models.PossibleResponses options
-    #   if options.sId? && options.qId
-    #     possibleResponses.fetch()
+    fetchResponses: (options = {}) ->
+      @possibleResponses.fetch
+        success: options.success
+        error: options.error
+
 
   class @Survey extends Backbone.Collection
     model: Models.Question
     
-    initialize: (path) ->
+    initialize: ->
       @url = "api/surveys/1"

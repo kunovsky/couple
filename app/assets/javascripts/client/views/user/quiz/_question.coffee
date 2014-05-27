@@ -4,15 +4,12 @@ CP.module "Views.Quiz", (Quiz, App, Backbone, Marionette, $, _) ->
     template: CPT["user/quiz/survey/question"]
     className: 'question-content'
 
-    initialize: ->
-      options = {sId: 1, qId: @model.id}
-      @foo = new CP.Models.PossibleResponses options
-      @foo.fetch
-        success: =>
-        console.log @foo.models[1]
-
     templateHelpers: ->
-      console.log "here"
-      @possibleResponses = @model.foo
-      return {@possibleResponses}
+      possibleResponses = @model.possibleResponses.toJSON()
+      return {possibleResponses}
+
+    initialize: ->
+      @model.fetchResponses
+        success: (resp) => 
+          @render()
 

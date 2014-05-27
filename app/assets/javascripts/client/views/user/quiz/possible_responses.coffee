@@ -1,13 +1,9 @@
 CP.module "Views.Quiz", (Quiz, App, Backbone, Marionette, $, _) ->
 
   class @PossibleResponses extends Marionette.CollectionView
+    template: ->
     itemView: Quiz.PossibleResponse
 
     initialize: (@options = options = {})->
-      @collection = new CP.Models.PossibleResponses options
-
-    onRender: ->
-      @fetchCollection()
-
-    fetchCollection: ->
+      @collection = @model.possibleResponses
       @collection.fetch()
