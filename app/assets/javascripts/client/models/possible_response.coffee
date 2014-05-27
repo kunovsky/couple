@@ -6,4 +6,4 @@ CP.module "Models", (Models, App, Backbone, Marionette, $, _) ->
     model: Models.PossibleResponse
     
     initialize: (@options = options = {}) ->
-        @url = "api/surveys/#{@options.sId}/questions/#{@options.qId}/possible_responses" if options.qId?
+      @url = "api/surveys/#{@options.sId}/questions/#{@options.qId}/possible_responses" if options.qId?

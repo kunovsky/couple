@@ -1,3 +1,4 @@
 .question
  =@content
- - console.log @possibleResponses.models
+
+- console.log @possibleResponses
