@@ -7,8 +7,7 @@ CP.module "Views.Quiz", (Quiz, App, Backbone, Marionette, $, _) ->
 
     initialize: ->
       options = {sId: 2}
-      @collection = new CP.Models.Survey 
-      @collection.options = options
+      @collection = new CP.Models.Survey options
 
     onRender: ->
       @fetchCollection()
