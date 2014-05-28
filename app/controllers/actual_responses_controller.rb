@@ -2,14 +2,15 @@ class ActualResponsesController < ApplicationController
   respond_to :json
 
   def create
-    user = User.first
-    @actual_response = user.actual_responses.find_or_create_by(possible_response_id: params[:qid] )
-    @actual_response.possible_response_id = params[:qid]
-    @actual_response.save
-    render json: @actual_response
+    user = User.find(params[:user_id])
+    @actual_resp = user.actual_responses.find_or_create_by(id: params[:id]) {|a| a.possible_response_id = params[:prid]}
+    render json: @actual_resp
   end
 
   def update
+    user = User.find(params[:user_id])
+    @actual_resp = user.actual_responses.find(params[:id])
+    @actual_resp.update_attribute(:possible_response_id, params[:prid])
+    render json: @actual_resp
   end
-
 end
