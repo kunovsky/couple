@@ -20,5 +20,8 @@ CP.module "Views.Quiz", (Quiz, App, Backbone, Marionette, $, _) ->
       target = $(e.target)
       target.addClass("btn-active")
       target.siblings().removeClass("btn-active")
-      @model.createActualResponse target.data()
+      @saveActualResponse(target.data())
+      
+    saveActualResponse: (data) ->
+      @model.createActualResponse data
 
