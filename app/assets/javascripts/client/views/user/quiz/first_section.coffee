@@ -6,7 +6,9 @@ CP.module "Views.Quiz", (Quiz, App, Backbone, Marionette, $, _) ->
     itemViewContainer: '.js-question-container'
 
     initialize: ->
+      options = {sId: 1}
       @collection = new CP.Models.Survey 
+      @collection.options = options
 
     onRender: ->
       @fetchCollection()

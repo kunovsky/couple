@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   root to: 'application#index'
 
-  resources :users
+  resources :users do
+    resources :actual_responses
+  end
 
   scope 'api' do
     resources :surveys do
@@ -10,5 +12,4 @@ Rails.application.routes.draw do
       end
     end
   end
-  
 end

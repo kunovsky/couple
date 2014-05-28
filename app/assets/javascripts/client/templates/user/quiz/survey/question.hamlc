@@ -1,5 +1,4 @@
-.question
-  =@content
-  %ul
-    -for resp in @possibleResponses
-      %li=resp.content
+=@content
+%ul
+  -for resp in @possibleResponses
+    %li.btn.btn-blue{data: {point_value: resp.point_value, qId: resp.question_id, sId: @survey_id}}=resp.content
