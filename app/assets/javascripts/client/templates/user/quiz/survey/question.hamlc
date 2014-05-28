@@ -1,4 +1,4 @@
 =@content
 %ul
   -for resp in @possibleResponses
-    %li.btn.btn-blue{data: {point_value: resp.point_value, qId: resp.question_id, sId: @survey_id}}=resp.content
+    %li.btn.btn-blue{data: {prid: resp.id}}=resp.content
