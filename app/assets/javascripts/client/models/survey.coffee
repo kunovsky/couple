@@ -1,6 +1,7 @@
 CP.module "Models", (Models, App, Backbone, Marionette, $, _) ->
 
   class @Question extends Backbone.Model
+
     initialize: (question) ->
       options = {sId: question?.survey_id, qId: question?.id}
       @possibleResponses = new CP.Models.PossibleResponses
@@ -12,16 +13,11 @@ CP.module "Models", (Models, App, Backbone, Marionette, $, _) ->
         error: options.error
 
     createActualResponse: (data) ->
-      @model ? @model : @model = CP.Models.ActualResponse
-     # $.ajax
-     #   type: 'POST'
-     #   url: "/actual_responses"
-     #   data: data
-     #   success: -> console.log arguments
-     #   error: -> console.log arguments
+      @model = @model ? new CP.Models.ActualResponse
+      @model.save(data)
 
   class @Survey extends Backbone.Collection
     model: Models.Question
     
     initialize: ->
-      @url = "/api/surveys/1"
+      @url = "/api/surveys/#{@options.sId}"
