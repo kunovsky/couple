@@ -9,6 +9,6 @@ CP.module "Views.Welcome", (Welcome, App, Backbone, Marionette, $, _) ->
       disclaimerRegion: "#disclaimer-region"
 
     onRender: ->
-        @helloRegion.show new CP.Views.Welcome.Hello
-        @explinationRegion.show new CP.Views.Welcome.Explination
-        @disclaimerRegion.show new CP.Views.Welcome.Disclaimer
+      @helloRegion.show new CP.Views.Welcome.Hello
+      @explinationRegion.show new CP.Views.Welcome.Explination
+      @disclaimerRegion.show new CP.Views.Welcome.Disclaimer
