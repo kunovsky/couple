@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   root to: 'application#index'
+  
+  post '/score' => "scores#score"
 
   resources :users do
     resources :actual_responses
