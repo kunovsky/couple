@@ -13,5 +13,5 @@ CP.module "Views", (Views, App, Backbone, Marionette, $, _) ->
     onRender: ->
       @welcomeRegion.show new CP.Views.Welcome.Layout
       @quizRegion.show new CP.Views.Quiz.Layout
-      # @resultsRegion.show new CP.Views.Results.Layout
+      @resultsRegion.show new CP.Views.Results.Layout
       # @moreRegion.show new CP.Views.More.Layout
