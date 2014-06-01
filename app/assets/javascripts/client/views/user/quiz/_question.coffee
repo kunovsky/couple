@@ -1,7 +1,7 @@
 CP.module "Views.Quiz", (Quiz, App, Backbone, Marionette, $, _) ->
 
   class @Question extends Marionette.ItemView
-    template: CPT["user/quiz/survey/question"]
+    template: CPT["user/quiz/global/question"]
     className: 'question-content'
     events:
       'click .btn.btn-blue' : 'indentButton'

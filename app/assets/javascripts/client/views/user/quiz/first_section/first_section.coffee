@@ -1,12 +1,12 @@
 CP.module "Views.Quiz", (Quiz, App, Backbone, Marionette, $, _) ->
 
-  class @SecondSection extends Marionette.CompositeView
-    template: CPT["user/quiz/love_maps"]
+  class @FirstSection extends Marionette.CompositeView
+    template: CPT["user/quiz/first_section/overall_happiness"]
     itemView: Quiz.Question
     itemViewContainer: '.js-question-container'
 
     initialize: ->
-      options = {sId: 2}
+      options = {sId: 1}
       @collection = new CP.Models.Survey options
 
     onRender: ->
