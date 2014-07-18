@@ -1,24 +1,26 @@
 header {
-  background-color: #279fc6;
-}
+  @include clearfix;
+  width: 100%; height: 78px;
+  padding-top: 26px;
+  background: $base-blue;
+  border-bottom: 4px solid $dark-blue;
 
-header.group {
-    height: 75px;
+  .site-title {
+    font-size: 30px;
+    color: $text-dark-blue;
+    font-family: $proxima-nova;
   }
 
-.navbar-left ul li h3 {
-  padding-left: 200px;
-  padding-top: 20px;
-  color: #fff;
-  
-}
-
-.navbar-right ul { 
-  li {
-    padding-top: 21px;
-  }
-  li:last-child {
-    padding-right: 200px;
-    padding-left: 30px;
+  nav > ul > li {
+    margin-right: 50px;
+    line-height: 24px; height: 24px;
+    font-size: 20px;
+    color: $text-dark-blue-faded;
+    font-family: $proxima-nova;
+    padding-left: 32px;
+    display: inline-block;
+    &.active, &:hover, > a {color: $text-dark-blue;}
+    background: no-repeat left center;
+    cursor: pointer;
   }
 }

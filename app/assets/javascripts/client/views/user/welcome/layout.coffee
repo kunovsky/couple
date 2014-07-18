@@ -1,4 +1,4 @@
-CP.module "Views.Welcome", (Welcome, App, Backbone, Marionette, $, _) ->
+CP.module "Views.User.Welcome", (Welcome, App, Backbone, Marionette, $, _) ->
 
   class @Layout extends Marionette.Layout
     template: CPT["user/welcome/layout"]
@@ -7,6 +7,7 @@ CP.module "Views.Welcome", (Welcome, App, Backbone, Marionette, $, _) ->
       helloRegion: "#hello-region"
       explinationRegion: "#explination-region"
       disclaimerRegion: "#disclaimer-region"
+
 
     onRender: ->
       @helloRegion.show new CP.Views.Welcome.Hello

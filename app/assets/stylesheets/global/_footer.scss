@@ -1,0 +1,28 @@
+.global-footer {
+  width: 100%; height: 100%;
+  background: $dark-grey;
+  padding-top: 41px;
+  
+  .footer-col {
+    display: inline-block;
+    vertical-align: top;
+    width: 164px;
+    li {
+      margin-bottom: 20px;
+      a {color: $text-off-white;}
+      &.title {
+        text-transform: uppercase;
+        font-weight: bold;
+        color: #869dbd;
+        margin-bottom: 38px;
+      }
+    }
+  }
+  .right {
+    width: 290px; height: 24px;
+    text-align: right;
+    font-size: 11px;
+    color: #9ea5ae;
+    padding-top: 45px;
+  }
+}

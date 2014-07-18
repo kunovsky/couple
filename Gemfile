@@ -29,7 +29,6 @@ gem 'execjs'
 gem "compass-rails"
 gem 'uglifier'
 gem 'haml'
-gem 'rabl'
 
 
 

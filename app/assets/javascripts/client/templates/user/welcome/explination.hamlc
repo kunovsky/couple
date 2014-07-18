@@ -1,8 +1,9 @@
-.units-row.welcome_explination
-  %h3 Here is how it works
-  .unit-25.answer-questions
-    %h4 Answer Questions
-  .unit-25
-    %h4 Get Results
-  .unit-25
-    %h4 Share with partner or take it for them for complete results
+.site-wrap
+  .welcome-text-container
+    %h3.title-text Here is how it works
+    .unit-25.answer-questions
+      %h4 Answer Questions
+    .unit-25
+      %h4 Get Results
+    .unit-25
+      %h4 Share with partner or take it for them for complete results

@@ -2,12 +2,7 @@ Backbone.Marionette.Renderer.render = (template, data) ->
   return throw new Error("Cannot find template") unless template?
   return template(data)
 
-$(document).ajaxSend (e, xhr, options) ->
-  token = $("meta[name='csrf-token']").attr("content")
-  xhr.setRequestHeader "X-CSRF-Token", token
-
+#Init our brand new Marionette App.
 window.CP = new Backbone.Marionette.Application()
-
-window.CP.ActiveRouters = {}
 
 window.CP.Settings = {}

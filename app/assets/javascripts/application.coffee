@@ -18,9 +18,9 @@
 #= require hamlcoffee
 #= require client/setup
 #= require_tree ./client/helpers
-#= require_tree ./client/services
 #= require_tree ./client/templates
 #= require_tree ./client/models
 #= require_tree ./client/views
-#= require_tree ./client/controllers
-#= require client/boot
+#= require client/controllers/_base
+#= require client/controllers/user
+# = require client/bootstrap

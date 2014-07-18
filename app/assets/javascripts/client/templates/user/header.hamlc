@@ -1,0 +1,10 @@
+%header
+  .site-wrap
+    .site-title.left
+      ...
+    %nav.right
+      %ul<
+        %li.active 
+          ...
+        %li 
+          ...

@@ -1,0 +1,19 @@
+// IE10 Does not support IE conditionals, so this is just a general override for all browsers.
+// Thanks Micro$oft!
+html {
+  .modal {
+    .modal-aside-info {
+      display: none;
+      &.show {
+        display: block;
+      }
+    }
+  }
+
+  .rep-settings {
+    .answer-container {
+      display: none;
+      &.show {display: block;}
+    }
+  }
+}

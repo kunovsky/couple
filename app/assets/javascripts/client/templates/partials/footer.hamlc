@@ -1,0 +1,35 @@
+.site-wrap
+  .left
+    %ul.footer-col
+      %li.title goes here
+      %li
+        %a{href: '#'} Home
+      %li
+        %a{href: '#'} How It Works
+      %li
+        %a{href: '#'} Features
+
+    %ul.footer-col
+      %li.title Company
+      %li.hide
+        %a{href: '#'} About
+      %li
+        %a.js-tos{href: '#'} Terms of Use
+      %li
+        %a.js-privacy{href: '#'} Privacy Policy
+
+
+    %ul.footer-col
+      %li.title Connect
+      %li
+        %a{href: '#'} Contact Us
+      %li
+        %a{href: '#', target: '_BLANK'} Facebook
+      %li
+        %a{href: '#', target: '_BLANK'} Twitter
+
+
+  .right
+    &copy;
+    =moment().format('YYYY')
+    ...., All rights reserved.

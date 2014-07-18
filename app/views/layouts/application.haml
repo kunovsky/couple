@@ -3,10 +3,13 @@
   %head
     =render :partial => 'layouts/partials/head'
   %body
-    #header-region
-    #main-region
-    #footer-region
+    #site-container
+      #js-attach-wrap
+        =yield
+      #footer-wrap
+    #js-attach-footer
     #modal-container
+      .modal-background
       .modal
 
     =render :partial => 'layouts/partials/javascripts'

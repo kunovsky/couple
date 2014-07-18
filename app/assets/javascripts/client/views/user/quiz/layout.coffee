@@ -10,5 +10,5 @@ CP.module "Views.Quiz", (Quiz, App, Backbone, Marionette, $, _) ->
 
     onRender: ->
       @firstSectionRegion.show new CP.Views.Quiz.FirstSection
-      @secondSectionRegion.show new CP.Views.Quiz.SecondSection
-      @thirdSectionRegion.show new CP.Views.Quiz.ThirdSection
+      # @secondSectionRegion.show new CP.Views.Quiz.SecondSection
+      # @thirdSectionRegion.show new CP.Views.Quiz.ThirdSection
