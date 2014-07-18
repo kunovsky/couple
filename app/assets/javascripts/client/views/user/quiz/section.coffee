@@ -1,4 +1,5 @@
 CP.module "Views.User.Quiz", (Quiz, CP, Backbone, Marionette, $, _) ->
 
-  class @FondnessAdmiration extends CP.Views.Common.User.QuizBase
+  class @Section extends Marionette.CompositeView
+    itemView: Quiz.Question
     template: CPT["common/questionnaire"]
