@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root to: 'application#index'
   
+  get '/questionnaire' => 'application#index'
+  
   post '/score' => "scores#score"
 
   resources :users do

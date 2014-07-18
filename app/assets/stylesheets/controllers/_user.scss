@@ -17,5 +17,19 @@
   .explination-text {
     padding: 5px;
     font-family: $proxima-nova;
-    font-size: 12px;
+    font-size: 13px;
+
+    .step-container {
+      color: #2F2F2F;
+      padding: 15px;
+      background-color: $dark-blue;
+      display: inline-block;
+      border: none;
+      border-radius: $form-element-radius;
+      font-size: 13px;
+      &:first-of-type {
+        margin-left: 30%;
+      }
+    }
   }
+

@@ -1,0 +1,72 @@
+$form-element-height: 38px;
+
+button, .btn, input[type='submit'] {
+  height: $form-element-height; line-height: $form-element-height;
+  padding-left: 16px; //44px 
+  padding-right: 16px;
+  border: none;
+  border-radius: $form-element-radius;
+  font-size: 13px;
+  color: #fff;
+  text-transform: uppercase;
+  font-family: $proxima-nova;
+  font-weight: bold;
+  background-repeat: no-repeat;
+  background-position: 16px center;
+  cursor: pointer;
+  position: relative;
+  //Sizes
+  &.no-text {
+    padding: 0;
+    width: 30px; height: 28px;
+    background-position: center center;
+  }
+
+  &.with-bottom-left-margin {
+    margin: 0px 0px 10px 10px;
+  }
+
+  //Colors
+  &.light-gray {
+    background-color: #a5b5cb;
+    @include box-shadow(0 2px 0 #94a4ba);
+    &:hover {
+      background-color: #6e849f;
+      @include box-shadow(0 2px 0 #4f6683);
+    }
+  }
+
+  &.dark-gray {
+    background-color: #69717a;
+    color: #d7dfe7;
+    @include box-shadow(0 2px 0 rgba(#000, 0.15));
+    &:hover {
+      color: #edf1f5;
+      background-color: #646c76;
+    }
+  }
+
+  &.orange {
+    background: #e87542 16px center no-repeat;
+    color: #fff;
+    @include box-shadow(0 2px 0 #b05b35);
+    &:hover {
+      background-color: #e86830;
+       @include box-shadow(0 2px 0 #a4522e);
+    }
+    &.success {
+
+    }
+  }
+
+  &.green {
+    background: #95ad98;
+    color: #f2f9f3;
+    @include box-shadow(0 2px 0 #7f9982);
+  }
+
+  &:disabled {
+    background-color: #d8d8d8;
+    @include box-shadow(0 2px 0 #c7c7c7);
+  }
+}

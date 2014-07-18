@@ -1,4 +1,4 @@
-CP.module "Views.Quiz", (Quiz, App, Backbone, Marionette, $, _) ->
+CP.module "Views.User.Quiz", (Quiz, CP, Backbone, Marionette, $, _) ->
 
   class @Layout extends Marionette.Layout
     template: CPT["user/quiz/layout"]
@@ -9,6 +9,6 @@ CP.module "Views.Quiz", (Quiz, App, Backbone, Marionette, $, _) ->
       thirdSectionRegion: "#third-section-region"
 
     onRender: ->
-      @firstSectionRegion.show new CP.Views.Quiz.FirstSection
-      # @secondSectionRegion.show new CP.Views.Quiz.SecondSection
-      # @thirdSectionRegion.show new CP.Views.Quiz.ThirdSection
+      @firstSectionRegion.show new Quiz.OverallHappiness
+      @secondSectionRegion.show new Quiz.LoveMaps
+      @thirdSectionRegion.show new Quiz.FondnessAdmiration

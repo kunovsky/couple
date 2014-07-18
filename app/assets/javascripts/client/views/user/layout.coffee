@@ -15,7 +15,7 @@ CP.module "Views.User", (User, CP, Backbone, Marionette, $, _) ->
       CP.footerRegion.show new CP.Views.Common.Footer
       #Setup the header
       @headerRegion.show new CP.Views.User.Header
-#       #Render page
+      #Render page
       @fireRouter(@options.page)
 
     #Handle Routing
@@ -24,3 +24,6 @@ CP.module "Views.User", (User, CP, Backbone, Marionette, $, _) ->
 
     showIndex: ->
       @bodyRegion.show new User.Welcome.Layout
+
+    showQuestionnaire: ->
+      @bodyRegion.show new User.Quiz.Layout
