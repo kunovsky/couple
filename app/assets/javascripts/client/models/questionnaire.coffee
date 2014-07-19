@@ -2,8 +2,8 @@ CP.module "Models", (Models, App, Backbone, Marionette, $, _) ->
 
   class @Question extends Backbone.Model
 
-    initialize: (question) ->
-      options = {sId: question?.survey_id, qId: question?.id}
+    initialize: (@options = options = {}) ->
+      options = {sId: @options.survey_id, qId: @options.id}
       @possibleResponses = new CP.Models.PossibleResponses
       @possibleResponses.options = options
 
@@ -16,8 +16,8 @@ CP.module "Models", (Models, App, Backbone, Marionette, $, _) ->
       @model = @model ? new CP.Models.ActualResponse
       @model.save(data)
 
-  class @Survey extends Backbone.Collection
-    model: Models.Question
+  class @Questionnaire extends Backbone.Collection
+    # model: Models.Question
     
-    initialize: (options) ->
-      @url = "/api/surveys/#{options.sId}"
+    initialize: (@options = options = {}) ->
+      @url = ['api', 'surveys', @options.id].join('/')

@@ -1,6 +1,4 @@
 .site-wrap
   .welcome-text-container
-    .title-text We will never ask you for any personal data!
-    .explination-text Farm-to-table ethnic sustainable mlkshk, tofu dreamcatcher semiotics +1 PBR&B bicycle rights fixie retro Cosby sweater mustache.
-    %button.light-gray.with-bottom-left-margin.next-section
-      Do this
+    .title-text This is a section of the questionnaire
+    .js-question-list
