@@ -1,5 +1,5 @@
 require 'spec_helper'
 
-describe SurveysController do
+describe QuestionnairesController do
 
 end

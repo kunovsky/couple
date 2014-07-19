@@ -1,4 +1,4 @@
-class CompletedSurvey < ActiveRecord::Base
+class CompletedQuestionnaire < ActiveRecord::Base
   belongs_to :user
-  belongs_to :survey
+  belongs_to :questionnaire
 end

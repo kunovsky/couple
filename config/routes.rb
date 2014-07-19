@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root to: 'application#index'
-  
+
   get '/questionnaire' => 'application#index'
   
   post '/score' => "scores#score"
@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   end
 
   scope 'api' do
-    resources :surveys do
+    resources :questionnaires do
       resources :questions do
         resources :possible_responses
       end

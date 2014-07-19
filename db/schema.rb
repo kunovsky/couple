@@ -23,9 +23,9 @@ ActiveRecord::Schema.define(version: 20140525033617) do
     t.datetime "updated_at"
   end
 
-  create_table "completed_surveys", force: true do |t|
+  create_table "completed_questionnaires", force: true do |t|
     t.integer  "user_id"
-    t.integer  "survey_id"
+    t.integer  "questionnaire_id"
     t.json     "score"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 20140525033617) do
 
   create_table "feedbacks", force: true do |t|
     t.integer  "relationship_id"
-    t.integer  "survey_id"
+    t.integer  "questionnaire_id"
     t.integer  "result_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -48,16 +48,23 @@ ActiveRecord::Schema.define(version: 20140525033617) do
   end
 
   create_table "quadrants", force: true do |t|
-    t.integer  "survey_id"
     t.integer  "result_id"
+    t.integer  "questionnaire_id"
     t.integer  "quadrant_number"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "questionnaires", force: true do |t|
+    t.string   "title"
+    t.integer  "cutoff_score"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "questions", force: true do |t|
     t.string   "content"
-    t.integer  "survey_id"
+    t.integer  "questionnaire_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -70,13 +77,6 @@ ActiveRecord::Schema.define(version: 20140525033617) do
 
   create_table "results", force: true do |t|
     t.text     "content"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "surveys", force: true do |t|
-    t.string   "title"
-    t.integer  "cutoff_score"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

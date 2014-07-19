@@ -1,8 +1,8 @@
 User.create(first_name: "Tyson")
 
-###SURVEY 1 OVERALL HAPPINESS###
+###Questionnaire 1 OVERALL HAPPINESS###
 
-overall_happiness = Survey.create! title: "Overall Happiness", cutoff_score: 55
+overall_happiness = Questionnaire.create! title: "Overall Happiness", cutoff_score: 55
 
 overall_happiness.questions.create! content: "I feel emotionally close to my partner"
 overall_happiness.questions.create! content: "I think that my partner really cares about me"
@@ -29,9 +29,9 @@ overall_happiness.questions.each do |question|
 end
 
 
-### SURVEY 2 LOVEMAPS###
+### Questionnaire 2 LOVEMAPS###
 
-love_maps = Survey.create! title: "Love Maps", cutoff_score: 6
+love_maps = Questionnaire.create! title: "Love Maps", cutoff_score: 6
 
 love_maps.questions.create! content: "I know my partner's favorite side of the bed"
 love_maps.questions.create! content: "I can tell you what my partner was wearing when we first met"
@@ -55,9 +55,9 @@ love_maps.questions.each do |question|
   question.possible_responses.create! content: "False", point_value: 1
 end
 
-###SURVEY 3 FONDNESS AND ADMIRATION###
+###Questionnaire 3 FONDNESS AND ADMIRATION###
 
-fondness_and_admiration = Survey.create! title: "Fondness and Admiration", cutoff_score: 2
+fondness_and_admiration = Questionnaire.create! title: "Fondness and Admiration", cutoff_score: 2
 
 fondness_and_admiration.questions.create! content: "My partner really respects me"
 fondness_and_admiration.questions.create! content: "I feel loved and cared for in this relationship"
@@ -72,9 +72,9 @@ fondness_and_admiration.questions.each do |question|
 end
 
 
-###SURVEY 4 TURNING TOWARDS###
+###Questionnaire 4 TURNING TOWARDS###
 
-turning_towards = Survey.create! title: "Turning Towards", cutoff_score: 2
+turning_towards = Questionnaire.create! title: "Turning Towards", cutoff_score: 2
 
 turning_towards.questions.create! content: "I really enjoy discussing things with my partner"
 turning_towards.questions.create! content: "We always have a lot to say to each other"
@@ -89,9 +89,9 @@ turning_towards.questions.each do |question|
 end
 
 
-###SURVEY 5 EMOTIONAL DISENGAGEMENT AND LONELINESS###
+###Questionnaire 5 EMOTIONAL DISENGAGEMENT AND LONELINESS###
 
-emotional_loneliness = Survey.create! title: "Emotional Disengagement and Loneliness", cutoff_score: 3
+emotional_loneliness = Questionnaire.create! title: "Emotional Disengagement and Loneliness", cutoff_score: 3
 
 emotional_loneliness.questions.create! content: "I often find myself disappointed in this relationship"
 emotional_loneliness.questions.create! content: "I will at times find myself quite lonely in this relationship"

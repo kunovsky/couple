@@ -1,6 +1,6 @@
-class CreateSurveys < ActiveRecord::Migration
+class CreateQuestionnaires < ActiveRecord::Migration
   def change
-    create_table :surveys do |t|
+    create_table :questionnaires do |t|
       t.string :title
       t.integer :cutoff_score
 
