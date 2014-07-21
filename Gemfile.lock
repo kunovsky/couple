@@ -1,4 +1,11 @@
 GIT
+  remote: https://github.com/camertron/arel-helpers.git
+  revision: b991cfff1f7fbb746e4ad34b0b939d1a4b41a739
+  specs:
+    arel-helpers (2.0.0)
+      activerecord (>= 3.1.0, < 5)
+
+GIT
   remote: https://github.com/netzpirat/haml_coffee_assets
   revision: 1c5038429dbcf14151759913352376107d62c891
   specs:
@@ -161,6 +168,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  arel-helpers!
   bcrypt (~> 3.1.7)
   bower-rails
   bullet

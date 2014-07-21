@@ -6,7 +6,10 @@ gem 'rails', '4.1.1'
 # Use postgresql as the database for Active Record
 gem 'pg'
 
+#active record addons
 gem 'bcrypt', '~> 3.1.7'
+gem 'arel-helpers', git: 'https://github.com/camertron/arel-helpers.git'
+
 
 gem 'debugger', group: [:development, :test]
 

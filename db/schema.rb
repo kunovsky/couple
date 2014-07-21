@@ -11,13 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140525033617) do
+ActiveRecord::Schema.define(version: 20140720203525) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "actual_responses", force: true do |t|
-    t.integer  "possible_response_id"
+    t.json     "responses"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -40,7 +40,6 @@ ActiveRecord::Schema.define(version: 20140525033617) do
   end
 
   create_table "possible_responses", force: true do |t|
-    t.integer  "question_id"
     t.string   "content"
     t.integer  "point_value"
     t.datetime "created_at"
@@ -65,6 +64,13 @@ ActiveRecord::Schema.define(version: 20140525033617) do
   create_table "questions", force: true do |t|
     t.string   "content"
     t.integer  "questionnaire_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "questions_responses", force: true do |t|
+    t.integer  "question_id"
+    t.integer  "possible_response_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

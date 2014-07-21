@@ -1,5 +1,24 @@
 User.create(first_name: "Tyson")
 
+###Possible Responses ###
+agree_disagree = []
+
+agree_disagree << (PossibleResponse.create! content: "Strongly Disagree", point_value: 1)
+agree_disagree << (PossibleResponse.create! content: "Disagree", point_value: 2)
+agree_disagree << (PossibleResponse.create! content: "Neutral", point_value: 3)
+agree_disagree << (PossibleResponse.create! content: "Agree", point_value: 4)
+agree_disagree << (PossibleResponse.create! content: "Strongly Agree", point_value: 5)
+
+true_false_normal = []
+
+true_false_normal << (PossibleResponse.create! content: "True", point_value: 0)
+true_false_normal << (PossibleResponse.create! content: "False", point_value: 1)
+
+true_false_reversed = []
+
+true_false_reversed << (PossibleResponse.create! content: "True", point_value: 1)
+true_false_reversed << (PossibleResponse.create! content: "False", point_value: 0)
+
 ###Questionnaire 1 OVERALL HAPPINESS###
 
 overall_happiness = Questionnaire.create! title: "Overall Happiness", cutoff_score: 55
@@ -21,11 +40,9 @@ overall_happiness.questions.create! content: "My partner is one of my best frien
 overall_happiness.questions.create! content: "My partner rarely puts me down"
 
 overall_happiness.questions.each do |question|
-  question.possible_responses.create! content: "Strongly Disagree", point_value: 1
-  question.possible_responses.create! content: "Disagree", point_value: 2
-  question.possible_responses.create! content: "Neutral", point_value: 3
-  question.possible_responses.create! content: "Agree", point_value: 4
-  question.possible_responses.create! content: "Strongly Agree", point_value: 5
+  agree_disagree.each do |response|
+    question.possible_responses << response
+  end
 end
 
 
@@ -51,8 +68,9 @@ love_maps.questions.create! content: "I can tell you some of my partner's life d
 
 
 love_maps.questions.each do |question|
-  question.possible_responses.create! content: "True", point_value: 0
-  question.possible_responses.create! content: "False", point_value: 1
+  true_false_normal.each do |response|
+    question.possible_responses << response
+  end
 end
 
 ###Questionnaire 3 FONDNESS AND ADMIRATION###
@@ -67,8 +85,9 @@ fondness_and_admiration.questions.create! content: "My partner appreciates the t
 
 
 fondness_and_admiration.questions.each do |question|
-  question.possible_responses.create! content: "True", point_value: 0
-  question.possible_responses.create! content: "False", point_value: 1
+  true_false_normal.each do |response|
+    question.possible_responses << response
+  end
 end
 
 
@@ -84,8 +103,9 @@ turning_towards.questions.create! content: "We like to do a lot of the same thin
 
 
 turning_towards.questions.each do |question|
-  question.possible_responses.create! content: "True", point_value: 0
-  question.possible_responses.create! content: "False", point_value: 1
+  true_false_normal.each do |response|
+    question.possible_responses << response
+  end
 end
 
 
@@ -101,6 +121,7 @@ emotional_loneliness.questions.create! content: "I have adapted to a lot in this
 
 
 emotional_loneliness.questions.each do |question|
-  question.possible_responses.create! content: "True", point_value: 1
-  question.possible_responses.create! content: "False", point_value: 0
+  true_false_reversed.each do |response|
+    question.possible_responses << response
+  end
 end

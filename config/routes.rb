@@ -12,7 +12,6 @@ Rails.application.routes.draw do
   scope 'api' do
     resources :questionnaires do
       resources :questions do
-        resources :possible_responses
       end
     end
   end

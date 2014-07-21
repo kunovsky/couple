@@ -1,4 +1,4 @@
 class PossibleResponse < ActiveRecord::Base
-  belongs_to :question
-  has_many :actual_responses
+  has_many :questions_responses
+  has_many :questions, through: :questions_responses
 end
