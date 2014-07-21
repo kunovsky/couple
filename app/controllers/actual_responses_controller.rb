@@ -3,7 +3,7 @@ class ActualResponsesController < ApplicationController
 
   def create
     #start here
-    # user = User.find(params[:user_id])
+    actual_responses = update_actual_responses(params)
     # @actual_resp = user.actual_responses.find_or_create_by(id: params[:id]) {|a| a.possible_response_id = params[:prid]}
     render json: true
   end
