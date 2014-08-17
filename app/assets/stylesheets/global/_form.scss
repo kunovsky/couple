@@ -65,6 +65,12 @@ button, .btn, input[type='submit'] {
     @include box-shadow(0 2px 0 #7f9982);
   }
 
+  &.blue {
+    background: #3D7CD1;
+    color: #f2f9f3;
+    @include box-shadow(0 2px 0 #7f9982);
+  }
+
   &:disabled {
     background-color: #d8d8d8;
     @include box-shadow(0 2px 0 #c7c7c7);

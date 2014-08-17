@@ -2,7 +2,7 @@ class ActualResponsesController < ApplicationController
   respond_to :json
 
   def create
-    render json: actual_response_handler(:process_actual_responses), status: 200
+    render json: actual_response_handler(:process_actual_response), status: 200
   end
 
   def update
@@ -17,5 +17,4 @@ class ActualResponsesController < ApplicationController
   def actual_response_handler(method)
     Saving::ActualResponseSaving.new(params).public_send(method)
   end
-
 end

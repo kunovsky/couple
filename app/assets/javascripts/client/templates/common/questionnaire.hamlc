@@ -1,8 +1,11 @@
 .site-wrap
-  .welcome-text-container
+  .standard-text-container
     .title-text This is a section of the questionnaire
     - if @questions?.length > 0
       -for question in @questions
         .explination-text=question.content
-        - for response in question.possible_responses
-          %button.green.pr-container.js-response-button{data: {rid: response.id, qid: question.id}}=response.content
+        .button-container
+          - for response in question.possible_responses
+            %button.green.pr-container.js-response-button{data: {rid: response.id, qid: question.id}}=response.content
+
+    %button.blue.next-section-button.js-next-section-button Continue To The Next Section

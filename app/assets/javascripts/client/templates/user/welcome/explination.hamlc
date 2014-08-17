@@ -1,5 +1,5 @@
 .site-wrap
-  .welcome-text-container
+  .standard-text-container
     .title-text Here is how it works
     .explination-text
       .step-container

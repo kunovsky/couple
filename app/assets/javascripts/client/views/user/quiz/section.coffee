@@ -15,8 +15,10 @@ CP.module "Views.User.Quiz", (Quiz, CP, Backbone, Marionette, $, _) ->
     templateHelpers: ->
       return {questions: @questions}
 
-    setActualResponse: (e) ->    
-      data = {response_id: $(e.target).data('rid'), question_id: $(e.target).data('qid'), questionnaire_id: @questionnaire_id}
+    setActualResponse: (e) ->
+      e.preventDefault()
+      @handleButtonState($(e.target))
+      data = @handleRequestData($(e.target))
       @saveActualResponse(data)
 
     fetchCollection: (range) ->
@@ -32,4 +34,10 @@ CP.module "Views.User.Quiz", (Quiz, CP, Backbone, Marionette, $, _) ->
       $.ajax
         type: 'POST'
         url: @saveUrl
-        data: data     
+        data: data
+
+    handleButtonState: (target) ->
+      target.attr("disabled","disabled").siblings().attr("disabled", false)
+
+    handleRequestData: (target) ->
+      {response_id: target.data('rid'), question_id: target.data('qid'), questionnaire_id: @questionnaire_id}
