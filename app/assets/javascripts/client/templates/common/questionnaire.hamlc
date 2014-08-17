@@ -5,4 +5,4 @@
       -for question in @questions
         .explination-text=question.content
         - for response in question.possible_responses
-          %button.green.pr-container.js-response-button{data: {id: response.id, qid: question.id}}=response.content
+          %button.green.pr-container.js-response-button{data: {rid: response.id, qid: question.id}}=response.content

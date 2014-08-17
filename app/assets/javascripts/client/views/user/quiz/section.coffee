@@ -16,7 +16,7 @@ CP.module "Views.User.Quiz", (Quiz, CP, Backbone, Marionette, $, _) ->
       return {questions: @questions}
 
     setActualResponse: (e) ->    
-      data = {response_id: $(e.target).data('id'), question_id: $(e.target).data('qid')}
+      data = {response_id: $(e.target).data('rid'), question_id: $(e.target).data('qid'), questionnaire_id: @questionnaire_id}
       @saveActualResponse(data)
 
     fetchCollection: (range) ->
@@ -24,6 +24,7 @@ CP.module "Views.User.Quiz", (Quiz, CP, Backbone, Marionette, $, _) ->
         type: 'GET'
         url: @url
         success: (response) =>
+          @questionnaire_id = response[0]['questionnaire_id']
           @questions = response
           @render()
 

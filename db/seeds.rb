@@ -1,4 +1,5 @@
-User.create(first_name: "Tyson")
+User.create!(first_name: "Tyson")
+ActualResponse.create! user_id: 1
 
 ###Possible Responses ###
 agree_disagree = []

@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20140720203525) do
   enable_extension "plpgsql"
 
   create_table "actual_responses", force: true do |t|
-    t.json     "responses"
+    t.json     "responses",  default: {}, null: false
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 20140720203525) do
   create_table "completed_questionnaires", force: true do |t|
     t.integer  "user_id"
     t.integer  "questionnaire_id"
-    t.json     "score"
+    t.json     "score",            default: {}, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

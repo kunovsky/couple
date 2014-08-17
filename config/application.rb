@@ -21,6 +21,8 @@ module Couple
     config.i18n.enforce_available_locales = true
     config.i18n.default_locale = :en
 
+    config.assets.initialize_on_precompile = false
+
     config.action_dispatch.perform_deep_munge = false
 
     # HamlCoffee Assets

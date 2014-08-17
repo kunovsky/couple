@@ -3,7 +3,7 @@ module QuestionnaireHelper
   def format_questionnaire(id)
     questions = get_questions(id)
     possible_responses = get_possible_responses(id)
-    questions.map {|question| {id: question.id, content: question.content, possible_responses: format_possible_responses(possible_responses)}}
+    questions.map {|question| {id: question.id, questionnaire_id: id, content: question.content, possible_responses: format_possible_responses(possible_responses)}}
   end
 
   def format_possible_responses(possible_responses)
