@@ -3,28 +3,29 @@ module CompletedQuestionnairesHelper
 
     def initialize(params)
       @questionnaire_id, @user_id = params[:questionnaire_id], params[:user_id]
+      @point_values = format_possible_responses_and_point_values
     end
 
     def handle_questionnaire
-      p"@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
-      p possible_response_point_values
+      CompletedQuestionnaire.find_or_create_by( user_id: @user_id, questionnaire_id: @questionnaire_id) do |completed|
+        completed.score = tabulate_score
+      end
     end
 
     private
 
-    def completed_questionnaire
-      CompletedQuestionnaire.update_or_create_by_user_id_and_questionnaire_id() do |completed|
-        completed.score = set_score
-      end
-    end
-
-    def set_score
+    def tabulate_score
       responses = User.find(@user_id).actual_response.responses[@questionnaire_id]
-      responses.values
-      #responses[@questionnaire_id].values.map {|value| value.to_i}.reduce(:+)
+      responses.values.map {|value| @point_values[value.to_i]}.reduce(:+)
     end
 
-    def possible_response_point_values
+    def format_possible_responses_and_point_values
+      hash = Hash.new
+      responses_and_point_values.map {|response|hash[response.id] = response.point_value}
+      hash
+    end
+
+    def responses_and_point_values
       PossibleResponse.select(
         PossibleResponse[:id], PossibleResponse[:point_value]
       ).where(Questionnaire[:id].eq(@questionnaire_id)).joins(
@@ -43,10 +44,3 @@ module CompletedQuestionnairesHelper
     end
   end
 end
-
-# SELECT possible_responses.id, possible_responses.point_value
-# from possible_responses
-# INNER JOIN questions_responses on questions_responses.possible_response_id = possible_responses.id
-# INNER JOIN questions on questions.id = questions_responses.questionnaire_id
-# INNER JOIN questionnaires on questionnaires.id = questions.questionnaire_id
-# WHERE questionnaires.id = 1
