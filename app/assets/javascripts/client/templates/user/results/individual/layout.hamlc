@@ -1,0 +1,5 @@
+.site-wrap
+  #friendship-region.results-container
+  #fondness-region.results-container
+  #turning-region.results-container
+  #emotion-region.results-container

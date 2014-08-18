@@ -4,11 +4,12 @@ CP.module "Views.User.Quiz", (Quiz, CP, Backbone, Marionette, $, _) ->
     template: CPT["common/questionnaire"]
 
     events: 
-      'click .js-response-button' : 'setActualResponse'
+      'click .js-response-button'     : 'setActualResponse'
+      'click .js-next-section-button' : 'nextSection'
 
     initialize: (@options = options = {}) ->
-      @url = ['api', 'questionnaires', @options.id].join('/')
-      @saveUrl = ['users', '1', 'actual_responses'].join('/')
+      @url = ['../', 'api', 'questionnaires', @options.id].join('/')
+      @saveUrl = ['../','users', '1', 'actual_responses'].join('/')
       @fetchCollection()
       @questions = []
 
@@ -41,3 +42,10 @@ CP.module "Views.User.Quiz", (Quiz, CP, Backbone, Marionette, $, _) ->
 
     handleRequestData: (target) ->
       {response_id: target.data('rid'), question_id: target.data('qid'), questionnaire_id: @questionnaire_id}
+
+    nextSectionUrl: ->
+      return 'results' if Number(@questionnaire_id)+1 == 6
+      ['questionnaire', Number(@questionnaire_id)+1].join('/')
+
+    nextSection: ->
+      CP.ActiveRouters.User.navigate @nextSectionUrl(), true

@@ -27,3 +27,6 @@ CP.module "Views.User", (User, CP, Backbone, Marionette, $, _) ->
 
     showQuestionnaire: ->
       @bodyRegion.show new User.Quiz.Section id: @options.id
+
+    showResults: ->
+      @bodyRegion.show new User.Results.Layout
