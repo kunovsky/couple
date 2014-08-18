@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   resources :users do
     resources :actual_responses
+    resources :completed_questionnaires
   end
 
   scope 'api' do

@@ -9,10 +9,20 @@ module Saving
       responses[@questionnaire_id] = {} unless responses[@questionnaire_id]
       responses[@questionnaire_id][@question_id] = @response_id
       actual_response.update_attributes(responses: responses)
+      questionnaire_completed?
     end
 
+    private
     def actual_response
       User.find(@user_id).actual_response
+    end
+
+    def questionnaire_completed?
+      Questionnaire.find(@questionnaire_id).questions.count == actual_responses_count ? {completed: true} : {completed: false}
+    end
+
+    def actual_responses_count
+      actual_response.responses[@questionnaire_id].length
     end
   end
 end

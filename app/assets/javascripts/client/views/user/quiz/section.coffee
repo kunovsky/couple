@@ -4,14 +4,15 @@ CP.module "Views.User.Quiz", (Quiz, CP, Backbone, Marionette, $, _) ->
     template: CPT["common/questionnaire"]
 
     events: 
-      'click .js-response-button'     : 'setActualResponse'
-      'click .js-next-section-button' : 'nextSection'
+      'click .js-response-button'           : 'setActualResponse'
+      'click .js-next-questionnaire-button' : 'nextSection'
 
     initialize: (@options = options = {}) ->
       @url = ['../', 'api', 'questionnaires', @options.id].join('/')
-      @saveUrl = ['../','users', '1', 'actual_responses'].join('/')
+  
       @fetchCollection()
       @questions = []
+      @lastPage = 6
 
     templateHelpers: ->
       return {questions: @questions}
@@ -27,25 +28,45 @@ CP.module "Views.User.Quiz", (Quiz, CP, Backbone, Marionette, $, _) ->
         type: 'GET'
         url: @url
         success: (response) =>
-          @questionnaire_id = response[0]['questionnaire_id']
           @questions = response
           @render()
+
+    saveUrl: ->
+      ['../','users', '1', 'actual_responses'].join('/')
 
     saveActualResponse: (data) ->
       $.ajax
         type: 'POST'
-        url: @saveUrl
+        url: @saveUrl()
         data: data
+        success: (response) =>
+          @enableNextSection() if response.completed
+
+    enableNextSection: ->
+      $(@el).find('.next-questionnaire-button').attr('disabled', false)
+
+    nextQuestionnaire: ->
+      Number(@options.id)+1
 
     handleButtonState: (target) ->
       target.attr("disabled","disabled").siblings().attr("disabled", false)
 
     handleRequestData: (target) ->
-      {response_id: target.data('rid'), question_id: target.data('qid'), questionnaire_id: @questionnaire_id}
+      {response_id: target.data('rid'), question_id: target.data('qid'), questionnaire_id: @options.id}
 
     nextSectionUrl: ->
-      return 'results' if Number(@questionnaire_id)+1 == 6
-      ['questionnaire', Number(@questionnaire_id)+1].join('/')
+      return 'results' if @nextQuestionnaire() == @lastPage
+      ['questionnaire', @nextQuestionnaire()].join('/')
+
+    completedSurveyUrl: ->
+      ['../', 'users', '1', 'completed_questionnaires'].join('/')
 
     nextSection: ->
-      CP.ActiveRouters.User.navigate @nextSectionUrl(), true
+      @createCompletedQuestionnaire()
+
+    createCompletedQuestionnaire: ->
+      $.ajax
+        type: 'POST'
+        url: @completedSurveyUrl()
+        data: {questionnaire_id: @options.id}
+        success: => CP.ActiveRouters.User.navigate @nextSectionUrl(), true
