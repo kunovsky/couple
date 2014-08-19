@@ -5,15 +5,13 @@ Rails.application.routes.draw do
   get '/questionnaire/*url' => 'application#index'
   get '/results' => 'application#index'
 
-  post '/score' => "scores#score"
-
-
   resources :users do
     resources :actual_responses
     resources :completed_questionnaires
   end
 
   scope 'api' do
+    post '/score' => "relationships#score"
     resources :questionnaires do
       resources :questions do
       end

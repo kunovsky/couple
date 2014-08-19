@@ -5,14 +5,14 @@ CP.module "Views.User.Quiz", (Quiz, CP, Backbone, Marionette, $, _) ->
 
     events: 
       'click .js-response-button'           : 'setActualResponse'
-      'click .js-next-questionnaire-button' : 'nextSection'
+      'click .js-next-questionnaire-button' : 'createCompletedQuestionnaire'
 
     initialize: (@options = options = {}) ->
       @url = ['../', 'api', 'questionnaires', @options.id].join('/')
   
       @fetchCollection()
       @questions = []
-      @lastPage = 6
+      @lastQuestionnaireNumber = 5
 
     templateHelpers: ->
       return {questions: @questions}
@@ -40,13 +40,12 @@ CP.module "Views.User.Quiz", (Quiz, CP, Backbone, Marionette, $, _) ->
         url: @saveUrl()
         data: data
         success: (response) =>
-          console.log response
           @enableNextSection() if response
 
     enableNextSection: ->
       $(@el).find('.next-questionnaire-button').attr('disabled', false)
 
-    nextQuestionnaire: ->
+    nextQuestionnaireNumber: ->
       Number(@options.id)+1
 
     handleButtonState: (target) ->
@@ -55,19 +54,29 @@ CP.module "Views.User.Quiz", (Quiz, CP, Backbone, Marionette, $, _) ->
     handleRequestData: (target) ->
       {response_id: target.data('rid'), question_id: target.data('qid'), questionnaire_id: @options.id}
 
-    nextSectionUrl: ->
-      return 'results' if @nextQuestionnaire() == @lastPage
-      ['questionnaire', @nextQuestionnaire()].join('/')
-
-    completedSurveyUrl: ->
-      ['../', 'users', '1', 'completed_questionnaires'].join('/')
-
-    nextSection: ->
-      @createCompletedQuestionnaire()
-
     createCompletedQuestionnaire: ->
       $.ajax
         type: 'POST'
         url: @completedSurveyUrl()
         data: {questionnaire_id: @options.id}
-        success: => CP.ActiveRouters.User.navigate @nextSectionUrl(), true
+        success: =>
+          @handleNextSection()
+
+    handleNextSection: ->
+      if (@nextQuestionnaireNumber() < 6) then return @nextSection() 
+      @handleProcessCompletion()
+
+    handleProcessCompletion: ->
+      $.ajax
+        type: 'POST'
+        url: '../api/score'
+        success: => @nextSection()
+
+    nextSection: -> CP.ActiveRouters.User.navigate @nextSectionUrl(), true
+
+    nextSectionUrl: ->
+      return 'results' if @nextQuestionnaireNumber() > @lastQuestionnaireNumber
+      ['questionnaire', @nextQuestionnaireNumber()].join('/')
+
+    completedSurveyUrl: ->
+      ['../', 'users', '1', 'completed_questionnaires'].join('/')
