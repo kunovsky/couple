@@ -32,4 +32,3 @@ module QuestionnairesHelper
     ).order(PossibleResponse[:id]).group(PossibleResponse[:id])
   end
 end
-

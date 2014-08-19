@@ -7,8 +7,9 @@ module CompletedQuestionnairesHelper
     end
 
     def handle_questionnaire
-      CompletedQuestionnaire.find_or_create_by( user_id: @user_id, questionnaire_id: @questionnaire_id) do |completed|
+      CompletedQuestionnaire.find_or_create_by( user_id: @user_id, questionnaire_id: @questionnaire_id).tap do |completed|
         completed.score = tabulate_score
+        completed.save!
       end
     end
 

@@ -1,5 +1,5 @@
-module Saving
-  class ActualResponseSaving
+module ActualResponsesHelper
+  class Saver
     def initialize(params)
       @response_id, @question_id, @questionnaire_id, @user_id = params[:response_id], params [:question_id], params[:questionnaire_id], params[:user_id]
     end
@@ -18,7 +18,8 @@ module Saving
     end
 
     def questionnaire_completed?
-      Questionnaire.find(@questionnaire_id).questions.count == actual_responses_count ? {completed: true} : {completed: false}
+      return true if Questionnaire.find(@questionnaire_id).questions.count == actual_responses_count
+      false
     end
 
     def actual_responses_count

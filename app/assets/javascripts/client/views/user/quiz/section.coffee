@@ -40,7 +40,8 @@ CP.module "Views.User.Quiz", (Quiz, CP, Backbone, Marionette, $, _) ->
         url: @saveUrl()
         data: data
         success: (response) =>
-          @enableNextSection() if response.completed
+          console.log response
+          @enableNextSection() if response
 
     enableNextSection: ->
       $(@el).find('.next-questionnaire-button').attr('disabled', false)
