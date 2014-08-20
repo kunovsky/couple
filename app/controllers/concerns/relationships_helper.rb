@@ -10,7 +10,7 @@ module RelationshipsHelper
   #create a score for each questionnaire
 
   def handle_relationship_scoring
-
+    # current_user.id
   end
 
 end

@@ -1,5 +1,5 @@
 class CompletedQuestionnairesController < ApplicationController
-  include CompletedQuestionnairesHelper
+  include CompletedQuestionnaireHelpers
   def create
     render json: Handler.new(params).handle_questionnaire, status: 200
   end

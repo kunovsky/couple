@@ -1,4 +1,4 @@
-module ActualResponsesHelper
+module ActualResponseHelpers
   class Saver
     def initialize(params)
       @response_id, @question_id, @questionnaire_id, @user_id = params[:response_id], params [:question_id], params[:questionnaire_id], params[:user_id]

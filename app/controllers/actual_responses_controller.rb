@@ -1,5 +1,5 @@
 class ActualResponsesController < ApplicationController
-  include ActualResponsesHelper
+  include ActualResponseHelpers
   def create
     render json: Saver.new(params).process_actual_response, status: 200
   end

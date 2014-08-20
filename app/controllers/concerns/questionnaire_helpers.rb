@@ -1,4 +1,4 @@
-module QuestionnairesHelper
+module QuestionnaireHelpers
 
   def format_questionnaire(id)
     questions = get_questions(id)

@@ -1,5 +1,5 @@
 class QuestionnairesController < ApplicationController
-  include QuestionnairesHelper
+  include QuestionnaireHelpers
   def show
     render json: format_questionnaire(params[:id])
   end

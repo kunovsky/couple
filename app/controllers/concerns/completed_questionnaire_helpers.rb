@@ -1,4 +1,4 @@
-module CompletedQuestionnairesHelper
+module CompletedQuestionnaireHelpers
   class Handler
 
     def initialize(params)
