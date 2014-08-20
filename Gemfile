@@ -1,15 +1,16 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.1'
+gem 'rails', '4.1.4'
 # Use postgresql as the database for Active Record
 gem 'pg'
+
+gem 'pry-rails'
+gem 'redis-rails'
 
 #active record addons
 gem 'bcrypt', '~> 3.1.7'
 gem 'arel-helpers', git: 'https://github.com/camertron/arel-helpers.git'
-
 
 gem 'debugger', group: [:development, :test]
 
@@ -20,7 +21,6 @@ group :development, :test, :staging do
   gem "bullet"
   gem 'rake'
 end
-
 
 #assets
 gem 'sass'

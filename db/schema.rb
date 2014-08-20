@@ -91,6 +91,7 @@ ActiveRecord::Schema.define(version: 20140720203525) do
     t.integer  "relationship_id"
     t.string   "email"
     t.string   "first_name"
+    t.string   "auth_token"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

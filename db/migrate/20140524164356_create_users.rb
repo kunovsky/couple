@@ -4,6 +4,7 @@ class CreateUsers < ActiveRecord::Migration
       t.integer :relationship_id
       t.string :email
       t.string :first_name
+      t.string :auth_token
 
       t.timestamps
     end

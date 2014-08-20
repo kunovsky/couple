@@ -28,9 +28,9 @@ module RelationshipHelpers
 
   def set_up_dummy_relationship
     relationship = Relationship.create!
+    current_user.update_attributes(relationship_id: relationship.id)
     partner = User.create!(relationship_id: relationship.id)
     ActualResponse.create!(user_id: partner.id, responses: perfect_responses)
-    current_user.update_attributes(relationship_id: relationship.id)
   end
 end
 
