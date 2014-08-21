@@ -45,8 +45,6 @@ Rails.application.configure do
   # Set to :debug to see everything in the log.
   config.log_level = :info
 
-  config.cache_store = :redis_store #, 'redis://162.218.137.143:6379/1'
-
   # Prepend all log lines with the following tags.
   # config.log_tags = [ :subdomain, :uuid ]
 

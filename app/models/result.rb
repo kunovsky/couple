@@ -1,4 +1,3 @@
 class Result < ActiveRecord::Base
-  has_many :feedbacks
-  has_many :quadrants
+  belongs_to :questionnaire
 end

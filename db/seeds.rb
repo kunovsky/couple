@@ -17,17 +17,17 @@ agree_disagree << (PossibleResponse.create! content: "Strongly Agree", point_val
 
 true_false_normal = []
 
-true_false_normal << (PossibleResponse.create! content: "True", point_value: 0)
-true_false_normal << (PossibleResponse.create! content: "False", point_value: 1)
+true_false_normal << (PossibleResponse.create! content: "True", point_value: 1)
+true_false_normal << (PossibleResponse.create! content: "False", point_value: 0)
 
 true_false_reversed = []
 
-true_false_reversed << (PossibleResponse.create! content: "True", point_value: 1)
-true_false_reversed << (PossibleResponse.create! content: "False", point_value: 0)
+true_false_reversed << (PossibleResponse.create! content: "True", point_value: 0)
+true_false_reversed << (PossibleResponse.create! content: "False", point_value: 1)
 
 ###Questionnaire 1 OVERALL HAPPINESS###
 
-overall_happiness = Questionnaire.create! title: "Overall Happiness", cutoff_score: 55
+overall_happiness = Questionnaire.create! title: "Overall Happiness", cutoff_score: 56 #score < 56 and it's a bad thing
 
 overall_happiness.questions.create! content: "I feel emotionally close to my partner"
 overall_happiness.questions.create! content: "I think that my partner really cares about me"
@@ -51,10 +51,17 @@ overall_happiness.questions.each do |question|
   end
 end
 
+overall_happiness.results.create!(quadrant_type: "Individual Good", content: "This Individual Scored Good - no problems")
+overall_happiness.results.create!(quadrant_type: "Individual Ok", content: "This Individual Scored Ok - has some problems")
+overall_happiness.results.create!(quadrant_type: "Individual Bad", content: "This Individual Scored Bad -has problems")
+overall_happiness.results.create!(quadrant_type: "Couple Good", content: "Both Partners Scored Good - no problems")
+overall_happiness.results.create!(quadrant_type: "Couple Bad", content: "Both Partners Scored Bad -both have problems")
+overall_happiness.results.create!(quadrant_type: "Couple Good Bad", content: "Partner 1 Scored Good Partner 2 Scored Bad - partner 2 has problems")
+overall_happiness.results.create!(quadrant_type: "Couple Bad Good", content: "Partner 1 Scored Bad Partner 2 Scored Good - partner 1 has problems")
 
 ### Questionnaire 2 LOVEMAPS###
 
-love_maps = Questionnaire.create! title: "Love Maps", cutoff_score: 6
+love_maps = Questionnaire.create! title: "Love Maps", cutoff_score: 10 #score < 10 and it's a bad thing
 
 love_maps.questions.create! content: "I know my partner's favorite side of the bed"
 love_maps.questions.create! content: "I can tell you what my partner was wearing when we first met"
@@ -79,9 +86,17 @@ love_maps.questions.each do |question|
   end
 end
 
+love_maps.results.create!(quadrant_type: "Individual Good", content: "This Individual Scored Good - no problems")
+love_maps.results.create!(quadrant_type: "Individual Ok", content: "This Individual Scored Ok - has some problems")
+love_maps.results.create!(quadrant_type: "Individual Bad", content: "This Individual Scored Bad -has problems")
+love_maps.results.create!(quadrant_type: "Couple Good", content: "Both Partners Scored Good - no problems")
+love_maps.results.create!(quadrant_type: "Couple Bad", content: "Both Partners Scored Bad -both have problems")
+love_maps.results.create!(quadrant_type: "Couple Good Bad", content: "Partner 1 Scored Good Partner 2 Scored Bad - partner 2 has problems")
+love_maps.results.create!(quadrant_type: "Couple Bad Good", content: "Partner 1 Scored Bad Partner 2 Scored Good - partner 1 has problems")
+
 ###Questionnaire 3 FONDNESS AND ADMIRATION###
 
-fondness_and_admiration = Questionnaire.create! title: "Fondness and Admiration", cutoff_score: 2
+fondness_and_admiration = Questionnaire.create! title: "Fondness and Admiration", cutoff_score: 4 #score < 4 and it's a bad thing
 
 fondness_and_admiration.questions.create! content: "My partner really respects me"
 fondness_and_admiration.questions.create! content: "I feel loved and cared for in this relationship"
@@ -96,10 +111,18 @@ fondness_and_admiration.questions.each do |question|
   end
 end
 
+fondness_and_admiration.results.create!(quadrant_type: "Individual Good", content: "This Individual Scored Good - no problems")
+fondness_and_admiration.results.create!(quadrant_type: "Individual Ok", content: "This Individual Scored Ok - has some problems")
+fondness_and_admiration.results.create!(quadrant_type: "Individual Bad", content: "This Individual Scored Bad -has problems")
+fondness_and_admiration.results.create!(quadrant_type: "Couple Good", content: "Both Partners Scored Good - no problems")
+fondness_and_admiration.results.create!(quadrant_type: "Couple Bad", content: "Both Partners Scored Bad -both have problems")
+fondness_and_admiration.results.create!(quadrant_type: "Couple Good Bad", content: "Partner 1 Scored Good Partner 2 Scored Bad - partner 2 has problems")
+fondness_and_admiration.results.create!(quadrant_type: "Couple Bad Good", content: "Partner 1 Scored Bad Partner 2 Scored Good - partner 1 has problems")
+
 
 ###Questionnaire 4 TURNING TOWARDS###
 
-turning_towards = Questionnaire.create! title: "Turning Towards", cutoff_score: 2
+turning_towards = Questionnaire.create! title: "Turning Towards", cutoff_score: 4 #score < 4 and it's a bad thing
 
 turning_towards.questions.create! content: "I really enjoy discussing things with my partner"
 turning_towards.questions.create! content: "We always have a lot to say to each other"
@@ -114,10 +137,18 @@ turning_towards.questions.each do |question|
   end
 end
 
+turning_towards.results.create!(quadrant_type: "Individual Good", content: "This Individual Scored Good - no problems")
+turning_towards.results.create!(quadrant_type: "Individual Ok", content: "This Individual Scored Ok - has some problems")
+turning_towards.results.create!(quadrant_type: "Individual Bad", content: "This Individual Scored Bad -has problems")
+turning_towards.results.create!(quadrant_type: "Couple Good", content: "Both Partners Scored Good - no problems")
+turning_towards.results.create!(quadrant_type: "Couple Bad", content: "Both Partners Scored Bad -both have problems")
+turning_towards.results.create!(quadrant_type: "Couple Good Bad", content: "Partner 1 Scored Good Partner 2 Scored Bad - partner 2 has problems")
+turning_towards.results.create!(quadrant_type: "Couple Bad Good", content: "Partner 1 Scored Bad Partner 2 Scored Good - partner 1 has problems")
+
 
 ###Questionnaire 5 EMOTIONAL DISENGAGEMENT AND LONELINESS###
 
-emotional_loneliness = Questionnaire.create! title: "Emotional Disengagement and Loneliness", cutoff_score: 3
+emotional_loneliness = Questionnaire.create! title: "Emotional Disengagement and Loneliness", cutoff_score: 4 #score < 4 and it's a bad thing
 
 emotional_loneliness.questions.create! content: "I often find myself disappointed in this relationship"
 emotional_loneliness.questions.create! content: "I will at times find myself quite lonely in this relationship"
@@ -131,3 +162,11 @@ emotional_loneliness.questions.each do |question|
     question.possible_responses << response
   end
 end
+
+emotional_loneliness.results.create!(quadrant_type: "Individual Good", content: "This Individual Scored Good - no problems")
+emotional_loneliness.results.create!(quadrant_type: "Individual Ok", content: "This Individual Scored Ok - has some problems")
+emotional_loneliness.results.create!(quadrant_type: "Individual Bad", content: "This Individual Scored Bad -has problems")
+emotional_loneliness.results.create!(quadrant_type: "Couple Good", content: "Both Partners Scored Good - no problems")
+emotional_loneliness.results.create!(quadrant_type: "Couple Bad", content: "Both Partners Scored Bad -both have problems")
+emotional_loneliness.results.create!(quadrant_type: "Couple Good Bad", content: "Partner 1 Scored Good Partner 2 Scored Bad - partner 2 has problems")
+emotional_loneliness.results.create!(quadrant_type: "Couple Bad Good", content: "Partner 1 Scored Bad Partner 2 Scored Good - partner 1 has problems")

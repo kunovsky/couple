@@ -33,8 +33,7 @@ ActiveRecord::Schema.define(version: 20140720203525) do
 
   create_table "feedbacks", force: true do |t|
     t.integer  "relationship_id"
-    t.integer  "questionnaire_id"
-    t.integer  "result_id"
+    t.json     "analyses"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -42,14 +41,6 @@ ActiveRecord::Schema.define(version: 20140720203525) do
   create_table "possible_responses", force: true do |t|
     t.string   "content"
     t.integer  "point_value"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "quadrants", force: true do |t|
-    t.integer  "result_id"
-    t.integer  "questionnaire_id"
-    t.integer  "quadrant_number"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -62,8 +53,8 @@ ActiveRecord::Schema.define(version: 20140720203525) do
   end
 
   create_table "questions", force: true do |t|
-    t.string   "content"
     t.integer  "questionnaire_id"
+    t.string   "content"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -82,6 +73,8 @@ ActiveRecord::Schema.define(version: 20140720203525) do
   end
 
   create_table "results", force: true do |t|
+    t.integer  "questionnaire_id"
+    t.string   "quadrant_type"
     t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"

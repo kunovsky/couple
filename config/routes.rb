@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   get '/questionnaire' => 'application#index'
   get '/questionnaire/*url' => 'application#index'
   get '/results' => 'application#index'
-  
+  get '/logout' => 'sessions#destroy'
+
   resources :sessions
   resources :users do
     resources :actual_responses
