@@ -1,5 +1,6 @@
 module RelationshipHelpers
   include QuestionnaireScorer
+  TYPES = {bad: "Individual Bad", ok: "Individual Ok", good: "Individual Good"}
 
   # relationship = User.find(params[:user_id]).relationship
   # relationship ||= create_relationship(params[:user_id])
@@ -38,15 +39,13 @@ module RelationshipHelpers
     current_user.completed_questionnaires.each do |completed|
       questionnaire = Questionnaire.find(completed.questionnaire_id)
       if completed.score < questionnaire.cutoff_score
-        overall_results[questionnaire.id] = find_individual_result(questionnaire, :Bad)
+        overall_results[questionnaire.id] = find_individual_result(questionnaire.id, TYPES[:bad])
       elsif completed.score < questionnaire.ok_score
-        overall_results[questionnaire.id] = find_individual_result(questionnaire, :Ok)
+        overall_results[questionnaire.id] = find_individual_result(questionnaire.id, TYPES[:ok])
       else
-        overall_results[questionnaire.id] = find_individual_result(questionnaire, :Good)
+        overall_results[questionnaire.id] = find_individual_result(questionnaire.id, TYPES[:good])
       end
     end
-    p overall_results
-    p "$$$$$$$$$$$$$$$$$$$$$$$$$$"
     update_relationship_feedback(overall_results)
   end
 
@@ -54,10 +53,10 @@ module RelationshipHelpers
     current_user.relationship.feedback.update_attributes(analyses: overall_results)
   end
 
-  def find_individual_result(questionnaire, type)
-    p questionnaire.results.where("quadrand_type = ?", "Individual #{type.to_s}").id
-    p "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-    questionnaire.results.where("quadrand_type = ?", "Individual #{type.to_s}").id
+  def find_individual_result(id, type)
+   Result.select(Result[:id]).where(
+     Questionnaire[:id].eq(id).and(Result[:quadrant_type].eq(type))
+   ).joins(Result.arel_table.join(Questionnaire.arel_table).on(
+       Result[:questionnaire_id].eq(Questionnaire[:id])).join_sources)
   end
-
 end
