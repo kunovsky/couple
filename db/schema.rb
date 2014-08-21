@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 20140720203525) do
   create_table "questionnaires", force: true do |t|
     t.string   "title"
     t.integer  "cutoff_score"
+    t.integer  "ok_score"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

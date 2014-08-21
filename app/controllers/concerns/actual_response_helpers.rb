@@ -9,7 +9,6 @@ module ActualResponseHelpers
       responses[@questionnaire_id] = {} unless responses[@questionnaire_id]
       responses[@questionnaire_id][@question_id] = @response_id
       actual_response.update_attributes(responses: responses)
-      p responses
       questionnaire_completed?
     end
 

@@ -1,10 +1,15 @@
+###Test Users###
 User.create!(first_name: "Tyson")
 ActualResponse.create! user_id: 1
 
-unhappy = User.create!(first_name: "Tester")
-ActualResponse.create! user_id: 2
-bad_survey = {"5"=>{"41"=>"8", "42"=>"8", "43"=>"8", "44"=>"8", "45"=>"8"}, "1"=>{"1"=>"1", "2"=>"1", "3"=>"1", "4"=>"1", "5"=>"1", "6"=>"1", "7"=>"1", "8"=>"1", "9"=>"1", "10"=>"1", "11"=>"1", "12"=>"1", "13"=>"1", "14"=>"1", "15"=>"1"}, "2"=>{"16"=>"7", "17"=>"7", "18"=>"7", "19"=>"7", "20"=>"7", "21"=>"7", "22"=>"7", "23"=>"7", "24"=>"7", "25"=>"7", "26"=>"7", "27"=>"7", "28"=>"7", "29"=>"7", "30"=>"7"}, "3"=>{"31"=>"7", "32"=>"7", "33"=>"7", "34"=>"7", "35"=>"7"}, "4"=>{"36"=>"7", "37"=>"7", "38"=>"7", "39"=>"7", "40"=>"7"}}
-unhappy.actual_response.update_attribute(:responses, bad_survey)
+User.create!(first_name: "Unhappy")
+bad_survey = {"1"=>{"1"=>"1", "2"=>"1", "3"=>"1", "4"=>"1", "5"=>"1", "6"=>"1", "7"=>"1", "8"=>"1", "9"=>"1", "10"=>"1", "11"=>"1", "12"=>"1", "13"=>"1", "14"=>"1", "15"=>"1"}, "2"=>{"16"=>"7", "17"=>"7", "18"=>"7", "19"=>"7", "20"=>"7", "21"=>"7", "22"=>"7", "23"=>"7", "24"=>"7", "25"=>"7", "26"=>"7", "27"=>"7", "28"=>"7", "29"=>"7", "30"=>"7"}, "3"=>{"31"=>"7", "32"=>"7", "33"=>"7", "34"=>"7", "35"=>"7"}, "4"=>{"36"=>"7", "37"=>"7", "38"=>"7", "39"=>"7", "40"=>"7"}, "5"=>{"41"=>"8", "42"=>"8", "43"=>"8", "44"=>"8", "45"=>"8"}}
+ActualResponse.create!(user_id: 2, responses: bad_survey)
+
+
+User.create! first_name: "Happy"
+happy_survey = {"1"=>{"1"=>"5", "2"=>"5", "3"=>"5", "4"=>"5", "5"=>"5", "6"=>"5", "7"=>"5", "8"=>"5", "9"=>"5", "10"=>"5", "11"=>"5", "12"=>"5", "13"=>"5", "14"=>"5", "15"=>"5"}, "2"=>{"16"=>"6", "17"=>"6", "18"=>"6", "19"=>"6", "20"=>"6", "21"=>"6", "22"=>"6", "23"=>"6", "24"=>"6", "25"=>"6", "26"=>"6", "27"=>"6", "28"=>"6", "29"=>"6", "30"=>"6"}, "3"=>{"31"=>"6", "32"=>"6", "33"=>"6", "34"=>"6", "35"=>"6"}, "4"=>{"36"=>"6", "38"=>"6", "39"=>"6", "37"=>"6", "40"=>"6"}, "5"=>{"41"=>"9", "42"=>"9", "43"=>"9", "44"=>"9", "45"=>"9"}}
+ActualResponse.create!(user_id: 3, responses: happy_survey)
 
 ###Possible Responses ###
 agree_disagree = []
@@ -27,7 +32,7 @@ true_false_reversed << (PossibleResponse.create! content: "False", point_value: 
 
 ###Questionnaire 1 OVERALL HAPPINESS###
 
-overall_happiness = Questionnaire.create! title: "Overall Happiness", cutoff_score: 56 #score < 56 and it's a bad thing
+overall_happiness = Questionnaire.create!(title: "Overall Happiness", cutoff_score: 56, ok_score: 60) #cutoff_score < 56 and it's a bad thing.
 
 overall_happiness.questions.create! content: "I feel emotionally close to my partner"
 overall_happiness.questions.create! content: "I think that my partner really cares about me"
@@ -61,7 +66,7 @@ overall_happiness.results.create!(quadrant_type: "Couple Bad Good", content: "Pa
 
 ### Questionnaire 2 LOVEMAPS###
 
-love_maps = Questionnaire.create! title: "Love Maps", cutoff_score: 10 #score < 10 and it's a bad thing
+love_maps = Questionnaire.create!(title: "Love Maps", cutoff_score: 12, ok_score: 14) #cutoff_score < 12 and it's a bad thing
 
 love_maps.questions.create! content: "I know my partner's favorite side of the bed"
 love_maps.questions.create! content: "I can tell you what my partner was wearing when we first met"
@@ -96,7 +101,7 @@ love_maps.results.create!(quadrant_type: "Couple Bad Good", content: "Partner 1 
 
 ###Questionnaire 3 FONDNESS AND ADMIRATION###
 
-fondness_and_admiration = Questionnaire.create! title: "Fondness and Admiration", cutoff_score: 4 #score < 4 and it's a bad thing
+fondness_and_admiration = Questionnaire.create!(title: "Fondness and Admiration", cutoff_score: 4, ok_score: 5) #cutoff_score < 4 and it's a bad thing
 
 fondness_and_admiration.questions.create! content: "My partner really respects me"
 fondness_and_admiration.questions.create! content: "I feel loved and cared for in this relationship"
@@ -122,7 +127,7 @@ fondness_and_admiration.results.create!(quadrant_type: "Couple Bad Good", conten
 
 ###Questionnaire 4 TURNING TOWARDS###
 
-turning_towards = Questionnaire.create! title: "Turning Towards", cutoff_score: 4 #score < 4 and it's a bad thing
+turning_towards = Questionnaire.create!(title: "Turning Towards", cutoff_score: 4, ok_score: 5) #cutoff_score < 4 and it's a bad thing
 
 turning_towards.questions.create! content: "I really enjoy discussing things with my partner"
 turning_towards.questions.create! content: "We always have a lot to say to each other"
@@ -148,7 +153,7 @@ turning_towards.results.create!(quadrant_type: "Couple Bad Good", content: "Part
 
 ###Questionnaire 5 EMOTIONAL DISENGAGEMENT AND LONELINESS###
 
-emotional_loneliness = Questionnaire.create! title: "Emotional Disengagement and Loneliness", cutoff_score: 4 #score < 4 and it's a bad thing
+emotional_loneliness = Questionnaire.create!(title: "Emotional Disengagement and Loneliness", cutoff_score: 4, ok_score: 5) #cutoff_score < 4 and it's a bad thing
 
 emotional_loneliness.questions.create! content: "I often find myself disappointed in this relationship"
 emotional_loneliness.questions.create! content: "I will at times find myself quite lonely in this relationship"
