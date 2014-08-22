@@ -69,7 +69,7 @@ CP.module "Views.User.Quiz", (Quiz, CP, Backbone, Marionette, $, _) ->
     handleProcessCompletion: ->
       $.ajax
         type: 'POST'
-        url: '../api/score'
+        url: @scoreResultsUrl()
         success: => @nextSection()
 
     nextSection: -> CP.ActiveRouters.User.navigate @nextSectionUrl(), true
@@ -78,5 +78,8 @@ CP.module "Views.User.Quiz", (Quiz, CP, Backbone, Marionette, $, _) ->
       return 'results' if @nextQuestionnaireNumber() > @lastQuestionnaireNumber
       ['questionnaire', @nextQuestionnaireNumber()].join('/')
 
+    scoreResultsUrl: ->
+      ['..', 'api', 'relationships', 'score'].join('/')
+
     completedSurveyUrl: ->
-      ['../', 'users', '1', 'completed_questionnaires'].join('/')
+      ['..', 'users', '1', 'completed_questionnaires'].join('/')

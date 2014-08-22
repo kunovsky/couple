@@ -24,8 +24,6 @@ module RelationshipHelpers
   def handle_scoring_against_dummy_partner
     set_up_dummy_relationship
     score_against_dummy_partner
-    #need to give the partner all good scores for each section
-    #with only one user we can only give the user feedback about themselves
   end
 
   def set_up_dummy_relationship
@@ -45,6 +43,7 @@ module RelationshipHelpers
       else
         overall_results[questionnaire.id] = individual_result(questionnaire.id, TYPES[:good])
       end
+      overall_results[:overall]+=completed.score
     end
     update_relationship_feedback(overall_results)
   end

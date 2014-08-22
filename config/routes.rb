@@ -13,7 +13,10 @@ Rails.application.routes.draw do
   end
 
   scope 'api' do
-    post '/score' => "relationships#score"
+    namespace :relationships do
+    post '/score' => 'relationships#score'
+    get '/results' => 'relationships#results'
+    end
     resources :questionnaires do
       resources :questions do
       end
