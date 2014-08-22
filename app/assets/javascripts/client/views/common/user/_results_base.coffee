@@ -8,12 +8,13 @@ CP.module "Views.Common.User", (User, CP, Backbone, Marionette, $, _) ->
       @fetchResult()
 
     templateHelpers: ->
-      {@name, @resultsStats?}
+      {@name, @content, @percentage}
 
     fetchResult: ->
       $.ajax
-      method: 'GET'
-      url: @url()
-      success: (response) =>
-        @resultStats = response
-        @render()
+        method: 'GET'
+        url: @url()
+        success: (response) => 
+          @content = response.content
+          @percentage = response.percentage
+          @render()

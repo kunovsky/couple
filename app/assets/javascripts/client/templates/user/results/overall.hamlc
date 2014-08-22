@@ -1,3 +1,5 @@
 .site-wrap
   .overall
-    This is the overall score
+    .name Result for #{@name}
+    .content=@content
+    .score=@percentage

@@ -4,11 +4,12 @@ module CompletedQuestionnaireHelpers
     def initialize(params)
       @questionnaire_id, @user_id = params[:questionnaire_id], params[:user_id]
       @point_values = format_possible_responses_and_point_values
+      @score = tabulate_score
     end
 
     def handle_questionnaire
       CompletedQuestionnaire.find_or_create_by( user_id: @user_id, questionnaire_id: @questionnaire_id).tap do |completed|
-        completed.score = tabulate_score
+        completed.score = {user_score: @score, percentage: overall_percentage}
         completed.save!
       end
     end
@@ -24,6 +25,10 @@ module CompletedQuestionnaireHelpers
       hash = Hash.new
       responses_and_point_values.map {|response|hash[response.id] = response.point_value}
       hash
+    end
+
+    def overall_percentage
+      ((@score/greatest_response_value.to_f) *100).round
     end
 
     def responses_and_point_values
@@ -42,6 +47,14 @@ module CompletedQuestionnaireHelpers
           Questionnaire[:id].eq(Question[:questionnaire_id])
         ).join_sources
       ).uniq
+    end
+
+    def greatest_response_value
+      @point_values.values.max * question_count
+    end
+
+    def question_count
+      Questionnaire.find(@questionnaire_id).questions.count
     end
   end
 end

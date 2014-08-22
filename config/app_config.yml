@@ -1,0 +1,14 @@
+universals: &universals
+  total_questions: 45
+
+development:
+  <<: *universals
+
+test:
+  <<: *universals
+
+staging:
+  <<: *universals
+
+production:
+  <<: *universals

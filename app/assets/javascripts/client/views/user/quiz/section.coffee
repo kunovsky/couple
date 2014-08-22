@@ -12,10 +12,8 @@ CP.module "Views.User.Quiz", (Quiz, CP, Backbone, Marionette, $, _) ->
   
       @fetchCollection()
       @questions = []
-      @lastQuestionnaireNumber = 5
 
-    templateHelpers: ->
-      return {questions: @questions}
+    templateHelpers: -> {questions: @questions}
 
     setActualResponse: (e) ->
       e.preventDefault()
@@ -45,8 +43,7 @@ CP.module "Views.User.Quiz", (Quiz, CP, Backbone, Marionette, $, _) ->
     enableNextSection: ->
       $(@el).find('.next-questionnaire-button').attr('disabled', false)
 
-    nextQuestionnaireNumber: ->
-      Number(@options.id)+1
+    nextQuestionnaireNumber: -> Number(@options.id) + 1
 
     handleButtonState: (target) ->
       target.attr("disabled","disabled").siblings().attr("disabled", false)
@@ -63,23 +60,24 @@ CP.module "Views.User.Quiz", (Quiz, CP, Backbone, Marionette, $, _) ->
           @handleNextSection()
 
     handleNextSection: ->
-      if (@nextQuestionnaireNumber() < 6) then return @nextSection() 
+      if (@nextQuestionnaireNumber() < (CP.Settings.lastQuestionnaireNumber + 1)) then return @nextSection() 
       @handleProcessCompletion()
 
     handleProcessCompletion: ->
       $.ajax
         type: 'POST'
         url: @scoreResultsUrl()
-        success: => @nextSection()
+        success: (success) =>
+          @nextSection()
 
     nextSection: -> CP.ActiveRouters.User.navigate @nextSectionUrl(), true
 
     nextSectionUrl: ->
-      return 'results' if @nextQuestionnaireNumber() > @lastQuestionnaireNumber
+      return 'results' if @nextQuestionnaireNumber() > CP.Settings.lastQuestionnaireNumber
       ['questionnaire', @nextQuestionnaireNumber()].join('/')
 
     scoreResultsUrl: ->
-      ['..', 'api', 'relationships', 'score'].join('/')
+      ['..', 'api', 'relationships','1', 'score'].join('/')
 
     completedSurveyUrl: ->
       ['..', 'users', '1', 'completed_questionnaires'].join('/')

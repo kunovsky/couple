@@ -1,1 +1,3 @@
 Result for #{@name}
+.content=@content
+.score=@percentage
