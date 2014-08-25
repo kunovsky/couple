@@ -15,6 +15,8 @@ CP.module "Views.Common.User", (User, CP, Backbone, Marionette, $, _) ->
         method: 'GET'
         url: @url()
         success: (response) => 
-          @content = response.content
-          @percentage = response.percentage
+          @results = @formatResponse(response)
           @render()
+
+    formatResponse: (response) ->
+      [@content, @percentage] = [response.content, response.percentage]
