@@ -30,39 +30,39 @@ true_false_reversed = []
 true_false_reversed << (PossibleResponse.create! content: "True", point_value: 0)
 true_false_reversed << (PossibleResponse.create! content: "False", point_value: 1)
 
-###Questionnaire 1 OVERALL HAPPINESS###
+###Questionnaire 1 GENERAL HAPPINESS###
 
-overall_happiness = Questionnaire.create!(title: "Overall Happiness", cutoff_score: 56, ok_score: 60) #cutoff_score < 56 and it's a bad thing.
+general_happiness = Questionnaire.create!(title: "General Relationship Happiness", cutoff_score: 56, ok_score: 60) #cutoff_score < 56 and it's a bad thing.
 
-overall_happiness.questions.create! content: "I feel emotionally close to my partner"
-overall_happiness.questions.create! content: "I think that my partner really cares about me"
-overall_happiness.questions.create! content: "I feel confident that we can deal with whatever problems might arise"
-overall_happiness.questions.create! content: "I would consider myself happy in this relationship"
-overall_happiness.questions.create! content: "My partner really listens to me"
-overall_happiness.questions.create! content: "I feel that my partner finds me physically attractive"
-overall_happiness.questions.create! content: "I can talk to my partner about anything"
-overall_happiness.questions.create! content: "I feel that my partner is very interested in me"
-overall_happiness.questions.create! content: "I feel respected by my partner"
-overall_happiness.questions.create! content: "I am committed to staying together"
-overall_happiness.questions.create! content: "I have a great deal of respect and admiration for my partner"
-overall_happiness.questions.create! content: "My partner really tries hard to meet my needs"
-overall_happiness.questions.create! content: "My partner respects my dreams in life"
-overall_happiness.questions.create! content: "My partner is one of my best friends"
-overall_happiness.questions.create! content: "My partner rarely puts me down"
+general_happiness.questions.create! content: "I feel emotionally close to my partner"
+general_happiness.questions.create! content: "I think that my partner really cares about me"
+general_happiness.questions.create! content: "I feel confident that we can deal with whatever problems might arise"
+general_happiness.questions.create! content: "I would consider myself happy in this relationship"
+general_happiness.questions.create! content: "My partner really listens to me"
+general_happiness.questions.create! content: "I feel that my partner finds me physically attractive"
+general_happiness.questions.create! content: "I can talk to my partner about anything"
+general_happiness.questions.create! content: "I feel that my partner is very interested in me"
+general_happiness.questions.create! content: "I feel respected by my partner"
+general_happiness.questions.create! content: "I am committed to staying together"
+general_happiness.questions.create! content: "I have a great deal of respect and admiration for my partner"
+general_happiness.questions.create! content: "My partner really tries hard to meet my needs"
+general_happiness.questions.create! content: "My partner respects my dreams in life"
+general_happiness.questions.create! content: "My partner is one of my best friends"
+general_happiness.questions.create! content: "My partner rarely puts me down"
 
-overall_happiness.questions.each do |question|
+general_happiness.questions.each do |question|
   agree_disagree.each do |response|
     question.possible_responses << response
   end
 end
 
-overall_happiness.results.create!(quadrant_type: "Individual Good", content: "This Individual Scored Good - no problems")
-overall_happiness.results.create!(quadrant_type: "Individual Ok", content: "This Individual Scored Ok - has some problems")
-overall_happiness.results.create!(quadrant_type: "Individual Bad", content: "This Individual Scored Bad -has problems")
-overall_happiness.results.create!(quadrant_type: "Couple Good", content: "Both Partners Scored Good - no problems")
-overall_happiness.results.create!(quadrant_type: "Couple Bad", content: "Both Partners Scored Bad -both have problems")
-overall_happiness.results.create!(quadrant_type: "Couple Good Bad", content: "Partner 1 Scored Good Partner 2 Scored Bad - partner 2 has problems")
-overall_happiness.results.create!(quadrant_type: "Couple Bad Good", content: "Partner 1 Scored Bad Partner 2 Scored Good - partner 1 has problems")
+general_happiness.results.create!(quadrant_type: "Individual Good", content: "This Individual Scored Good - no problems")
+general_happiness.results.create!(quadrant_type: "Individual Ok", content: "This Individual Scored Ok - has some problems")
+general_happiness.results.create!(quadrant_type: "Individual Bad", content: "This Individual Scored Bad -has problems")
+general_happiness.results.create!(quadrant_type: "Couple Good", content: "Both Partners Scored Good - no problems")
+general_happiness.results.create!(quadrant_type: "Couple Bad", content: "Both Partners Scored Bad -both have problems")
+general_happiness.results.create!(quadrant_type: "Couple Good Bad", content: "Partner 1 Scored Good Partner 2 Scored Bad - partner 2 has problems")
+general_happiness.results.create!(quadrant_type: "Couple Bad Good", content: "Partner 1 Scored Bad Partner 2 Scored Good - partner 1 has problems")
 
 ### Questionnaire 2 LOVEMAPS###
 
@@ -175,3 +175,15 @@ emotional_loneliness.results.create!(quadrant_type: "Couple Good", content: "Bot
 emotional_loneliness.results.create!(quadrant_type: "Couple Bad", content: "Both Partners Scored Bad -both have problems")
 emotional_loneliness.results.create!(quadrant_type: "Couple Good Bad", content: "Partner 1 Scored Good Partner 2 Scored Bad - partner 2 has problems")
 emotional_loneliness.results.create!(quadrant_type: "Couple Bad Good", content: "Partner 1 Scored Bad Partner 2 Scored Good - partner 1 has problems")
+
+###Questionnaire 6 OVERALL SCORE### Note this is not an actual questionnaire, it is just a means of determining overall results
+
+overall_state = Questionnaire.create!(title: "Overall Relationship Score", cutoff_score: 90, ok_score: 80)
+
+overall_state.results.create!(quadrant_type: "Individual Good", content: "Overall This Individual Scored Good - no problems")
+overall_state.results.create!(quadrant_type: "Individual Ok", content: "Overall This Individual Scored Ok - has some problems")
+overall_state.results.create!(quadrant_type: "Individual Bad", content: "Overall This Individual Scored Bad -has problems")
+overall_state.results.create!(quadrant_type: "Couple Good", content: "Overall Both Partners Scored Good - no problems")
+overall_state.results.create!(quadrant_type: "Couple Bad", content: "Overall Both Partners Scored Bad -both have problems")
+overall_state.results.create!(quadrant_type: "Couple Good Bad", content: "Overall Partner 1 Scored Good Partner 2 Scored Bad - partner 2 has problems")
+overall_state.results.create!(quadrant_type: "Couple Bad Good", content: "Overall Partner 1 Scored Bad Partner 2 Scored Good - partner 1 has problems")

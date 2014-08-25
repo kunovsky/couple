@@ -42,14 +42,10 @@
 }
 
 .results-container {
-  width: 19.5%; min-height: 160px;
-  display: inline-block;
-  margin: 20px 0px 0px 40px;
+  width: 100%; min-height: 160px;
+  margin-top: 20px;
   padding: 10px;
   border: 1px solid black;
-  &:first-of-type {
-    margin-left: 0px;
-  }
 }
 
 .overall {

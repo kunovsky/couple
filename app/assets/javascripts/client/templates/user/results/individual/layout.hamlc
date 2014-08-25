@@ -1,4 +1,5 @@
 .site-wrap
+  #general-region.results-container
   #friendship-region.results-container
   #fondness-region.results-container
   #turning-region.results-container
