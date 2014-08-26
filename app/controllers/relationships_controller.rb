@@ -11,7 +11,7 @@ class RelationshipsController < ApplicationController
   private
   def result
     ### TAKE OUT ###
-    params[:relationshi_id] = current_user.relationship.id
+    params[:relationship_id] = current_user.relationship.id
     ### TAKE OUT ###
     RelationshipResults::Stat.new(params).handle_results_request
   end

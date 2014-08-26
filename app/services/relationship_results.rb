@@ -5,7 +5,6 @@ module RelationshipResults
     end
 
     def handle_results_request
-      p analyses
       response_id, percentage = analyses[@id]["response_id"], analyses[@id.to_s]["percentage"]
       {content: Result.find(response_id).content, percentage: percentage }
     end

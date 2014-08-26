@@ -1,6 +1,5 @@
 module RelationshipHelpers
   class RelationshipScorer
-    include QuestionnaireScorer
     TYPES = {bad: "Individual Bad", ok: "Individual Ok", good: "Individual Good"}
 
     def initialize(current_user)
@@ -42,7 +41,7 @@ module RelationshipHelpers
           @overall_results[questionnaire.id] = id_hash(questionnaire.id, :good)
         end
         set_questionnaire_percentage(completed.score["percentage"], questionnaire.id)
-        update_percentages(completed.score["percentage"])
+        adjusted_percentage(completed.score["percentage"], questionnaire.weight)
       end
     end
 
@@ -61,8 +60,9 @@ module RelationshipHelpers
       @overall_results[id][:percentage] = score
     end
 
-    def update_percentages(percentage)
-      @overall_percentages.push(percentage)
+    def adjusted_percentage(percentage, weight)
+      adjusted = ((percentage.to_f)/100)*weight
+      @overall_percentages.push(adjusted)
     end
 
     def overall_percentage
@@ -72,7 +72,7 @@ module RelationshipHelpers
 
     def calculate_overall_percentage
       length = @overall_percentages.length
-      (@overall_percentages.map {|percentage| percentage.to_i}.reduce(:+))/length
+      ((@overall_percentages.reduce(:+))*100).round
     end
 
     def update_relationship_feedback

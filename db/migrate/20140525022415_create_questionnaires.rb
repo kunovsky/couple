@@ -4,6 +4,7 @@ class CreateQuestionnaires < ActiveRecord::Migration
       t.string :title
       t.integer :cutoff_score
       t.integer :ok_score
+      t.float :weight
 
       t.timestamps
     end

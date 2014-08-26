@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 20140720203525) do
 
   create_table "feedbacks", force: true do |t|
     t.integer  "relationship_id"
-    t.json     "analyses"
+    t.json     "analyses",        default: {}, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 20140720203525) do
     t.string   "title"
     t.integer  "cutoff_score"
     t.integer  "ok_score"
+    t.float    "weight"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
