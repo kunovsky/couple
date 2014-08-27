@@ -1,7 +1,12 @@
 class RelationshipsController < ApplicationController
-  include RelationshipHelpers
+
   def score
-     render json: RelationshipScorer.new(current_user).handle_relationship_scoring, status: 200
+    if current_user.relationship
+      #start here
+      render json: Scoring::Couple.new(current_user).handle_relationship_scoring, status: 200
+    else
+      render json: Scoring::Individual.new(current_user).handle_relationship_scoring, status: 200
+    end
   end
 
   def results

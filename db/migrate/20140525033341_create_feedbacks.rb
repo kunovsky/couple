@@ -3,6 +3,7 @@ class CreateFeedbacks < ActiveRecord::Migration
     create_table :feedbacks do |t|
       t.integer :relationship_id
       t.json :analyses, null: false, default: {}
+      t.json :diagnoses, null: false, default: {}
 
       t.timestamps
     end

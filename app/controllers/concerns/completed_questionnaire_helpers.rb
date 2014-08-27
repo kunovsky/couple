@@ -17,8 +17,11 @@ module CompletedQuestionnaireHelpers
     private
 
     def tabulate_score
-      responses = User.find(@user_id).actual_response.responses[@questionnaire_id]
-      responses.values.map {|value| @point_values[value.to_i]}.reduce(:+)
+      user_responses.values.map {|value| @point_values[value.to_i]}.reduce(:+)
+    end
+
+    def user_responses
+      User.find(@user_id).actual_response.responses[@questionnaire_id]
     end
 
     def format_possible_responses_and_point_values

@@ -1,34 +1,12 @@
-module RelationshipHelpers
-  class RelationshipScorer
+module Scoring
+  class Base
     TYPES = {bad: "Individual Bad", ok: "Individual Ok", good: "Individual Good"}
-
+    
     def initialize(current_user)
       @user, @overall_results, @overall_percentages, @last_id = current_user, {}, [], results_questionnaire_id
     end
 
-    def handle_relationship_scoring
-      return score_against_existing_partner if @user.relationship
-      handle_scoring_against_dummy_partner
-    end
-
     private
-
-    def score_against_existing_partner
-    end
-
-    def handle_scoring_against_dummy_partner
-      set_up_dummy_relationship
-      determine_results
-      overall_percentage
-      overall_result
-      update_relationship_feedback
-    end
-
-    def set_up_dummy_relationship
-      relationship = Relationship.create!
-      Feedback.create!(relationship_id: relationship.id)
-      @user.update_attributes(relationship_id: relationship.id)
-    end
 
     def determine_results
       @user.completed_questionnaires.each do |completed|
@@ -75,10 +53,6 @@ module RelationshipHelpers
       ((@overall_percentages.reduce(:+))*100).round
     end
 
-    def update_relationship_feedback
-      @user.relationship.feedback.update_attributes(analyses: @overall_results)
-    end
-
     def overall_result
       if @overall_results[@last_id][:percentage] < 80
         @overall_results[@last_id][:response_id] = individual_result_id(@last_id, TYPES[:bad])
@@ -91,6 +65,10 @@ module RelationshipHelpers
 
     def results_questionnaire_id
       APP_CONFIG[:last_questionnaire_id] + 1
+    end
+
+    def update_relationship_feedback
+      @user.relationship.feedback.update_attributes(analyses: @overall_results)
     end
   end
 end
