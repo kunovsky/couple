@@ -29,41 +29,56 @@ module Scoring
 
     def score_partners_against_eachother
       @overall_results.each do |partner_1_score|
+        data = both_partners_data(partner_1_score)
         number = partner_1_score.first
-        #for each questionnaire
-        #get the quadrant type of the partner one score
-        #get the quadrant type of the partner two score
-        #good good
-        #good bad
-        #good ok
-        #bad good
-        #bad bad
-        #bad ok
-        #ok good
-        #ok bad
-        #ok ok
-        @both_partner_results[number] = check_for_bad_score if check_for_bad_score
-        @both_partner_results[number] = check_for_ok_score if check_for_ok_score
-        @both_partner_results[number] = check_for_good_score if check_for_good_score
+        if check_for_bad_score(data)
+          @both_partner_results[number] = check_for_bad_score(data) 
+        elsif check_for_ok_score(data)
+          @both_partner_results[number] = check_for_ok_score(data)
+        else
+          @both_partner_results[number] = check_for_good_score(data) 
+        end
       end
     end
 
+    def check_for_bad_score
+      #bad good
+      #bad bad
+      #bad ok
+      return nil
+    end
+
     def check_for_ok_score
+        #ok good
+        #ok bad
+        #ok ok
       return nil
     end
 
     def check_for_good_score
+      #good good
+      #good bad
+      #good ok
       return nil
     end
-
-    def check_for_bad_score
-      return nil
-    end
-
 
     def second_partner_scores
       @user.relationship.feedback.analyses
     end
 
+    def both_partners_data(score)
+      number = questionnaire_number(score)
+      partner_1_score = lookup_response(score)
+      partner_2_score = lookup_response(@second_partner_scores[number])
+      {partner_1_score: partner_1_score, partner_2_score: partner_2_score}
+    end
+
+    def lookup_response(score)
+      Result.find(score[1]["response_id"]).quadrant_type
+    end
+
+    def questionnaire_number(score)
+      score.first.to_s
+    end
   end
 end
