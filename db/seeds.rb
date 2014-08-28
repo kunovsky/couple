@@ -1,15 +1,17 @@
+#TODO: Split this into smaller files
+
 ###Test Users###
-User.create!(first_name: "Tyson")
-ActualResponse.create! user_id: 1
+# User.create!(first_name: "Tyson")
+# ActualResponse.create! user_id: 1
 
-User.create!(first_name: "Unhappy")
-bad_survey = {"1"=>{"1"=>"1", "2"=>"1", "3"=>"1", "4"=>"1", "5"=>"1", "6"=>"1", "7"=>"1", "8"=>"1", "9"=>"1", "10"=>"1", "11"=>"1", "12"=>"1", "13"=>"1", "14"=>"1", "15"=>"1"}, "2"=>{"16"=>"7", "17"=>"7", "18"=>"7", "19"=>"7", "20"=>"7", "21"=>"7", "22"=>"7", "23"=>"7", "24"=>"7", "25"=>"7", "26"=>"7", "27"=>"7", "28"=>"7", "29"=>"7", "30"=>"7"}, "3"=>{"31"=>"7", "32"=>"7", "33"=>"7", "34"=>"7", "35"=>"7"}, "4"=>{"36"=>"7", "37"=>"7", "38"=>"7", "39"=>"7", "40"=>"7"}, "5"=>{"41"=>"8", "42"=>"8", "43"=>"8", "44"=>"8", "45"=>"8"}}
-ActualResponse.create!(user_id: 2, responses: bad_survey)
+# User.create!(first_name: "Unhappy")
+# bad_survey = {"1"=>{"1"=>"1", "2"=>"1", "3"=>"1", "4"=>"1", "5"=>"1", "6"=>"1", "7"=>"1", "8"=>"1", "9"=>"1", "10"=>"1", "11"=>"1", "12"=>"1", "13"=>"1", "14"=>"1", "15"=>"1"}, "2"=>{"16"=>"7", "17"=>"7", "18"=>"7", "19"=>"7", "20"=>"7", "21"=>"7", "22"=>"7", "23"=>"7", "24"=>"7", "25"=>"7", "26"=>"7", "27"=>"7", "28"=>"7", "29"=>"7", "30"=>"7"}, "3"=>{"31"=>"7", "32"=>"7", "33"=>"7", "34"=>"7", "35"=>"7"}, "4"=>{"36"=>"7", "37"=>"7", "38"=>"7", "39"=>"7", "40"=>"7"}, "5"=>{"41"=>"8", "42"=>"8", "43"=>"8", "44"=>"8", "45"=>"8"}}
+# ActualResponse.create!(user_id: 2, responses: bad_survey)
 
 
-User.create! first_name: "Happy"
-happy_survey = {"1"=>{"1"=>"5", "2"=>"5", "3"=>"5", "4"=>"5", "5"=>"5", "6"=>"5", "7"=>"5", "8"=>"5", "9"=>"5", "10"=>"5", "11"=>"5", "12"=>"5", "13"=>"5", "14"=>"5", "15"=>"5"}, "2"=>{"16"=>"6", "17"=>"6", "18"=>"6", "19"=>"6", "20"=>"6", "21"=>"6", "22"=>"6", "23"=>"6", "24"=>"6", "25"=>"6", "26"=>"6", "27"=>"6", "28"=>"6", "29"=>"6", "30"=>"6"}, "3"=>{"31"=>"6", "32"=>"6", "33"=>"6", "34"=>"6", "35"=>"6"}, "4"=>{"36"=>"6", "38"=>"6", "39"=>"6", "37"=>"6", "40"=>"6"}, "5"=>{"41"=>"9", "42"=>"9", "43"=>"9", "44"=>"9", "45"=>"9"}}
-ActualResponse.create!(user_id: 3, responses: happy_survey)
+# User.create! first_name: "Happy"
+# happy_survey = {"1"=>{"1"=>"5", "2"=>"5", "3"=>"5", "4"=>"5", "5"=>"5", "6"=>"5", "7"=>"5", "8"=>"5", "9"=>"5", "10"=>"5", "11"=>"5", "12"=>"5", "13"=>"5", "14"=>"5", "15"=>"5"}, "2"=>{"16"=>"6", "17"=>"6", "18"=>"6", "19"=>"6", "20"=>"6", "21"=>"6", "22"=>"6", "23"=>"6", "24"=>"6", "25"=>"6", "26"=>"6", "27"=>"6", "28"=>"6", "29"=>"6", "30"=>"6"}, "3"=>{"31"=>"6", "32"=>"6", "33"=>"6", "34"=>"6", "35"=>"6"}, "4"=>{"36"=>"6", "38"=>"6", "39"=>"6", "37"=>"6", "40"=>"6"}, "5"=>{"41"=>"9", "42"=>"9", "43"=>"9", "44"=>"9", "45"=>"9"}}
+# ActualResponse.create!(user_id: 3, responses: happy_survey)
 
 ###Possible Responses ###
 agree_disagree = []
@@ -59,10 +61,15 @@ end
 general_happiness.results.create!(quadrant_type: "Individual Good", content: "This Individual Scored Good - no problems")
 general_happiness.results.create!(quadrant_type: "Individual Ok", content: "This Individual Scored Ok - has some problems")
 general_happiness.results.create!(quadrant_type: "Individual Bad", content: "This Individual Scored Bad -has problems")
-general_happiness.results.create!(quadrant_type: "Couple Good", content: "Both Partners Scored Good - no problems")
-general_happiness.results.create!(quadrant_type: "Couple Bad", content: "Both Partners Scored Bad -both have problems")
+general_happiness.results.create!(quadrant_type: "Couple Good Good", content: "Both Partners Scored Good - no problems")
 general_happiness.results.create!(quadrant_type: "Couple Good Bad", content: "Partner 1 Scored Good Partner 2 Scored Bad - partner 2 has problems")
+general_happiness.results.create!(quadrant_type: "Couple Good Ok", content: "Partner 1 Scored Good Partner 2 Scored Ok - partner 2 has some issues that they need partner 1s help with")
 general_happiness.results.create!(quadrant_type: "Couple Bad Good", content: "Partner 1 Scored Bad Partner 2 Scored Good - partner 1 has problems")
+general_happiness.results.create!(quadrant_type: "Couple Bad Bad", content: "Both Partners Scored Bad -both have problems")
+general_happiness.results.create!(quadrant_type: "Couple Bad Ok", content: "Partner 1 Scored Bad Partner 2 Scored Ok - partner 1 has serious issues and partner 2 has less serious issues")
+general_happiness.results.create!(quadrant_type: "Couple Ok Good", content: "Partner 1 Scored Ok Partner 2 Scored Good - partner 1 has some issues that they need partner 1s help with")
+general_happiness.results.create!(quadrant_type: "Couple Ok Bad", content: "Partner 1 Scored Ok Partner 2 Scored Bad - partner 2 has serious issues and partner 1 has less serious issues")
+general_happiness.results.create!(quadrant_type: "Couple Ok Ok", content: "Both Partners Scored Just Ok - there are some minor issues that need to be addressed")
 
 ### Questionnaire 2 LOVEMAPS###
 
@@ -94,10 +101,16 @@ end
 love_maps.results.create!(quadrant_type: "Individual Good", content: "This Individual Scored Good - no problems")
 love_maps.results.create!(quadrant_type: "Individual Ok", content: "This Individual Scored Ok - has some problems")
 love_maps.results.create!(quadrant_type: "Individual Bad", content: "This Individual Scored Bad -has problems")
-love_maps.results.create!(quadrant_type: "Couple Good", content: "Both Partners Scored Good - no problems")
-love_maps.results.create!(quadrant_type: "Couple Bad", content: "Both Partners Scored Bad -both have problems")
+love_maps.results.create!(quadrant_type: "Couple Good Good", content: "Both Partners Scored Good - no problems")
 love_maps.results.create!(quadrant_type: "Couple Good Bad", content: "Partner 1 Scored Good Partner 2 Scored Bad - partner 2 has problems")
+love_maps.results.create!(quadrant_type: "Couple Good Ok", content: "Partner 1 Scored Good Partner 2 Scored Ok - partner 2 has some issues that they need partner 1s help with")
 love_maps.results.create!(quadrant_type: "Couple Bad Good", content: "Partner 1 Scored Bad Partner 2 Scored Good - partner 1 has problems")
+love_maps.results.create!(quadrant_type: "Couple Bad Bad", content: "Both Partners Scored Bad -both have problems")
+love_maps.results.create!(quadrant_type: "Couple Bad Ok", content: "Partner 1 Scored Bad Partner 2 Scored Ok - partner 1 has serious issues and partner 2 has less serious issues")
+love_maps.results.create!(quadrant_type: "Couple Ok Good", content: "Partner 1 Scored Ok Partner 2 Scored Good - partner 1 has some issues that they need partner 1s help with")
+love_maps.results.create!(quadrant_type: "Couple Ok Bad", content: "Partner 1 Scored Ok Partner 2 Scored Bad - partner 2 has serious issues and partner 1 has less serious issues")
+love_maps.results.create!(quadrant_type: "Couple Ok Ok", content: "Both Partners Scored Just Ok - there are some minor issues that need to be addressed")
+
 
 ###Questionnaire 3 FONDNESS AND ADMIRATION###
 
@@ -119,10 +132,16 @@ end
 fondness_and_admiration.results.create!(quadrant_type: "Individual Good", content: "This Individual Scored Good - no problems")
 fondness_and_admiration.results.create!(quadrant_type: "Individual Ok", content: "This Individual Scored Ok - has some problems")
 fondness_and_admiration.results.create!(quadrant_type: "Individual Bad", content: "This Individual Scored Bad -has problems")
-fondness_and_admiration.results.create!(quadrant_type: "Couple Good", content: "Both Partners Scored Good - no problems")
-fondness_and_admiration.results.create!(quadrant_type: "Couple Bad", content: "Both Partners Scored Bad -both have problems")
+fondness_and_admiration.results.create!(quadrant_type: "Couple Good Good", content: "Both Partners Scored Good - no problems")
 fondness_and_admiration.results.create!(quadrant_type: "Couple Good Bad", content: "Partner 1 Scored Good Partner 2 Scored Bad - partner 2 has problems")
+fondness_and_admiration.results.create!(quadrant_type: "Couple Good Ok", content: "Partner 1 Scored Good Partner 2 Scored Ok - partner 2 has some issues that they need partner 1s help with")
 fondness_and_admiration.results.create!(quadrant_type: "Couple Bad Good", content: "Partner 1 Scored Bad Partner 2 Scored Good - partner 1 has problems")
+fondness_and_admiration.results.create!(quadrant_type: "Couple Bad Bad", content: "Both Partners Scored Bad -both have problems")
+fondness_and_admiration.results.create!(quadrant_type: "Couple Bad Ok", content: "Partner 1 Scored Bad Partner 2 Scored Ok - partner 1 has serious issues and partner 2 has less serious issues")
+fondness_and_admiration.results.create!(quadrant_type: "Couple Ok Good", content: "Partner 1 Scored Ok Partner 2 Scored Good - partner 1 has some issues that they need partner 1s help with")
+fondness_and_admiration.results.create!(quadrant_type: "Couple Ok Bad", content: "Partner 1 Scored Ok Partner 2 Scored Bad - partner 2 has serious issues and partner 1 has less serious issues")
+fondness_and_admiration.results.create!(quadrant_type: "Couple Ok Ok", content: "Both Partners Scored Just Ok - there are some minor issues that need to be addressed")
+
 
 
 ###Questionnaire 4 TURNING TOWARDS###
@@ -145,10 +164,16 @@ end
 turning_towards.results.create!(quadrant_type: "Individual Good", content: "This Individual Scored Good - no problems")
 turning_towards.results.create!(quadrant_type: "Individual Ok", content: "This Individual Scored Ok - has some problems")
 turning_towards.results.create!(quadrant_type: "Individual Bad", content: "This Individual Scored Bad -has problems")
-turning_towards.results.create!(quadrant_type: "Couple Good", content: "Both Partners Scored Good - no problems")
-turning_towards.results.create!(quadrant_type: "Couple Bad", content: "Both Partners Scored Bad -both have problems")
+turning_towards.results.create!(quadrant_type: "Couple Good Good", content: "Both Partners Scored Good - no problems")
 turning_towards.results.create!(quadrant_type: "Couple Good Bad", content: "Partner 1 Scored Good Partner 2 Scored Bad - partner 2 has problems")
+turning_towards.results.create!(quadrant_type: "Couple Good Ok", content: "Partner 1 Scored Good Partner 2 Scored Ok - partner 2 has some issues that they need partner 1s help with")
 turning_towards.results.create!(quadrant_type: "Couple Bad Good", content: "Partner 1 Scored Bad Partner 2 Scored Good - partner 1 has problems")
+turning_towards.results.create!(quadrant_type: "Couple Bad Bad", content: "Both Partners Scored Bad -both have problems")
+turning_towards.results.create!(quadrant_type: "Couple Bad Ok", content: "Partner 1 Scored Bad Partner 2 Scored Ok - partner 1 has serious issues and partner 2 has less serious issues")
+turning_towards.results.create!(quadrant_type: "Couple Ok Good", content: "Partner 1 Scored Ok Partner 2 Scored Good - partner 1 has some issues that they need partner 1s help with")
+turning_towards.results.create!(quadrant_type: "Couple Ok Bad", content: "Partner 1 Scored Ok Partner 2 Scored Bad - partner 2 has serious issues and partner 1 has less serious issues")
+turning_towards.results.create!(quadrant_type: "Couple Ok Ok", content: "Both Partners Scored Just Ok - there are some minor issues that need to be addressed")
+
 
 
 ###Questionnaire 5 EMOTIONAL DISENGAGEMENT AND LONELINESS###
@@ -171,10 +196,16 @@ end
 emotional_loneliness.results.create!(quadrant_type: "Individual Good", content: "This Individual Scored Good - no problems")
 emotional_loneliness.results.create!(quadrant_type: "Individual Ok", content: "This Individual Scored Ok - has some problems")
 emotional_loneliness.results.create!(quadrant_type: "Individual Bad", content: "This Individual Scored Bad -has problems")
-emotional_loneliness.results.create!(quadrant_type: "Couple Good", content: "Both Partners Scored Good - no problems")
-emotional_loneliness.results.create!(quadrant_type: "Couple Bad", content: "Both Partners Scored Bad -both have problems")
+emotional_loneliness.results.create!(quadrant_type: "Couple Good Good", content: "Both Partners Scored Good - no problems")
 emotional_loneliness.results.create!(quadrant_type: "Couple Good Bad", content: "Partner 1 Scored Good Partner 2 Scored Bad - partner 2 has problems")
+emotional_loneliness.results.create!(quadrant_type: "Couple Good Ok", content: "Partner 1 Scored Good Partner 2 Scored Ok - partner 2 has some issues that they need partner 1s help with")
 emotional_loneliness.results.create!(quadrant_type: "Couple Bad Good", content: "Partner 1 Scored Bad Partner 2 Scored Good - partner 1 has problems")
+emotional_loneliness.results.create!(quadrant_type: "Couple Bad Bad", content: "Both Partners Scored Bad -both have problems")
+emotional_loneliness.results.create!(quadrant_type: "Couple Bad Ok", content: "Partner 1 Scored Bad Partner 2 Scored Ok - partner 1 has serious issues and partner 2 has less serious issues")
+emotional_loneliness.results.create!(quadrant_type: "Couple Ok Good", content: "Partner 1 Scored Ok Partner 2 Scored Good - partner 1 has some issues that they need partner 1s help with")
+emotional_loneliness.results.create!(quadrant_type: "Couple Ok Bad", content: "Partner 1 Scored Ok Partner 2 Scored Bad - partner 2 has serious issues and partner 1 has less serious issues")
+emotional_loneliness.results.create!(quadrant_type: "Couple Ok Ok", content: "Both Partners Scored Just Ok - there are some minor issues that need to be addressed")
+
 
 ###Questionnaire 6 OVERALL SCORE### Note this is not an actual questionnaire, it is just a means of determining overall results
 
@@ -183,7 +214,12 @@ overall_state = Questionnaire.create!(title: "Overall Relationship Score", cutof
 overall_state.results.create!(quadrant_type: "Individual Good", content: "Overall This Individual Scored Good - no problems")
 overall_state.results.create!(quadrant_type: "Individual Ok", content: "Overall This Individual Scored Ok - has some problems")
 overall_state.results.create!(quadrant_type: "Individual Bad", content: "Overall This Individual Scored Bad -has problems")
-overall_state.results.create!(quadrant_type: "Couple Good", content: "Overall Both Partners Scored Good - no problems")
-overall_state.results.create!(quadrant_type: "Couple Bad", content: "Overall Both Partners Scored Bad -both have problems")
+overall_state.results.create!(quadrant_type: "Couple Good Good", content: "Overall Both Partners Scored Good - no problems")
 overall_state.results.create!(quadrant_type: "Couple Good Bad", content: "Overall Partner 1 Scored Good Partner 2 Scored Bad - partner 2 has problems")
+overall_state.results.create!(quadrant_type: "Couple Good Ok", content: "Overall Partner 1 Scored Good Partner 2 Scored Ok - partner 2 has some issues that they need partner 1s help with")
 overall_state.results.create!(quadrant_type: "Couple Bad Good", content: "Overall Partner 1 Scored Bad Partner 2 Scored Good - partner 1 has problems")
+overall_state.results.create!(quadrant_type: "Couple Bad Bad", content: "Overall Both Partners Scored Bad -both have problems")
+overall_state.results.create!(quadrant_type: "Couple Bad Ok", content: "Overall Partner 1 Scored Bad Partner 2 Scored Ok - partner 1 has serious issues and partner 2 has less serious issues")
+overall_state.results.create!(quadrant_type: "Couple Ok Good", content: "Overall Partner 1 Scored Ok Partner 2 Scored Good - partner 1 has some issues that they need partner 1s help with")
+overall_state.results.create!(quadrant_type: "Couple Ok Bad", content: "Overall Partner 1 Scored Ok Partner 2 Scored Bad - partner 2 has serious issues and partner 1 has less serious issues")
+overall_state.results.create!(quadrant_type: "Couple Ok Ok", content: "Overall Both Partners Scored Just Ok - there are some minor issues that need to be addressed")

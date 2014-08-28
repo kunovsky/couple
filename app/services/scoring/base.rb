@@ -3,7 +3,7 @@ module Scoring
     TYPES = {bad: "Individual Bad", ok: "Individual Ok", good: "Individual Good"}
     
     def initialize(current_user)
-      @user, @overall_results, @overall_percentages, @last_id = current_user, {}, [], results_questionnaire_id
+      @user, @partner_1_results, @overall_percentages, @last_id = current_user, {}, [], results_questionnaire_id
     end
 
     private
@@ -12,19 +12,15 @@ module Scoring
       @user.completed_questionnaires.each do |completed|
         questionnaire = Questionnaire.find(completed.questionnaire_id)
         if completed.score["user_score"] < questionnaire.cutoff_score
-          @overall_results[questionnaire.id] = id_hash(questionnaire.id, :bad)
+          @partner_1_results[questionnaire.id] = individual_result(questionnaire.id, :bad)
         elsif completed.score["user_score"] < questionnaire.ok_score
-          @overall_results[questionnaire.id] = id_hash(questionnaire.id, :ok)
+          @partner_1_results[questionnaire.id] = individual_result(questionnaire.id, :ok)
         else
-          @overall_results[questionnaire.id] = id_hash(questionnaire.id, :good)
+          @partner_1_results[questionnaire.id] = individual_result(questionnaire.id, :good)
         end
         set_questionnaire_percentage(completed.score["percentage"], questionnaire.id)
         adjusted_percentage(completed.score["percentage"], questionnaire.weight)
       end
-    end
-
-    def id_hash(id, type)
-      {response_id: individual_result_id(id, TYPES[type])}
     end
 
     def individual_result_id(id, type)
@@ -34,8 +30,12 @@ module Scoring
          Result[:questionnaire_id].eq(Questionnaire[:id])).join_sources).first.id
     end
 
+    def individual_result(id, type)
+      {result_id: individual_result_id(id, TYPES[type])}
+    end
+
     def set_questionnaire_percentage(score, id)
-      @overall_results[id][:percentage] = score
+      @partner_1_results[id][:percentage] = score
     end
 
     def adjusted_percentage(percentage, weight)
@@ -44,8 +44,8 @@ module Scoring
     end
 
     def overall_percentage
-      @overall_results[@last_id] = {percentage: nil} unless @overall_results[@last_id]
-      @overall_results[@last_id][:percentage] = calculate_overall_percentage
+      @partner_1_results[@last_id] = {percentage: nil} unless @partner_1_results[@last_id]
+      @partner_1_results[@last_id][:percentage] = calculate_overall_percentage
     end
 
     def calculate_overall_percentage
@@ -54,12 +54,12 @@ module Scoring
     end
 
     def overall_result
-      if @overall_results[@last_id][:percentage] < 80
-        @overall_results[@last_id][:response_id] = individual_result_id(@last_id, TYPES[:bad])
-      elsif @overall_results[@last_id][:percentage] < 90
-        @overall_results[@last_id][:response_id] = individual_result_id(@last_id, TYPES[:ok])
+      if @partner_1_results[@last_id][:percentage] < 80
+        @partner_1_results[@last_id][:result_id] = individual_result_id(@last_id, TYPES[:bad])
+      elsif @partner_1_results[@last_id][:percentage] < 90
+        @partner_1_results[@last_id][:result_id] = individual_result_id(@last_id, TYPES[:ok])
       else
-        @overall_results[@last_id][:response_id] = individual_result_id(@last_id, TYPES[:good])
+        @partner_1_results[@last_id][:result_id] = individual_result_id(@last_id, TYPES[:good])
       end
     end
 
@@ -67,8 +67,8 @@ module Scoring
       APP_CONFIG[:last_questionnaire_id] + 1
     end
 
-    def update_relationship_feedback
-      @user.relationship.feedback.update_attributes(analyses: @overall_results)
+    def update_relationship_feedback(results)
+      @user.relationship.feedback.update_attributes(analyses: results)
     end
   end
 end

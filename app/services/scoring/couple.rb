@@ -1,84 +1,120 @@
 module Scoring
   class Couple < Base
-    TYPES = {bad: "Couple Bad", good: "Couple Good", good_bad: "Couple Good Bad", bad_good: "Couple Bad Good"}
-    #TODO: Create diagnosis for the couple which contain info related to how we are going to help them - products, reccomended actions
-
-    def initialize
-      super
-      @second_partner_scores, @both_partner_results = second_partner_scores, {}
+    #TODO: Add couple types and types to a types module and include them
+    COUPLE_TYPES = {  good_good: "Couple Good Good",
+                      good_bad: "Couple Good Bad",
+                      good_ok: "Couple Good Ok",
+                      bad_bad: "Couple Bad Bad",
+                      bad_ok: "Couple Bad Bad",
+                      bad_good: "Couple Bad Good",
+                      ok_good: "Couple Ok Good",
+                      ok_bad: "Couple Ok Bad",
+                      ok_ok: "Couple Ok Ok"}
+    
+    def initialize(args)
+      super(args)
+      @partner_2_results, @both_partner_results = partner_2_results, {}
     end
 
     def handle_relationship_scoring
+    #TODO: Create diagnosis for the couple which contain info related to how we are going to help them - products, reccomended actions
       determine_results
       overall_percentage
       overall_result
-      score_partners_against_eachother
-      #get each member of the couples completed questionnaires
-        #partner 2's already exist in the relationship's feedbacks
-        #partner 1's are calculated using determine_results
-      #for each questionnaire for each person
-      #that person's score is either good, bad, or ok
-      #if both partner's score for the questionnaire is over the cutoff score then good
-      #if both partner's score for the questionnaire is under the cutoff score then bad
-      #if partner 1 is over but partner 2 is under then good bad
-      #if partner 1 is under but partner 2 is over then bad good
-      #save the new feedback analyses in place of the old ones
+      score_partners_against_each_other
+      update_relationship_feedback(@both_partner_results)
     end
 
     private
 
-    def score_partners_against_eachother
-      @overall_results.each do |partner_1_score|
-        data = both_partners_data(partner_1_score)
-        number = partner_1_score.first
-        if check_for_bad_score(data)
-          @both_partner_results[number] = check_for_bad_score(data) 
-        elsif check_for_ok_score(data)
-          @both_partner_results[number] = check_for_ok_score(data)
-        else
-          @both_partner_results[number] = check_for_good_score(data) 
-        end
-      end
-    end
-
-    def check_for_bad_score
-      #bad good
-      #bad bad
-      #bad ok
-      return nil
-    end
-
-    def check_for_ok_score
-        #ok good
-        #ok bad
-        #ok ok
-      return nil
-    end
-
-    def check_for_good_score
-      #good good
-      #good bad
-      #good ok
-      return nil
-    end
-
-    def second_partner_scores
+    def partner_2_results
       @user.relationship.feedback.analyses
     end
 
-    def both_partners_data(score)
-      number = questionnaire_number(score)
-      partner_1_score = lookup_response(score)
-      partner_2_score = lookup_response(@second_partner_scores[number])
-      {partner_1_score: partner_1_score, partner_2_score: partner_2_score}
+    def score_partners_against_each_other
+      @partner_1_results.each do |partner_1_score|
+        scores = both_partners_scores(partner_1_score)
+        percentages = both_partners_percentages(partner_1_score)
+        if check_for_bad_score(scores)
+          @both_partner_results[scores[:id]] = check_for_bad_score(scores) 
+        elsif check_for_ok_score(scores)
+          @both_partner_results[scores[:id]]  = check_for_ok_score(scores)
+        else
+          @both_partner_results[scores[:id]]  = check_for_good_score(scores) 
+        end
+        set_couple_questionnaire_percentages(scores[:id], percentages)
+      end
+    end
+
+    def check_for_bad_score(scores)
+      if scores[:partner_1_score] == TYPES[:bad] && scores[:partner_2_score] == TYPES[:bad]
+        return couple_result(scores[:id], :bad_bad)
+      elsif scores[:partner_1_score] == TYPES[:bad] && scores[:partner_2_score] == TYPES[:good]
+        return couple_result(scores[:id], :bad_good)
+      elsif scores[:partner_1_score] == TYPES[:bad] && scores[:partner_2_score] == TYPES[:ok]
+        return couple_result(scores[:id], :bad_ok)
+      else
+        return nil
+      end
+    end
+
+    def check_for_ok_score(scores)
+      if scores[:partner_1_score] == TYPES[:ok] && scores[:partner_2_score] == TYPES[:good]
+        return couple_result(scores[:id], :ok_good)
+      elsif scores[:partner_1_score] == TYPES[:ok] && scores[:partner_2_score] == TYPES[:bad]
+        return couple_result(scores[:id], :ok_bad)
+      elsif scores[:partner_1_score] == TYPES[:ok] && scores[:partner_2_score] == TYPES[:ok]
+        return couple_result(scores[:id], :ok_ok)
+      else
+        return nil
+      end
+    end
+
+    def check_for_good_score(scores)
+      if scores[:partner_1_score] == TYPES[:good] && scores[:partner_2_score] == TYPES[:good]
+        return couple_result(scores[:id], :good_good)
+      elsif scores[:partner_1_score] == TYPES[:good] && scores[:partner_2_score] == TYPES[:bad]
+        return couple_result(scores[:id], :good_bad)
+      elsif scores[:partner_1_score] == TYPES[:good] && scores[:partner_2_score] == TYPES[:ok]
+        return couple_result(scores[:id], :good_ok)
+      else
+        return nil
+      end
+    end
+
+    def both_partners_scores(score)
+      id = questionnaire_number(score)
+      partner_1_score = lookup_response(score[1])
+      partner_2_score = lookup_response(@partner_2_results[id])
+      {id: id, partner_1_score: partner_1_score, partner_2_score: partner_2_score}
     end
 
     def lookup_response(score)
-      Result.find(score[1]["response_id"]).quadrant_type
+      score = score[:result_id] || score["result_id"]
+      Result.find(score).quadrant_type
+    end
+
+    def both_partners_percentages(score)
+      id = questionnaire_number(score)
+      partner_1_score = lookup_percentage(score[1])
+      partner_2_percentage = lookup_percentage(@partner_2_results[id])
+      {partner_1_percentage: partner_1_score, partner_2_percentage: partner_2_percentage}
+    end
+
+    def lookup_percentage(score)
+      score[:percentage] || score["percentage"]
     end
 
     def questionnaire_number(score)
       score.first.to_s
+    end
+
+    def couple_result(id, type)
+      {result_id: individual_result_id(id, COUPLE_TYPES[type])}
+    end
+
+    def set_couple_questionnaire_percentages(id, percentages)
+      @both_partner_results[id][:percentages] = percentages
     end
   end
 end

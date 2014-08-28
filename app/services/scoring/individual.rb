@@ -6,7 +6,7 @@ module Scoring
       determine_results
       overall_percentage
       overall_result
-      update_relationship_feedback
+      update_relationship_feedback(@partner_1_results)
     end
 
     private

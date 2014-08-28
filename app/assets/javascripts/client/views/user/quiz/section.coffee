@@ -8,6 +8,9 @@ CP.module "Views.User.Quiz", (Quiz, CP, Backbone, Marionette, $, _) ->
       'click .js-next-questionnaire-button' : 'createCompletedQuestionnaire'
 
     initialize: (@options = options = {}) ->
+      ###
+      take out all of the '../' and replace them with just a '/'
+      ###
       @url = ['../', 'api', 'questionnaires', @options.id].join('/')
   
       @fetchCollection()
