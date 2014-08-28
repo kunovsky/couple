@@ -21,6 +21,7 @@ module Scoring
       determine_results
       overall_percentage
       overall_result
+      # create_couple_treatments # is this necessary or just use individual?
       score_partners_against_each_other
       update_relationship_feedback(@both_partner_results)
     end

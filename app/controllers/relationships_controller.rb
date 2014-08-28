@@ -2,7 +2,7 @@ class RelationshipsController < ApplicationController
 
   def score
     if current_user.relationship
-      #start here
+      #check to see if it is already been scored for the couple and render json errors if it has
       render json: Scoring::Couple.new(current_user).handle_relationship_scoring, status: 200
     else
       render json: Scoring::Individual.new(current_user).handle_relationship_scoring, status: 200

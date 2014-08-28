@@ -67,6 +67,9 @@ module Scoring
       APP_CONFIG[:last_questionnaire_id] + 1
     end
 
+    def create_individual_treatments
+    end
+
     def update_relationship_feedback(results)
       @user.relationship.feedback.update_attributes(analyses: results)
     end

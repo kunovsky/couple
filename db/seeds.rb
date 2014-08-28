@@ -67,7 +67,7 @@ general_happiness.results.create!(quadrant_type: "Couple Good Ok", content: "Par
 general_happiness.results.create!(quadrant_type: "Couple Bad Good", content: "Partner 1 Scored Bad Partner 2 Scored Good - partner 1 has problems")
 general_happiness.results.create!(quadrant_type: "Couple Bad Bad", content: "Both Partners Scored Bad -both have problems")
 general_happiness.results.create!(quadrant_type: "Couple Bad Ok", content: "Partner 1 Scored Bad Partner 2 Scored Ok - partner 1 has serious issues and partner 2 has less serious issues")
-general_happiness.results.create!(quadrant_type: "Couple Ok Good", content: "Partner 1 Scored Ok Partner 2 Scored Good - partner 1 has some issues that they need partner 1s help with")
+general_happiness.results.create!(quadrant_type: "Couple Ok Good", content: "Partner 1 Scored Ok Partner 2 Scored Good - partner 1 has some issues that they need partner 2s help with")
 general_happiness.results.create!(quadrant_type: "Couple Ok Bad", content: "Partner 1 Scored Ok Partner 2 Scored Bad - partner 2 has serious issues and partner 1 has less serious issues")
 general_happiness.results.create!(quadrant_type: "Couple Ok Ok", content: "Both Partners Scored Just Ok - there are some minor issues that need to be addressed")
 
@@ -107,7 +107,7 @@ love_maps.results.create!(quadrant_type: "Couple Good Ok", content: "Partner 1 S
 love_maps.results.create!(quadrant_type: "Couple Bad Good", content: "Partner 1 Scored Bad Partner 2 Scored Good - partner 1 has problems")
 love_maps.results.create!(quadrant_type: "Couple Bad Bad", content: "Both Partners Scored Bad -both have problems")
 love_maps.results.create!(quadrant_type: "Couple Bad Ok", content: "Partner 1 Scored Bad Partner 2 Scored Ok - partner 1 has serious issues and partner 2 has less serious issues")
-love_maps.results.create!(quadrant_type: "Couple Ok Good", content: "Partner 1 Scored Ok Partner 2 Scored Good - partner 1 has some issues that they need partner 1s help with")
+love_maps.results.create!(quadrant_type: "Couple Ok Good", content: "Partner 1 Scored Ok Partner 2 Scored Good - partner 1 has some issues that they need partner 2s help with")
 love_maps.results.create!(quadrant_type: "Couple Ok Bad", content: "Partner 1 Scored Ok Partner 2 Scored Bad - partner 2 has serious issues and partner 1 has less serious issues")
 love_maps.results.create!(quadrant_type: "Couple Ok Ok", content: "Both Partners Scored Just Ok - there are some minor issues that need to be addressed")
 
@@ -138,7 +138,7 @@ fondness_and_admiration.results.create!(quadrant_type: "Couple Good Ok", content
 fondness_and_admiration.results.create!(quadrant_type: "Couple Bad Good", content: "Partner 1 Scored Bad Partner 2 Scored Good - partner 1 has problems")
 fondness_and_admiration.results.create!(quadrant_type: "Couple Bad Bad", content: "Both Partners Scored Bad -both have problems")
 fondness_and_admiration.results.create!(quadrant_type: "Couple Bad Ok", content: "Partner 1 Scored Bad Partner 2 Scored Ok - partner 1 has serious issues and partner 2 has less serious issues")
-fondness_and_admiration.results.create!(quadrant_type: "Couple Ok Good", content: "Partner 1 Scored Ok Partner 2 Scored Good - partner 1 has some issues that they need partner 1s help with")
+fondness_and_admiration.results.create!(quadrant_type: "Couple Ok Good", content: "Partner 1 Scored Ok Partner 2 Scored Good - partner 1 has some issues that they need partner 2s help with")
 fondness_and_admiration.results.create!(quadrant_type: "Couple Ok Bad", content: "Partner 1 Scored Ok Partner 2 Scored Bad - partner 2 has serious issues and partner 1 has less serious issues")
 fondness_and_admiration.results.create!(quadrant_type: "Couple Ok Ok", content: "Both Partners Scored Just Ok - there are some minor issues that need to be addressed")
 
@@ -170,7 +170,7 @@ turning_towards.results.create!(quadrant_type: "Couple Good Ok", content: "Partn
 turning_towards.results.create!(quadrant_type: "Couple Bad Good", content: "Partner 1 Scored Bad Partner 2 Scored Good - partner 1 has problems")
 turning_towards.results.create!(quadrant_type: "Couple Bad Bad", content: "Both Partners Scored Bad -both have problems")
 turning_towards.results.create!(quadrant_type: "Couple Bad Ok", content: "Partner 1 Scored Bad Partner 2 Scored Ok - partner 1 has serious issues and partner 2 has less serious issues")
-turning_towards.results.create!(quadrant_type: "Couple Ok Good", content: "Partner 1 Scored Ok Partner 2 Scored Good - partner 1 has some issues that they need partner 1s help with")
+turning_towards.results.create!(quadrant_type: "Couple Ok Good", content: "Partner 1 Scored Ok Partner 2 Scored Good - partner 1 has some issues that they need partner 2s help with")
 turning_towards.results.create!(quadrant_type: "Couple Ok Bad", content: "Partner 1 Scored Ok Partner 2 Scored Bad - partner 2 has serious issues and partner 1 has less serious issues")
 turning_towards.results.create!(quadrant_type: "Couple Ok Ok", content: "Both Partners Scored Just Ok - there are some minor issues that need to be addressed")
 
@@ -202,7 +202,7 @@ emotional_loneliness.results.create!(quadrant_type: "Couple Good Ok", content: "
 emotional_loneliness.results.create!(quadrant_type: "Couple Bad Good", content: "Partner 1 Scored Bad Partner 2 Scored Good - partner 1 has problems")
 emotional_loneliness.results.create!(quadrant_type: "Couple Bad Bad", content: "Both Partners Scored Bad -both have problems")
 emotional_loneliness.results.create!(quadrant_type: "Couple Bad Ok", content: "Partner 1 Scored Bad Partner 2 Scored Ok - partner 1 has serious issues and partner 2 has less serious issues")
-emotional_loneliness.results.create!(quadrant_type: "Couple Ok Good", content: "Partner 1 Scored Ok Partner 2 Scored Good - partner 1 has some issues that they need partner 1s help with")
+emotional_loneliness.results.create!(quadrant_type: "Couple Ok Good", content: "Partner 1 Scored Ok Partner 2 Scored Good - partner 1 has some issues that they need partner 2s help with")
 emotional_loneliness.results.create!(quadrant_type: "Couple Ok Bad", content: "Partner 1 Scored Ok Partner 2 Scored Bad - partner 2 has serious issues and partner 1 has less serious issues")
 emotional_loneliness.results.create!(quadrant_type: "Couple Ok Ok", content: "Both Partners Scored Just Ok - there are some minor issues that need to be addressed")
 
@@ -220,6 +220,49 @@ overall_state.results.create!(quadrant_type: "Couple Good Ok", content: "Overall
 overall_state.results.create!(quadrant_type: "Couple Bad Good", content: "Overall Partner 1 Scored Bad Partner 2 Scored Good - partner 1 has problems")
 overall_state.results.create!(quadrant_type: "Couple Bad Bad", content: "Overall Both Partners Scored Bad -both have problems")
 overall_state.results.create!(quadrant_type: "Couple Bad Ok", content: "Overall Partner 1 Scored Bad Partner 2 Scored Ok - partner 1 has serious issues and partner 2 has less serious issues")
-overall_state.results.create!(quadrant_type: "Couple Ok Good", content: "Overall Partner 1 Scored Ok Partner 2 Scored Good - partner 1 has some issues that they need partner 1s help with")
+overall_state.results.create!(quadrant_type: "Couple Ok Good", content: "Overall Partner 1 Scored Ok Partner 2 Scored Good - partner 1 has some issues that they need partner 2s help with")
 overall_state.results.create!(quadrant_type: "Couple Ok Bad", content: "Overall Partner 1 Scored Ok Partner 2 Scored Bad - partner 2 has serious issues and partner 1 has less serious issues")
 overall_state.results.create!(quadrant_type: "Couple Ok Ok", content: "Overall Both Partners Scored Just Ok - there are some minor issues that need to be addressed")
+
+=begin 
+
+what do you need to do as a result of getting this score, what is your treatment?
+
+For each section:
+
+#individual#
+good = do nothing
+ok = a gottman exercise
+bad = see a therapist and gottman products (book a therapist in your area)
+
+#couple#
+
+good good = do nothing
+good ok = a gottman exercise for both couples to do
+good bad = see a therapist and gottman products
+
+ok good = a gottman exercise for both couples to do
+ok ok = a gottman exercise for both couples to do
+ok bad = see a therapist and gottman products
+
+bad good = see a therapist and gottman products
+bad ok = see a therapist and gottman products
+bad bad see a therapist and gottman products
+
+And then overall:
+
+good good = do nothing
+good ok = a gottman exercise for both couples to do
+good bad = see a therapist and gottman products
+
+ok good = a gottman exercise for both couples to do
+ok ok = a gottman exercise for both couples to do
+ok bad = see a therapist and gottman products
+
+bad good = see a therapist and gottman products
+bad ok = see a therapist and gottman products
+bad bad see a therapist and gottman products
+
+=end
+
+
