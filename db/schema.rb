@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140720203525) do
+ActiveRecord::Schema.define(version: 20140829005458) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,14 @@ ActiveRecord::Schema.define(version: 20140720203525) do
   create_table "possible_responses", force: true do |t|
     t.string   "content"
     t.integer  "point_value"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "products", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.json     "data",        default: {}, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -78,6 +86,13 @@ ActiveRecord::Schema.define(version: 20140720203525) do
     t.integer  "questionnaire_id"
     t.string   "quadrant_type"
     t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "treatments", force: true do |t|
+    t.integer  "result_id"
+    t.integer  "product_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
