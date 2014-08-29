@@ -17,11 +17,9 @@ module Scoring
     end
 
     def handle_relationship_scoring
-    #TODO: Create diagnosis for the couple which contain info related to how we are going to help them - products, reccomended actions
       determine_results
       overall_percentage
       overall_result
-      # create_couple_treatments # is this necessary or just use individual?
       score_partners_against_each_other
       update_relationship_feedback(@both_partner_results)
     end

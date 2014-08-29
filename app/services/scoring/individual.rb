@@ -6,7 +6,6 @@ module Scoring
       determine_results
       overall_percentage
       overall_result
-      create_individual_treatments
       update_relationship_feedback(@partner_1_results)
     end
 
