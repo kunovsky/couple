@@ -41,7 +41,17 @@
   display: inline-block;
 }
 
-.results-container {
+.result--good {
+    background-color: #CDF7AF;
+  }
+.result--ok {
+  background-color: #FFF788;
+}
+.result--bad {
+  background-color:#FF8080;
+}
+
+.result__container {
   width: 100%; min-height: 160px;
   margin-top: 20px;
   padding: 10px;
@@ -73,7 +83,7 @@
 }
 
 
-.results-container--overall {
+.result__container--overall {
   width: 100%; min-height: 160px;
   margin: 20px 0px;
   padding: 10px;

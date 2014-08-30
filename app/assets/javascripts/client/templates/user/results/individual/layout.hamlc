@@ -1,5 +1,5 @@
-#general-region.results-container
-#friendship-region.results-container
-#fondness-region.results-container
-#turning-region.results-container
-#emotion-region.results-container
+#general-region.result__container
+#friendship-region.result__container
+#fondness-region.result__container
+#turning-region.result__container
+#emotion-region.result__container

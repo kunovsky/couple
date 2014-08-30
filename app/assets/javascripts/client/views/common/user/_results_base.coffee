@@ -11,6 +11,10 @@ CP.module "Views.Common.User", (User, CP, Backbone, Marionette, $, _) ->
     templateHelpers: ->
       {@name, @results}
 
+    onRender: ->
+      if @results?.percentage
+        $(@el).parent().addClass("result--good") if @results.percentage == 75
+
     fetchResult: ->
       $.ajax
         method: 'GET'
