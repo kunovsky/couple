@@ -1,5 +1,12 @@
-.site-wrap
-  .overall
-    .name Result for #{@name}
-    .content=@content
-    .score=@percentage
+.result__header
+  .left =@name
+  .right Your Score #{@results.percentage}%
+  
+.result__body
+  .result__content Result: #{@results.content}
+  - if @results.products_data
+    .result__recommendations Recommendations: #{@results.recommendation}
+      - for product in @results.products_data
+        .result__product
+          .result__product__name.valign-top=product.name
+          .result__product__description.valign-top=product.description

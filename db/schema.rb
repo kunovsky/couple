@@ -86,6 +86,7 @@ ActiveRecord::Schema.define(version: 20140829005458) do
     t.integer  "questionnaire_id"
     t.string   "quadrant_type"
     t.text     "content"
+    t.text     "recommendation"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

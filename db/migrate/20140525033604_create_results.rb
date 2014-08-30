@@ -4,8 +4,10 @@ class CreateResults < ActiveRecord::Migration
       t.integer :questionnaire_id
       t.string :quadrant_type
       t.text :content
+      t.text :recommendation
       
       t.timestamps
     end
   end
 end
+

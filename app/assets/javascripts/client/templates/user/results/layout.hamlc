@@ -1,2 +1,3 @@
-#individual-region
-#overall-region
+.site-wrap
+  #individual-region
+  #overall-region

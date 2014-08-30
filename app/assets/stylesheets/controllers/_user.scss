@@ -46,9 +46,34 @@
   margin-top: 20px;
   padding: 10px;
   border: 1px solid black;
+  .result__header {
+    width: 100%;
+    display: inline-block;
+    font-size: 28px;
+    color: #60728c;
+  }
+  .result__body {
+    padding: 15px 10px 0px;
+    font-size: 14px;
+    .result__content {
+      margin-bottom: 10px; 
+    }
+    .result__product {
+      width: 49.5%;
+      display: inline-block;
+      margin-top: 20px;
+      .result__product__name {
+        font-weight: bold;
+      }
+      .result__product__description {
+        margin-top: 10px;
+      }
+    }
+  }
 }
 
-.overall {
+
+.results-container--overall {
   width: 100%; min-height: 160px;
   margin: 20px 0px;
   padding: 10px;

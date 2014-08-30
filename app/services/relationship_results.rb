@@ -1,24 +1,36 @@
 module RelationshipResults
   class Stat
     def initialize(params)
-      @id, @relationship_id = params[:id], params[:relationship_id]
-      @analyses = analyses
+      @analysis = analysis(params)
     end
 
     def handle_results_request
-      {content: result_data(content), percentage_data: percentage_data, product_data: result_data(products)}
+      {content: result_content, recommendation: result_recommendation, percentage_data: percentage_data, products_data: products_data }
+
     end
 
-    def analyses
-      Relationship.find(@relationship_id).feedback.analyses
+    private
+
+    def analysis(params)
+      Relationship.find(params[:relationship_id]).feedback.analyses[params[:id]]
     end
 
-    def result_data(type)
-      Result.find(@analyses[@id]["result_id"]).type
+    def result_content
+      Result.find(@analysis["result_id"]).content
+    end
+
+    def result_recommendation
+      Result.find(@analysis["result_id"]).recommendation
     end
 
     def percentage_data
-      @analyses[@id.to_s]["percentage"] || @analyses[@id.to_s]["percentages"]
+      return @analysis["percentages"] if @analysis["percentages"]
+      return {partner_1_percentage: @analysis["percentage"]}
+    end
+
+    def products_data
+      Product.select(Product[:id], Product[:name], Product[:description], Product[:data]
+        ).where(Result[:id].eq(@analysis["result_id"])).joins(treatments: :result)
     end
   end
 end
