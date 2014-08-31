@@ -8,14 +8,14 @@
       %table.two-up
         %tr
           %td
-            %label Reason For Access:
+            %label{for: 'email'}  Invite Via Email :
           %td
-            %textarea{name: 'reason', placeholder: 'Enter a reason...'}
+            %input{type: 'email', name: 'email'}
         %tr
           %td
-            %label{for: 'password'} Enter Your Password:
+            %label{for: 'text'}  Invite Via Text :
           %td
-            %input{type: 'password', name: 'password'}
+            %input{type: 'text', name: 'text'}
 
-    %button.orange.no-icon.ladda-button.js-confirm{type: 'submit', value: 'Save Product'} Access Organization
+    %button.orange.no-icon.ladda-button.js-invite{type: 'submit', value: 'Send Invite'} Send Invite
     %button.light-gray.no-icon.ladda-button.js-cancel Cancel

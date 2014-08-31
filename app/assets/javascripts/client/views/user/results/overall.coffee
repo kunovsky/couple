@@ -8,5 +8,4 @@ CP.module "Views.User.Results", (Results, CP, Backbone, Marionette, $, _) ->
     url: -> ['/api', 'users', CP.CurrentUser.get('id'), 'results', CP.Settings.lastQuestionnaireNumber+1 ].join('/')
 
     handlePartnerInvite: ->
-      console.log "inviting"
-      CP.ModalRegion.show new Results.Invite
+      CP.modalRegion.show new Results.Invite

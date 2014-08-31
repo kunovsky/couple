@@ -1,4 +1,4 @@
-/* RepPro Web App Constructor */
+/* Couple Web App Constructor */
 @import "compass/reset";
 @import "compass/css3";
 @import "compass/layout/sticky-footer";
@@ -11,6 +11,7 @@
 @import "global/form";
 @import "global/header";
 @import "global/footer";
+@import "global/modals";
 
 @import "controllers/*";
 
