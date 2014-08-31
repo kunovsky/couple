@@ -9,5 +9,5 @@ CP.module "Views.Common.User", (User, CP, Backbone, Marionette, $, _) ->
       $.ajax
         type: 'POST'
         url: '/sessions'
-        success: => 
-          CP.ActiveRouters.User.navigate @url, true
+        success: (respObj) => 
+          window.location.href = respObj.path

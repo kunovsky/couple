@@ -3,7 +3,7 @@ CP.module "Models", (Models, App, Backbone, Marionette, $, _) ->
   class @User extends Backbone.Model
     urlRoot: '/api/users'
 
-    initialize: (options = {}) ->
+    initialize: (@options = options = {}) ->
 
     parse: (resp) -> resp
 

@@ -70,6 +70,6 @@ CP.module "Views.User.Quiz", (Quiz, CP, Backbone, Marionette, $, _) ->
       return 'results' if @nextQuestionnaireNumber() > CP.Settings.lastQuestionnaireNumber
       ['questionnaire', @nextQuestionnaireNumber()].join('/')
 
-    saveUrl: -> ['/api','users', '1', 'actual_responses'].join('/')
+    saveUrl: -> ['/api','users', CP.CurrentUser.get('id'), 'actual_responses'].join('/')
     scoreResultsUrl: ->['/api', 'relationships','1', 'score'].join('/')
-    completedSurveyUrl: ->['/api','users', '1', 'completed_questionnaires'].join('/')
+    completedSurveyUrl: ->['/api','users', CP.CurrentUser.get('id'), 'completed_questionnaires'].join('/')

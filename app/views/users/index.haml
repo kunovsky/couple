@@ -1,5 +1,4 @@
 -content_for :javascript_bootstrap do
   :javascript
     CP.CurrentUser = new CP.Models.User();
-    CP.CurrentUser.bootstrap(#{render(text: UserSerializer.new(@god_mode_user, god_mode: true).to_json).html_safe});
-    console.log(CP.CurrentUser);
+    CP.CurrentUser.bootstrap(#{render(text: UserSerializer.new(current_user).to_json).html_safe});
