@@ -32,3 +32,4 @@ gem 'execjs'
 gem "compass-rails"
 gem 'uglifier'
 gem 'haml'
+gem 'active_model_serializers'
