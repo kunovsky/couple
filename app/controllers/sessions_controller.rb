@@ -6,6 +6,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session.delete(:auth_token)
+    redirect_to '/'
   end
 
   private

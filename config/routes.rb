@@ -16,9 +16,9 @@ Rails.application.routes.draw do
 
   resources :sessions
 
-  get '/questionnaire' => 'application#index'
-  get '/questionnaire/*url' => 'application#index'
-  get '/results' => 'application#index'
+  get '/questionnaire' => 'users#index'
+  get '/questionnaire/*url' => 'users#index'
+  get '/results' => 'users#index'
 
   get '/logout' => 'sessions#destroy'
 
