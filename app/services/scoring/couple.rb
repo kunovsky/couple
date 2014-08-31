@@ -1,15 +1,15 @@
 module Scoring
   class Couple < Base
     #TODO: Add couple types and types to a types module and include them
-    COUPLE_TYPES = {  good_good: "Couple Good Good",
-                      good_bad: "Couple Good Bad",
-                      good_ok: "Couple Good Ok",
-                      bad_bad: "Couple Bad Bad",
-                      bad_ok: "Couple Bad Bad",
-                      bad_good: "Couple Bad Good",
-                      ok_good: "Couple Ok Good",
-                      ok_bad: "Couple Ok Bad",
-                      ok_ok: "Couple Ok Ok"}
+    COUPLE_TYPES = {  good_good: "couple_good_good",
+                      good_bad: "couple_good_bad",
+                      good_ok: "couple_good_ok",
+                      bad_bad: "couple_bad_bad",
+                      bad_ok: "couple_bad_ok",
+                      bad_good: "couple_bad_good",
+                      ok_good: "couple_ok_good",
+                      ok_bad: "couple_ok_bad",
+                      ok_ok: "couple_ok_ok"}
     
     def initialize(args)
       super(args)

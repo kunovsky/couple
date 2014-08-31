@@ -5,7 +5,7 @@ module RelationshipResults
     end
 
     def handle_results_request
-      {content: result_content, recommendation: result_recommendation, percentage_data: percentage_data, products_data: products_data }
+      {content: result_content, recommendation: result_recommendation, percentage_data: percentage_data, products_data: products_data, status: status }
 
     end
 
@@ -23,9 +23,13 @@ module RelationshipResults
       Result.find(@analysis["result_id"]).recommendation
     end
 
+    def status
+      Result.find(@analysis["result_id"]).overall
+    end
+
     def percentage_data
       return @analysis["percentages"] if @analysis["percentages"]
-      return {partner_1_percentage: @analysis["percentage"]}
+      {partner_1_percentage: @analysis["percentage"]}
     end
 
     def products_data

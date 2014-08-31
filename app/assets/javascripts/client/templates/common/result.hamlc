@@ -1,12 +1,17 @@
-.result__header
-  .left =@name
-  .right Your Score #{@results.percentage}%
-  
-.result__body
-  .result__content Result: #{@results.content}
-  - if @results.products_data
-    .result__recommendations Recommendations: #{@results.recommendation}
-      - for product in @results.products_data
-        .result__product.valign-top
-          .result__product__name=product.name
-          .result__product__description=product.description
+.result__container
+  .result__container--individual-result
+
+    .result__header
+      .left =@name
+      .right You Scored #{@results.partner1Percentage}% 
+        -if @results.partner2Percentage
+          : Your Partner Scored #{@results.partner2Percentage}%
+      
+    .result__body
+      .result__body__content Result: #{@results.content}
+      - if @results.products_data
+        .result__body__recommendations Recommendations: #{@results.recommendation}
+        - for product in @results.products_data
+          .result__body__product.valign-top
+            .result__body__product__name=product.name
+            .result__body__product__description=product.description

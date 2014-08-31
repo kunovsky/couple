@@ -85,6 +85,7 @@ ActiveRecord::Schema.define(version: 20140829005458) do
   create_table "results", force: true do |t|
     t.integer  "questionnaire_id"
     t.string   "quadrant_type"
+    t.string   "overall"
     t.text     "content"
     t.text     "recommendation"
     t.datetime "created_at"

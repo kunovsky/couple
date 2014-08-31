@@ -1,6 +1,6 @@
 module Scoring
   class Base
-    TYPES = {bad: "Individual Bad", ok: "Individual Ok", good: "Individual Good"}
+    TYPES = {bad: "individual_bad", ok: "individual_ok", good: "individual_good"}
     
     def initialize(current_user)
       @user, @partner_1_results, @overall_percentages, @last_id = current_user, {}, [], results_questionnaire_id
