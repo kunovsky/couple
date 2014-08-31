@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   scope 'api' do
     get '/questionnaires/:id' => 'questionnaires#show'
+    post '/invite' => 'invites#create'
 
     resources :users do
       post 'completed_questionnaires' => 'completed_questionnaires#create'

@@ -8,8 +8,14 @@ CP.module "Views.User.Results", (Results, CP, Backbone, Marionette, $, _) ->
       
     invitePartner: (e) ->
       e.preventDefault()
-      CP.modalRegion.close()
-      
+      data = $(@el).formParams()
+      $.ajax
+        url: ['/api', 'invite'].join('/')
+        type: 'POST'
+        data: data
+        success: => CP.modalRegion.show new CP.Views.Globals.Modals.Success
+        error: (respObj) -> console.log respObj
+
     closeModal: (e) ->
       e.preventDefault()
       CP.modalRegion.close()

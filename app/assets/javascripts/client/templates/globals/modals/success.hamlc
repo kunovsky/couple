@@ -1,0 +1,6 @@
+.modal-header
+.modal-body
+  .action-words
+    Success!
+  %button.green.no-icon.js-done
+    Sweet

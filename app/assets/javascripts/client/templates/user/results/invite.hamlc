@@ -10,7 +10,7 @@
           %td
             %label{for: 'email'}  Invite Via Email :
           %td
-            %input{type: 'email', name: 'email'}
+            %input{type: 'email', name: 'email', required: "true"}
         %tr
           %td
             %label{for: 'text'}  Invite Via Text :
