@@ -8,10 +8,7 @@ CP.module "Views.User.Quiz", (Quiz, CP, Backbone, Marionette, $, _) ->
       'click .js-next-questionnaire-button' : 'createCompletedQuestionnaire'
 
     initialize: (@options = options = {}) ->
-      ###
-      take out all of the '../' and replace them with just a '/'
-      ###
-      @url = ['../', 'api', 'questionnaires', @options.id].join('/')
+      @url = ['/api', 'questionnaires', @options.id].join('/')
   
       @fetchCollection()
       @questions = []
@@ -32,16 +29,29 @@ CP.module "Views.User.Quiz", (Quiz, CP, Backbone, Marionette, $, _) ->
           @questions = response
           @render()
 
-    saveUrl: ->
-      ['../','users', '1', 'actual_responses'].join('/')
-
     saveActualResponse: (data) ->
       $.ajax
         type: 'POST'
         url: @saveUrl()
         data: data
-        success: (response) =>
-          @enableNextSection() if response
+        success: (response) => @enableNextSection() if response
+
+    createCompletedQuestionnaire: ->
+      $.ajax
+        type: 'POST'
+        url: @completedSurveyUrl()
+        data: {questionnaire_id: @options.id}
+        success: => @handleNextSection()
+
+    handleProcessCompletion: ->
+      $.ajax
+        type: 'POST'
+        url: @scoreResultsUrl()
+        success: (success) => @nextSection()
+
+    handleNextSection: ->
+      if (@nextQuestionnaireNumber() < (CP.Settings.lastQuestionnaireNumber + 1)) then return @nextSection() 
+      @handleProcessCompletion()
 
     enableNextSection: ->
       $(@el).find('.next-questionnaire-button').attr('disabled', false)
@@ -54,33 +64,12 @@ CP.module "Views.User.Quiz", (Quiz, CP, Backbone, Marionette, $, _) ->
     handleRequestData: (target) ->
       {response_id: target.data('rid'), question_id: target.data('qid'), questionnaire_id: @options.id}
 
-    createCompletedQuestionnaire: ->
-      $.ajax
-        type: 'POST'
-        url: @completedSurveyUrl()
-        data: {questionnaire_id: @options.id}
-        success: =>
-          @handleNextSection()
-
-    handleNextSection: ->
-      if (@nextQuestionnaireNumber() < (CP.Settings.lastQuestionnaireNumber + 1)) then return @nextSection() 
-      @handleProcessCompletion()
-
-    handleProcessCompletion: ->
-      $.ajax
-        type: 'POST'
-        url: @scoreResultsUrl()
-        success: (success) =>
-          @nextSection()
-
     nextSection: -> CP.ActiveRouters.User.navigate @nextSectionUrl(), true
 
     nextSectionUrl: ->
       return 'results' if @nextQuestionnaireNumber() > CP.Settings.lastQuestionnaireNumber
       ['questionnaire', @nextQuestionnaireNumber()].join('/')
 
-    scoreResultsUrl: ->
-      ['..', 'api', 'relationships','1', 'score'].join('/')
-
-    completedSurveyUrl: ->
-      ['..', 'users', '1', 'completed_questionnaires'].join('/')
+    saveUrl: -> ['/api','users', '1', 'actual_responses'].join('/')
+    scoreResultsUrl: ->['/api', 'relationships','1', 'score'].join('/')
+    completedSurveyUrl: ->['/api','users', '1', 'completed_questionnaires'].join('/')

@@ -8,6 +8,6 @@ CP.module "Views.Common.User", (User, CP, Backbone, Marionette, $, _) ->
       e.preventDefault()
       $.ajax
         type: 'POST'
-        url: '../sessions'
+        url: '/sessions'
         success: => 
           CP.ActiveRouters.User.navigate @url, true

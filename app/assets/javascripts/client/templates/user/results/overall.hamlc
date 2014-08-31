@@ -2,9 +2,11 @@
   .result__container--overall-results
 
     .result__header
-      .left =@name
+      .left #{@name} 
+      - if !@results.partner2Percentage
+        &nbsp (Incomplete - We need data from your partner)
       .right You Scored #{@results.partner1Percentage}% 
-        -if @results.partner2Percentage
+        - if @results.partner2Percentage
           : Your Partner Scored #{@results.partner2Percentage}%
       
     .result__body
