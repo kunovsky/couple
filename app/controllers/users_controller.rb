@@ -1,12 +1,12 @@
 class UsersController < ApplicationController
+  skip_before_action :user_same, only: [:index]
+
   def index
   end
 
   def score
-    if User.find(params[:user_id]) != current_user 
-      render json: {path: 'logout'}, status: 403
-    elsif already_taken
-      render json: {path: 'results'}, status: 403
+    if already_taken
+      render json: true, layout: nil, status: 200
     elsif current_user.relationship 
       render json: Scoring::Couple.new(current_user).handle_relationship_scoring, status: 200
     else
@@ -19,6 +19,7 @@ class UsersController < ApplicationController
   end
 
   private
+
   def result
     relationship = current_user.relationship
     RelationshipResults::Stat.new(params, relationship).handle_results_request
@@ -27,5 +28,4 @@ class UsersController < ApplicationController
   def already_taken
     current_user.taken
   end
-
 end

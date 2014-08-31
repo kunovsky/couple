@@ -15,6 +15,10 @@ CP.module "Views.User.Quiz", (Quiz, CP, Backbone, Marionette, $, _) ->
 
     templateHelpers: -> {questions: @questions}
 
+    saveUrl: -> ['/api','users', CP.CurrentUser.get('id'), 'actual_responses'].join('/')
+    scoreResultsUrl: ->['/api', 'users', CP.CurrentUser.get('id'), 'score'].join('/')
+    completedSurveyUrl: ->['/api','users', CP.CurrentUser.get('id'), 'completed_questionnaires'].join('/')
+
     setActualResponse: (e) ->
       e.preventDefault()
       @handleButtonState($(e.target))
@@ -34,7 +38,7 @@ CP.module "Views.User.Quiz", (Quiz, CP, Backbone, Marionette, $, _) ->
         type: 'POST'
         url: @saveUrl()
         data: data
-        success: => @enableNextSection()
+        success: (respObj) => @enableNextSection() if respObj.completed
 
     createCompletedQuestionnaire: ->
       $.ajax
@@ -48,7 +52,6 @@ CP.module "Views.User.Quiz", (Quiz, CP, Backbone, Marionette, $, _) ->
         type: 'POST'
         url: @scoreResultsUrl()
         success: => @nextSection()
-        error: (respObj) -> window.location.href = respObj.path
 
     handleNextSection: ->
       if (@nextQuestionnaireNumber() < (CP.Settings.lastQuestionnaireNumber + 1)) then return @nextSection() 
@@ -70,7 +73,3 @@ CP.module "Views.User.Quiz", (Quiz, CP, Backbone, Marionette, $, _) ->
     nextSectionUrl: ->
       return 'results' if @nextQuestionnaireNumber() > CP.Settings.lastQuestionnaireNumber
       ['questionnaire', @nextQuestionnaireNumber()].join('/')
-
-    saveUrl: -> ['/api','users', CP.CurrentUser.get('id'), 'actual_responses'].join('/')
-    scoreResultsUrl: ->['/api', 'users', CP.CurrentUser.get('id'), 'score'].join('/')
-    completedSurveyUrl: ->['/api','users', CP.CurrentUser.get('id'), 'completed_questionnaires'].join('/')

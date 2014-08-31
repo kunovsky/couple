@@ -1,0 +1,21 @@
+.modal-header
+  %h3 Invite Partner
+.modal-body
+  %form#access-form
+    .js-error-msg-container.form-messages-container
+      .js-error-messages
+    %fieldset
+      %table.two-up
+        %tr
+          %td
+            %label Reason For Access:
+          %td
+            %textarea{name: 'reason', placeholder: 'Enter a reason...'}
+        %tr
+          %td
+            %label{for: 'password'} Enter Your Password:
+          %td
+            %input{type: 'password', name: 'password'}
+
+    %button.orange.no-icon.ladda-button.js-confirm{type: 'submit', value: 'Save Product'} Access Organization
+    %button.light-gray.no-icon.ladda-button.js-cancel Cancel

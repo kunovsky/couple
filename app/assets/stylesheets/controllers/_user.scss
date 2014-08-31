@@ -81,6 +81,7 @@
 .result__body {
   padding: 15px 10px 0px;
   font-size: 14px;
+  color: #000;
   .result__body__content {
     margin-bottom: 10px; 
   }
@@ -93,6 +94,12 @@
     }
     .result__body__product__description {
       margin-top: 10px;
+    }
+  }
+  .result__body__invite {
+    padding-top: 100px;
+    .result__body__invite__message {
+      padding-bottom: 15px;
     }
   }
 }

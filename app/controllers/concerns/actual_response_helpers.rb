@@ -19,7 +19,6 @@ module ActualResponseHelpers
 
     def questionnaire_completed?
       return true if Questionnaire.find(@questionnaire_id).questions.count == actual_responses_count
-      false
     end
 
     def actual_responses_count
