@@ -34,7 +34,7 @@ CP.module "Views.User.Quiz", (Quiz, CP, Backbone, Marionette, $, _) ->
         type: 'POST'
         url: @saveUrl()
         data: data
-        success: (response) => @enableNextSection() if response
+        success: => @enableNextSection()
 
     createCompletedQuestionnaire: ->
       $.ajax
@@ -47,7 +47,8 @@ CP.module "Views.User.Quiz", (Quiz, CP, Backbone, Marionette, $, _) ->
       $.ajax
         type: 'POST'
         url: @scoreResultsUrl()
-        success: (success) => @nextSection()
+        success: => @nextSection()
+        error: (respObj) -> window.location.href = respObj.path
 
     handleNextSection: ->
       if (@nextQuestionnaireNumber() < (CP.Settings.lastQuestionnaireNumber + 1)) then return @nextSection() 
@@ -71,5 +72,5 @@ CP.module "Views.User.Quiz", (Quiz, CP, Backbone, Marionette, $, _) ->
       ['questionnaire', @nextQuestionnaireNumber()].join('/')
 
     saveUrl: -> ['/api','users', CP.CurrentUser.get('id'), 'actual_responses'].join('/')
-    scoreResultsUrl: ->['/api', 'relationships','1', 'score'].join('/')
+    scoreResultsUrl: ->['/api', 'users', CP.CurrentUser.get('id'), 'score'].join('/')
     completedSurveyUrl: ->['/api','users', CP.CurrentUser.get('id'), 'completed_questionnaires'].join('/')

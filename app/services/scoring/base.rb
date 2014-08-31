@@ -68,6 +68,7 @@ module Scoring
     end
 
     def update_relationship_feedback(results)
+      @user.update_attributes(taken: true)
       @user.relationship.feedback.update_attributes(analyses: results)
     end
   end

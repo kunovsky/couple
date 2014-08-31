@@ -1,7 +1,7 @@
 module RelationshipResults
   class Stat
-    def initialize(params)
-      @analysis = analysis(params)
+    def initialize(params, relationship)
+      @analysis = analysis(params, relationship)
     end
 
     def handle_results_request
@@ -11,8 +11,8 @@ module RelationshipResults
 
     private
 
-    def analysis(params)
-      Relationship.find(params[:relationship_id]).feedback.analyses[params[:id]]
+    def analysis(params, relationship)
+      relationship.feedback.analyses[params[:id]]
     end
 
     def result_content

@@ -2,5 +2,5 @@ CP.module "Views.User.Results.Individual", (Individual, CP, Backbone, Marionette
 
   class @General extends CP.Views.Common.User.ResultsBase
     name: "General Relationship Happiness"
-    url: -> ['/api', 'relationships', '1', 'results', '1'].join('/')
+    url: -> ['/api', 'users', CP.CurrentUser.get('id'), 'results', '1'].join('/')
 

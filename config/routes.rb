@@ -6,12 +6,10 @@ Rails.application.routes.draw do
     resources :users do
       post 'completed_questionnaires' => 'completed_questionnaires#create'
       post 'actual_responses' => 'actual_responses#create'
+      post '/score' => 'users#score'
+      get '/results/:id' => 'users#results'
     end
 
-    resources :relationships do
-    post '/score' => 'relationships#score'
-    get '/results/:id' => 'relationships#results'
-    end
   end
 
   resources :sessions

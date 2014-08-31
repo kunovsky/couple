@@ -101,6 +101,7 @@ ActiveRecord::Schema.define(version: 20140829005458) do
 
   create_table "users", force: true do |t|
     t.integer  "relationship_id"
+    t.boolean  "taken",           default: false, null: false
     t.string   "email"
     t.string   "first_name"
     t.string   "auth_token"
