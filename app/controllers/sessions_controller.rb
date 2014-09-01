@@ -13,7 +13,6 @@ class SessionsController < ApplicationController
 
   def handle_user_creation
     user = User.create!
-    ActualResponse.create! user_id: user.id
     user.auth_token
   end
 

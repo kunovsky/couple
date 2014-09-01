@@ -19,9 +19,9 @@
             .result__body__product__description=product.description
       - if !@results.partner2Percentage
         .result__body__invite
-          .result__body__invite__message We need your partner to give you an accurate score
+          .result__body__invite__message We need your partner in order to give you an accurate score
             %button.blue.no-icon.js-invite-partner Invite Your Partner
-          .results__body__invite__message Or you can just pretend to be your partner and take it for them
+          .results__body__invite__message Or you can just take the test for your partner and answer like they would
             %button.blue.no-icon.js-take-as-partner Pretend to be your partner
 
 

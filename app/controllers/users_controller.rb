@@ -5,9 +5,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    #TODO: refactor to have actual responses created by default when a user is created
     user = User.create!(relationship_id: current_user.relationship_id)
-    ActualResponse.create!(user_id: user.id)
     session[:auth_token] = user.auth_token
     render json: {path: 'questionnaire/1'}, status: 200
   end
