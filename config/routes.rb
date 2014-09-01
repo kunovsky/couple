@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       post 'actual_responses' => 'actual_responses#create'
       post '/score' => 'users#score'
       get '/results/:id' => 'users#results'
+      post '/invite' => 'users#invite'
     end
 
   end

@@ -7,11 +7,24 @@ class ApplicationController < ActionController::Base
   private
 
   def current_user
-    @current_user ||= User.find_by_auth_token!(session[:auth_token]) if session[:auth_token]
+    return nil unless session[:auth_token].present?
+
+    @current_user ||= -> {
+      user = User.find_by_auth_token!(session[:auth_token])
+      return nil unless user.present?
+      user
+    }.call
+
+    return @current_user if @current_user.present?
+
+    reset_session
+    return nil
   end
 
   def user_same
-    redirect_to logout_path if (User.find(params[:user_id]) != current_user)
+    return if !User.exists?(id: params[:user_id])
+    return if User.find(params[:user_id]) != current_user
+    true
   end
 
   helper_method :current_user, :user_same

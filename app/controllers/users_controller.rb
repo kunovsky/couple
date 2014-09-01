@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  skip_before_action :user_same, only: [:index]
 
   def index
   end
@@ -8,6 +7,10 @@ class UsersController < ApplicationController
     user = User.create!(relationship_id: current_user.relationship_id)
     session[:auth_token] = user.auth_token
     render json: {path: 'questionnaire/1'}, status: 200
+  end
+
+  def invite
+    
   end
 
   def score

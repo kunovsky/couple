@@ -5,9 +5,15 @@ class User < ActiveRecord::Base
   belongs_to :relationship
   after_create :create_actual_response_for_user
 
+  def text_user_invite_code
+    
+  end
+
   private
 
   def create_actual_response_for_user
     ActualResponse.create!(user_id: self.id)
   end
+
+
 end

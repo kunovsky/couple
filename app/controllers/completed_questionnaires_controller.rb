@@ -1,7 +1,11 @@
 class CompletedQuestionnairesController < ApplicationController
   include CompletedQuestionnaireHelpers
-  before_action :user_same
+
   def create
-    render json: Handler.new(params).handle_questionnaire, status: 200
+    if !user_same
+      render json: {path: '/logout'}, status: 403
+    else
+      render json: Handler.new(params).handle_questionnaire, status: 200
+    end
   end
 end

@@ -33,3 +33,6 @@ gem "compass-rails"
 gem 'uglifier'
 gem 'haml'
 gem 'active_model_serializers'
+
+#outside services
+gem 'twilio-ruby'

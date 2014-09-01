@@ -39,6 +39,7 @@ CP.module "Views.User.Quiz", (Quiz, CP, Backbone, Marionette, $, _) ->
         url: @saveUrl()
         data: data
         success: (respObj) => @enableNextSection() if respObj.completed
+        error: (respObj) => @logout(respObj.path)
 
     createCompletedQuestionnaire: ->
       $.ajax
@@ -46,6 +47,7 @@ CP.module "Views.User.Quiz", (Quiz, CP, Backbone, Marionette, $, _) ->
         url: @completedSurveyUrl()
         data: {questionnaire_id: @options.id}
         success: => @handleNextSection()
+        error: (respObj) => @logout(respObj.path)
 
     handleProcessCompletion: ->
       $.ajax
@@ -73,3 +75,7 @@ CP.module "Views.User.Quiz", (Quiz, CP, Backbone, Marionette, $, _) ->
     nextSectionUrl: ->
       return 'results' if @nextQuestionnaireNumber() > CP.Settings.lastQuestionnaireNumber
       ['questionnaire', @nextQuestionnaireNumber()].join('/')
+
+    logout: (path) ->
+      CP.ActiveRouters.User.navigate path
+      window.location.href = ''

@@ -39,8 +39,9 @@ ActiveRecord::Schema.define(version: 20140831185947) do
   end
 
   create_table "invites", force: true do |t|
-    t.string  "invite_token"
-    t.integer "user_id"
+    t.integer  "user_id"
+    t.string   "invite_token"
+    t.datetime "invite_sent_at"
   end
 
   create_table "possible_responses", force: true do |t|

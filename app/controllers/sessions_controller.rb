@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  
   def create
     session[:auth_token] = handle_user_creation
     render json: {path: return_path}, status: 200
