@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   include UserHelpers
   has_many :completed_questionnaires
   has_one :actual_response
+  has_one :invite
   belongs_to :relationship
   after_create :create_actual_response_for_user
 

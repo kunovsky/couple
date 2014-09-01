@@ -44,7 +44,8 @@ class UsersController < ApplicationController
     RelationshipResults::Stat.new(params, relationship).handle_results_request
   end
 
-  def valid_params?
+  def valid_params?(params)
+    #TODO: make this method actually do something
     params[:email].present? || params[:text].present?
   end
 end

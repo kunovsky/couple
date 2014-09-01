@@ -14,7 +14,8 @@ Rails.application.routes.draw do
   end
 
   resources :sessions
-
+  
+  get '/invite/:invite_token' => 'sessions#invite'
   get '/questionnaire' => 'users#index'
   get '/questionnaire/*url' => 'users#index'
   get '/results' => 'users#index'

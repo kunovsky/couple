@@ -10,6 +10,12 @@ class SessionsController < ApplicationController
     redirect_to '/'
   end
 
+  def invite
+    return redirect_to '' unless invite = Invite.find_by(invite_token: params[:invite_token])
+    session[:auth_token] = invite.user.auth_token
+    redirect_to '/questionnaire/1'
+  end
+
   private
 
   def handle_user_creation
