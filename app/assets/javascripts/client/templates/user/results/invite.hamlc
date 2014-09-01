@@ -1,22 +1,36 @@
 .modal-header
   %h3 Invite Partner
 .modal-body
-  %form#access-form
-    .js-error-msg-container.form-messages-container
-      .js-error-messages
-    %fieldset
-      %table.two-up
-        %tr
-          %td
-            %label{for: 'email'}  Invite Via Email :
-          %td
-            %input{type: 'email', name: 'email', required: "true"}
-        %tr
-          %td
-            %label{for: 'text'}  Invite Via Text :
-          %td
-            %input{type: 'text', name: 'text'} 
-            / enter a personalized message so you your partner doesnt think this is spam
+  .form--invite.valign-top
+    %form
+      .js-error-msg-container.form-messages-container
+        .js-error-messages
+      %fieldset
+        %table
+          %tr
+            %td
+              %label{for: 'email'}  Invite Via Email :
+            %td
+              %input{type: 'email', name: 'email', required: "true"}
 
-    %button.orange.no-icon.ladda-button.js-invite{type: 'submit', value: 'Send Invite'} Send Invite
-    %button.light-gray.no-icon.ladda-button.js-cancel Cancel
+      .form--invite__buttons.right
+        %button.orange.no-icon.ladda-button.js-invite{type: 'submit', value: 'Send Invite'} Email Partner Invite
+        %button.light-gray.no-icon.ladda-button.js-cancel Cancel
+
+  .form--invite.valign-top
+    %form
+      .js-error-msg-container.form-messages-container
+        .js-error-messages
+      %fieldset
+        %table
+          %tr
+            %td
+              %label{for: 'text'}  Invite Via Text :
+            %td
+              %input{type: 'text', name: 'text'}
+           
+      .form--invite__buttons.right
+        %button.orange.no-icon.ladda-button.js-invite{type: 'submit', value: 'Send Invite'} Text Partner Invite
+        %button.light-gray.no-icon.ladda-button.js-cancel Cancel
+
+/You'll probably want to give them a heads up, so they dont think this is a spam text...

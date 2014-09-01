@@ -10,11 +10,21 @@ class UsersController < ApplicationController
   end
 
   def invite
-    
+    if valid_params?(params)
+      user = User.create!(relationship_id: current_user.relationship_id)
+      invite = Invite.create(user_id: user.id)
+      if params[:text]
+        render json: user.invite_via_text({number: params[:text], code: invite.invite_token}), status: 200
+      else 
+        render json: user.invite_via_email(params[:email], invite.invite_token), status: 200
+      end
+    else
+      render json: {errors: "Not a valid number or email"}, status: 422
+    end
   end
 
   def score
-    if already_taken
+    if current_user.already_taken
       render json: true, layout: nil, status: 200
     elsif current_user.relationship 
       render json: Scoring::Couple.new(current_user).handle_relationship_scoring, status: 200
@@ -34,7 +44,7 @@ class UsersController < ApplicationController
     RelationshipResults::Stat.new(params, relationship).handle_results_request
   end
 
-  def already_taken
-    current_user.taken
+  def valid_params?
+    params[:email].present? || params[:text].present?
   end
 end
