@@ -5,7 +5,7 @@ module Invites
       remote_client.account.messages.create({
         :from => @twilio_number, 
         :to => @partner_number,
-        :body => "Take this to see how your relationship is doing 192.168.1.128:3000/invite/#{@code}",
+        :body => "Take this test to see how your relationship is doing #{@url}",
       #   # :StatusCallback => "url for success"
       })
       true

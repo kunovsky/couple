@@ -14,7 +14,7 @@ class UsersController < ApplicationController
       user = User.create!(relationship_id: current_user.relationship_id)
       invite = Invite.create(user_id: user.id)
       if params[:text]
-        render json: user.invite_via_text({number: params[:text], code: invite.invite_token}), status: 200
+        render json: user.invite_via_text({number: params[:text], invite_token: invite.invite_token}), status: 200
       else 
         render json: user.invite_via_email(params[:email], invite.invite_token), status: 200
       end
