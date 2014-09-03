@@ -38,7 +38,6 @@ class UsersController < ApplicationController
   private
 
   def result
-    relationship = current_user.relationship
-    RelationshipResults::Stat.new(params, relationship).handle_results_request
+    RelationshipResults::Stat.new(params[:id], current_user.id).handle_results_request
   end
 end

@@ -33,7 +33,6 @@ module Scoring
     def score_partners_against_each_other
       @partner_1_results.each do |partner_1_score|
         scores = both_partners_scores(partner_1_score)
-        percentages = both_partners_percentages(partner_1_score)
         if check_for_bad_score(scores)
           @both_partner_results[scores[:id]] = check_for_bad_score(scores) 
         elsif check_for_ok_score(scores)
@@ -41,6 +40,7 @@ module Scoring
         else
           @both_partner_results[scores[:id]]  = check_for_good_score(scores) 
         end
+        percentages = both_partners_percentages(partner_1_score)
         set_couple_questionnaire_percentages(scores[:id], percentages)
       end
     end
@@ -83,21 +83,21 @@ module Scoring
 
     def both_partners_scores(score)
       id = questionnaire_number(score)
-      partner_1_score = lookup_response(score[1])
-      partner_2_score = lookup_response(@partner_2_results[id])
+      partner_1_score = lookup_result(score[1])
+      partner_2_score = lookup_result(@partner_2_results[id])
       {id: id, partner_1_score: partner_1_score, partner_2_score: partner_2_score}
     end
 
-    def lookup_response(score)
+    def lookup_result(score)
       score = score[:result_id] || score["result_id"]
       Result.find(score).quadrant_type
     end
 
     def both_partners_percentages(score)
       id = questionnaire_number(score)
-      partner_1_score = lookup_percentage(score[1])
-      partner_2_percentage = lookup_percentage(@partner_2_results[id])
-      {partner_1_percentage: partner_1_score, partner_2_percentage: partner_2_percentage}
+      current_user_percentage = lookup_percentage(score[1])
+      partner_percentage = lookup_percentage(@partner_2_results[id])
+      {"#{@user.id}" => current_user_percentage, "#{partner_id}" => partner_percentage}
     end
 
     def lookup_percentage(score)
@@ -115,6 +115,11 @@ module Scoring
     def set_couple_questionnaire_percentages(id, percentages)
       @both_partner_results[id][:percentages] = percentages
     end
+
+    def partner_id
+      #TODO: Make this nice
+      @user.relationship.users.pluck(:id).reject! {|user| user == @user.id}.first
+    end
+
   end
 end
-#@user.relationship.users.where(User[:id].not_eq(@user.id)).id

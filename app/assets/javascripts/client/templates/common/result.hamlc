@@ -3,9 +3,9 @@
 
     .result__header
       .left =@name
-      .right You Scored #{@results.partner1Percentage}% 
-        -if @results.partner2Percentage
-          : Your Partner Scored #{@results.partner2Percentage}%
+      .right You Scored #{@results.currentUserPercentage}% 
+        -if @results.partnerPercentage
+          : Your Partner Scored #{@results.partnerPercentage}%
       
     .result__body
       .result__body__content Result: #{@results.content}

@@ -1,7 +1,8 @@
 module RelationshipResults
   class Stat
-    def initialize(params, relationship)
-      @analysis = analysis(params, relationship)
+    def initialize(result_id, user_id)
+      @user = User.find(user_id)
+      @analysis = analysis(result_id)
     end
 
     def handle_results_request
@@ -11,8 +12,8 @@ module RelationshipResults
 
     private
 
-    def analysis(params, relationship)
-      relationship.feedback.analyses[params[:id]]
+    def analysis(result_id)
+      @user.relationship.feedback.analyses[result_id]
     end
 
     def result_content
@@ -28,8 +29,8 @@ module RelationshipResults
     end
 
     def percentage_data
-      return @analysis["percentages"] if @analysis["percentages"]
-      {partner_1_percentage: @analysis["percentage"]}
+      return format_percentages(@analysis["percentages"])if @analysis.fetch("percentages", nil)
+      {current_user_percentage: @analysis["percentage"]}
     end
 
     def products_data
@@ -39,6 +40,15 @@ module RelationshipResults
 
     def result
       @result ||= Result.find(@analysis["result_id"])
+    end
+
+    def format_percentages(percentages)
+      {current_user_percentage: percentages[@user.id.to_s], partner_percentage: percentages[partner_id]}
+    end
+
+    def partner_id
+      #TODO: Make this nice
+      @user.relationship.users.pluck(:id).reject! {|user| user == @user.id}.first.to_s
     end
   end
 end

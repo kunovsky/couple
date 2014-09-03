@@ -24,22 +24,22 @@ CP.module "Views.Common.User", (User, CP, Backbone, Marionette, $, _) ->
           @render()
 
     formatResponse: (response) ->
-      partner1 = @partner1(response)
-      partner2 = @partner2(response)
+      currentUserPercentage = @currentUserPercentage(response)
+      partnerPercentage = @partnerPercentage(response)
       products = @formatProductData(response)
 
-      {content: response.content, 
-      recommendation: response.recommendation, 
-      partner1Percentage: partner1, 
-      partner2Percentage: partner2, 
-      products_data: products, 
+      {content: response.content,
+      recommendation: response.recommendation,
+      currentUserPercentage: currentUserPercentage,
+      partnerPercentage: partnerPercentage,
+      products_data: products,
       status: response.status}
 
-    partner1: (response) ->
-      response.percentage_data.partner_1_percentage
+    currentUserPercentage: (response) ->
+      response.percentage_data.current_user_percentage
 
-    partner2: (response) ->
-      response.percentage_data.partner_2_percentage
+    partnerPercentage: (response) ->
+      response.percentage_data.partner_percentage
 
     formatProductData: (response) ->
       response.products_data
