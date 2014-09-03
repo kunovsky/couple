@@ -39,8 +39,7 @@ module Scoring
     end
 
     def adjusted_percentage(percentage, weight)
-      adjusted = ((percentage.to_f)/100)*weight
-      @overall_percentages.push(adjusted)
+      @overall_percentages << ((percentage.to_f)/100)*weight
     end
 
     def overall_percentage

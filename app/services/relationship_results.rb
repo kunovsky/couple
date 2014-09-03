@@ -16,15 +16,15 @@ module RelationshipResults
     end
 
     def result_content
-      Result.find(@analysis["result_id"]).content
+      result.content
     end
 
     def result_recommendation
-      Result.find(@analysis["result_id"]).recommendation
+      result.recommendation
     end
 
     def status
-      Result.find(@analysis["result_id"]).overall
+      result.overall
     end
 
     def percentage_data
@@ -35,6 +35,10 @@ module RelationshipResults
     def products_data
       Product.select(Product[:id], Product[:name], Product[:description], Product[:data]
         ).where(Result[:id].eq(@analysis["result_id"])).joins(treatments: :result)
+    end
+
+    def result
+      @result ||= Result.find(@analysis["result_id"])
     end
   end
 end

@@ -117,3 +117,4 @@ module Scoring
     end
   end
 end
+#@user.relationship.users.where(User[:id].not_eq(@user.id)).id
