@@ -10,13 +10,21 @@ class User < ActiveRecord::Base
     Invites::Text.new(args).send_message
   end
 
-  def invite_via_email
-
-    return true
+  def invite_via_email(args)
+    UserMailer.invite_partner(args)
   end
 
   def already_taken
     self.taken
+  end
+
+  #TODO: Implement these
+  def valid_number?(number)
+    number
+  end
+
+  def valid_email?(email)
+    email
   end
 
   private

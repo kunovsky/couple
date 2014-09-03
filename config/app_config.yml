@@ -6,6 +6,7 @@ development:
   <<: *universals
   twilio_account_sid: 'ACc803a2858e6d34343a7985e3bf1a1644'
   twilio_auth_token: '6145e3a35e8c40eee9903222042de609'
+  twilio_number: '+18142976121'
 
 test:
   <<: *universals

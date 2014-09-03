@@ -20,6 +20,7 @@ group :development, :test, :staging do
   gem "capybara"
   gem "bullet"
   gem 'rake'
+  gem 'letter_opener'
 end
 
 #assets
@@ -36,3 +37,5 @@ gem 'active_model_serializers'
 
 #outside services
 gem 'twilio-ruby'
+gem 'sidekiq'
+gem 'sidekiq_mailer'

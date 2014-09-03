@@ -20,8 +20,9 @@
       - if !@results.partner2Percentage
         .result__body__invite
           .result__body__invite__message We need your partner in order to give you an accurate score
-            %button.blue.no-icon.js-invite-partner Invite Your Partner
+            %button.blue.no-icon.js-invite-partner{data: {type: "text"}} Invite Your Partner Via Text
+            %button.blue.no-icon.js-invite-partner{data: {type: "email"}} Invite Your Partner Via Email
           .results__body__invite__message Or you can just take the test for your partner and answer like they would
-            %button.blue.no-icon.js-take-as-partner Pretend to be your partner
+            %button.blue.no-icon.js-take-as-partner Take the test for your partner
 
 

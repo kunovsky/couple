@@ -10,14 +10,12 @@ class UsersController < ApplicationController
   end
 
   def invite
-    if valid_params?(params)
-      user = User.create!(relationship_id: current_user.relationship_id)
-      invite = Invite.create(user_id: user.id)
-      if params[:text]
-        render json: user.invite_via_text({number: params[:text], invite_token: invite.invite_token}), status: 200
-      else 
-        render json: user.invite_via_email(params[:email], invite.invite_token), status: 200
-      end
+    user = User.create!(relationship_id: current_user.relationship_id)
+    invite = Invite.create(user_id: user.id)
+    if user.valid_number?(params[:text])
+      render json: user.invite_via_text({number: params[:text], invite_token: invite.invite_token}), status: 200
+    elsif user.valid_email?(params[:email])
+        render json: user.invite_via_email({email: params[:email], invite_token: invite.invite_token}), status: 200
     else
       render json: {errors: "Not a valid number or email"}, status: 422
     end
@@ -42,10 +40,5 @@ class UsersController < ApplicationController
   def result
     relationship = current_user.relationship
     RelationshipResults::Stat.new(params, relationship).handle_results_request
-  end
-
-  def valid_params?(params)
-    #TODO: make this method actually do something
-    params[:email].present? || params[:text].present?
   end
 end

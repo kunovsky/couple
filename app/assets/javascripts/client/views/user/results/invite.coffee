@@ -5,6 +5,12 @@ CP.module "Views.User.Results", (Results, CP, Backbone, Marionette, $, _) ->
     events: 
       "click .js-invite" : "invitePartner"
       "click .js-cancel" : "closeModal"
+
+    initialize: (@options = options = {}) ->
+      @type = options.type
+
+    templateHelpers: ->
+      {@type}
       
     invitePartner: (e) ->
       e.preventDefault()

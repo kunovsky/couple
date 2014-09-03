@@ -9,8 +9,9 @@ CP.module "Views.User.Results", (Results, CP, Backbone, Marionette, $, _) ->
 
     url: -> ['/api', 'users', CP.CurrentUser.get('id'), 'results', CP.Settings.lastQuestionnaireNumber+1 ].join('/')
 
-    handlePartnerInvite: ->
-      CP.modalRegion.show new Results.Invite
+    handlePartnerInvite: (e) ->
+      e.preventDefault()
+      CP.modalRegion.show new Results.Invite $(e.target).data()
 
     takeAsPartner: ->
       $.ajax
