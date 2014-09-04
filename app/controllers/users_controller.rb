@@ -32,6 +32,7 @@ class UsersController < ApplicationController
   end
 
   def results
+    redirect_to '/' unless current_user
     render json: result, status: 200
   end
 

@@ -47,8 +47,7 @@ module RelationshipResults
     end
 
     def partner_id
-      #TODO: Make this nice
-      @user.relationship.users.pluck(:id).reject! {|user| user == @user.id}.first.to_s
+      @user.relationship.users.where(User[:id].not_eq(@user.id)).first.id
     end
   end
 end

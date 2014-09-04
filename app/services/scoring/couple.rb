@@ -1,6 +1,5 @@
 module Scoring
   class Couple < Base
-    #TODO: Add couple types and types to a types module and include them
     COUPLE_TYPES = {  good_good: "couple_good_good",
                       good_bad: "couple_good_bad",
                       good_ok: "couple_good_ok",
