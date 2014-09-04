@@ -33,12 +33,12 @@ module Scoring
     def score_partners_against_each_other
       @partner_1_results.each do |partner_1_score|
         scores = both_partners_scores(partner_1_score)
-        if check_for_bad_score(scores)
-          @both_partner_results[scores[:id]] = check_for_bad_score(scores) 
-        elsif check_for_ok_score(scores)
-          @both_partner_results[scores[:id]]  = check_for_ok_score(scores)
+        if bad = check_for_bad_score(scores)
+          @both_partner_results[scores[:id]] = bad
+        elsif ok = check_for_ok_score(scores)
+          @both_partner_results[scores[:id]] = ok
         else
-          @both_partner_results[scores[:id]]  = check_for_good_score(scores) 
+          @both_partner_results[scores[:id]] = check_for_good_score(scores) 
         end
         percentages = both_partners_percentages(partner_1_score)
         set_couple_questionnaire_percentages(scores[:id], percentages)
@@ -47,11 +47,11 @@ module Scoring
 
     def check_for_bad_score(scores)
       if scores[:partner_1_score] == TYPES[:bad] && scores[:partner_2_score] == TYPES[:bad]
-        return couple_result(scores[:id], :bad_bad)
+        return {results: {@user.id => couple_result(scores[:id], :bad_bad), partner_id => couple_result(scores[:id], :bad_bad)}}
       elsif scores[:partner_1_score] == TYPES[:bad] && scores[:partner_2_score] == TYPES[:good]
-        return couple_result(scores[:id], :bad_good)
+        return {results: {@user.id => couple_result(scores[:id], :bad_good), partner_id => couple_result(scores[:id], :good_bad)}}
       elsif scores[:partner_1_score] == TYPES[:bad] && scores[:partner_2_score] == TYPES[:ok]
-        return couple_result(scores[:id], :bad_ok)
+        return {results: {@user.id => couple_result(scores[:id], :bad_ok), partner_id => couple_result(scores[:id], :ok_bad)}}
       else
         return nil
       end
@@ -59,11 +59,11 @@ module Scoring
 
     def check_for_ok_score(scores)
       if scores[:partner_1_score] == TYPES[:ok] && scores[:partner_2_score] == TYPES[:good]
-        return couple_result(scores[:id], :ok_good)
+        return {results: {@user.id => couple_result(scores[:id], :ok_good), partner_id => couple_result(scores[:id], :good_ok)}}
       elsif scores[:partner_1_score] == TYPES[:ok] && scores[:partner_2_score] == TYPES[:bad]
-        return couple_result(scores[:id], :ok_bad)
+        return {results: {@user.id => couple_result(scores[:id], :ok_bad), partner_id => couple_result(scores[:id], :bad_ok)}}
       elsif scores[:partner_1_score] == TYPES[:ok] && scores[:partner_2_score] == TYPES[:ok]
-        return couple_result(scores[:id], :ok_ok)
+        return {results: {@user.id => couple_result(scores[:id], :ok_ok), partner_id => couple_result(scores[:id], :ok_ok)}}
       else
         return nil
       end
@@ -71,11 +71,11 @@ module Scoring
 
     def check_for_good_score(scores)
       if scores[:partner_1_score] == TYPES[:good] && scores[:partner_2_score] == TYPES[:good]
-        return couple_result(scores[:id], :good_good)
+        return {results: {@user.id => couple_result(scores[:id], :good_good), partner_id => couple_result(scores[:id], :good_good)}}
       elsif scores[:partner_1_score] == TYPES[:good] && scores[:partner_2_score] == TYPES[:bad]
-        return couple_result(scores[:id], :good_bad)
+        return {results: {@user.id => couple_result(scores[:id], :good_bad), partner_id => couple_result(scores[:id], :bad_good)}}
       elsif scores[:partner_1_score] == TYPES[:good] && scores[:partner_2_score] == TYPES[:ok]
-        return couple_result(scores[:id], :good_ok)
+        {results: {@user.id => couple_result(scores[:id], :good_ok), partner_id => couple_result(scores[:id], :ok_good)}}
       else
         return nil
       end
@@ -109,17 +109,17 @@ module Scoring
     end
 
     def couple_result(id, type)
-      {result_id: individual_result_id(id, COUPLE_TYPES[type])}
+      individual_result_id(id, COUPLE_TYPES[type])
     end
 
     def set_couple_questionnaire_percentages(id, percentages)
+      p @both_partner_results
+      @both_partner_results[id]
       @both_partner_results[id][:percentages] = percentages
     end
 
     def partner_id
-      #TODO: Make this nice
-      @user.relationship.users.pluck(:id).reject! {|user| user == @user.id}.first
+      @partner_id ||= @user.relationship.users.where(User[:id].not_eq(@user.id)).first.id
     end
-
   end
 end

@@ -51,38 +51,38 @@ general_happiness_products = []
 general_happiness_products << Product.create!(name: "Gottman General Happiness Product", description: "This product is designed to help your General Happiness")
 general_happiness_products << Product.create!(name: "Gottman General Happiness Therapy Help", description: "Personalized therapy to help you with this problem")
 
-general_happiness.results.create!(quadrant_type: "individual_good", overall: "g", content: "This Individual Scored Good - no problems", recommendation: "No recommendation you scored good in this area")
+general_happiness.results.create!(quadrant_type: "individual_good", overall: "g", content: "You scored good - you have no problems in this area", recommendation: "No recommendation you scored good in this area")
 
-ok = general_happiness.results.create!(quadrant_type: "individual_ok", overall: "o", content: "This Individual Scored Ok - has some problems", recommendation: "Since you scored ok we recommend you use the following tool to help")
+ok = general_happiness.results.create!(quadrant_type: "individual_ok", overall: "o", content: "You scored ok - you have some problems", recommendation: "Since you scored ok we recommend you use the following tool to help")
 ok.products << general_happiness_products[0]
 
-bad = general_happiness.results.create!(quadrant_type: "individual_bad", overall: "b", content: "This Individual Scored Bad -has problems", recommendation: "This area of your relationship needs work, we recommend the following tools")
+bad = general_happiness.results.create!(quadrant_type: "individual_bad", overall: "b", content: "You scored bad - you have problems", recommendation: "This area of your relationship needs work, we recommend the following tools")
 general_happiness_products.each {|product| bad.products << product}
 
-general_happiness.results.create!(quadrant_type: "couple_good_good", overall: "g", content: "Both Partners Scored Good - no problems", recommendation: "You both scored good in this area there are no recommendations")
+general_happiness.results.create!(quadrant_type: "couple_good_good", overall: "g", content: "You both scored good - this relationship no problems", recommendation: "You both scored good in this area there are no recommendations")
 
-bad = general_happiness.results.create!(quadrant_type: "couple_good_bad", overall: "b", content: "Partner 1 Scored Good Partner 2 Scored Bad - partner 2 has problems", recommendation: "You scored good but your partner needs help in this area, we recommend the following two things.")
+bad = general_happiness.results.create!(quadrant_type: "couple_good_bad", overall: "b", content: "You scored good your partner scored bad - your partner needs your help badly!", recommendation: "You scored good but your partner needs help in this area, we recommend the following two things.")
 general_happiness_products.each {|product| bad.products << product}
 
-ok = general_happiness.results.create!(quadrant_type: "couple_good_ok", overall: "o", content: "Partner 1 Scored Good Partner 2 Scored Ok - partner 2 has some issues that they need partner 1s help with", recommendation: "You scored good but your partner scored ok so we recommend the following exercise to help them.")
+ok = general_happiness.results.create!(quadrant_type: "couple_good_ok", overall: "o", content: "You scored good your partner scored ok - your partner has some issues that they need your help with", recommendation: "You scored good but your partner scored ok so we recommend the following exercise to help them.")
 ok.products << general_happiness_products[0]
 
-bad = general_happiness.results.create!(quadrant_type: "couple_bad_good", overall: "b", content: "Partner 1 Scored Bad Partner 2 Scored Good - partner 1 has problems", recommendation: "This area of your relationship needs work, we recommend the following two things")
+bad = general_happiness.results.create!(quadrant_type: "couple_bad_good", overall: "b", content: "You scored bad your partner scored good - you have some things you need to work on and you need your partner's help", recommendation: "This area of your relationship needs work, we recommend the following two things")
 general_happiness_products.each {|product| bad.products << product}
 
-bad = general_happiness.results.create!(quadrant_type: "couple_bad_bad", overall: "b", content: "Both Partners Scored Bad -both have problems", recommendation: "Both you and your partner need to work on this area, we recommend you do the followign two things")
+bad = general_happiness.results.create!(quadrant_type: "couple_bad_bad", overall: "b", content: "You both scored bad - you both have problems and need to work on this area", recommendation: "Both you and your partner need to work on this area, we recommend you do the followign two things")
 general_happiness_products.each {|product| bad.products << product}
 
-bad = general_happiness.results.create!(quadrant_type: "couple_bad_ok", overall: "b", content: "Partner 1 Scored Bad Partner 2 Scored Ok - partner 1 has serious issues and partner 2 has less serious issues", recommendation: "You and your partner need to work on this area of your relationship, here are the tools we recommend")
+bad = general_happiness.results.create!(quadrant_type: "couple_bad_ok", overall: "b", content: "You scored bad and your partner scored ok - you have some issues you need to work on and so does your partner to a lesser degree", recommendation: "You and your partner need to work on this area of your relationship, here are the tools we recommend")
 general_happiness_products.each {|product| bad.products << product}
 
-ok = general_happiness.results.create!(quadrant_type: "couple_ok_good", overall: "o", content: "Partner 1 Scored Ok Partner 2 Scored Good - partner 1 has some issues that they need partner 2s help with", recommendation: "You scored ok and we reccomend the following tool to help sharpen your skills")
+ok = general_happiness.results.create!(quadrant_type: "couple_ok_good", overall: "o", content: "You scored ok and your partner scored good - you have some minor issues that you need your partner's help with", recommendation: "You scored ok and we reccomend the following tool to help sharpen your skills")
 ok.products << general_happiness_products[0]
 
-bad = general_happiness.results.create!(quadrant_type: "couple_ok_bad", overall: "b", content: "Partner 1 Scored Ok Partner 2 Scored Bad - partner 2 has serious issues and partner 1 has less serious issues", recommendation: "Both you and your partner need to work on this area of things, here are our recommendations")
+bad = general_happiness.results.create!(quadrant_type: "couple_ok_bad", overall: "b", content: "You scored ok and your partner scored bad - you have some minor issues and your partner has some major ones", recommendation: "Both you and your partner need to work on this area of things, here are our recommendations")
 general_happiness_products.each {|product| bad.products << product}
 
-ok = general_happiness.results.create!(quadrant_type: "couple_ok_ok", overall: "o", content: "Both Partners Scored Just Ok - there are some minor issues that need to be addressed", recommendation: "Since both of you scored just ok we reccomend the following tool to help you out")
+ok = general_happiness.results.create!(quadrant_type: "couple_ok_ok", overall: "o", content: "You both scored just ok - there are some minor issues that need to be addressed for both of you", recommendation: "Since both of you scored just ok we reccomend the following tool to help you out")
 ok.products << general_happiness_products[0]
 
 ### Questionnaire 2 LOVEMAPS###
@@ -117,38 +117,38 @@ love_maps_products = []
 love_maps_products << Product.create!(name: "Gottman Love Maps Product", description: "This product is designed to help your Love Maps")
 love_maps_products << Product.create!(name: "Gottman Love Maps Therapy Help", description: "Personalized therapy to help you with this problem")
 
-love_maps.results.create!(quadrant_type: "individual_good", overall: "g", content: "This Individual Scored Good - no problems", recommendation: "No recommendation you scored good in this area")
+love_maps.results.create!(quadrant_type: "individual_good", overall: "g", content: "You scored good - you have no problems in this area", recommendation: "No recommendation you scored good in this area")
 
-ok = love_maps.results.create!(quadrant_type: "individual_ok", overall: "o", content: "This Individual Scored Ok - has some problems", recommendation: "Since you scored ok we recommend you use the following tool to help")
+ok = love_maps.results.create!(quadrant_type: "individual_ok", overall: "o", content: "You scored ok - you have some problems", recommendation: "Since you scored ok we recommend you use the following tool to help")
 ok.products << love_maps_products[0]
 
-bad = love_maps.results.create!(quadrant_type: "individual_bad", overall: "b", content: "This Individual Scored Bad -has problems", recommendation: "This area of your relationship needs work, we recommend the following tools")
+bad = love_maps.results.create!(quadrant_type: "individual_bad", overall: "b", content: "You scored bad - you have problems", recommendation: "This area of your relationship needs work, we recommend the following tools")
 love_maps_products.each {|product| bad.products << product}
 
-love_maps.results.create!(quadrant_type: "couple_good_good", overall: "g", content: "Both Partners Scored Good - no problems", recommendation: "You both scored good in this area there are no recommendations")
+love_maps.results.create!(quadrant_type: "couple_good_good", overall: "g", content: "You both scored good - this relationship no problems", recommendation: "You both scored good in this area there are no recommendations")
 
-bad = love_maps.results.create!(quadrant_type: "couple_good_bad", overall: "b", content: "Partner 1 Scored Good Partner 2 Scored Bad - partner 2 has problems", recommendation: "You scored good but your partner needs help in this area, we recommend the following two things.")
+bad = love_maps.results.create!(quadrant_type: "couple_good_bad", overall: "b", content: "You scored good your partner scored bad - your partner needs your help badly!", recommendation: "You scored good but your partner needs help in this area, we recommend the following two things.")
 love_maps_products.each {|product| bad.products << product}
 
-ok = love_maps.results.create!(quadrant_type: "couple_good_ok", overall: "o", content: "Partner 1 Scored Good Partner 2 Scored Ok - partner 2 has some issues that they need partner 1s help with", recommendation: "You scored good but your partner scored ok so we recommend the following exercise to help them.")
+ok = love_maps.results.create!(quadrant_type: "couple_good_ok", overall: "o", content: "You scored good your partner scored ok - your partner has some issues that they need your help with", recommendation: "You scored good but your partner scored ok so we recommend the following exercise to help them.")
 ok.products << love_maps_products[0]
 
-bad = love_maps.results.create!(quadrant_type: "couple_bad_good", overall: "b", content: "Partner 1 Scored Bad Partner 2 Scored Good - partner 1 has problems", recommendation: "This area of your relationship needs work, we recommend the following two things")
+bad = love_maps.results.create!(quadrant_type: "couple_bad_good", overall: "b", content: "You scored bad your partner scored good - you have some things you need to work on and you need your partner's help", recommendation: "This area of your relationship needs work, we recommend the following two things")
 love_maps_products.each {|product| bad.products << product}
 
-bad = love_maps.results.create!(quadrant_type: "couple_bad_bad", overall: "b", content: "Both Partners Scored Bad -both have problems", recommendation: "Both you and your partner need to work on this area, we recommend you do the followign two things")
+bad = love_maps.results.create!(quadrant_type: "couple_bad_bad", overall: "b", content: "You both scored bad - you both have problems and need to work on this area", recommendation: "Both you and your partner need to work on this area, we recommend you do the followign two things")
 love_maps_products.each {|product| bad.products << product}
 
-bad = love_maps.results.create!(quadrant_type: "couple_bad_ok", overall: "b", content: "Partner 1 Scored Bad Partner 2 Scored Ok - partner 1 has serious issues and partner 2 has less serious issues", recommendation: "You and your partner need to work on this area of your relationship, here are the tools we recommend")
+bad = love_maps.results.create!(quadrant_type: "couple_bad_ok", overall: "b", content: "You scored bad and your partner scored ok - you have some issues you need to work on and so does your partner to a lesser degree", recommendation: "You and your partner need to work on this area of your relationship, here are the tools we recommend")
 love_maps_products.each {|product| bad.products << product}
 
-ok = love_maps.results.create!(quadrant_type: "couple_ok_good", overall: "o", content: "Partner 1 Scored Ok Partner 2 Scored Good - partner 1 has some issues that they need partner 2s help with", recommendation: "You scored ok and we reccomend the following tool to help sharpen your skills")
+ok = love_maps.results.create!(quadrant_type: "couple_ok_good", overall: "o", content: "You scored ok and your partner scored good - you have some minor issues that you need your partner's help with", recommendation: "You scored ok and we reccomend the following tool to help sharpen your skills")
 ok.products << love_maps_products[0]
 
-bad = love_maps.results.create!(quadrant_type: "couple_ok_bad", overall: "b", content: "Partner 1 Scored Ok Partner 2 Scored Bad - partner 2 has serious issues and partner 1 has less serious issues", recommendation: "Both you and your partner need to work on this area of things, here are our recommendations")
+bad = love_maps.results.create!(quadrant_type: "couple_ok_bad", overall: "b", content: "You scored ok and your partner scored bad - you have some minor issues and your partner has some major ones", recommendation: "Both you and your partner need to work on this area of things, here are our recommendations")
 love_maps_products.each {|product| bad.products << product}
 
-ok = love_maps.results.create!(quadrant_type: "couple_ok_ok", overall: "o", content: "Both Partners Scored Just Ok - there are some minor issues that need to be addressed", recommendation: "Since both of you scored just ok we reccomend the following tool to help you out")
+ok = love_maps.results.create!(quadrant_type: "couple_ok_ok", overall: "o", content: "You both scored just ok - there are some minor issues that need to be addressed for both of you", recommendation: "Since both of you scored just ok we reccomend the following tool to help you out")
 ok.products << love_maps_products[0]
 
 
@@ -174,35 +174,35 @@ fondness_and_admiration_products = []
 fondness_and_admiration_products << Product.create!(name: "Gottman Fondness & Admiration Product", description: "This product is designed to help your Fondness & Admiration")
 fondness_and_admiration_products << Product.create!(name: "Gottman Fondness & Admiration Therapy Help", description: "Personalized therapy to help you with this problem")
 
-fondness_and_admiration.results.create!(quadrant_type: "individual_good", overall: "g", content: "This Individual Scored Good - no problems", recommendation: "No recommendation you scored good in this area")
+fondness_and_admiration.results.create!(quadrant_type: "individual_good", overall: "g", content: "You scored good - you have no problems in this area", recommendation: "No recommendation you scored good in this area")
 
-ok = fondness_and_admiration.results.create!(quadrant_type: "individual_ok", overall: "o", content: "This Individual Scored Ok - has some problems", recommendation: "Since you scored ok we recommend you use the following tool to help")
+ok = fondness_and_admiration.results.create!(quadrant_type: "individual_ok", overall: "o", content: "You scored ok - you have some problems", recommendation: "Since you scored ok we recommend you use the following tool to help")
 ok.products << fondness_and_admiration_products[0]
 
-bad = fondness_and_admiration.results.create!(quadrant_type: "individual_bad", overall: "b", content: "This Individual Scored Bad -has problems", recommendation: "This area of your relationship needs work, we recommend the following tools")
+bad = fondness_and_admiration.results.create!(quadrant_type: "individual_bad", overall: "b", content: "You scored bad - you have problems", recommendation: "This area of your relationship needs work, we recommend the following tools")
 fondness_and_admiration_products.each {|product| bad.products << product}
 
-fondness_and_admiration.results.create!(quadrant_type: "couple_good_good", overall: "g", content: "Both Partners Scored Good - no problems", recommendation: "You both scored good in this area there are no recommendations")
+fondness_and_admiration.results.create!(quadrant_type: "couple_good_good", overall: "g", content: "You both scored good - this relationship no problems", recommendation: "You both scored good in this area there are no recommendations")
 
-bad = fondness_and_admiration.results.create!(quadrant_type: "couple_good_bad", overall: "b", content: "Partner 1 Scored Good Partner 2 Scored Bad - partner 2 has problems", recommendation: "You scored good but your partner needs help in this area, we recommend the following two things.")
+bad = fondness_and_admiration.results.create!(quadrant_type: "couple_good_bad", overall: "b", content: "You scored good your partner scored bad - your partner needs your help badly!", recommendation: "You scored good but your partner needs help in this area, we recommend the following two things.")
 fondness_and_admiration_products.each {|product| bad.products << product}
 
-ok = fondness_and_admiration.results.create!(quadrant_type: "couple_good_ok", overall: "o", content: "Partner 1 Scored Good Partner 2 Scored Ok - partner 2 has some issues that they need partner 1s help with", recommendation: "You scored good but your partner scored ok so we recommend the following exercise to help them.")
+ok = fondness_and_admiration.results.create!(quadrant_type: "couple_good_ok", overall: "o", content: "You scored good your partner scored ok - your partner has some issues that they need your help with", recommendation: "You scored good but your partner scored ok so we recommend the following exercise to help them.")
 ok.products << fondness_and_admiration_products[0]
 
-bad = fondness_and_admiration.results.create!(quadrant_type: "couple_bad_good", overall: "b", content: "Partner 1 Scored Bad Partner 2 Scored Good - partner 1 has problems", recommendation: "This area of your relationship needs work, we recommend the following two things")
+bad = fondness_and_admiration.results.create!(quadrant_type: "couple_bad_good", overall: "b", content: "You scored bad your partner scored good - you have some things you need to work on and you need your partner's help", recommendation: "This area of your relationship needs work, we recommend the following two things")
 fondness_and_admiration_products.each {|product| bad.products << product}
 
-bad = fondness_and_admiration.results.create!(quadrant_type: "couple_bad_bad", overall: "b", content: "Both Partners Scored Bad -both have problems", recommendation: "Both you and your partner need to work on this area, we recommend you do the followign two things")
+bad = fondness_and_admiration.results.create!(quadrant_type: "couple_bad_bad", overall: "b", content: "You both scored bad - you both have problems and need to work on this area", recommendation: "Both you and your partner need to work on this area, we recommend you do the followign two things")
 fondness_and_admiration_products.each {|product| bad.products << product}
 
-bad = fondness_and_admiration.results.create!(quadrant_type: "couple_bad_ok", overall: "b", content: "Partner 1 Scored Bad Partner 2 Scored Ok - partner 1 has serious issues and partner 2 has less serious issues", recommendation: "You and your partner need to work on this area of your relationship, here are the tools we recommend")
+bad = fondness_and_admiration.results.create!(quadrant_type: "couple_bad_ok", overall: "b", content: "You scored bad and your partner scored ok - you have some issues you need to work on and so does your partner to a lesser degree", recommendation: "You and your partner need to work on this area of your relationship, here are the tools we recommend")
 fondness_and_admiration_products.each {|product| bad.products << product}
 
-ok = fondness_and_admiration.results.create!(quadrant_type: "couple_ok_good", overall: "o", content: "Partner 1 Scored Ok Partner 2 Scored Good - partner 1 has some issues that they need partner 2s help with", recommendation: "You scored ok and we reccomend the following tool to help sharpen your skills")
+ok = fondness_and_admiration.results.create!(quadrant_type: "couple_ok_good", overall: "o", content: "You scored ok and your partner scored good - you have some minor issues that you need your partner's help with", recommendation: "You scored ok and we reccomend the following tool to help sharpen your skills")
 ok.products << fondness_and_admiration_products[0]
 
-bad = fondness_and_admiration.results.create!(quadrant_type: "couple_ok_bad", overall: "b", content: "Partner 1 Scored Ok Partner 2 Scored Bad - partner 2 has serious issues and partner 1 has less serious issues", recommendation: "Both you and your partner need to work on this area of things, here are our recommendations")
+bad = fondness_and_admiration.results.create!(quadrant_type: "couple_ok_bad", overall: "b", content: "You scored ok and your partner scored bad - you have some minor issues and your partner has some major ones", recommendation: "Both you and your partner need to work on this area of things, here are our recommendations")
 fondness_and_admiration_products.each {|product| bad.products << product}
 
 ok = fondness_and_admiration.results.create!(quadrant_type: "couple_ok_ok", overall: "o", content: "Both Partners Scored Just Ok - there are some minor issues that need to be addressed", recommendation: "Since both of you scored just ok we reccomend the following tool to help you out")
@@ -232,35 +232,35 @@ turning_towards_products = []
 turning_towards_products << Product.create!(name: "Gottman Turning Towards Product", description: "This product is designed to help your Turning Towards")
 turning_towards_products << Product.create!(name: "Gottman Turning Towards Therapy Help", description: "Personalized therapy to help you with this problem")
 
-turning_towards.results.create!(quadrant_type: "individual_good", overall: "g", content: "This Individual Scored Good - no problems", recommendation: "No recommendation you scored good in this area")
+turning_towards.results.create!(quadrant_type: "individual_good", overall: "g", content: "You scored good - you have no problems in this area", recommendation: "No recommendation you scored good in this area")
 
-ok = turning_towards.results.create!(quadrant_type: "individual_ok", overall: "o", content: "This Individual Scored Ok - has some problems", recommendation: "Since you scored ok we recommend you use the following tool to help")
+ok = turning_towards.results.create!(quadrant_type: "individual_ok", overall: "o", content: "You scored ok - you have some problems", recommendation: "Since you scored ok we recommend you use the following tool to help")
 ok.products << turning_towards_products[0]
 
-bad = turning_towards.results.create!(quadrant_type: "individual_bad", overall: "b", content: "This Individual Scored Bad -has problems", recommendation: "This area of your relationship needs work, we recommend the following tools")
+bad = turning_towards.results.create!(quadrant_type: "individual_bad", overall: "b", content: "You scored bad - you have problems", recommendation: "This area of your relationship needs work, we recommend the following tools")
 turning_towards_products.each {|product| bad.products << product}
 
-turning_towards.results.create!(quadrant_type: "couple_good_good", overall: "g", content: "Both Partners Scored Good - no problems", recommendation: "You both scored good in this area there are no recommendations")
+turning_towards.results.create!(quadrant_type: "couple_good_good", overall: "g", content: "You both scored good - this relationship no problems", recommendation: "You both scored good in this area there are no recommendations")
 
-bad = turning_towards.results.create!(quadrant_type: "couple_good_bad", overall: "b", content: "Partner 1 Scored Good Partner 2 Scored Bad - partner 2 has problems", recommendation: "You scored good but your partner needs help in this area, we recommend the following two things.")
+bad = turning_towards.results.create!(quadrant_type: "couple_good_bad", overall: "b", content: "You scored good your partner scored bad - your partner needs your help badly!", recommendation: "You scored good but your partner needs help in this area, we recommend the following two things.")
 turning_towards_products.each {|product| bad.products << product}
 
-ok = turning_towards.results.create!(quadrant_type: "couple_good_ok", overall: "o", content: "Partner 1 Scored Good Partner 2 Scored Ok - partner 2 has some issues that they need partner 1s help with", recommendation: "You scored good but your partner scored ok so we recommend the following exercise to help them.")
+ok = turning_towards.results.create!(quadrant_type: "couple_good_ok", overall: "o", content: "You scored good your partner scored ok - your partner has some issues that they need your help with", recommendation: "You scored good but your partner scored ok so we recommend the following exercise to help them.")
 ok.products << turning_towards_products[0]
 
-bad = turning_towards.results.create!(quadrant_type: "couple_bad_good", overall: "b", content: "Partner 1 Scored Bad Partner 2 Scored Good - partner 1 has problems", recommendation: "This area of your relationship needs work, we recommend the following two things")
+bad = turning_towards.results.create!(quadrant_type: "couple_bad_good", overall: "b", content: "You scored bad your partner scored good - you have some things you need to work on and you need your partner's help", recommendation: "This area of your relationship needs work, we recommend the following two things")
 turning_towards_products.each {|product| bad.products << product}
 
-bad = turning_towards.results.create!(quadrant_type: "couple_bad_bad", overall: "b", content: "Both Partners Scored Bad -both have problems", recommendation: "Both you and your partner need to work on this area, we recommend you do the followign two things")
+bad = turning_towards.results.create!(quadrant_type: "couple_bad_bad", overall: "b", content: "You both scored bad - you both have problems and need to work on this area", recommendation: "Both you and your partner need to work on this area, we recommend you do the followign two things")
 turning_towards_products.each {|product| bad.products << product}
 
-bad = turning_towards.results.create!(quadrant_type: "couple_bad_ok", overall: "b", content: "Partner 1 Scored Bad Partner 2 Scored Ok - partner 1 has serious issues and partner 2 has less serious issues", recommendation: "You and your partner need to work on this area of your relationship, here are the tools we recommend")
+bad = turning_towards.results.create!(quadrant_type: "couple_bad_ok", overall: "b", content: "You scored bad and your partner scored ok - you have some issues you need to work on and so does your partner to a lesser degree", recommendation: "You and your partner need to work on this area of your relationship, here are the tools we recommend")
 turning_towards_products.each {|product| bad.products << product}
 
-ok = turning_towards.results.create!(quadrant_type: "couple_ok_good", overall: "o", content: "Partner 1 Scored Ok Partner 2 Scored Good - partner 1 has some issues that they need partner 2s help with", recommendation: "You scored ok and we reccomend the following tool to help sharpen your skills")
+ok = turning_towards.results.create!(quadrant_type: "couple_ok_good", overall: "o", content: "You scored ok and your partner scored good - you have some minor issues that you need your partner's help with", recommendation: "You scored ok and we reccomend the following tool to help sharpen your skills")
 ok.products << turning_towards_products[0]
 
-bad = turning_towards.results.create!(quadrant_type: "couple_ok_bad", overall: "b", content: "Partner 1 Scored Ok Partner 2 Scored Bad - partner 2 has serious issues and partner 1 has less serious issues", recommendation: "Both you and your partner need to work on this area of things, here are our recommendations")
+bad = turning_towards.results.create!(quadrant_type: "couple_ok_bad", overall: "b", content: "You scored ok and your partner scored bad - you have some minor issues and your partner has some major ones", recommendation: "Both you and your partner need to work on this area of things, here are our recommendations")
 turning_towards_products.each {|product| bad.products << product}
 
 ok = turning_towards.results.create!(quadrant_type: "couple_ok_ok", overall: "o", content: "Both Partners Scored Just Ok - there are some minor issues that need to be addressed", recommendation: "Since both of you scored just ok we reccomend the following tool to help you out")
@@ -289,35 +289,35 @@ emotional_loneliness_products = []
 emotional_loneliness_products << Product.create!(name: "Gottman Emotional Lonliness Product", description: "This product is designed to help your Emotional Lonliness")
 emotional_loneliness_products << Product.create!(name: "Gottman Emotional Lonliness Therapy Help", description: "Personalized therapy to help you with this problem")
 
-emotional_loneliness.results.create!(quadrant_type: "individual_good", overall: "g", content: "This Individual Scored Good - no problems", recommendation: "No recommendation you scored good in this area")
+emotional_loneliness.results.create!(quadrant_type: "individual_good", overall: "g", content: "You scored good - you have no problems in this area", recommendation: "No recommendation you scored good in this area")
 
-ok = emotional_loneliness.results.create!(quadrant_type: "individual_ok", overall: "o", content: "This Individual Scored Ok - has some problems", recommendation: "Since you scored ok we recommend you use the following tool to help")
+ok = emotional_loneliness.results.create!(quadrant_type: "individual_ok", overall: "o", content: "You scored ok - you have some problems", recommendation: "Since you scored ok we recommend you use the following tool to help")
 ok.products << emotional_loneliness_products[0]
 
-bad = emotional_loneliness.results.create!(quadrant_type: "individual_bad", overall: "b", content: "This Individual Scored Bad -has problems", recommendation: "This area of your relationship needs work, we recommend the following tools")
+bad = emotional_loneliness.results.create!(quadrant_type: "individual_bad", overall: "b", content: "You scored bad - you have problems", recommendation: "This area of your relationship needs work, we recommend the following tools")
 emotional_loneliness_products.each {|product| bad.products << product}
 
-emotional_loneliness.results.create!(quadrant_type: "couple_good_good", overall: "g", content: "Both Partners Scored Good - no problems", recommendation: "You both scored good in this area there are no recommendations")
+emotional_loneliness.results.create!(quadrant_type: "couple_good_good", overall: "g", content: "You both scored good - this relationship no problems", recommendation: "You both scored good in this area there are no recommendations")
 
-bad = emotional_loneliness.results.create!(quadrant_type: "couple_good_bad", overall: "b", content: "Partner 1 Scored Good Partner 2 Scored Bad - partner 2 has problems", recommendation: "You scored good but your partner needs help in this area, we recommend the following two things.")
+bad = emotional_loneliness.results.create!(quadrant_type: "couple_good_bad", overall: "b", content: "You scored good your partner scored bad - your partner needs your help badly!", recommendation: "You scored good but your partner needs help in this area, we recommend the following two things.")
 emotional_loneliness_products.each {|product| bad.products << product}
 
-ok = emotional_loneliness.results.create!(quadrant_type: "couple_good_ok", overall: "o", content: "Partner 1 Scored Good Partner 2 Scored Ok - partner 2 has some issues that they need partner 1s help with", recommendation: "You scored good but your partner scored ok so we recommend the following exercise to help them.")
+ok = emotional_loneliness.results.create!(quadrant_type: "couple_good_ok", overall: "o", content: "You scored good your partner scored ok - your partner has some issues that they need your help with", recommendation: "You scored good but your partner scored ok so we recommend the following exercise to help them.")
 ok.products << emotional_loneliness_products[0]
 
-bad = emotional_loneliness.results.create!(quadrant_type: "couple_bad_good", overall: "b", content: "Partner 1 Scored Bad Partner 2 Scored Good - partner 1 has problems", recommendation: "This area of your relationship needs work, we recommend the following two things")
+bad = emotional_loneliness.results.create!(quadrant_type: "couple_bad_good", overall: "b", content: "You scored bad your partner scored good - you have some things you need to work on and you need your partner's help", recommendation: "This area of your relationship needs work, we recommend the following two things")
 emotional_loneliness_products.each {|product| bad.products << product}
 
-bad = emotional_loneliness.results.create!(quadrant_type: "couple_bad_bad", overall: "b", content: "Both Partners Scored Bad -both have problems", recommendation: "Both you and your partner need to work on this area, we recommend you do the followign two things")
+bad = emotional_loneliness.results.create!(quadrant_type: "couple_bad_bad", overall: "b", content: "You both scored bad - you both have problems and need to work on this area", recommendation: "Both you and your partner need to work on this area, we recommend you do the followign two things")
 emotional_loneliness_products.each {|product| bad.products << product}
 
-bad = emotional_loneliness.results.create!(quadrant_type: "couple_bad_ok", overall: "b", content: "Partner 1 Scored Bad Partner 2 Scored Ok - partner 1 has serious issues and partner 2 has less serious issues", recommendation: "You and your partner need to work on this area of your relationship, here are the tools we recommend")
+bad = emotional_loneliness.results.create!(quadrant_type: "couple_bad_ok", overall: "b", content: "You scored bad and your partner scored ok - you have some issues you need to work on and so does your partner to a lesser degree", recommendation: "You and your partner need to work on this area of your relationship, here are the tools we recommend")
 emotional_loneliness_products.each {|product| bad.products << product}
 
-ok = emotional_loneliness.results.create!(quadrant_type: "couple_ok_good", overall: "o", content: "Partner 1 Scored Ok Partner 2 Scored Good - partner 1 has some issues that they need partner 2s help with", recommendation: "You scored ok and we reccomend the following tool to help sharpen your skills")
+ok = emotional_loneliness.results.create!(quadrant_type: "couple_ok_good", overall: "o", content: "You scored ok and your partner scored good - you have some minor issues that you need your partner's help with", recommendation: "You scored ok and we reccomend the following tool to help sharpen your skills")
 ok.products << emotional_loneliness_products[0]
 
-bad = emotional_loneliness.results.create!(quadrant_type: "couple_ok_bad", overall: "b", content: "Partner 1 Scored Ok Partner 2 Scored Bad - partner 2 has serious issues and partner 1 has less serious issues", recommendation: "Both you and your partner need to work on this area of things, here are our recommendations")
+bad = emotional_loneliness.results.create!(quadrant_type: "couple_ok_bad", overall: "b", content: "You scored ok and your partner scored bad - you have some minor issues and your partner has some major ones", recommendation: "Both you and your partner need to work on this area of things, here are our recommendations")
 emotional_loneliness_products.each {|product| bad.products << product}
 
 ok = emotional_loneliness.results.create!(quadrant_type: "couple_ok_ok", overall: "o", content: "Both Partners Scored Just Ok - there are some minor issues that need to be addressed", recommendation: "Since both of you scored just ok we reccomend the following tool to help you out")
@@ -330,39 +330,39 @@ overall_state = Questionnaire.create!(title: "Overall Relationship Score", cutof
 
 overall_state_products = []
 
-overall_state_products << Product.create!(name: "Gottman Overall Relationship Product", description: "This product is designed to help your Overall Relationship")
-overall_state_products << Product.create!(name: "Gottman Overall Relationship Therapy Help", description: "Personalized therapy to help you with this problem")
+overall_state_products << Product.create!(name: "The ASL", description: "This product is designed to help your relationship overall")
+overall_state_products << Product.create!(name: "Gottman Relationship Therapy Help", description: "Personalized therapy to help you with your relationship overall")
 
-overall_state.results.create!(quadrant_type: "individual_good", overall: "g", content: "This Individual Scored Good - no problems but we need your partner also", recommendation: "Your relationship overall is good, nice work")
+overall_state.results.create!(quadrant_type: "individual_good", overall: "g", content: "You scored good - you have no problems in this area", recommendation: "No recommendation you scored good in this area")
 
-ok = overall_state.results.create!(quadrant_type: "individual_ok", overall: "o", content: "This Individual Scored Ok - has some problems but we need your partner also", recommendation: "Since over all you scored just ok we recommend the following tool to help")
+ok = overall_state.results.create!(quadrant_type: "individual_ok", overall: "o", content: "You scored ok - you have some problems", recommendation: "Since you scored ok we recommend you use the following tool to help")
 ok.products << overall_state_products[0]
 
-bad = overall_state.results.create!(quadrant_type: "individual_bad", overall: "b", content: "This Individual Scored Bad -has problems but we need your partner also", recommendation: "Overall your relationship needs help, here is what we recommend")
+bad = overall_state.results.create!(quadrant_type: "individual_bad", overall: "b", content: "You scored bad - you have problems", recommendation: "This area of your relationship needs work, we recommend the following tools")
 overall_state_products.each {|product| bad.products << product}
 
-overall_state.results.create!(quadrant_type: "couple_good_good", overall: "g", content: "Both Partners Scored Good - no problems", recommendation: "You both scored good in this area there are no recommendations")
+overall_state.results.create!(quadrant_type: "couple_good_good", overall: "g", content: "You both scored good - this relationship no problems", recommendation: "You both scored good in this area there are no recommendations")
 
-bad = overall_state.results.create!(quadrant_type: "couple_good_bad", overall: "b", content: "Partner 1 Scored Good Partner 2 Scored Bad - partner 2 has problems", recommendation: "You scored good but your partner needs help in this area, we recommend the following two things.")
+bad = overall_state.results.create!(quadrant_type: "couple_good_bad", overall: "b", content: "You scored good your partner scored bad - your partner needs your help badly!", recommendation: "You scored good but your partner needs help in this area, we recommend the following two things.")
 overall_state_products.each {|product| bad.products << product}
 
-ok = overall_state.results.create!(quadrant_type: "couple_good_ok", overall: "o", content: "Partner 1 Scored Good Partner 2 Scored Ok - partner 2 has some issues that they need partner 1s help with", recommendation: "You scored good but your partner scored ok so we recommend the following exercise to help them.")
+ok = overall_state.results.create!(quadrant_type: "couple_good_ok", overall: "o", content: "You scored good your partner scored ok - your partner has some issues that they need your help with", recommendation: "You scored good but your partner scored ok so we recommend the following exercise to help them.")
 ok.products << overall_state_products[0]
 
-bad = overall_state.results.create!(quadrant_type: "couple_bad_good", overall: "b", content: "Partner 1 Scored Bad Partner 2 Scored Good - partner 1 has problems", recommendation: "This area of your relationship needs work, we recommend the following two things")
+bad = overall_state.results.create!(quadrant_type: "couple_bad_good", overall: "b", content: "You scored bad your partner scored good - you have some things you need to work on and you need your partner's help", recommendation: "This area of your relationship needs work, we recommend the following two things")
 overall_state_products.each {|product| bad.products << product}
 
-bad = overall_state.results.create!(quadrant_type: "couple_bad_bad", overall: "b", content: "Both Partners Scored Bad -both have problems", recommendation: "Both you and your partner need to work on this area, we recommend you do the followign two things")
+bad = overall_state.results.create!(quadrant_type: "couple_bad_bad", overall: "b", content: "You both scored bad - you both have problems and need to work on this area", recommendation: "Both you and your partner need to work on this area, we recommend you do the followign two things")
 overall_state_products.each {|product| bad.products << product}
 
-bad = overall_state.results.create!(quadrant_type: "couple_bad_ok",  overall: "b", content: "Partner 1 Scored Bad Partner 2 Scored Ok - partner 1 has serious issues and partner 2 has less serious issues", recommendation: "You and your partner need to work on this area of your relationship, here are the tools we recommend")
+bad = overall_state.results.create!(quadrant_type: "couple_bad_ok", overall: "b", content: "You scored bad and your partner scored ok - you have some issues you need to work on and so does your partner to a lesser degree", recommendation: "You and your partner need to work on this area of your relationship, here are the tools we recommend")
 overall_state_products.each {|product| bad.products << product}
 
-ok = overall_state.results.create!(quadrant_type: "couple_ok_good", overall: "o", content: "Partner 1 Scored Ok Partner 2 Scored Good - partner 1 has some issues that they need partner 2s help with", recommendation: "You scored ok and we reccomend the following tool to help sharpen your skills")
+ok = overall_state.results.create!(quadrant_type: "couple_ok_good", overall: "o", content: "You scored ok and your partner scored good - you have some minor issues that you need your partner's help with", recommendation: "You scored ok and we reccomend the following tool to help sharpen your skills")
 ok.products << overall_state_products[0]
 
-bad = overall_state.results.create!(quadrant_type: "couple_ok_bad", overall: "b", content: "Partner 1 Scored Ok Partner 2 Scored Bad - partner 2 has serious issues and partner 1 has less serious issues", recommendation: "Both you and your partner need to work on this area of things, here are our recommendations")
+bad = overall_state.results.create!(quadrant_type: "couple_ok_bad", overall: "b", content: "You scored ok and your partner scored bad - you have some minor issues and your partner has some major ones", recommendation: "Both you and your partner need to work on this area of things, here are our recommendations")
 overall_state_products.each {|product| bad.products << product}
 
-ok = overall_state.results.create!(quadrant_type: "couple_ok_ok", overall: "o", content: "Both Partners Scored Just Ok - there are some minor issues that need to be addressed", recommendation: "Since both of you scored just ok we reccomend the following tool to help you out")
+ok = overall_state.results.create!(quadrant_type: "couple_ok_ok", overall: "o", content: "You both scored just ok - there are some minor issues that need to be addressed for both of you", recommendation: "Since both of you scored just ok we reccomend the following tool to help you out")
 ok.products << overall_state_products[0]

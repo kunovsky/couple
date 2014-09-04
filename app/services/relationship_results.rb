@@ -6,8 +6,7 @@ module RelationshipResults
     end
 
     def handle_results_request
-      {content: result_content, recommendation: result_recommendation, percentage_data: percentage_data, products_data: products_data, status: status }
-
+      {content: result_content, recommendation: result_recommendation, percentage_data: percentage_data, products_data: products_data, status: status}
     end
 
     private
@@ -39,7 +38,8 @@ module RelationshipResults
     end
 
     def result
-      @result ||= Result.find(@analysis["result_id"])
+      return @result ||= Result.find(@analysis["result_id"]) if @analysis["result_id"]
+      @result ||= Result.find(@analysis["results"][@user.id.to_s]) if Result.exists?(@analysis["results"][@user.id.to_s])
     end
 
     def format_percentages(percentages)
