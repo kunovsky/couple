@@ -24,6 +24,9 @@ true_false_reversed << (PossibleResponse.create! content: "False", point_value: 
 
 general_happiness = Questionnaire.create!(title: "General Relationship Happiness", cutoff_score: 56, ok_score: 60, weight: 0.3333) #cutoff_score < 56 and it's a bad thing.
 
+general_happiness_grouping = Grouping.create!(name: "General Happiness")
+general_happiness_grouping.questionnaires << general_happiness
+
 general_happiness.questions.create! content: "I feel emotionally close to my partner"
 general_happiness.questions.create! content: "I think that my partner really cares about me"
 general_happiness.questions.create! content: "I feel confident that we can deal with whatever problems might arise"
@@ -88,6 +91,10 @@ ok.products << general_happiness_products[0]
 ### Questionnaire 2 LOVEMAPS###
 
 love_maps = Questionnaire.create!(title: "Love Maps", cutoff_score: 12, ok_score: 14, weight: 0.3333) #cutoff_score < 12 and it's a bad thing
+
+love_maps_grouping = Grouping.create!(name: "Love Maps")
+love_maps_grouping.questionnaires << love_maps
+
 
 love_maps.questions.create! content: "I know my partner's favorite side of the bed"
 love_maps.questions.create! content: "I can tell you what my partner was wearing when we first met"
@@ -156,6 +163,10 @@ ok.products << love_maps_products[0]
 
 fondness_and_admiration = Questionnaire.create!(title: "Fondness and Admiration", cutoff_score: 4, ok_score: 5, weight: 0.1111) #cutoff_score < 4 and it's a bad thing
 
+fondness_turning_emotion_grouping = Grouping.create!(name: "Last Section")
+fondness_turning_emotion_grouping.questionnaires << fondness_and_admiration
+
+
 fondness_and_admiration.questions.create! content: "My partner really respects me"
 fondness_and_admiration.questions.create! content: "I feel loved and cared for in this relationship"
 fondness_and_admiration.questions.create! content: "Romance is something our relationship definitely still has in it"
@@ -213,6 +224,7 @@ ok.products << fondness_and_admiration_products[0]
 ###Questionnaire 4 TURNING TOWARDS###
 
 turning_towards = Questionnaire.create!(title: "Turning Towards", cutoff_score: 4, ok_score: 5, weight: 0.1111) #cutoff_score < 4 and it's a bad thing
+Grouping.find(3).questionnaires << turning_towards
 
 turning_towards.questions.create! content: "I really enjoy discussing things with my partner"
 turning_towards.questions.create! content: "We always have a lot to say to each other"
@@ -270,6 +282,7 @@ ok.products << turning_towards_products[0]
 ###Questionnaire 5 EMOTIONAL DISENGAGEMENT AND LONELINESS###
 
 emotional_loneliness = Questionnaire.create!(title: "Emotional Disengagement and Loneliness", cutoff_score: 4, ok_score: 5, weight: 0.1111) #cutoff_score < 4 and it's a bad thing
+Grouping.find(3).questionnaires << emotional_loneliness
 
 emotional_loneliness.questions.create! content: "I often find myself disappointed in this relationship"
 emotional_loneliness.questions.create! content: "I will at times find myself quite lonely in this relationship"
