@@ -25,7 +25,7 @@ module Scoring
 
     def result_and_product(id, type)
       result_id = individual_result_id(id, TYPES[type])
-      {result_id: result_id, product_data: product_data(result_id)}
+      {result_id: result_id, products_data: product_data(result_id)}
     end
 
     def individual_result_id(id, type)
@@ -68,7 +68,7 @@ module Scoring
     end
 
     def product_data(result_id)
-      Product.select(Product[:id]).where(Result[:id].eq(result_id)).joins(treatments: :result)
+      Product.select(Product[:id]).where(Result[:id].eq(result_id)).joins(treatments: :result).map {|product| product['id']}
     end
 
     def update_relationship_feedback(results)

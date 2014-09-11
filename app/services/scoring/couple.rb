@@ -18,7 +18,7 @@ module Scoring
     def handle_relationship_scoring
       determine_results
       overall_percentage
-      overall_result
+      overall_result_and_product
       score_partners_against_each_other
       update_relationship_feedback(@both_partner_results)
     end
@@ -41,9 +41,11 @@ module Scoring
         end
         percentages = both_partners_percentages(partner_1_score)
         set_couple_questionnaire_percentages(scores[:id], percentages)
+        products_for_couple(scores[:id])
       end
     end
 
+    #TODO: Refactor these 3 methods into 1 method
     def check_for_bad_score(scores)
       if scores[:partner_1_score] == TYPES[:bad] && scores[:partner_2_score] == TYPES[:bad]
         return {results: {@user.id => couple_result(scores[:id], :bad_bad), partner_id => couple_result(scores[:id], :bad_bad)}}
@@ -118,6 +120,13 @@ module Scoring
 
     def partner_id
       @partner_id ||= @user.relationship.users.where(User[:id].not_eq(@user.id)).first.id
+    end
+
+    def products_for_couple(id)
+      partner_1_products = @partner_1_results[id.to_i][:products_data]
+      partner_2_products = @partner_2_results[id]["products_data"]
+      unique_products = (partner_1_products+ partner_2_products).flatten.compact.uniq
+      @both_partner_results[id][:products_data] = unique_products
     end
   end
 end
