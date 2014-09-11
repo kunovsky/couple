@@ -6,7 +6,7 @@ module RelationshipResults
     end
 
     def handle_results_request
-      {content: result_content, recommendation: result_recommendation, percentage_data: percentage_data, products_data: products_data, status: status}
+      {content: result_content, recommendation: result_recommendation, percentage_data: percentage_data, products_data: products_data.flatten, status: status}
     end
 
     private
@@ -28,18 +28,20 @@ module RelationshipResults
     end
 
     def percentage_data
-      return format_percentages(@analysis["percentages"])if @analysis.fetch("percentages", nil)
-      {current_user_percentage: @analysis["percentage"]}
+      return format_percentages(@analysis['percentages'])if @analysis.fetch('percentages', nil)
+      {current_user_percentage: @analysis['percentage']}
     end
 
     def products_data
-      Product.select(Product[:id], Product[:name], Product[:description], Product[:data]
-        ).where(Result[:id].eq(@analysis["result_id"])).joins(treatments: :result)
+      return [] if @analysis['product_data'].empty?
+      @analysis['product_data'].map do |product|
+        Product.select(Product[:id], Product[:name], Product[:description], Product[:data]).where(Product[:id].eq(product['id']))
+      end
     end
 
     def result
-      return @result ||= Result.find(@analysis["result_id"]) if @analysis["result_id"]
-      @result ||= Result.find(@analysis["results"][@user.id.to_s]) if Result.exists?(@analysis["results"][@user.id.to_s])
+      return @result ||= Result.find(@analysis['result_id']) if @analysis['result_id']
+      @result ||= Result.find(@analysis['results'][@user.id.to_s]) if Result.exists?(@analysis['results'][@user.id.to_s])
     end
 
     def format_percentages(percentages)
@@ -47,7 +49,7 @@ module RelationshipResults
     end
 
     def partner_id
-      @user.relationship.users.where(User[:id].not_eq(@user.id)).first.id
+      @user.relationship.users.where(User[:id].not_eq(@user.id)).first.id.to_s
     end
   end
 end

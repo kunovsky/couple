@@ -20,6 +20,7 @@ CP.module "Views.Common.User", (User, CP, Backbone, Marionette, $, _) ->
         method: 'GET'
         url: @url()
         success: (response) =>
+          console.log response
           @results = @formatResponse(response)
           @render()
 

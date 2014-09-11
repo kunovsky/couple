@@ -112,7 +112,6 @@ module Scoring
     end
 
     def set_couple_questionnaire_percentages(id, percentages)
-      p @both_partner_results
       @both_partner_results[id]
       @both_partner_results[id][:percentages] = percentages
     end

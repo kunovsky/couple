@@ -5,7 +5,7 @@ class CompletedQuestionnairesController < ApplicationController
     if !user_same
       render json: {path: '/logout'}, status: 403
     else
-      render json: Handler.new(params).handle_questionnaire, status: 200
+      render json: Handler.new(params).handle_questionnaires, status: 200
     end
   end
 end

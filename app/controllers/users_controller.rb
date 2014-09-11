@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   def create
     user = User.create!(relationship_id: current_user.relationship_id)
     session[:auth_token] = user.auth_token
-    render json: {path: 'questionnaire/1'}, status: 200
+    render json: {path: 'grouping/1'}, status: 200
   end
 
   def invite

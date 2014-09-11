@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
     invite = Invite.find_by(invite_token: params[:invite_token])
     session[:auth_token] = invite.user.auth_token
     invite.destroy # do we want to destroy the invite?
-    redirect_to '/questionnaire/1'
+    redirect_to return_path
   end
 
   private
@@ -26,6 +26,6 @@ class SessionsController < ApplicationController
   end
 
   def return_path
-    'questionnaire/1'
+    ['grouping', '1'].join('/')
   end
 end

@@ -5,7 +5,7 @@ module Scoring
       set_up_dummy_relationship
       determine_results
       overall_percentage
-      overall_result
+      overall_result_and_product
       update_relationship_feedback(@partner_1_results)
     end
 

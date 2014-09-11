@@ -2,15 +2,18 @@ module CompletedQuestionnaireHelpers
   class Handler
 
     def initialize(params)
-      @questionnaire_id, @user_id = params[:questionnaire_id], params[:user_id]
-      @point_values = format_possible_responses_and_point_values
-      @score = tabulate_score
+      @grouping_id, @user_id = params[:grouping_id], params[:user_id]
     end
 
-    def handle_questionnaire
-      CompletedQuestionnaire.find_or_create_by( user_id: @user_id, questionnaire_id: @questionnaire_id).tap do |completed|
-        completed.score = {user_score: @score, percentage: overall_percentage}
-        completed.save!
+    def handle_questionnaires
+      Grouping.find(@grouping_id).questionnaires.each do |questionnaire|
+        @questionnaire_id = questionnaire.id.to_s
+        @point_values = format_possible_responses_and_point_values
+        @score = tabulate_score
+        CompletedQuestionnaire.find_or_create_by( user_id: @user_id, questionnaire_id: @questionnaire_id).tap do |completed|
+          completed.score = {user_score: @score, percentage: overall_percentage}
+          completed.save!
+        end
       end
     end
 

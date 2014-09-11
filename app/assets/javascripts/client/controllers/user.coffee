@@ -4,7 +4,7 @@ CP.module "Controllers", (Controllers, CP, Backbone, Marionette, $, _) ->
 
   class @AppController
     showHome: -> CP.wrapRegion.show new CP.Views.User.Layout page: 'index'
-    questionnaire: (id) -> CP.wrapRegion.show new CP.Views.User.Layout page: 'questionnaire', id: id ? "1"
+    grouping: (id) -> CP.wrapRegion.show new CP.Views.User.Layout page: 'grouping', id: id ? "1"
     results: -> CP.wrapRegion.show new CP.Views.User.Layout page: 'results'
     
   class @UserRoutes extends Controllers.BaseRouter
@@ -12,7 +12,6 @@ CP.module "Controllers", (Controllers, CP, Backbone, Marionette, $, _) ->
 
     appRoutes:
       ''                   : 'showHome'
-      'questionnaire'      : 'questionnaire'
-      'questionnaire/:id'  : 'questionnaire'
+      'grouping'           : 'grouping'
+      'grouping/:id'       : 'grouping'
       'results'            : 'results'
-

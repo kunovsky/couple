@@ -25,8 +25,8 @@ CP.module "Views.User", (User, CP, Backbone, Marionette, $, _) ->
     showIndex: ->
       @bodyRegion.show new User.Welcome.Layout
 
-    showQuestionnaire: ->
-      @bodyRegion.show new User.Quiz.Section id: @options.id
+    showGrouping: ->
+      @bodyRegion.show new User.Section.Grouping id: @options.id
 
     showResults: ->
       @bodyRegion.show new User.Results.Layout

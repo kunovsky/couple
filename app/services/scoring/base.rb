@@ -12,15 +12,20 @@ module Scoring
       @user.completed_questionnaires.each do |completed|
         questionnaire = Questionnaire.find(completed.questionnaire_id)
         if completed.score["user_score"] < questionnaire.cutoff_score
-          @partner_1_results[questionnaire.id] = individual_result(questionnaire.id, :bad)
+          @partner_1_results[questionnaire.id] = result_and_product(questionnaire.id, :bad)
         elsif completed.score["user_score"] < questionnaire.ok_score
-          @partner_1_results[questionnaire.id] = individual_result(questionnaire.id, :ok)
+          @partner_1_results[questionnaire.id] = result_and_product(questionnaire.id, :ok)
         else
-          @partner_1_results[questionnaire.id] = individual_result(questionnaire.id, :good)
+          @partner_1_results[questionnaire.id] = result_and_product(questionnaire.id, :good)
         end
         set_questionnaire_percentage(completed.score["percentage"], questionnaire.id)
         adjusted_percentage(completed.score["percentage"], questionnaire.weight)
       end
+    end
+
+    def result_and_product(id, type)
+      result_id = individual_result_id(id, TYPES[type])
+      {result_id: result_id, product_data: product_data(result_id)}
     end
 
     def individual_result_id(id, type)
@@ -28,10 +33,6 @@ module Scoring
        Questionnaire[:id].eq(id).and(Result[:quadrant_type].eq(type))
      ).joins(Result.arel_table.join(Questionnaire.arel_table).on(
          Result[:questionnaire_id].eq(Questionnaire[:id])).join_sources).first.id
-    end
-
-    def individual_result(id, type)
-      {result_id: individual_result_id(id, TYPES[type])}
     end
 
     def set_questionnaire_percentage(score, id)
@@ -52,18 +53,22 @@ module Scoring
       ((@overall_percentages.reduce(:+))*100).round
     end
 
-    def overall_result
+    def overall_result_and_product
       if @partner_1_results[@last_id][:percentage] < 80
-        @partner_1_results[@last_id][:result_id] = individual_result_id(@last_id, TYPES[:bad])
+        @partner_1_results[@last_id].merge!(result_and_product(@last_id, :bad))
       elsif @partner_1_results[@last_id][:percentage] < 90
-        @partner_1_results[@last_id][:result_id] = individual_result_id(@last_id, TYPES[:ok])
+        @partner_1_results[@last_id].merge!(result_and_product(@last_id, :ok))
       else
-        @partner_1_results[@last_id][:result_id] = individual_result_id(@last_id, TYPES[:good])
+        @partner_1_results[@last_id].merge!(result_and_product(@last_id, :good))
       end
     end
 
     def results_questionnaire_id
       APP_CONFIG[:last_questionnaire_id] + 1
+    end
+
+    def product_data(result_id)
+      Product.select(Product[:id]).where(Result[:id].eq(result_id)).joins(treatments: :result)
     end
 
     def update_relationship_feedback(results)

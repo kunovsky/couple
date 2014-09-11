@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   scope 'api' do
-    get '/questionnaires/:id' => 'questionnaires#show'
+    get '/grouping/:id' => 'groupings#show'
     post '/invite' => 'users#invite'
     resources :users do
       post 'completed_questionnaires' => 'completed_questionnaires#create'
@@ -16,8 +16,8 @@ Rails.application.routes.draw do
   resources :sessions
   
   get '/invite/:invite_token' => 'sessions#invite'
-  get '/questionnaire' => 'users#index'
-  get '/questionnaire/*url' => 'users#index'
+  get '/grouping' => 'users#index'
+  get '/grouping/*url' => 'users#index'
   get '/results' => 'users#index'
 
   get '/logout' => 'sessions#destroy'
