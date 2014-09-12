@@ -34,9 +34,7 @@ module RelationshipResults
 
     def products_data
       return [] if @analysis['products_data'].empty?
-      @analysis['products_data'].map do |id|
-        Product.select(Product[:id], Product[:name], Product[:description], Product[:data]).where(Product[:id].eq(id))
-      end
+      @analysis['products_data'].map {|id| Product.select(Product[:id], Product[:name], Product[:description], Product[:data]).where(Product[:id].eq(id))}
     end
 
     def result

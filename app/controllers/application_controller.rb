@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   private
 
   def current_user
-    return nil unless session[:auth_token].present?
+    return nil unless session[:auth_token].present? && User.exists?(auth_token: session[:auth_token])
 
     @current_user ||= -> {
       user = User.find_by_auth_token!(session[:auth_token])

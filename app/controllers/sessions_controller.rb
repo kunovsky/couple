@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
     return redirect_to '/' if !Invite.exists?(invite_token: params[:invite_token])
     invite = Invite.find_by(invite_token: params[:invite_token])
     session[:auth_token] = invite.user.auth_token
-    invite.destroy # do we want to destroy the invite?
+    invite.update_attribute(:invite_token, nil)
     redirect_to return_path
   end
 

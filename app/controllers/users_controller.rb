@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
   def index
+    redirect_to '/' unless current_user
   end
 
   def create
@@ -12,12 +13,12 @@ class UsersController < ApplicationController
   def invite
     user = User.create!(relationship_id: current_user.relationship_id)
     invite = Invite.create(user_id: user.id)
-    if user.valid_number?(params[:text])
+    if user.valid_number?(params[:text]) #TODO: move these to the validations helpers module
       render json: user.invite_via_text({number: params[:text], invite_token: invite.invite_token}), status: 200
     elsif user.valid_email?(params[:email])
         render json: user.invite_via_email({email: params[:email], invite_token: invite.invite_token}), status: 200
     else
-      render json: {errors: "Not a valid number or email"}, status: 422
+      render json: {errors: "Not valid"}, status: 422
     end
   end
 

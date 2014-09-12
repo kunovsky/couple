@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
     self.taken
   end
 
-  #TODO: Implement these
+  #TODO: Implement these and put them in a validation helpers module
   def valid_number?(number)
     number
   end
