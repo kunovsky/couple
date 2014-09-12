@@ -4,8 +4,9 @@ Rails.application.routes.draw do
     get '/grouping/:id' => 'groupings#show'
     post '/invite' => 'users#invite'
     resources :users do
-      post 'completed_questionnaires' => 'completed_questionnaires#create'
-      post 'actual_responses' => 'actual_responses#create'
+      post '/completed_questionnaires' => 'completed_questionnaires#create'
+      post '/notification' => 'users#notification'
+      post '/actual_responses' => 'actual_responses#create'
       post '/score' => 'users#score'
       get '/results/:id' => 'users#results'
       post '/invite' => 'users#invite'

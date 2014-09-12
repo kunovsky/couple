@@ -1,6 +1,20 @@
 .modal-header
+  %h3 Success!
 .modal-body
-  .action-words
-    Success!
-  %button.green.no-icon.js-done
-    Sweet
+  .form--invite.valign-top
+    %form
+      .js-error-msg-container.form-messages-container
+        .js-error-messages
+      %p.invite__information If you like we can give let you know when your partner has taken the questionnaire
+      %p.invite__information Give us your info and we will send you your final results once your partner has taken the text
+      %fieldset
+        %table
+          %tr
+            %td
+              %label{for: @type}  Notify Me Via #{@type} :
+            %td
+              %input{type: @type, name: @type}
+
+      .form--invite__buttons.right
+        %button.orange.no-icon.ladda-button.js-invite{type: 'submit', value: 'Invite'} Send Me A #{@type} Notification
+        %button.light-gray.no-icon.ladda-button.js-cancel No Thanks

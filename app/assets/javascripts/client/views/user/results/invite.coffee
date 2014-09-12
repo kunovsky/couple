@@ -19,7 +19,7 @@ CP.module "Views.User.Results", (Results, CP, Backbone, Marionette, $, _) ->
         url: ['/api', 'invite'].join('/')
         type: 'POST'
         data: data
-        success: => CP.modalRegion.show new CP.Views.Globals.Modals.Success
+        success: => CP.modalRegion.show new CP.Views.Globals.Modals.Success type: @type
         error: (respObj) -> console.log respObj
 
     closeModal: (e) ->

@@ -4,9 +4,9 @@ class CreateUsers < ActiveRecord::Migration
       t.integer :relationship_id
       t.boolean :taken, null: false, default: false
       t.string :email
+      t.string :phone
       t.string :first_name
       t.string :auth_token
-
 
       t.timestamps
     end
