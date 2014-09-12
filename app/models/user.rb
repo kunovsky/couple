@@ -18,19 +18,31 @@ class User < ActiveRecord::Base
     self.taken
   end
 
-  #TODO: Implement these and put them in a validation helpers module
-  def valid_number?(number)
-    number
-  end
-
-  def valid_email?(email)
-    email
+  def handle_partner_notification(args)
+    UserMailer.invite_partner(email) if email = args.fetch(:email, nil)
+    Invites::Text.new(phone).send_message if phone = args.fetch(:number, nil)
   end
 
   private
 
   def create_actual_response_for_user
     ActualResponse.create!(user_id: self.id)
+  end
+
+  def partner_contact_info
+    partner_email || partner_phone
+  end
+
+  def partner_email
+    partner.email
+  end
+
+  def partner_phone
+    partner.phone
+  end
+
+  def partner
+    self.relationship.users.reject! {|user| user.id == self.id}
   end
 
 end

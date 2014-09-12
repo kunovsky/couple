@@ -21,7 +21,7 @@ CP.module "Views.Globals.Modals", (Modals, CP, Backbone, Marionette, $, _) ->
         type: 'POST'
         data: data
         success: => CP.modalRegion.show new Modals.Finished
-        error: (respObj) -> console.log respObj
+        error: (respObj) -> console.log respObj #TODO: Make this and the invite file display the invalid errors
 
     closeModal: (e) ->
       e.preventDefault()
