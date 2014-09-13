@@ -18,6 +18,14 @@ class SessionsController < ApplicationController
     redirect_to return_path
   end
 
+  def results
+    return redirect_to '/' if !Invite.exists?(invite_token: params[:invite_token])
+    invite = Invite.find_by(invite_token: params[:invite_token])
+    session[:auth_token] = invite.user.auth_token
+    invite.update_attribute(:invite_token, nil)
+    redirect_to 'results'
+  end
+
   private
 
   def handle_user_creation
@@ -26,6 +34,6 @@ class SessionsController < ApplicationController
   end
 
   def return_path
-    ['grouping', '1'].join('/')
+    ['/grouping', '1'].join('/')
   end
 end

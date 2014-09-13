@@ -53,7 +53,7 @@ class UsersController < ApplicationController
 
   private
 
-  #TODO: Move this
+  #TODO: Move this to an appropriate place
   def partner_notification
     invite = Invite.create(user_id: current_user.partner.id)
     if current_user.partner_phone

@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   resources :sessions
   
   get '/invite/:invite_token' => 'sessions#invite'
+  get '/results/:invite_token' => 'sessions#results'
   get '/grouping' => 'users#index'
   get '/grouping/*url' => 'users#index'
   get '/results' => 'users#index'

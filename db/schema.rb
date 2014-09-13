@@ -114,6 +114,7 @@ ActiveRecord::Schema.define(version: 20140904234357) do
     t.integer  "relationship_id"
     t.boolean  "taken",           default: false, null: false
     t.string   "email"
+    t.string   "phone"
     t.string   "first_name"
     t.string   "auth_token"
     t.datetime "created_at"

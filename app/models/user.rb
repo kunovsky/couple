@@ -19,18 +19,16 @@ class User < ActiveRecord::Base
   end
 
   def handle_partner_notification(args)
-    UserMailer.invite_partner(email) if email = args.fetch(:email, nil)
-    Invites::Text.new(phone).send_message if phone = args.fetch(:number, nil)
-  end
-
-  private
-
-  def create_actual_response_for_user
-    ActualResponse.create!(user_id: self.id)
+    Invites::ResultsText.new(args).send_message if args.fetch(:number, nil)
+    UserMailer.invite_partner(args) if args.fetch(:email, nil)
   end
 
   def partner_contact_info
     partner_email || partner_phone
+  end
+
+  def partner
+    self.relationship.users.select {|user| user.id != self.id}.first
   end
 
   def partner_email
@@ -41,8 +39,10 @@ class User < ActiveRecord::Base
     partner.phone
   end
 
-  def partner
-    self.relationship.users.reject! {|user| user.id == self.id}
+  private
+
+  def create_actual_response_for_user
+    ActualResponse.create!(user_id: self.id)
   end
 
 end
