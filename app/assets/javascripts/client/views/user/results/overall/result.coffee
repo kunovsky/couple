@@ -1,7 +1,7 @@
-CP.module "Views.User.Results", (Results, CP, Backbone, Marionette, $, _) ->
+CP.module "Views.User.Results.Overall", (Overall, CP, Backbone, Marionette, $, _) ->
 
-  class @Overall extends CP.Views.Common.User.ResultsBase
-    template: CPT["user/results/overall"]
+  class @Result extends CP.Views.Common.User.ResultsBase
+    template: CPT["user/results/overall/result"]
     name: "Overall"
     events: 
       "click .js-invite-partner"  : "handlePartnerInvite"
@@ -11,7 +11,7 @@ CP.module "Views.User.Results", (Results, CP, Backbone, Marionette, $, _) ->
 
     handlePartnerInvite: (e) ->
       e.preventDefault()
-      CP.modalRegion.show new Results.Invite($(e.target).data()), el: @el)
+      CP.modalRegion.show new Results.Invite $(e.target).data()
       @disableOptions()
 
     takeAsPartner: ->

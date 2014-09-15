@@ -9,4 +9,4 @@ CP.module "Views.User.Results", (Results, CP, Backbone, Marionette, $, _) ->
 
     onRender: ->
       @individualRegion.show new Results.Individual.Layout
-      @overallRegion.show new Results.Overall
+      @overallRegion.show new Results.Overall.Layout
