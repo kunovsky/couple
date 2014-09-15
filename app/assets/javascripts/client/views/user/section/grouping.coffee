@@ -39,7 +39,7 @@ CP.module "Views.User.Section", (Section, CP, Backbone, Marionette, $, _) ->
         url: @saveUrl()
         data: data
         success: (respObj) => @enableNextSection() if respObj.completed
-        # error: (respObj) => @logout(respObj.path) # uncomment this
+        error: (respObj) => @logout(respObj.path)
 
     createCompletedQuestionnaire: ->
       $.ajax

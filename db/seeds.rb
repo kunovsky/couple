@@ -229,7 +229,7 @@ Grouping.find(3).questionnaires << turning_towards
 turning_towards.questions.create! content: "I really enjoy discussing things with my partner"
 turning_towards.questions.create! content: "We always have a lot to say to each other"
 turning_towards.questions.create! content: "We have a lot of fun together in our everyday lives"
-turning_towards.questions.create! content: "My partner responds with interest when I have interesting things to say"
+turning_towards.questions.create! content: "My partner responds with engagement when I have interesting things to say"
 turning_towards.questions.create! content: "We like to do a lot of the same things"
 
 

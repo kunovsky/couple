@@ -7,7 +7,7 @@ CP.module "Views.User.Results", (Results, CP, Backbone, Marionette, $, _) ->
       "click .js-cancel" : "closeModal"
 
     initialize: (@options = options = {}) ->
-      @type = options.type
+      [@type, @] = options.type
 
     templateHelpers: ->
       {@type}

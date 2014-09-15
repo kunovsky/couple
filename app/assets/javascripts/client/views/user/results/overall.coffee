@@ -11,7 +11,8 @@ CP.module "Views.User.Results", (Results, CP, Backbone, Marionette, $, _) ->
 
     handlePartnerInvite: (e) ->
       e.preventDefault()
-      CP.modalRegion.show new Results.Invite $(e.target).data()
+      CP.modalRegion.show new Results.Invite($(e.target).data()), el: @el)
+      @disableOptions()
 
     takeAsPartner: ->
       $.ajax
@@ -20,3 +21,6 @@ CP.module "Views.User.Results", (Results, CP, Backbone, Marionette, $, _) ->
         success: (respObj) =>
           window.location.href = respObj.path
 
+    disableOptions: ->
+      $(@el).find('.js-invite-partner').attr('disabled', true)
+      $(@el).find('.js-take-as-partner').attr('disabled', true)
