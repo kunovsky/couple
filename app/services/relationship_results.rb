@@ -6,7 +6,13 @@ module RelationshipResults
     end
 
     def handle_results_request
-      {content: result_content, recommendation: result_recommendation, percentage_data: percentage_data, products_data: products_data.flatten, status: status}
+      {content: result_content,
+       recommendation: result_recommendation,
+       percentage_data: percentage_data,
+       products_data: products_data.flatten,
+       status: status,
+       partner_invited: partner_invited?
+     }
     end
 
     private
@@ -48,6 +54,10 @@ module RelationshipResults
 
     def partner_id
       @user.relationship.users.where(User[:id].not_eq(@user.id)).first.id.to_s
+    end
+
+    def partner_invited?
+      return true if @user.relationship.users.length == 2
     end
   end
 end

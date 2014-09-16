@@ -21,6 +21,7 @@ CP.module "Views.Common.User", (User, CP, Backbone, Marionette, $, _) ->
         url: @url()
         success: (response) =>
           @results = @formatResponse(response)
+          @determineNextSteps() if @name == "Overall"
           @render()
 
     formatResponse: (response) ->
@@ -33,7 +34,8 @@ CP.module "Views.Common.User", (User, CP, Backbone, Marionette, $, _) ->
       currentUserPercentage: currentUserPercentage,
       partnerPercentage: partnerPercentage,
       products_data: products,
-      status: response.status}
+      status: response.status,
+      partnerInvited: response.partner_invited}
 
     currentUserPercentage: (response) ->
       response.percentage_data.current_user_percentage
