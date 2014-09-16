@@ -23,8 +23,7 @@ module QuestionnaireHelpers
   end
 
   def get_possible_responses(id)
-    PossibleResponse.select(
-      PossibleResponse[:id], PossibleResponse[:content]
+    PossibleResponse.select(PossibleResponse[:id], PossibleResponse[:content]
       ).where(Questionnaire[:id].eq(id)).joins( questions_responses: {question: :questionnaire}
       ).order(PossibleResponse[:id]).group(PossibleResponse[:id])
   end

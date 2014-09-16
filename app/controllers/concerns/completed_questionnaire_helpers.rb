@@ -38,21 +38,8 @@ module CompletedQuestionnaireHelpers
     end
 
     def responses_and_point_values
-      PossibleResponse.select(
-        PossibleResponse[:id], PossibleResponse[:point_value]
-      ).where(Questionnaire[:id].eq(@questionnaire_id)).joins(
-        PossibleResponse.arel_table.join(QuestionsResponse.arel_table).on(
-          QuestionsResponse[:possible_response_id].eq(PossibleResponse[:id])
-        ).join_sources
-      ).joins(
-        PossibleResponse.arel_table.join(Question.arel_table).on(
-          Question[:id].eq(QuestionsResponse[:question_id])
-        ).join_sources
-      ).joins(
-        PossibleResponse.arel_table.join(Questionnaire.arel_table).on(
-          Questionnaire[:id].eq(Question[:questionnaire_id])
-        ).join_sources
-      ).uniq
+      PossibleResponse.select(PossibleResponse[:id], PossibleResponse[:point_value]
+      ).where(Questionnaire[:id].eq(@questionnaire_id)).joins(questions_responses: {question: :questionnaire}).uniq
     end
 
     def greatest_response_value
