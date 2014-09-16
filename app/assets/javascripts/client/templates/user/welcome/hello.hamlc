@@ -1,6 +1,5 @@
 .site-wrap
   .standard-text-container.welcome-message
-    .title-text Hi There
-    .explination-text Kickstarter kale chips cardigan, post-ironic put a bird on it chillwave ethnic authentic chia narwhal. Hoodie bitters bespoke, XOXO seitan squid small batch Wes Anderson authentic irony Carles next level Tumblr leggings. Fixie freegan flexitarian Etsy Odd Future, typewriter direct trade pour-over you probably haven't heard of them cred authentic wolf. Shabby chic vinyl McSweeney's, bitters Helvetica normcore Thundercats kitsch. Food truck biodiesel hashtag banjo, mumblecore iPhone aesthetic VHS farm-to-table actually small batch meh tattooed. Umami Marfa sustainable beard Cosby sweater twee, semiotics art party yr fap. Stumptown locavore Wes Anderson, XOXO Truffaut Marfa trust fund artisan Helvetica Thundercats kitsch aesthetic ennui forage authentic.
-    %button.light-gray.with-bottom-left-margin.js-begin-questionnaire
-      Do this
+    .title-text What's your relationship score?
+    .explanation-text Using techniques and questionnaires developed over 40 years, we can predict with 95% accuracy how your relationship is doing overall.
+    %button.light-gray.with-bottom-left-margin.js-begin-questionnaire Take the test

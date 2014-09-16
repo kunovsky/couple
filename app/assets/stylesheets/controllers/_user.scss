@@ -18,22 +18,19 @@
     padding: 5px 0px 5px 5px; 
   }
 
-.explination-text {
+.explanation-text {
   padding: 5px;
   font-family: $proxima-nova;
   font-size: 13px;
 
   .step-container {
-    color: #2F2F2F;
+    color: #FFF;
     padding: 15px;
-    background-color: $dark-blue;
+    background-color: #3D7CD1;
     display: inline-block;
     border: none;
     border-radius: $form-element-radius;
     font-size: 13px;
-    &:first-of-type {
-      margin-left: 30%;
-    }
   }
 }
 

@@ -5,11 +5,11 @@ CP.module "Views.User.Welcome", (Welcome, CP, Backbone, Marionette, $, _) ->
 
     regions:
       helloRegion: "#hello-region"
-      explinationRegion: "#explination-region"
+      explanationRegion: "#explanation-region"
       disclaimerRegion: "#disclaimer-region"
 
 
     onRender: ->
       @helloRegion.show new Welcome.Hello
-      @explinationRegion.show new Welcome.Explination
+      @explanationRegion.show new Welcome.Explanation
       @disclaimerRegion.show new Welcome.Disclaimer

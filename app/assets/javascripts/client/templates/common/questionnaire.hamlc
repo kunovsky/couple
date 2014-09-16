@@ -1,9 +1,9 @@
 .site-wrap
   .standard-text-container
-    .title-text This is a section of the questionnaire
+    .title-text Please answer the following questions:
     - if @questions?.length > 0
       -for question in @questions
-        .explination-text=question.content
+        .explanation-text=question.content
         .button-container
           - for response in question.possible_responses
             %button.green.possible-response__container.js-response-button{data: {rid: response.id, qid: question.id}}=response.content
