@@ -1,5 +1,5 @@
 .result__container
-  .result__container--overall-results
+  .result__container--overall-result
 
     .result__header
       .left #{@name} 

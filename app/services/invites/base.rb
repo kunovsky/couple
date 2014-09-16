@@ -10,7 +10,7 @@ module Invites
     end
 
     def url(invite_token)
-      ['https://lthxbmwvgs.localtunnel.me', '/invite/', invite_token].join
+      ['https://zeceagknbb.localtunnel.me', '/invite/', invite_token].join
     end
 
     def twilio_number

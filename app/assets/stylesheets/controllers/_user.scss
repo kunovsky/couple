@@ -60,8 +60,8 @@
     border: 1px solid black;
   }
 
-  .result__container--overall-results {
-    width: inherit; min-height: 500px;
+  .result__container--overall-result {
+    width: inherit; min-height: 300px;
     margin: 20px 0px;
     padding: 20px 30px;
     border: 1px solid black;
@@ -96,15 +96,20 @@
       margin-top: 10px;
     }
   }
-  .result__body__invite {
-    padding-top: 100px;
-    .result__body__invite__message {
-      padding-bottom: 15px;
-    }
-    .result__body__invite__options {
-      text-align: center;
-    }
-  }
 }
 
+.invite__container {
+  min-height: 80px;
+  margin-bottom: 20px;
+  padding: 20px 30px;
+  border: 1px solid black;
+  font-size: 14px;
+  color: #000;
+  .invite__message {
+    padding-bottom: 15px;
+  }
+  .invite__options {
+    text-align: center;
+  }
+}
 

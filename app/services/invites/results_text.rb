@@ -16,7 +16,7 @@ module Invites
     end
 
     def url(invite_token)
-      ['https://lthxbmwvgs.localtunnel.me', '/results/', invite_token].join
+      ['https://zeceagknbb.localtunnel.me', '/results/', invite_token].join
     end
   end
 end

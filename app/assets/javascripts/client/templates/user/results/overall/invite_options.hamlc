@@ -1,6 +1,6 @@
-.result__body__invite
-  .result__body__invite__message We need your partner in order to give you an accurate score. Please select one of the following options:
-  .result__body__invite__options
+.invite__container
+  .invite__message We need your partner in order to give you an accurate score. Please select one of the following options:
+  .invite__options
     %button.blue.no-icon.js-invite-partner{data: {type: "text"}} Invite Your Partner Via Text
     %button.blue.no-icon.js-invite-partner{data: {type: "email"}} Invite Your Partner Via Email
     %button.blue.no-icon.js-take-as-partner Take the test for your partner
