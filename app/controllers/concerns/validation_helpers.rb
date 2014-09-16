@@ -1,5 +1,5 @@
 module ValidationHelpers
-    #TODO: Implement these and put them in a validation helpers module
+    #TODO: Implement these
   def valid_number?(number)
     number
   end
