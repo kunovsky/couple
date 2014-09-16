@@ -11,16 +11,16 @@ class UsersController < ApplicationController
     render json: {path: 'grouping/1'}, status: 200
   end
 
-  def invite #TODO: Remove redundant creating in this method...
-    if valid_number?(params[:text]) #TODO: move these to the validations helpers module
-      user = User.create!(relationship_id: current_user.relationship_id)
-      invite = Invite.create(user_id: user.id)
-      render json: user.invite_via_text({number: params[:text], invite_token: invite.invite_token}), status: 200
-    elsif valid_email?(params[:email])
-      user = User.create!(relationship_id: current_user.relationship_id)
-      invite = Invite.create(user_id: user.id)
-      # render json: user.invite_via_email({email: params[:email], invite_token: invite.invite_token}), status: 200
-      render json: {}, status: 200
+  def invite
+    if valid_params?(params)
+        user = User.create!(relationship_id: current_user.relationship_id)
+        invite = Invite.create(user_id: user.id)
+      if valid_number?(params[:text]) #TODO: move these to the validations helpers module
+        render json: user.invite_via_text({number: params[:text], invite_token: invite.invite_token}), status: 200
+      elsif valid_email?(params[:email])
+        # render json: user.invite_via_email({email: params[:email], invite_token: invite.invite_token}), status: 200
+        render json: {}, status: 200
+      end
     else
       render json: {errors: "Not valid"}, status: 422
     end
