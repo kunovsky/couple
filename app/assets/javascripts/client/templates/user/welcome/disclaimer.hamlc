@@ -2,4 +2,4 @@
   .standard-text-container
     .title-text Accurate and anonymous
     .explanation-text Your privacy is important to us so we take the utmost care to ensure that all information given is secure and complaint with HIPPA. 
-    %button.light-gray.with-bottom-left-margin.js-begin-questionnaire Take The Test
+    %button.light-gray.with-bottom-left-margin.js-begin-questionnaire What's my relationship score?
