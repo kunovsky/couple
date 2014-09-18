@@ -19,67 +19,6 @@ true_false_reversed << (PossibleResponse.create! content: "True", point_value: 0
 true_false_reversed << (PossibleResponse.create! content: "False", point_value: 1)
 
 
-###Questionnaire 3 FONDNESS AND ADMIRATION###
-
-fondness_and_admiration = Questionnaire.create!(title: "Fondness and Admiration", cutoff_score: 4, ok_score: 5, weight: 0.1111) #cutoff_score < 4 and it's a bad thing
-
-fondness_turning_emotion_grouping = Grouping.create!(name: "Last Section")
-fondness_turning_emotion_grouping.questionnaires << fondness_and_admiration
-
-
-fondness_and_admiration.questions.create! content: "My partner really respects me"
-fondness_and_admiration.questions.create! content: "I feel loved and cared for in this relationship"
-fondness_and_admiration.questions.create! content: "Romance is something our relationship definitely still has in it"
-fondness_and_admiration.questions.create! content: "When I come into a room my partner is glad to see me"
-fondness_and_admiration.questions.create! content: "My partner appreciates the things I do in this relationship"
-
-
-fondness_and_admiration.questions.each do |question|
-  true_false_normal.each do |response|
-    question.possible_responses << response
-  end
-end
-
-fondness_and_admiration_products = []
-
-fondness_and_admiration_products << Product.create!(name: "Gottman Fondness & Admiration Product", description: "This product is designed to help your Fondness & Admiration")
-fondness_and_admiration_products << Product.create!(name: "Gottman Fondness & Admiration Therapy Help", description: "Personalized therapy to help you with this problem")
-
-fondness_and_admiration.results.create!(quadrant_type: "individual_good", overall: "g", content: "Congratulations, you have built a lasting friendship system in your relationship where you feel loved, respected, and appreciated!", recommendation: "From your answers it's clear that you feel respected, admired, and well loved by your partner. Most likely, you not only think loving and appreciative thoughts about them but also express those thoughts through words and affection. In doing so you are actively working to create a 'culture of appreciation' in your relationship, one where you don't feel taken for granted and where you are both proud of what you have accomplished. High fondness and admiration in a relationship is one of the three essential components of a good friendship, and you have it!") #You scored good - you have no problems in this area
-
-ok = fondness_and_admiration.results.create!(quadrant_type: "individual_ok", overall: "o", content: "Don't panic, but we want you to do a better job of building a lasting friendship system in your relationship where you feel loved, respected, and appreciated.", recommendation: "In any committed relationship it's important to feel respected, admired, and well loved. We think you can do a better job of working with your partner to develop these fondness and admiration systems. In the case that you are not there, the goal of such a systems is to get to a point where you not only think loving and appreciative thoughts about your partner but also express those thoughts through words and affection. In doing so you will create a 'culture of appreciation' in your relationship, one where you don't feel taken for granted and where you are both proud of what you have accomplished. High fondness and admiration in a relationship is one of the three essential components of a good friendship, and we are worried that your current system has he potential to cause larger problem down the road. In order to enhance your friendship we recommend the following resource:") #You scored ok - you have some problems
-ok.products << fondness_and_admiration_products[0]
-
-bad = fondness_and_admiration.results.create!(quadrant_type: "individual_bad", overall: "b", content: "Don't panic, but we want you to do a better job of building a lasting friendship system in your relationship where you feel loved, respected, and appreciated.", recommendation: "In any committed relationship it's important to feel respected, admired, and well loved. We think you can do a better job of working with your partner to develop these fondness and admiration systems. In the case that you are not there, the goal of such a systems is to get to a point where you not only think loving and appreciative thoughts about your partner but also express those thoughts through words and affection. In doing so you will create a 'culture of appreciation' in your relationship, one where you don't feel taken for granted and where you are both proud of what you have accomplished. High fondness and admiration in a relationship is one of the three essential components of a good friendship, and we are worried that your current system is not supporting you a healthy way. In order to enhance your fondness and admiration systems we recommend the following resource:") #You scored bad - you have problems
-fondness_and_admiration_products.each {|product| bad.products << product}
-
-fondness_and_admiration.results.create!(quadrant_type: "couple_good_good", overall: "g", content: "Congratulations, you have built a lasting friendship system in your relationship where both you and your partner feel loved, respected, and appreciated!", recommendation: "From both of your answers it's clear that you feel respected, admired, and well loved by one another. Most likely you not only think loving and appreciative thoughts about each other but you also express these thoughts through words and affection. In doing so you are actively working to create a 'culture of appreciation' in your relationship, one where neither person feels taken for granted and where you are both proud of what you have accomplished. High fondness and admiration in a relationship is one of the three essential components of a good friendship, and you have it!") # You both scored good - this relationship no problems
-
-bad = fondness_and_admiration.results.create!(quadrant_type: "couple_good_bad", overall: "b", content: "Your partner needs your help in building a lasting friendship system where they feel loved, respected, and appreciated.", recommendation: "In any committed relationship it's important to feel respected, admired, and well loved. We think you can do a better job of working with your partner to develop this fondness and admiration system in order to help them feel good about your relationship. Based on your partner's responses, chances are that currently they lack a sense that you are proud of what they have accomplished. Moreover they might even feel taken for granted. This can cause it to be hard for them to think loving and appreciative thoughts about you, and to express these thoughts through words and affection. A poor fondness and admiration system for either person in the relationship can be a significant problem for both your friendship and overall relationship. That said what you need to do now is work with them to develop a strong fondness and admiration system  since your current system is not supporting them a healthy way. In order to enhance your fondness and admiration systems we recommend the following resource:") #You scored good your partner scored bad - your partner needs your help badly!
-fondness_and_admiration_products.each {|product| bad.products << product}
-
-ok = fondness_and_admiration.results.create!(quadrant_type: "couple_good_ok", overall: "o", content: "", recommendation: "") # You scored good your partner scored ok - your partner has some issues that they need your help with
-ok.products << fondness_and_admiration_products[0]
-
-bad = fondness_and_admiration.results.create!(quadrant_type: "couple_bad_good", overall: "b", content: "", recommendation: "") # You scored bad your partner scored good - you have some things you need to work on and you need your partner's help
-fondness_and_admiration_products.each {|product| bad.products << product}
-
-bad = fondness_and_admiration.results.create!(quadrant_type: "couple_bad_bad", overall: "b", content: "", recommendation: "") # You both scored bad - you both have problems and need to work on this area
-fondness_and_admiration_products.each {|product| bad.products << product}
-
-bad = fondness_and_admiration.results.create!(quadrant_type: "couple_bad_ok", overall: "b", content: "", recommendation: "") # You scored bad and your partner scored ok - you have some issues you need to work on and so does your partner to a lesser degree
-fondness_and_admiration_products.each {|product| bad.products << product}
-
-ok = fondness_and_admiration.results.create!(quadrant_type: "couple_ok_good", overall: "o", content: "", recommendation: "") # You scored ok and your partner scored good - you have some minor issues that you need your partner's help with
-ok.products << fondness_and_admiration_products[0]
-
-bad = fondness_and_admiration.results.create!(quadrant_type: "couple_ok_bad", overall: "b", content: "", recommendation: "") # You scored ok and your partner scored bad - you have some minor issues and your partner has some major ones
-fondness_and_admiration_products.each {|product| bad.products << product}
-
-ok = fondness_and_admiration.results.create!(quadrant_type: "couple_ok_ok", overall: "o", content: "", recommendation: "") # Both Partners Scored Just Ok - there are some minor issues that need to be addressed
-ok.products << fondness_and_admiration_products[0]
-
-
 
 ###Questionnaire 4 TURNING TOWARDS###
 
