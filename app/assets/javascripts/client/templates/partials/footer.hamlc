@@ -7,12 +7,12 @@
       %li
         %a{href: '#'} How It Works
       %li
-        %a{href: '#'} Features
+        %a{href: '#'} Products
 
     %ul.footer-col
-      %li.title Company
+      %li.title About Relationship Analystics
       %li.hide
-        %a{href: '#'} About
+        %a{href: '#'} About The Research
       %li
         %a.js-tos{href: '#'} Terms of Use
       %li
@@ -30,6 +30,6 @@
 
 
   .right
-    &copy;
+    Relationship Analytics&copy;
     =moment().format('YYYY')
     ...., All rights reserved.
