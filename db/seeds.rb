@@ -18,7 +18,10 @@ true_false_reversed = []
 true_false_reversed << (PossibleResponse.create! content: "True", point_value: 0)
 true_false_reversed << (PossibleResponse.create! content: "False", point_value: 1)
 
-require 'first/'
-require 'second/'
-require 'third/'
-require 'overall/'
+
+require File.expand_path('../groupings/first/general_happiness', __FILE__)
+require File.expand_path('../groupings/second/love_maps', __FILE__)
+require File.expand_path('../groupings/third/fondness_and_admiration', __FILE__)
+require File.expand_path('../groupings/third/emotional_disengagement', __FILE__)
+require File.expand_path('../groupings/third/turning_towards', __FILE__)
+require File.expand_path('../groupings/overall/overall', __FILE__)
