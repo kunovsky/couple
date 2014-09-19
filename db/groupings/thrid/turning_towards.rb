@@ -1,6 +1,6 @@
 ###Questionnaire 4 TURNING TOWARDS###
 
-turning_towards = Questionnaire.create!(title: "Turning Towards", cutoff_score: 4, ok_score: 5, weight: 0.1111) #cutoff_score < 4 and it's a bad thing
+turning_towards = Questionnaire.create!(title: "Turning Towards", cutoff_score: 4, ok_score: 5, weight: 0.2) #cutoff_score < 4 and it's a bad thing
 Grouping.find(3).questionnaires << turning_towards
 
 turning_towards.questions.create! content: "I really enjoy discussing things with my partner"
@@ -18,7 +18,7 @@ end
 
 turning_towards_products = []
 
-turning_towards_products << Product.create!(name: "Gottman Turning Towards Product", description: "This product is designed to help your Turning Towards")
+turning_towards_products << Product.create!(name: "Gottman Turning Towards Product", description: "Need to ask John")
 turning_towards_products << Product.create!(name: "Gottman Turning Towards Therapy Help", description: "Personalized therapy to help you with this problem")
 
 turning_towards.results.create!(quadrant_type: "individual_good", overall: "g", content: "Congratulations, you have built and maintained a sensitive and robust friendship with your partner!", recommendation: "It’s clear that your partner notices and respond positively to your bids for attention, your desires to talk seriously, and your needs to joke, play, and have fun. Furthermore, its likely that you often believe that your partners’ interest and enthusiasm matches your own. This is good because it also means that your partner likely  responds your attempts at humor in a positive way. This is a real strength in your friendship.")#You scored good - you have no problems in this area

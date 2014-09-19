@@ -1,7 +1,7 @@
 ### Questionnaire 2 LOVEMAPS###
 
 #TODO: move down the cutoff score so that scoring bad is a bigger problem that would warrant therapy help?
-love_maps = Questionnaire.create!(title: "Love Maps", cutoff_score: 12, ok_score: 14, weight: 0.3333) #cutoff_score < 12 and it's a bad thing
+love_maps = Questionnaire.create!(title: "Love Maps", cutoff_score: 12, ok_score: 14, weight: 0.2) #cutoff_score < 12 and it's a bad thing
 
 love_maps_grouping = Grouping.create!(name: "Love Maps")
 love_maps_grouping.questionnaires << love_maps
@@ -32,8 +32,8 @@ end
 
 love_maps_products = []
 
-love_maps_products << Product.create!(name: "Gottman Love Maps App", description: "Research shows that a powerful predictor of relationship stability is whether couples allocate 'mental room' for their partner's world. This means having a mental map of the relationship and its history, and knowing each partner's past and present concerns, preferences, experiences and reality. Make your 'map' with this app -they bring you closer by getting to know each other in ways you may not have realized were important. Love Map and Open-Ended Question Cards enable partners to connect emotionally, and increase intimacy and understanding in a fun, gentle way.")
-love_maps_products << Product.create!(name: "Put together a plan with a therapist to help you with your friendship", description: "Personalized therapy to help you with this problem")
+love_maps_products << Product.create!(name: "Love Maps App", description: "Research shows that a powerful predictor of relationship stability is whether couples allocate 'mental room' for their partner's world. This means having a mental map of the relationship and its history, and knowing each partner's past and present concerns, preferences, experiences and reality. Make your 'map' with this app -it brings you closer by helping you to get to know each other in ways you may not have realized were important. The Love Map and Open-Ended Question App enable you both to connect emotionally, and increase intimacy and understanding in a fun, gentle way.")
+love_maps_products << Product.create!(name: "Talk with a therapist about improving your friendship", description: "So what I don't know what my partner had for breakfast yesterday morning BIG DEAL. While not knowing the answer to several of these questions might seem trivial to you, it's actually indicative of larger problems in the relationship overall, such as poor friendship. Not knowing the answers to questions like these could eventually lead to both of you feeling inadequately known and feeling like neither person is interested in continuing to know the other. We want to make sure that both of you have a deeper awareness of each other's hopes and aspirations and a solid understanding of one another is central to this. Talk with a therapist and you will thank us later.")
 
 love_maps.results.create!(quadrant_type: "individual_good", overall: "g", content: "Congratulations, you have an excellent understanding of your partner and their internal world!", recommendation: "We call the idea of knowing your partner 'Love Mapping' and it's an important part of having close friendship and a good relationship overall. Love Mapping is more than simply knowing their favorite food or type of movie – it's a continual download of your partner's inner world into your brain.  Knowing what their stressors are, their current worries, their major fears (and continuously updating that knowledge). And it is important to having both good friendship and a good relationship overall. Make sure to constantly update your love maps by asking your partner open ended questions about their life.") # you scored good - no problems
 

@@ -1,4 +1,4 @@
-#TODO: for good_bad results do we only want to include one product and not therapy?
+#TODO: only include therapy for bad_x results. For all other problem variations just include the gottman product?
 ###Possible Responses ###
 agree_disagree = []
 
@@ -17,3 +17,8 @@ true_false_reversed = []
 
 true_false_reversed << (PossibleResponse.create! content: "True", point_value: 0)
 true_false_reversed << (PossibleResponse.create! content: "False", point_value: 1)
+
+require 'first/'
+require 'second/'
+require 'third/'
+require 'overall/'

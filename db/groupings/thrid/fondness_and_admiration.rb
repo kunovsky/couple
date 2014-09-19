@@ -1,6 +1,6 @@
 ###Questionnaire 3 FONDNESS AND ADMIRATION###
 
-fondness_and_admiration = Questionnaire.create!(title: "Fondness and Admiration", cutoff_score: 4, ok_score: 5, weight: 0.1111) #cutoff_score < 4 and it's a bad thing
+fondness_and_admiration = Questionnaire.create!(title: "Fondness and Admiration", cutoff_score: 4, ok_score: 5, weight: 0.2) #cutoff_score < 4 and it's a bad thing
 
 fondness_turning_emotion_grouping = Grouping.create!(name: "Last Section")
 fondness_turning_emotion_grouping.questionnaires << fondness_and_admiration
@@ -21,7 +21,7 @@ end
 
 fondness_and_admiration_products = []
 
-fondness_and_admiration_products << Product.create!(name: "Gottman Fondness & Admiration Product", description: "This product is designed to help your Fondness & Admiration")
+fondness_and_admiration_products << Product.create!(name: "Gottman Fondness & Admiration Product", description: "need to ask John")
 fondness_and_admiration_products << Product.create!(name: "Gottman Fondness & Admiration Therapy Help", description: "Personalized therapy to help you with this problem")
 
 fondness_and_admiration.results.create!(quadrant_type: "individual_good", overall: "g", content: "Congratulations, you have built a lasting friendship system in your relationship where you feel loved, respected, and appreciated!", recommendation: "From your answers it's clear that you feel respected, admired, and well loved by your partner. Most likely, you not only think loving and appreciative thoughts about them but also express those thoughts through words and affection. In doing so you are actively working to create a 'culture of appreciation' in your relationship, one where you don't feel taken for granted and where you are both proud of what you have accomplished. High fondness and admiration in a relationship is one of the three essential components of a good friendship, and you have it!") #You scored good - you have no problems in this area

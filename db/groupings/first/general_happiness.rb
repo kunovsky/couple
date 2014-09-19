@@ -1,6 +1,6 @@
 ###Questionnaire 1 GENERAL HAPPINESS###
 
-general_happiness = Questionnaire.create!(title: "General Relationship Happiness", cutoff_score: 55, ok_score: 60, weight: 0.3333) #cutoff_score < 55 and it's a bad thing.
+general_happiness = Questionnaire.create!(title: "General Relationship Happiness", cutoff_score: 55, ok_score: 60, weight: 0.2) #cutoff_score < 55 and it's a bad thing.
 
 general_happiness_grouping = Grouping.create!(name: "General Happiness")
 general_happiness_grouping.questionnaires << general_happiness
@@ -27,12 +27,17 @@ general_happiness.questions.each do |question|
   end
 end
 
+#Products#
+
 general_happiness_products = []
 
-general_happiness_products << Product.create!(name: "Gottman General Happiness Product", description: "This product is designed to help your General Happiness")
+general_happiness_products << Product.create!(name: "The Art and Science of Love", description: "Drawn from our four decades of research with over 3000 couples, the material in The Art & Science of Love rebuilds or increases the friendship, intimacy and respect in your relationship. Our lab and field work revealed exactly what separates the “masters” of relationships from the “disasters.” And that research enabled us to build a program that teaches everything we’ve learned about creating the kind of relationship we all hope for.")
+
 general_happiness_products << Product.create!(name: "Find a therapist in your area", description: "A therapist! The very name makes you want cringe and reaffirm that your relationship is actually pretty good and that while maybe other couples might need professional help, you do not. Wrong. It's completely normal for couples in committed relationships to have issues that they need to work on. A therapist is like a doctor for your relationship and it's time for your yearly physical. Find one now:")
 
 general_happiness.results.create!(quadrant_type: "individual_good", overall: "g", content: "Congratulations, in general you are happy with your relationship!", recommendation: "Your relationship is a sense of strength to you but you alread knew that. There are no recommendations, just keep doing what you're doing!") # You scored good - you have no problems in this area
+
+#Results#
 
 ok = general_happiness.results.create!(quadrant_type: "individual_ok", overall: "o", content: "Don't panic but there are some things in general that you need to work on in your relationship.", recommendation: "In the first section of this test you took we diagnosed your general relationship happiness.  In one or more areas your score was not as high as we would have liked it to be. This could either be due to one or more specific issues that you and your partner have or because your relationship in general needs a little bit of work. If left unchecked these issues could eventually grown into much larger problems and lead to unhappiness and emotional distance. Don't worry though in researching relationships for over 40 years with thousands of couples we have created a play book to help you and your partner enhance all areas of your relationship. From skills for how to better deal with conflict to simple ways to stay more emotionally connected we can help point you in the right direction in terms of creating a lasting happy relationship. And it all starts with this:") # You scored ok - there are some issues you need to work on
 ok.products << general_happiness_products[0]
