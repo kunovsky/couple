@@ -1,7 +1,12 @@
 ###Questionnaire 5 EMOTIONAL DISENGAGEMENT AND LONELINESS###
 module EmotionalDisengagement
+
+  #Questionnaire#
+
   emotional_loneliness = Questionnaire.create!(title: "Emotional Disengagement and Loneliness", cutoff_score: 4, ok_score: 5, weight: 0.2) #cutoff_score < 4 and it's a bad thing
   Grouping.find(3).questionnaires << emotional_loneliness
+
+  #Questions#
 
   emotional_loneliness.questions.create! content: "I often find myself disappointed in this relationship"
   emotional_loneliness.questions.create! content: "I will at times find myself quite lonely in this relationship"
@@ -16,10 +21,14 @@ module EmotionalDisengagement
     end
   end
 
+  #Products#
+
   emotional_loneliness_products = []
 
   emotional_loneliness_products << Product.create!(name: "We need to do a deeper analysis of why you feel this way", description: "We want you to take one more short diagnostic test in order to better understand why this is a problem so that we can give you back the right feedback in order to help you and your partner with this issue.")
   emotional_loneliness_products << Product.create!(name: "Find a therapist near you", description: "A therapist! The very name makes you want cringe and reaffirm that your relationship is actually pretty good and that while maybe other couples might need professional help, you do not. Wrong. It's completely normal for couples in committed relationships to have issues that they need to work on. A therapist is like a doctor for your relationship and it's time for your yearly physical. Find one now:")
+
+  #Responses#
 
   emotional_loneliness.results.create!(quadrant_type: "individual_good", overall: "g", content: "Congratulations, you are engaged and connected in your relationship and have created a good balance between dependence and interdependence.", recommendation: "From your answers it is clear that you are engaged with you partner and not feeling lonely in your relationship. This means that you can usually count on them when you have a need to connect. Furthermore you feel that you are a major priority in their life. Negotiating this balance of dependence and interdependence can be difficult for some couples but you two have nailed it, well done.")#You scored good - you have no problems in this area
 

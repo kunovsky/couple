@@ -1,9 +1,14 @@
 ###Questionnaire 1 GENERAL HAPPINESS###
 module GeneralHappiness
+
+  #Questionnaire#
+
   general_happiness = Questionnaire.create!(title: "General Relationship Happiness", cutoff_score: 55, ok_score: 60, weight: 0.2) #cutoff_score < 55 and it's a bad thing.
 
   general_happiness_grouping = Grouping.create!(name: "General Happiness")
   general_happiness_grouping.questionnaires << general_happiness
+
+  #Questions#
 
   general_happiness.questions.create! content: "I feel emotionally close to my partner"
   general_happiness.questions.create! content: "I think that my partner really cares about me"

@@ -1,4 +1,3 @@
-
 ###Last Questionnaire OVERALL SCORE### Note this is not an actual questionnaire, it is just a means of determining overall results by aggregating all other results together
 module Overall
   overall_state = Questionnaire.create!(title: "Overall Relationship Score", cutoff_score: 90, ok_score: 80)
