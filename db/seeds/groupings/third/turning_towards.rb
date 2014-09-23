@@ -4,6 +4,9 @@ module TurningTowards
   #Questionnaire#
 
   turning_towards = Questionnaire.create!(title: "Turning Towards", cutoff_score: 4, ok_score: 5, weight: 0.2) #cutoff_score < 4 and it's a bad thing
+
+  #Grouping#
+
   Grouping.find(3).questionnaires << turning_towards
 
   #Questions#
@@ -14,7 +17,10 @@ module TurningTowards
   turning_towards.questions.create! content: "We reall have a lot of interests in common"
   turning_towards.questions.create! content: "We like to do a lot of the same things"
 
-
+  #PossibleResponses#
+  true_false_normal = []
+  (6..7).to_a.each {|num| true_false_normal << PossibleResponse.find(num)}
+  
   turning_towards.questions.each do |question|
     true_false_normal.each do |response|
       question.possible_responses << response

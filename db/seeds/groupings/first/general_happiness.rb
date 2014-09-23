@@ -5,6 +5,8 @@ module GeneralHappiness
 
   general_happiness = Questionnaire.create!(title: "General Relationship Happiness", cutoff_score: 55, ok_score: 60, weight: 0.2) #cutoff_score < 55 and it's a bad thing.
 
+  #Grouping#
+  
   general_happiness_grouping = Grouping.create!(name: "General Happiness")
   general_happiness_grouping.questionnaires << general_happiness
 
@@ -25,6 +27,11 @@ module GeneralHappiness
   general_happiness.questions.create! content: "My partner respects my dreams in life"
   general_happiness.questions.create! content: "My partner is one of my best friends"
   general_happiness.questions.create! content: "My partner rarely puts me down"
+
+  #PossibleResponses#
+
+  agree_disagree = []
+  (1..5).to_a.each {|num| agree_disagree << PossibleResponse.find(num)}
 
   general_happiness.questions.each do |question|
     agree_disagree.each do |response|

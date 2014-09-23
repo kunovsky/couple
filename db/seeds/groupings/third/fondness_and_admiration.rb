@@ -5,6 +5,8 @@ module FondnessAndAdmiration
 
   fondness_and_admiration = Questionnaire.create!(title: "Fondness and Admiration", cutoff_score: 4, ok_score: 5, weight: 0.2) #cutoff_score < 4 and it's a bad thing
 
+  #Grouping#
+
   fondness_turning_emotion_grouping = Grouping.create!(name: "Last Section")
   fondness_turning_emotion_grouping.questionnaires << fondness_and_admiration
 
@@ -16,6 +18,10 @@ module FondnessAndAdmiration
   fondness_and_admiration.questions.create! content: "When I come into a room my partner is glad to see me"
   fondness_and_admiration.questions.create! content: "My partner appreciates the things I do in this relationship"
 
+  #PossibleResponses#
+
+  true_false_normal = []
+  (6..7).to_a.each {|num| true_false_normal << PossibleResponse.find(num)}
 
   fondness_and_admiration.questions.each do |question|
     true_false_normal.each do |response|

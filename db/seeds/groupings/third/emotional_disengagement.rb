@@ -4,6 +4,9 @@ module EmotionalDisengagement
   #Questionnaire#
 
   emotional_loneliness = Questionnaire.create!(title: "Emotional Disengagement and Loneliness", cutoff_score: 4, ok_score: 5, weight: 0.2) #cutoff_score < 4 and it's a bad thing
+  
+  #Grouping#
+
   Grouping.find(3).questionnaires << emotional_loneliness
 
   #Questions#
@@ -14,6 +17,10 @@ module EmotionalDisengagement
   emotional_loneliness.questions.create! content: "There is not enough closeness between us"
   emotional_loneliness.questions.create! content: "I have adapted to a lot in this relationship and I am not so sure it's a good idea"
 
+  #PossibleResponses#
+
+  true_false_reversed = []
+  (8..9).to_a.each {|num| true_false_reversed << PossibleResponse.find(num)}
 
   emotional_loneliness.questions.each do |question|
     true_false_reversed.each do |response|

@@ -1,11 +1,20 @@
-###Last Questionnaire OVERALL SCORE### Note this is not an actual questionnaire, it is just a means of determining overall results by aggregating all other results together
+###Last Questionnaire OVERALL SCORE### 
 module Overall
+
+#Note this is not an actual questionnaire, it is just a means of determining overall results by aggregating all other results together
+
+  #Questionnaire#
+
   overall_state = Questionnaire.create!(title: "Overall Relationship Score", cutoff_score: 90, ok_score: 80)
 
+  #Products#
+  
   overall_state_products = []
 
   overall_state_products << Product.create!(name: "The Art And Science Of Love", description: "This product is designed to help your relationship overall")
   overall_state_products << Product.create!(name: "Find a therapist by you", description: "Personalized therapy to help you with your relationship overall")
+
+  #Results#
 
   overall_state.results.create!(quadrant_type: "individual_good", overall: "g", content: "Congratulations, your relationship overall is happy and healthy!", recommendation: "While there might be one or two specific areas for improvement, chances are that the relationship overall is happy. This means that you have a solid foundation of knowledge about your partner and their inner world, and that you have developed a fondness and admiration system where you feel loved, respected, and appreciated by your partner.  Furthermore your friendship robust and you feel your partner does a good job of noticing and engaging with your bids for attention. Most importantly though, you are engaged in the relationship and have created a good balance between dependence and interdependence where you can rely on one another to be there when you need it most. Amidst growing divorce and breakup rates world wide it’s really reassuring to see a relationship as sound as yours. Congratulations, you have something special.")#You scored good - you have no problems in this area
 

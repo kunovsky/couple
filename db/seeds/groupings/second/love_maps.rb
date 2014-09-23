@@ -5,6 +5,8 @@ module LoveMaps
 
   love_maps = Questionnaire.create!(title: "Love Maps", cutoff_score: 12, ok_score: 14, weight: 0.2) #cutoff_score < 12 and it's a bad thing
 
+  #Grouping#
+  
   love_maps_grouping = Grouping.create!(name: "Love Maps")
   love_maps_grouping.questionnaires << love_maps
 
@@ -26,6 +28,10 @@ module LoveMaps
   love_maps.questions.create! content: "My partner is familiar with what are my current stresses"
   love_maps.questions.create! content: "I can tell you some of my partner's life dreams"
 
+  #PossibleResponses#
+
+  true_false_normal = []
+  (6..7).to_a.each {|num| true_false_normal << PossibleResponse.find(num)}
 
   love_maps.questions.each do |question|
     true_false_normal.each do |response|
