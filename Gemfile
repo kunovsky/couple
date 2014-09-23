@@ -12,7 +12,14 @@ gem 'redis-rails'
 gem 'bcrypt', '~> 3.1.7'
 gem 'arel-helpers', git: 'https://github.com/camertron/arel-helpers.git'
 
-gem 'debugger', group: [:development, :test]
+group :development do
+  gem 'letter_opener'
+end
+
+group :development, :test do
+  gem 'debugger'
+  gem 'dotenv-rails'
+end
 
 group :development, :test, :staging do
   gem "rspec-rails"
@@ -20,7 +27,6 @@ group :development, :test, :staging do
   gem "capybara"
   gem "bullet"
   gem 'rake'
-  gem 'letter_opener'
 end
 
 #assets
