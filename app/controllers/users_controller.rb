@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  include ValidationHelpers
 
   def index
     redirect_to '/' unless current_user
@@ -9,21 +8,6 @@ class UsersController < ApplicationController
     user = User.create!(relationship_id: current_user.relationship_id)
     session[:auth_token] = user.auth_token
     render json: {path: 'grouping/1'}, status: 200
-  end
-
-  def invite
-    if valid_params?(params)
-        user = User.create!(relationship_id: current_user.relationship_id)
-        invite = Invite.create(user_id: user.id)
-      if valid_number?(params[:text]) #TODO: move these to the validations helpers module
-        render json: user.invite_via_text({number: params[:text], invite_token: invite.invite_token}), status: 200
-      elsif valid_email?(params[:email])
-        # render json: user.invite_via_email({email: params[:email], invite_token: invite.invite_token}), status: 200
-        render json: {}, status: 200
-      end
-    else
-      render json: {errors: "Not valid"}, status: 422
-    end
   end
 
   def score
@@ -52,16 +36,15 @@ class UsersController < ApplicationController
     end
   end
  
-
   private
 
   #TODO: Move this to an appropriate place
   def partner_notification
     invite = Invite.create(user_id: current_user.partner.id)
     if current_user.partner_phone
-      current_user.handle_partner_notification({number: current_user.partner_phone, invite_token: invite.invite_token}) 
+      current_user.notify_via_text({number: current_user.partner_phone, invite_token: invite.invite_token})
     elsif current_user.partner_email
-      current_user.handle_partner_notification({email: current_user.partner_phone, invite_token: invite.invite_token})
+      current_user.notify_via_email({email: current_user.partner_phone, invite_token: invite.invite_token})
     end
   end
 
