@@ -1,7 +1,6 @@
 CP.module "Views.Globals.Modals", (Modals, CP, Backbone, Marionette, $, _) ->
 
   class @InviteBase extends Backbone.Marionette.ItemView
-    template: CPT['globals/modals/success']
     events: 
       "click .js-invite" : "inviteSelf"
       "click .js-cancel" : "closeModal"

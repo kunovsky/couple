@@ -11,7 +11,7 @@ CP.module "Views.User.Results.Overall", (Overall, CP, Backbone, Marionette, $, _
 
     handlePartnerInvite: (e) ->
       e.preventDefault()
-      CP.modalRegion.show new Overall.Invite $(e.target).data()
+      CP.modalRegion.show new Overall.InvitePartner $(e.target).data()
 
     takeAsPartner: ->
       $.ajax

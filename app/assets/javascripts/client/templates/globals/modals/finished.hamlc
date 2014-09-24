@@ -1,6 +1,6 @@
 .modal-header
 .modal-body
   .action-words
-    Success! We will let you know
+    Success! We will let you know when you partner is finished
   %button.green.no-icon.js-done
-    Sweet
+    Great
