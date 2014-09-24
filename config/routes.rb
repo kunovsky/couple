@@ -2,16 +2,14 @@ Rails.application.routes.draw do
 
   scope 'api' do
     get '/grouping/:id' => 'groupings#show'
-    post '/invite' => 'users#invite'
+    resources :invites, only: [:create]
     resources :users do
       post '/completed_questionnaires' => 'completed_questionnaires#create'
       post '/notification' => 'users#notification'
       post '/actual_responses' => 'actual_responses#create'
       post '/score' => 'users#score'
       get '/results/:id' => 'users#results'
-      post '/invite' => 'users#invite'
     end
-
   end
 
   resources :sessions
