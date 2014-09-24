@@ -6,9 +6,7 @@ module ValidationHelpers
 
   def valid_number?(number) #TODO: figure out how we do this on the front end for real
     return unless number.present?
-    number.gsub!("-", "")
-    number.gsub!("/", "")
-    number.length == 10
+    number
   end
 
   def valid_email?(email)
