@@ -1,0 +1,8 @@
+---
+:pidfile: tmp/pids/sidekiq.pid
+:verbose: false
+production:
+  :concurrency: 5
+:queues:
+  - default
+  - [mailer, 1]
