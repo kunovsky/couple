@@ -2,6 +2,7 @@
 #= require jquerypp.custom.js
 #= require jquery-ui.min.js
 #= require jquery.hoverintent.js
+#= require jquery.inputmask
 #= require bower_components/jquery.scrollto/index.js
 #= require bower_components/keyboard.js/index.js
 #= require bower_components/underscore/index.js

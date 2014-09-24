@@ -11,7 +11,7 @@ class InvitesController < ApplicationController
       user.invite_via_email({email: params[:email], invite_token: invite.invite_token})
       render json: true , status: 200
     else
-      render json: {errors: "Please enter a valid"}, status: 422
+      render nothing: true, status: 422
     end
   end
 end
