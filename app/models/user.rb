@@ -11,16 +11,19 @@ class User < ActiveRecord::Base
   end
 
   def invite_via_email(args)
-    UserMailer.invite_partner(args)
+    UserMailer.invite_partner(args).deliver
   end
 
   def already_taken
     self.taken
   end
 
-  def handle_partner_notification(args)
+  def notify_via_text(args)
     Invites::ResultsText.new(args).send_message if args.fetch(:number, nil)
-    UserMailer.invite_partner(args) if args.fetch(:email, nil)
+  end
+
+  def notify_via_email(args)
+    UserMailer.send_finished_notification(args).deliver if args.fetch(:email, nil)
   end
 
   def partner_contact_info
