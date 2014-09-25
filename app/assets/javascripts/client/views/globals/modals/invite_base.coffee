@@ -1,9 +1,6 @@
 CP.module "Views.Globals.Modals", (Modals, CP, Backbone, Marionette, $, _) ->
 
   class @InviteBase extends Backbone.Marionette.ItemView
-    events: 
-      "click .js-invite" : "inviteSelf"
-      "click .js-cancel" : "closeModal"
 
     initialize: (@options = options = {}) ->
       _.extend @, CP.Helpers.Validations::
@@ -16,19 +13,6 @@ CP.module "Views.Globals.Modals", (Modals, CP, Backbone, Marionette, $, _) ->
 
     onRender: ->
       $(@el).find('input').inputmask({"mask": "(999) 999-9999"}) if @type == 'text'
-      
-    inviteSelf: (e) ->
-      @clearErrors()
-      e.preventDefault()
-      data = $(@el).formParams()
-      return @handleError() if @invalidValue(data)
-
-      $.ajax
-        url: @url()
-        type: 'POST'
-        data: data
-        success: => CP.modalRegion.show new Modals.Finished
-        error: => @handleError()
 
     closeModal: (e) ->
       e.preventDefault()

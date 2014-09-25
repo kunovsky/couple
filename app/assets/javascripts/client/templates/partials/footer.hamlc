@@ -1,18 +1,18 @@
 .site-wrap
   .left
     %ul.footer-col
-      %li.title goes here
+      %li.title How it works
       %li
-        %a{href: '#'} Home
+        %a{href: '#'} The Process
       %li
-        %a{href: '#'} How It Works
+        %a{href: '#'} The Research
       %li
-        %a{href: '#'} Products
+        %a{href: '#'} Who we are
 
     %ul.footer-col
-      %li.title About Relationship Analystics
-      %li.hide
-        %a{href: '#'} About The Research
+      %li.title Company
+      %li
+        %a.js-jobs{href: '#'} Jobs
       %li
         %a.js-tos{href: '#'} Terms of Use
       %li
@@ -22,14 +22,14 @@
     %ul.footer-col
       %li.title Connect
       %li
-        %a{href: '#'} Contact Us
+        %a.js-contact{href: '#'} Contact Us
       %li
-        %a{href: '#', target: '_BLANK'} Facebook
+        %a.js-facebook{href: '#', target: '_BLANK'} Facebook
       %li
-        %a{href: '#', target: '_BLANK'} Twitter
+        %a.js-twitter{href: '#', target: '_BLANK'} Twitter
 
 
   .right
-    Relationship Analytics&copy;
+    Couple Analytics &nbsp&copy;
     =moment().format('YYYY')
-    ...., All rights reserved.
+    , All rights reserved.

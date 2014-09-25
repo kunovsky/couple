@@ -1,22 +1,70 @@
-  .standard-text-container {
-    margin-bottom: 20px;
-    border: 1px solid #2F2F2F;
-
-    .next-questionnaire-button {
-      margin: 10px 0px 10px 10px;
+// Main Welcome On HomePage //
+.welcome-container--explanation {
+  margin: 20px 0px;
+  width: 100%; min-height: 600px;
+  background-image: url(image-path('DeathtoStock_NotStock8.jpg'));
+  color: #000;
+  font-weight: bold;
+  font-family: $proxima-nova;
+  .headline-text {
+    font-size: 35px;
+    padding:  200px 0px 0px 25px;
+  }
+  .title-text {
+    padding: 15px 0px 0px 55px; 
+    .main-text {
+      font-size: 32px;
+    }
+    .sub-text {
+      padding: 5px 0px 0px 20px;
+      font-size: 27px;
+      display: inline-block;
+    }
+    .welcome-buttons {
+      padding-top: 15px;
+      display: inline-block;
     }
   }
+  .how-it-works {
 
-  .welcome-message {
-    margin-top: 20px;
   }
+}
 
-  .title-text {
-    font-family: $proxima-nova;
+//More Information //
+
+.welcome-container--more-info {
+  width: 32.93%; min-height: 200px;
+  display: inline-block;
+  background-color: #d3d3d3;
+  color: #FFF;
+  margin-bottom: 20px;
+  border: 1px solid #fff;
+  &:hover {
+    background-color: #9b9b9b;
+  }
+  .more-info__heading {
     font-weight: bold;
-    font-size: 25px;
-    padding: 5px 0px 5px 5px; 
+    font-size: 35px;
+    text-align: center;
+    padding-top: 70px;
   }
+}
+
+.groupings-container {
+  margin-bottom: 20px;
+  border: 1px solid #2F2F2F;
+
+  .next-questionnaire-button {
+    margin: 10px 0px 10px 10px;
+  }
+}
+
+.title-text {
+  font-family: $proxima-nova;
+  font-weight: bold;
+  font-size: 25px;
+  padding: 5px 0px 5px 5px; 
+}
 
 .explanation-text {
   padding: 5px;

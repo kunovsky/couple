@@ -4,12 +4,10 @@ CP.module "Views.User.Welcome", (Welcome, CP, Backbone, Marionette, $, _) ->
     template: CPT["user/welcome/layout"]
 
     regions:
-      helloRegion: "#hello-region"
-      explanationRegion: "#explanation-region"
-      disclaimerRegion: "#disclaimer-region"
+      takeRegion: "#take-region"
+      moreInfoRegion: "#more-info-region"
 
 
     onRender: ->
-      @helloRegion.show new Welcome.Hello
-      @explanationRegion.show new Welcome.Explanation
-      @disclaimerRegion.show new Welcome.Disclaimer
+      @takeRegion.show new Welcome.Take
+      @moreInfoRegion.show new Welcome.MoreInfo.Layout

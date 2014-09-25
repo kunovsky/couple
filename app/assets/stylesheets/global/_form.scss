@@ -36,11 +36,11 @@ button, .btn, input[type='submit'] {
     margin: 0px 0px 10px 10px;
   }
 
-  &.light-gray {
-    background-color: #a5b5cb;
+  &.black{
+    background-color: #000;
     @include box-shadow(0 2px 0 #94a4ba);
     &:hover {
-      background-color: #6e849f;
+      background-color: #606060;
       @include box-shadow(0 2px 0 #4f6683);
     }
   }

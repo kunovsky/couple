@@ -1,5 +1,5 @@
 .site-wrap
-  .standard-text-container
+  .groupings-container
     .title-text Please answer the following questions:
     - if @questions?.length > 0
       -for question in @questions

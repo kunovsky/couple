@@ -1,10 +1,10 @@
 %header
   .site-wrap
     .site-title.left
-      ...
+      Couple Analytics
     %nav.right
       %ul<
         %li.active 
-          ...
+          40 years of research
         %li 
-          ...
+          Thousands of couples

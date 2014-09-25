@@ -1,0 +1,11 @@
+.site-wrap
+  .welcome-container--explanation
+    .headline-text
+      50% of couples get divorced...
+    .title-text
+      .main-text 
+        Does your relationship
+      .sub-text 
+        pass the test?
+      .welcome-buttons
+        %button.black.with-bottom-left-margin.js-begin-questionnaire Take the test

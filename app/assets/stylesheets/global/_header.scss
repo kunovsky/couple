@@ -1,13 +1,13 @@
 header {
   @include clearfix;
-  width: 100%; height: 78px;
+  width: 100%; height: 50px;
   padding-top: 26px;
-  background: $base-blue;
-  border-bottom: 4px solid $dark-blue;
+  background: #000000;
+  border-bottom: 1px solid $dark-blue;
 
   .site-title {
     font-size: 30px;
-    color: $text-dark-blue;
+    color: #fff;
     font-family: $proxima-nova;
   }
 
