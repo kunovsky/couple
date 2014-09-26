@@ -44,7 +44,7 @@ class UsersController < ApplicationController
     if current_user.partner_phone
       current_user.notify_via_text({number: current_user.partner_phone, invite_token: invite.invite_token})
     elsif current_user.partner_email
-      current_user.notify_via_email({email: current_user.partner_phone, invite_token: invite.invite_token})
+      current_user.notify_via_email({email: current_user.partner_email, invite_token: invite.invite_token})
     end
   end
 

@@ -1,7 +1,7 @@
 class InvitesController < ApplicationController
   include ValidationHelpers
   def create
-    if valid_number?(params[:text]) #TODO: move these to the validations helpers module
+    if valid_number?(params[:text])
       user = User.create!(relationship_id: current_user.relationship_id)
       invite = Invite.create(user_id: user.id)
       render json: user.invite_via_text({number: params[:text], invite_token: invite.invite_token}), status: 200

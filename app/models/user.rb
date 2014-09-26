@@ -19,11 +19,11 @@ class User < ActiveRecord::Base
   end
 
   def notify_via_text(args)
-    Invites::ResultsText.new(args).send_message if args.fetch(:number, nil)
+    Invites::ResultsText.new(args).send_message
   end
 
   def notify_via_email(args)
-    UserMailer.send_finished_notification(args).deliver if args.fetch(:email, nil)
+    UserMailer.send_finished_notification(args).deliver
   end
 
   def partner_contact_info
