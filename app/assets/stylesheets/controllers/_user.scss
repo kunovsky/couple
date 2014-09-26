@@ -1,3 +1,4 @@
+
 // Main Welcome On HomePage //
 .welcome-container--explanation {
   margin: 20px 0px;
@@ -11,17 +12,16 @@
     padding:  200px 0px 0px 25px;
   }
   .title-text {
-    padding: 15px 0px 0px 55px; 
+    padding: 10px 0px 0px 55px; 
     .main-text {
       font-size: 32px;
     }
     .sub-text {
-      padding: 5px 0px 0px 20px;
+      padding: 10px 0px 0px 20px;
       font-size: 27px;
       display: inline-block;
     }
     .welcome-buttons {
-      padding-top: 15px;
       display: inline-block;
     }
   }
@@ -43,12 +43,15 @@
     background-color: #9b9b9b;
   }
   .more-info__heading {
+    min-height: 130px;
     font-weight: bold;
     font-size: 35px;
     text-align: center;
     padding-top: 70px;
   }
 }
+
+// Questionnaire Groupings //
 
 .groupings-container {
   margin-bottom: 20px;
@@ -59,32 +62,11 @@
   }
 }
 
-.title-text {
-  font-family: $proxima-nova;
-  font-weight: bold;
-  font-size: 25px;
-  padding: 5px 0px 5px 5px; 
-}
-
-.explanation-text {
-  padding: 5px;
-  font-family: $proxima-nova;
-  font-size: 13px;
-
-  .step-container {
-    color: #FFF;
-    padding: 15px;
-    background-color: #3D7CD1;
-    display: inline-block;
-    border: none;
-    border-radius: $form-element-radius;
-    font-size: 13px;
-  }
-}
-
 .possible-response__container {
   display: inline-block;
 }
+
+//Results//
 
 .result--good {
   background-color: #CDF7AF;
@@ -142,6 +124,8 @@
     }
   }
 }
+
+//Invites//
 
 .invite__container {
   min-height: 80px;

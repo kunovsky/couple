@@ -1,10 +1,12 @@
-.site-wrap
-  .standard-text-container
-    .title-text How it works:
-    .explanation-text
-      .step-container
-        Take the test & get your score
-      .step-container
-        Text or email an invite to your partner
-      .step-container
-        Get comprehensive results when you both finish
+.close-modal.js-modal-close
+.modal-header
+  %h3 How It Works (Yes, it's free)
+.modal-body
+  .modal-text--steps
+    %ol
+      %li 
+        Answer 45 questions and get your personal profile
+      %li
+        Text, email, or just take the test for your partner
+      %li
+        Get a notification once you are both done with a link to your overall relationship profile

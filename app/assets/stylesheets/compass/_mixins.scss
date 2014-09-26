@@ -37,6 +37,7 @@ $open-sans: 'Open Sans', $proxima-nova;
 .valign-top {vertical-align: top !important;}
 .left {float: left !important;}
 .right {float: right !important;}
+.inline {display: inline-block;}
 //Clear that fix
 .cf {
   @include clearfix;

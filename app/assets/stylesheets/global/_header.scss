@@ -12,14 +12,13 @@ header {
   }
 
   nav > ul > li {
-    margin-right: 50px;
     line-height: 24px; height: 24px;
     font-size: 20px;
-    color: $text-dark-blue-faded;
+    color: #fff;
     font-family: $proxima-nova;
     padding-left: 32px;
     display: inline-block;
-    &.active, &:hover, > a {color: $text-dark-blue;}
+    &:hover, > a {color: #9B9B9B;} 
     background: no-repeat left center;
     cursor: pointer;
   }

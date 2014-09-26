@@ -1,4 +1,7 @@
+.close-modal.js-modal-close
 .modal-header
   %h3 Why It Works
 .modal-body
-  .explanation-text If you've ever read the 'Book' blink by Malcom Gladwell then you've head of relationship researcher Dr. John Gottman who can predict if a couple if going to stay together or split up. Using techniques and questionnaires developed over 40 years of research, we can predict with 85% accuracy how your relationship is doing overall. If there are problems, we have an entire suite of resources that can you tackle these and restore your relationship back to the way it was when you two first met.
+  .modal-text--information 
+    If you've ever read the Book 'Blink' by Malcom Gladwell then you've head of relationship researcher Dr. John Gottman who can predict if a couple if going to stay together or split up with 94% accuracy.Using his techniques which were developed from researching thousands of couples over 40 years, we can accuracy predict how your relationship is doing and why. If there are problems, we have an entire suite of resources that can you address these issues and restore your relationship back to the way it was when you two first met. You can find more information on Dr. Gottman and his research at 
+    %a{href: "http://www.gottman.com"} The Gottman Institute Website 
