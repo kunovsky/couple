@@ -14,4 +14,4 @@ CP.module "Views.User.Welcome.MoreInfo", (MoreInfo, CP, Backbone, Marionette, $,
       @explanationRegion.show new MoreInfo.Explanation
       @processRegion.show new MoreInfo.Process
       @researchRegion.show new MoreInfo.Research
-      # @privacyRegion.show new MoreInfo.Privacy
+      @privacyRegion.show new MoreInfo.Privacy
