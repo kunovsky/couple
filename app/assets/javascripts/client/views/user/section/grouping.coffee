@@ -13,7 +13,9 @@ CP.module "Views.User.Section", (Section, CP, Backbone, Marionette, $, _) ->
       @fetchCollection()
       @questions = []
 
-    templateHelpers: -> {@questions}
+    templateHelpers: ->
+      sectionData = @sectionData()
+      return {@questions, sectionData}
 
     saveUrl: -> ['/api','users', CP.CurrentUser.get('id'), 'actual_responses'].join('/')
     scoreResultsUrl: ->['/api', 'users', CP.CurrentUser.get('id'), 'score'].join('/')
@@ -21,8 +23,9 @@ CP.module "Views.User.Section", (Section, CP, Backbone, Marionette, $, _) ->
 
     setActualResponse: (e) ->
       e.preventDefault()
-      @handleButtonState($(e.target))
-      data = @handleRequestData($(e.target))
+      target = $(e.target)
+      @handleButtonState(target)
+      data = @handleRequestData(target)
       @saveActualResponse(data)
 
     fetchCollection: (range) ->
@@ -38,10 +41,15 @@ CP.module "Views.User.Section", (Section, CP, Backbone, Marionette, $, _) ->
         type: 'POST'
         url: @saveUrl()
         data: data
-        success: (respObj) => @enableNextSection() if respObj.completed
+        success: (respObj) =>
+          if respObj.completed
+            @sectionCompleted = true
+            @enableNextSection()
         error: (respObj) => @logout(respObj.path)
 
     createCompletedQuestionnaire: ->
+      return unless @sectionCompleted
+
       $.ajax
         type: 'POST'
         url: @completedSurveyUrl()
@@ -65,7 +73,7 @@ CP.module "Views.User.Section", (Section, CP, Backbone, Marionette, $, _) ->
     nextGroupingNumber: -> Number(@options.id) + 1
 
     handleButtonState: (target) ->
-      target.attr("disabled","disabled").siblings().attr("disabled", false)
+      target.addClass('selected').removeClass('purple').siblings().removeClass('selected').addClass('purple')
 
     handleRequestData: (target) ->
       {response_id: target.data('rid'), question_id: target.data('qid')}
@@ -79,3 +87,5 @@ CP.module "Views.User.Section", (Section, CP, Backbone, Marionette, $, _) ->
     logout: (path) ->
       CP.ActiveRouters.User.navigate path
       window.location.href = ''
+
+    sectionData: -> [@options.id, 'of', CP.Settings.lastGroupingNumber].join(' ')
