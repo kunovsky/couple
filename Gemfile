@@ -7,6 +7,7 @@ gem 'pg'
 
 gem 'pry-rails'
 gem 'redis-rails'
+gem 'therubyracer'
 
 #active record addons
 gem 'bcrypt', '~> 3.1.7'
@@ -19,6 +20,9 @@ end
 group :development, :test do
   gem 'debugger'
   gem 'dotenv-rails'
+  gem 'capistrano', '~> 3.2.0'
+  gem 'capistrano-rails'
+  gem 'capistrano-rvm'
 end
 
 group :development, :test, :staging do
@@ -41,7 +45,8 @@ gem 'uglifier'
 gem 'haml'
 gem 'active_model_serializers'
 
-#outside services
 gem 'twilio-ruby'
+
+gem 'thin'
 gem 'sidekiq'
 gem 'sidekiq_mailer'
