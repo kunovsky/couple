@@ -1,5 +1,5 @@
 .close-modal.js-modal-close
 .modal-header
-  %h3 Your privacy is important to us
+  %h3 Anonymous and secure
 .modal-body
-  .explanation-text Your privacy is important to us so we take the utmost care to ensure that all information given is secure and complaint with HIPPA. Take is seperatley for the best results
+  .modal-text--information We will never share your information with 3rd party services or post on your behalf to any social media networks. In addition our test does not require any personal identifying information such as your name.
