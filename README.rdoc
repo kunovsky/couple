@@ -1,1 +1,6 @@
 == Coming Soon
+
+* Ruby version
+  * MRI 2.1.1
+
+* Deployment instructions
