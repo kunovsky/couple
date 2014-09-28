@@ -23,42 +23,60 @@
     }
     .welcome-buttons {
       display: inline-block;
+      button {
+        font-size: 18px;
+      }
     }
-  }
-  .how-it-works {
-
   }
 }
 
 //More Information //
 
 .welcome-container--more-info {
-  width: 32.93%; min-height: 200px;
+  width: 24.57%; min-height: 200px;
   display: inline-block;
-  background-color: #d3d3d3;
+  background-color: #542F64;
   color: #FFF;
   margin-bottom: 20px;
   border: 1px solid #fff;
   &:hover {
-    background-color: #9b9b9b;
+    background-color: #af61d3;
   }
   .more-info__heading {
-    min-height: 130px;
+    min-height: 125px;
     font-weight: bold;
-    font-size: 35px;
+    font-size: 30px;
     text-align: center;
-    padding-top: 70px;
+    padding-top: 75px;
   }
 }
 
 // Questionnaire Groupings //
 
 .groupings-container {
+  padding: 10px 0px 10px 10px; 
   margin-bottom: 20px;
-  border: 1px solid #2F2F2F;
-
+  color: #000;
+  .title-text {
+    font-size: 25px;
+    margin-bottom: 10px;
+  }
+  .question-container {
+    max-width: 615px;
+    padding-left: 10px;
+    .explanation-text {
+      font-size: 16px;
+      padding: 10px 0px;
+    }
+    .button-container {
+      .selected {
+        background-color: #af61d3;
+        @include box-shadow(0 2px 0 #000);
+      }
+    }
+  }
   .next-questionnaire-button {
-    margin: 10px 0px 10px 10px;
+    margin: 20px 0px 10px 10px;
   }
 }
 

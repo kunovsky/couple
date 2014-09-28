@@ -38,7 +38,7 @@ button, .btn, input[type='submit'] {
 
   &.black{
     background-color: #000;
-    @include box-shadow(0 2px 0 #94a4ba);
+    @include box-shadow(0 2px 0 #000);
     &:hover {
       background-color: #606060;
       @include box-shadow(0 2px 0 #4f6683);
@@ -53,17 +53,23 @@ button, .btn, input[type='submit'] {
       background-color: #e86830;
        @include box-shadow(0 2px 0 #a4522e);
     }
-    &.success {
+  }
 
+  &.purple {
+    background: #542F64;
+    color: #f2f9f3;
+    @include box-shadow(0 2px 0 #000);
+    &:hover {
+      background-color: #af61d3;
+       @include box-shadow(0 2px 0 #000);
+       &:disabled {
+        background-color: #d8d8d8;
+        @include box-shadow(0 2px 0 #c7c7c7);
+       }
     }
   }
 
-  &.green {
-    background: #0A9E01;
-    color: #f2f9f3;
-    @include box-shadow(0 2px 0 #7f9982);
-  }
-
+  
   &.blue {
     background: #3D7CD1;
     color: #f2f9f3;

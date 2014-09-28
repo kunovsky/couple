@@ -8,4 +8,4 @@
       .sub-text 
         pass the test?
       .welcome-buttons
-        %button.black.with-bottom-left-margin.js-begin-questionnaire Take the test
+        %button.purple.with-bottom-left-margin.js-begin-questionnaire Take the test

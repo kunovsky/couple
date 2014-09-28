@@ -1,11 +1,12 @@
 .site-wrap
   .groupings-container
-    .title-text Please answer the following questions:
+    .title-text Please answer the following questions (Section #{@sectionData}):
     - if @questions?.length > 0
       -for question in @questions
-        .explanation-text=question.content
-        .button-container
-          - for response in question.possible_responses
-            %button.green.possible-response__container.js-response-button{data: {rid: response.id, qid: question.id}}=response.content
+        .question-container
+          .explanation-text=question.content
+          .button-container
+            - for response in question.possible_responses
+              %button.purple.possible-response__container.js-response-button{data: {rid: response.id, qid: question.id}}=response.content
 
-    %button.blue.next-questionnaire-button.js-next-questionnaire-button{disabled: true} Continue To The Next Section
+    %button.purple.next-questionnaire-button.js-next-questionnaire-button{disabled: true} Continue To The Next Section
