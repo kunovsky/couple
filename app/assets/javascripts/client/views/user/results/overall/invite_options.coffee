@@ -6,6 +6,9 @@ CP.module "Views.User.Results.Overall", (Overall, CP, Backbone, Marionette, $, _
       "click .js-invite-partner"  : "handlePartnerInvite"
       "click .js-take-as-partner" : "takeAsPartner"
 
+    onRender: ->
+      $(@el).find(".invite__container").addClass("result--bad")
+
     handlePartnerInvite: (e) ->
       e.preventDefault()
       CP.modalRegion.show new Overall.InvitePartner $(e.target).data()
