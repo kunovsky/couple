@@ -102,14 +102,12 @@
     width: inherit; min-height: 300px;
     margin-top: 20px;
     padding: 20px 30px;
-    border: 1px solid black;
   }
 
   .result__container--overall-result {
     width: inherit; min-height: 300px;
     margin: 20px 0px;
     padding: 20px 30px;
-    border: 1px solid black;
   }
 }
 
@@ -117,7 +115,7 @@
     width: 100%;
     display: inline-block;
     font-size: 22px;
-    color: #60728c;
+    color: #000;
     .your-score {
       text-align: right;
     }
@@ -149,7 +147,6 @@
   min-height: 80px;
   margin-bottom: 20px;
   padding: 20px 30px;
-  border: 1px solid black;
   font-size: 14px;
   color: #000;
   .invite__message {
