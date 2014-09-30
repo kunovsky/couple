@@ -47,7 +47,7 @@ CP.module "Views.Common.User", (User, CP, Backbone, Marionette, $, _) ->
       response.products_data
 
     colorizeResult: ->
-      target = $(@el).find(".result__container")
-      return target.addClass("result--good") if @results.status == "g"
-      return target.addClass("result--ok") if @results.status == "o"
-      target.addClass("result--bad")
+      # target = $(@el).find(".result__container")
+      # return target.addClass("result--good") if @results.status == "g"
+      # return target.addClass("result--ok") if @results.status == "o"
+      # target.addClass("result--bad")
