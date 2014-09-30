@@ -1,17 +1,23 @@
 .result__container
-  .result__container--individual-result
+  .result__header=@name
 
-    .result__header
-      .left =@name
-      .right You Scored #{@results.currentUserPercentage}% 
-        -if @results.partnerPercentage
-          : Your Partner Scored #{@results.partnerPercentage}%
-      
-    .result__body
-      .result__body__content Result: #{@results.content}
-      - if @results.products_data
-        .result__body__recommendations Recommendations: #{@results.recommendation}
-        - for product in @results.products_data
-          .result__body__product.valign-top
-            .result__body__product__name=product.name
-            .result__body__product__description=product.description
+  .result__body
+    .result__body__content=@results.content
+    .result__body__stats
+      .result__body__score You Scored #{@results.currentUserPercentage}%
+      .result__body__graph.js-graph.valign-top
+
+    -if @results.partnerPercentage
+
+      .result__body__stats
+        .result__body__score Your Partner Scored #{@results.partnerPercentage}%
+        .result__body__graph.js-graph.valign-top
+
+    - if @results.products_data
+      .result__body__recommendations
+        .recommendation Recommendations:
+        .recommendation__content.valign-top=@results.recommendation
+      - for product in @results.products_data
+        .result__body__product
+          .result__body__product__name=product.name
+          .result__body__product__description.valign-top=product.description
