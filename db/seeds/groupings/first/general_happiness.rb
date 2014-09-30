@@ -47,7 +47,7 @@ module GeneralHappiness
 
   general_happiness_products << Product.create!(name: "Find a therapist in your area", description: "A therapist! The very name makes you want cringe and reaffirm that your relationship is actually pretty good and that while maybe other couples might need professional help, you do not. Wrong. It's completely normal for couples in committed relationships to have issues that they need to work on. A therapist is like a doctor for your relationship and it's time for your yearly physical. Find one now:")
 
-  general_happiness.results.create!(quadrant_type: "individual_good", overall: "g", content: "Congratulations, in general you are happy with your relationship!", recommendation: "Your relationship is a sense of strength to you but you alread knew that. There are no recommendations, just keep doing what you're doing!") # You scored good - you have no problems in this area
+  general_happiness.results.create!(quadrant_type: "individual_good", overall: "g", content: "Congratulations, in general you are happy with your relationship!", recommendation: "Your relationship is a sense of strength to you but you already knew that. There are no recommendations, just keep doing what you're doing!") # You scored good - you have no problems in this area
 
   #Results#
 
