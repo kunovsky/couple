@@ -85,17 +85,6 @@
 }
 
 
-// .result--good {
-//   background-color: #CDF7AF;
-//   }
-// .result--ok {
-//   background-color: #FFF788;
-// }
-// .result--bad {
-//   background-color:#FF8080;
-// }
-
-
 //Results//
 
 .result__container {
@@ -115,7 +104,6 @@
     .result__body__content {
       margin: 20px 0px 30px;
       font-size: 20px;
-      text-align: center;
     }
     .result__body__stats{
       .result__body__score {
@@ -129,8 +117,11 @@
         margin-bottom: 40px;
       }
       .result__body__graph {
+        min-height: 110px;
+        padding-top: 90px;
         background-color: #542F64;
-        min-height: 200px; width: 74.4%;
+        font-size: 20px;
+        text-align: center;
         display: inline-block;
         margin-bottom: 40px;
       }
@@ -146,9 +137,13 @@
         display: inline-block;
       }
       .recommendation__content {
-        min-height: 200px; width: 74.4%;
+        min-height: 200px; width: 73.6%;
         display: inline-block;
-        text-align: text-middle;
+        .content {
+          height: 200px;
+          display: table-cell;
+          vertical-align: middle;
+        }
       }
     }
     .result__body__product {
@@ -169,6 +164,19 @@
       }
     }
   }
+}
+
+// Result Colors //
+
+
+.result--good {
+  color: #CDF7AF;
+  }
+.result--ok {
+  color: #ffe900;
+}
+.result--bad {
+  color:#FF8080;
 }
 
 //Invites//
