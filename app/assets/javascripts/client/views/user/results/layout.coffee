@@ -4,9 +4,10 @@ CP.module "Views.User.Results", (Results, CP, Backbone, Marionette, $, _) ->
     template: CPT["user/results/layout"]
 
     regions:
-      individualRegion: "#individual-region"
       overallRegion: "#overall-region"
+      individualRegion: "#individual-region"
+      
 
     onRender: ->
-      @individualRegion.show new Results.Individual.Layout
       @overallRegion.show new Results.Overall.Layout
+      @individualRegion.show new Results.Individual.Layout
