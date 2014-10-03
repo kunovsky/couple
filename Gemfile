@@ -15,6 +15,7 @@ gem 'arel-helpers', git: 'https://github.com/camertron/arel-helpers.git'
 
 group :development do
   gem 'letter_opener'
+  gem 'quiet_assets'
 end
 
 group :development, :test do
