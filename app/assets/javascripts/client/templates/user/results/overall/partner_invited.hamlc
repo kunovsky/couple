@@ -1,2 +1,4 @@
-.invite__container
-  Your partner has been invited! Once they have completed the test we will send you a link where you can view your final score
+.site-wrap
+  .invite__container
+    .icon-good.success-checkbox
+    .invite__message Your partner has been invited. Once they have completed the test we will let you know.
