@@ -15,6 +15,7 @@ CP.module "Views.Common.User", (User, CP, Backbone, Marionette, $, _) ->
     onRender: ->
       @setPercentageColors()
       @setPercentageWidths()
+      @setResultIcon()
         
     fetchResult: ->
       $.ajax
@@ -48,6 +49,9 @@ CP.module "Views.Common.User", (User, CP, Backbone, Marionette, $, _) ->
 
       if partnerWidth = @determineWidth(@results.partnerPercentage)
         @animate $(@el).find('.js-partner-percentage'), partnerWidth
+
+    setResultIcon: ->
+      $(@el).find('.js-icon').addClass("icon-#{@results.status}").addClass("result--#{@results.status}--icon")
 
     determineWidth: (percentage) -> if percentage > 55 then "#{percentage-26}%" else "25%"
 

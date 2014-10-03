@@ -2,7 +2,6 @@ CP.module "Views.User.Results.Individual", (Individual, CP, Backbone, Marionette
 
   class @Layout extends Marionette.Layout
     template: CPT["user/results/individual/layout"]
-    className: "individual-results__container"
 
     regions:
       generalRegion: "#general-region"
