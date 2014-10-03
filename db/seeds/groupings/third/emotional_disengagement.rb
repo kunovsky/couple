@@ -32,7 +32,7 @@ module EmotionalDisengagement
 
   emotional_loneliness_products = []
 
-  emotional_loneliness_products << Product.create!(name: "Emotional Distance Analysis", description: "We want you to take one more short diagnostic test in order to better understand why this is a problem so that we can give you back the right feedback in order to help you and your partner with this issue.")
+  emotional_loneliness_products << Product.create!(name: "Emotional Distance Analytics", description: "We want you to take one more short diagnostic test in order to better understand why this is a problem so that we can give you back the right feedback in order to help you and your partner with this issue.")
   emotional_loneliness_products << Product.create!(name: "Personalized Therapy Help", description: "A therapist! The very name makes you want cringe and reaffirm that your relationship is actually pretty good and that while maybe other couples might need professional help, you do not. Wrong. It's completely normal for couples in committed relationships to have issues that they need to work on. A therapist is like a doctor for your relationship and it's time for your yearly physical. Find one now:")
 
   #Responses#
