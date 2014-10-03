@@ -1,7 +1,7 @@
-CP.module "Views.User.Results.Overall", (Overall, CP, Backbone, Marionette, $, _) ->
+CP.module "Views.User.Results.Invites", (Invites, CP, Backbone, Marionette, $, _) ->
 
   class @InvitePartner extends CP.Views.Globals.Modals.InviteBase
-    template: CPT["user/results/overall/invite_partner"]
+    template: CPT["user/results/invites/invite_partner"]
     url: ['/api', 'invites'].join('/')
     events:
       "click .js-invite" : "invitePartner"
@@ -19,5 +19,5 @@ CP.module "Views.User.Results.Overall", (Overall, CP, Backbone, Marionette, $, _
         data: data
         success: =>
           CP.vent.trigger 'show:next', {partnerInvited: true}
-          CP.modalRegion.show new Overall.NotifySelf type: @type
+          CP.modalRegion.show new Invites.NotifySelf type: @type
         error: => @handleError()
