@@ -13,7 +13,7 @@
           .result__body__score Your Partner Scored:
           .result__body__graph.js-partner-percentage.valign-top #{@results.partnerPercentage}%
 
-.background-color-gray{style: "background-color: #F2F2F2; width: 100%;"}
+.background-color-gray{style: "background-color: #F2F2F2; width: 100%; margin-bottom:"}
   .site-wrap{style: "background-color: #F2F2F2;"}
     .result__container
       .result__body
