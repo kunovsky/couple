@@ -31,8 +31,8 @@ module TurningTowards
 
   turning_towards_products = []
 
-  turning_towards_products << Product.create!(name: "Gottman Turning Towards Product", description: "Need to ask John")
-  turning_towards_products << Product.create!(name: "Gottman Turning Towards Therapy Help", description: "Personalized therapy to help you with this problem")
+  turning_towards_products << Product.create!(name: "Stress Reducing Conversation", description: "An excellent opportunity to connect and turn towards your partner is to talk with them and give them support with the daily stresses which they face. The purpose of this process is to assist you in the management of daily external stress—stress that comes from outside the relationship, such as job stressors.Research has shown that the couples who buffered their relationship from external stresses were able to maintain their positive changes over time.")
+  turning_towards_products << Product.create!(name: "Personalized Therapy Help", description: "A therapist! The very name makes you want cringe and reaffirm that your relationship is actually pretty good and that while maybe other couples might need professional help, you do not. Wrong. It's completely normal for couples in committed relationships to have issues that they need to work on. A therapist is like a doctor for your relationship and it's time for your yearly physical. Find one now:")
 
   #Results#
 

@@ -11,8 +11,8 @@ module Overall
   
   overall_state_products = []
 
-  overall_state_products << Product.create!(name: "The Art And Science Of Love", description: "This product is designed to help your relationship overall")
-  overall_state_products << Product.create!(name: "Find a therapist by you", description: "Personalized therapy to help you with your relationship overall")
+  overall_state_products << Product.create!(name: "The Art & Science of Love", description: "Drawn from our four decades of research with over 3000 couples, the material in The Art & Science of Love rebuilds or increases the friendship, intimacy and respect in your relationship. Our lab and field work revealed exactly what separates the “masters” of relationships from the “disasters.” And that research enabled us to build a program that teaches everything we’ve learned about creating the kind of relationship we all hope for.")
+  overall_state_products << Product.create!(name: "Personalized Therapy Help", description: "A therapist! The very name makes you want cringe and reaffirm that your relationship is actually pretty good and that while maybe other couples might need professional help, you do not. Wrong. It's completely normal for couples in committed relationships to have issues that they need to work on. A therapist is like a doctor for your relationship and it's time for your yearly physical. Find one now:")
 
   #Results#
 
