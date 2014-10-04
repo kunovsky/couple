@@ -48,6 +48,6 @@ gem 'active_model_serializers'
 
 gem 'twilio-ruby'
 
-gem 'thin'
+gem 'unicorn'
 gem 'sidekiq'
 gem 'sidekiq_mailer'
