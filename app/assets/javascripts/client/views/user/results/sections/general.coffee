@@ -1,4 +1,4 @@
-CP.module "Views.User.Results", (Results, CP, Backbone, Marionette, $, _) ->
+CP.module "Views.User.Results.Sections", (Sections, CP, Backbone, Marionette, $, _) ->
 
   class @General extends CP.Views.Common.User.ResultsBase
     name: "General Happiness"

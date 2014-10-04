@@ -16,12 +16,12 @@ CP.module "Views.User.Results", (Results, CP, Backbone, Marionette, $, _) ->
       @listenTo CP.vent, 'show:next', @nextStep
 
     onRender: ->
-      @overallRegion.show new Results.Overall delegate: @
-      @generalRegion.show new Results.General
-      @friendshipRegion.show new Results.Friendship
-      @fondnessRegion.show new Results.Fondness
-      @turningRegion.show new Results.Turning
-      @emotionRegion.show new Results.Emotion
+      @overallRegion.show new Results.Sections.Overall delegate: @
+      @generalRegion.show new Results.Sections.General
+      @friendshipRegion.show new Results.Sections.Friendship
+      @fondnessRegion.show new Results.Sections.Fondness
+      @turningRegion.show new Results.Sections.Turning
+      @emotionRegion.show new Results.Sections.Emotion
 
     nextStep: (step) ->
       return @inviteRegion.show new Results.Invites.InviteOptions if step.inviteOptions
