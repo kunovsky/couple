@@ -35,7 +35,8 @@ CP.module "Views.User.Results", (Results, CP, Backbone, Marionette, $, _) ->
 
     chooseView: (response) ->
       return @inviteRegionType = Results.Invites.InviteOptions if !response.partner_invited
-      @inviteRegionType = Results.Invites.PartnerInvited if !response.partner_taken
+      return @inviteRegionType = Results.Invites.PartnerInvited if !response.partner_taken
+      @inviteRegionType = Results.Invites.BothTaken
 
     partnerInvited: -> 
       @inviteRegion.show new Results.Invites.PartnerInvited
