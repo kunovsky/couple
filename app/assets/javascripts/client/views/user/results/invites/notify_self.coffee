@@ -1,7 +1,7 @@
-CP.module "Views.User.Results.Overall", (Overall, CP, Backbone, Marionette, $, _) ->
+CP.module "Views.User.Results.Invites", (Invites, CP, Backbone, Marionette, $, _) ->
   
   class @NotifySelf extends CP.Views.Globals.Modals.InviteBase
-    template: CPT["user/results/overall/notify_self"]
+    template: CPT["user/results/invites/notify_self"]
     className: 'success-modal'
     events: 
       "click .js-invite" : "inviteSelf"
