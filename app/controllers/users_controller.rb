@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   end
 
   def create
+    session[:current_user_auth_token] = current_user.auth_token
     user = User.create!(relationship_id: current_user.relationship_id)
     session[:auth_token] = user.auth_token
     render json: {path: 'grouping/1'}, status: 200
@@ -15,7 +16,9 @@ class UsersController < ApplicationController
       render json: true, layout: nil, status: 200
     elsif current_user.relationship
       partner_notification if current_user.partner_contact_info
-      render json: Scoring::Couple.new(current_user).handle_relationship_scoring, status: 200
+      Scoring::Couple.new(current_user).handle_relationship_scoring
+      taking_for_partner
+      render nothing: true , status: 200
     else
       render json: Scoring::Individual.new(current_user).handle_relationship_scoring, status: 200
     end
@@ -47,6 +50,13 @@ class UsersController < ApplicationController
   end
  
   private
+
+  def taking_for_partner
+     return unless session[:current_user_auth_token]
+     return unless token = User.find_by(auth_token: session[:current_user_auth_token]).auth_token
+     session.delete(:current_user_auth_token)
+     session[:auth_token] = token
+  end
 
   #TODO: Move this to an appropriate place
   def partner_notification
