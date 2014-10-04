@@ -2,4 +2,6 @@ CP.module "Views.User.Results.Sections", (Sections, CP, Backbone, Marionette, $,
 
   class @General extends CP.Views.Common.User.ResultsBase
     name: "General Happiness"
-    url: -> ['/api', 'users', CP.CurrentUser.get('id'), 'results', '1'].join('/')
+    questionnaire: 1
+    scoresUrl: -> ['/api', 'users', CP.CurrentUser.get('id'), 'scores', @questionnaire].join('/')
+    contentUrl: -> ['/api', 'users', CP.CurrentUser.get('id'), 'content', @questionnaire].join('/')

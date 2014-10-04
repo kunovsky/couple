@@ -1,0 +1,14 @@
+.site-wrap
+  .result__container
+    .result__header__name=@name
+
+    .result__body
+      .result__body__stats
+        .result__body__score You Scored:
+        .result__body__graph.js-current-user-percentage.valign-top #{@results.currentUserPercentage}%
+
+      -if @results.partnerPercentage
+
+        .result__body__stats
+          .result__body__score Your Partner Scored:
+          .result__body__graph.js-partner-percentage.valign-top #{@results.partnerPercentage}%

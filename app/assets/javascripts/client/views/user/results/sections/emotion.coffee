@@ -2,4 +2,6 @@ CP.module "Views.User.Results.Sections", (Sections, CP, Backbone, Marionette, $,
 
   class @Emotion extends CP.Views.Common.User.ResultsBase
     name: "Emotional Connectivity"
-    url: -> ['/api', 'users', CP.CurrentUser.get('id'), 'results', '5'].join('/')
+    questionnaire: 5
+    scoresUrl: -> ['/api', 'users', CP.CurrentUser.get('id'), 'scores', @questionnaire].join('/')
+    contentUrl: -> ['/api', 'users', CP.CurrentUser.get('id'), 'content', @questionnaire].join('/')

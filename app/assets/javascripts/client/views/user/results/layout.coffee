@@ -5,24 +5,37 @@ CP.module "Views.User.Results", (Results, CP, Backbone, Marionette, $, _) ->
 
     regions:
       inviteRegion: "#invite-region"
-      overallRegion: "#overall-region"
       generalRegion: "#general-region"
       friendshipRegion: "#friendship-region"
       fondnessRegion: "#fondness-region"
       turningRegion: "#turning-region"
       emotionRegion: "#emotion-region"
-      
+      overallRegion: "#overall-region"
+
     initialize: ->
-      @listenTo CP.vent, 'show:next', @nextStep
+      @listenTo CP.vent, 'show:partnerInvited', @partnerInvited
+      @fetchNextStep()
 
     onRender: ->
-      @overallRegion.show new Results.Sections.Overall delegate: @
+      @inviteRegion.show new @inviteRegionType if @inviteRegionType
       @generalRegion.show new Results.Sections.General
       @friendshipRegion.show new Results.Sections.Friendship
       @fondnessRegion.show new Results.Sections.Fondness
       @turningRegion.show new Results.Sections.Turning
       @emotionRegion.show new Results.Sections.Emotion
+      @overallRegion.show new Results.Sections.Overall
 
-    nextStep: (step) ->
-      return @inviteRegion.show new Results.Invites.InviteOptions if step.inviteOptions
-      @inviteRegion.show new Results.Invites.PartnerInvited if step.partnerInvited
+    fetchNextStep: ->
+      $.ajax
+        method: 'GET'
+        url: ['api', 'users', CP.CurrentUser.get('id'), 'invite_status'].join('/')
+        success: (response) => 
+          @chooseView(response)
+          @render()
+
+    chooseView: (response) ->
+      return @inviteRegionType = Results.Invites.InviteOptions if !response.partner_invited
+      @inviteRegionType = Results.Invites.PartnerInvited if !response.partner_taken
+
+    partnerInvited: -> 
+      @inviteRegion.show new Results.Invites.PartnerInvited

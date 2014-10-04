@@ -2,4 +2,6 @@ CP.module "Views.User.Results.Sections", (Sections, CP, Backbone, Marionette, $,
 
   class @Turning extends CP.Views.Common.User.ResultsBase
     name: "Turning Towards"
-    url: -> ['/api', 'users', CP.CurrentUser.get('id'), 'results', '4'].join('/')
+    questionnaire: 4
+    scoresUrl: -> ['/api', 'users', CP.CurrentUser.get('id'), 'scores', @questionnaire].join('/')
+    contentUrl: -> ['/api', 'users', CP.CurrentUser.get('id'), 'content', @questionnaire].join('/')
