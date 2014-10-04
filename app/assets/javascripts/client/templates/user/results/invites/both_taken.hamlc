@@ -1,0 +1,4 @@
+.site-wrap
+  .invite__container
+    .icon-good.success-checkbox
+    .invite__message Both of you have completed the test. Your results are below.
