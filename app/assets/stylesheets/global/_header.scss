@@ -9,6 +9,10 @@ header {
     font-size: 30px;
     color: #fff;
     font-family: $proxima-nova;
+    &:hover {
+      color: #af61d3;
+      cursor: pointer;
+    }
   }
 
   nav > ul > li {

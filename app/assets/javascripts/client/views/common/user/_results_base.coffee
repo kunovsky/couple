@@ -13,7 +13,9 @@ CP.module "Views.Common.User", (User, CP, Backbone, Marionette, $, _) ->
       {@name, @results, @individual}
 
     onRender: ->
-      @colorizeResult() if @results.status
+      @setPercentageColors()
+      @setPercentageWidths()
+      @setResultIcon()
         
     fetchResult: ->
       $.ajax
@@ -21,15 +23,15 @@ CP.module "Views.Common.User", (User, CP, Backbone, Marionette, $, _) ->
         url: @url()
         success: (response) =>
           @results = @formatResponse(response)
-          @determineNextSteps() if @name == "Overall"
           @render()
 
     formatResponse: (response) ->
-      currentUserPercentage = @currentUserPercentage(response)
-      partnerPercentage = @partnerPercentage(response)
-      products = @formatProductData(response)
 
-      {content: response.content,
+      currentUserPercentage = response.percentage_data.current_user_percentage
+      partnerPercentage = response.percentage_data.partner_percentage
+      products = response.products_data
+
+      return {content: response.content,
       recommendation: response.recommendation,
       currentUserPercentage: currentUserPercentage,
       partnerPercentage: partnerPercentage,
@@ -37,17 +39,20 @@ CP.module "Views.Common.User", (User, CP, Backbone, Marionette, $, _) ->
       status: response.status,
       partnerInvited: response.partner_invited}
 
-    currentUserPercentage: (response) ->
-      response.percentage_data.current_user_percentage
+    setPercentageColors: ->
+      $(@el).find('.js-current-user-percentage').addClass("result--#{@results.status}")
+      $(@el).find('.js-partner-percentage')?.addClass("result--#{@results.status}")
 
-    partnerPercentage: (response) ->
-      response.percentage_data.partner_percentage
+    setPercentageWidths: ->
+      userWitdh = @determineWidth(@results.currentUserPercentage)
+      @animate $(@el).find('.js-current-user-percentage'), userWitdh
 
-    formatProductData: (response) ->
-      response.products_data
+      if partnerWidth = @determineWidth(@results.partnerPercentage)
+        @animate $(@el).find('.js-partner-percentage'), partnerWidth
 
-    colorizeResult: ->
-      target = $(@el).find(".result__container")
-      return target.addClass("result--good") if @results.status == "g"
-      return target.addClass("result--ok") if @results.status == "o"
-      target.addClass("result--bad")
+    setResultIcon: ->
+      $(@el).find('.js-icon').addClass("icon-#{@results.status}").addClass("result--#{@results.status}--icon")
+
+    determineWidth: (percentage) -> if percentage > 55 then "#{percentage-26}%" else "25%"
+
+    animate: (element, width) -> element.animate {width: width}, "slow"

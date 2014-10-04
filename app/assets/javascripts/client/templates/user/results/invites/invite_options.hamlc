@@ -1,0 +1,8 @@
+.site-wrap
+  .invite__container
+    .icon-bad.invite-warning
+    .invite__message Your can view your results below but this test is incomplete. In order to give you a more accurate relationship analysis please invite your partner or take the test for them.
+    .invite__options
+      %button.purple.no-icon.js-invite-partner{data: {type: "text"}} Invite Your Partner Via Text
+      %button.purple.no-icon.js-invite-partner{data: {type: "email"}} Invite Your Partner Via Email
+      %button.purple.no-icon.js-take-as-partner Take the test for your partner

@@ -14,5 +14,5 @@
               %input{type: @type, name: @type, required: "true"}
 
       .form--invite__buttons.right
-        %button.orange.no-icon.ladda-button.js-invite{type: 'submit', value: 'Send Invite'} #{@type} Partner Invite
+        %button.purple.no-icon.ladda-button.js-invite{type: 'submit', value: 'Send Invite'} #{@type} Partner Invite
         %button.light-gray.no-icon.ladda-button.js-cancel Cancel

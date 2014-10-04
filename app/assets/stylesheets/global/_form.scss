@@ -36,22 +36,14 @@ button, .btn, input[type='submit'] {
     margin: 0px 0px 10px 10px;
   }
 
-  &.black{
-    background-color: #000;
-    @include box-shadow(0 2px 0 #000);
-    &:hover {
-      background-color: #606060;
-      @include box-shadow(0 2px 0 #4f6683);
-    }
-  }
 
-  &.orange {
-    background: #e87542 16px center no-repeat;
+  &.light-gray {
+    background: #C0C0C0;
     color: #fff;
-    @include box-shadow(0 2px 0 #b05b35);
+    @include box-shadow(0 2px 0 #C0C0C0);
     &:hover {
-      background-color: #e86830;
-       @include box-shadow(0 2px 0 #a4522e);
+      background-color: #656565;
+       @include box-shadow(0 2px 0 #656565);
     }
   }
 
@@ -67,13 +59,6 @@ button, .btn, input[type='submit'] {
         @include box-shadow(0 2px 0 #c7c7c7);
        }
     }
-  }
-
-  
-  &.blue {
-    background: #3D7CD1;
-    color: #f2f9f3;
-    @include box-shadow(0 2px 0 #7f9982);
   }
 
   &:disabled {
