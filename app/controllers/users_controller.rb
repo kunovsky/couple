@@ -21,11 +21,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def results
-    redirect_to '/' unless current_user
-    render json: result, status: 200
-  end
-
   def notification
     if params[:email] #TODO: Look into sanatizing these inputs if that is necessary
       render json: current_user.update_attribute(:email, params[:email]), status: 200
@@ -34,6 +29,21 @@ class UsersController < ApplicationController
     else
       render json: {errors: "Not valid"}, status: 422
     end
+  end
+
+  def scores
+    redirect_to '/' unless current_user
+    render json: Results::Scores.new(params[:id], current_user.id).format_result, status: 200
+  end
+
+  def content
+    redirect_to '/' unless current_user
+    render json: Results::Content.new(params[:id], current_user.id).format_result, status: 200
+  end
+
+  def invite_status
+    redirect_to '/' unless current_user
+    render json: Results::InviteStatus.new(current_user.id).invite_status, status: 200
   end
  
   private
@@ -50,9 +60,5 @@ class UsersController < ApplicationController
 
   def user_params
     params.permit(:email, :text)
-  end
-
-  def result
-    RelationshipResults::Stat.new(params[:id], current_user.id).handle_results_request
   end
 end

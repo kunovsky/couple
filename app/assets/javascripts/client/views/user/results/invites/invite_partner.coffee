@@ -18,6 +18,6 @@ CP.module "Views.User.Results.Invites", (Invites, CP, Backbone, Marionette, $, _
         type: 'POST'
         data: data
         success: =>
-          CP.vent.trigger 'show:next', {partnerInvited: true}
+          CP.vent.trigger 'show:partnerInvited'
           CP.modalRegion.show new Invites.NotifySelf type: @type
         error: => @handleError()

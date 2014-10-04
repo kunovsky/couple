@@ -8,7 +8,9 @@ Rails.application.routes.draw do
       post '/notification' => 'users#notification'
       post '/actual_responses' => 'actual_responses#create'
       post '/score' => 'users#score'
-      get '/results/:id' => 'users#results'
+      get '/scores/:id' => 'users#scores'
+      get '/content/:id' => 'users#content'
+      get '/invite_status' => 'users#invite_status'
     end
   end
 
