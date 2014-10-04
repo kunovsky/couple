@@ -88,12 +88,18 @@
 
 //Results//
 
+.result__container--content {
+  background-color: #F2F2F2;
+  width: 100%;
+  margin-bottom: 50px;
+}
+
 .result__container {
   width: inherit;
   .result__header__name {
       width: 100%;
       font-size: 25px;
-      margin: 40px 0px 20px 20px;
+      margin: 0px 0px 20px 20px;
       font-weight: bold;
       font-family: $proxima-nova;
       color: #000;
@@ -230,7 +236,7 @@
 //Invites//
 
 .invite__container {
-  margin: 120px 0px;
+  margin: 140px 0px;
   color: #000;
   .invite__message {
     padding-bottom: 15px;
@@ -250,7 +256,7 @@
   text-align: center;
    width: 85px; height: 85px;
    line-height: 85px;
-   margin: 190px auto 20px;
+   margin: 210px auto 20px;
    background: #98ba9d;
    color: #708f74;
    border-radius: 85px;
