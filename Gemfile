@@ -16,14 +16,13 @@ gem 'arel-helpers', git: 'https://github.com/camertron/arel-helpers.git'
 group :development do
   gem 'letter_opener'
   gem 'quiet_assets'
+  gem 'capistrano', '~> 2.15.5'
+  gem 'rvm-capistrano'
 end
 
 group :development, :test do
   gem 'debugger'
   gem 'dotenv-rails'
-  gem 'capistrano', '~> 3.2.0'
-  gem 'capistrano-rails'
-  gem 'capistrano-rvm'
 end
 
 group :development, :test, :staging do
@@ -48,6 +47,6 @@ gem 'active_model_serializers'
 
 gem 'twilio-ruby'
 
-gem 'thin'
+gem 'unicorn'
 gem 'sidekiq'
 gem 'sidekiq_mailer'
