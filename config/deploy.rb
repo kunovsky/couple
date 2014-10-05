@@ -12,7 +12,7 @@ set :use_sudo, false
 
 set :scm, "git"
 set :repository, "git@github.com:kunovsky/couple.git"
-set :branch, "develop"
+set :branch, "f/deploy"
 
 default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
