@@ -6,6 +6,10 @@ module Invites
 
     private
     def remote_client
+      p "$$$$$$$$$$$$$$"
+      p APP_CONFIG[:twilio_account_sid]
+      p APP_CONFIG[:twilio_auth_token]
+      p "$$$$$$$$$$$$$$$$$$"
       @remote_client ||= Twilio::REST::Client.new APP_CONFIG[:twilio_account_sid], APP_CONFIG[:twilio_auth_token]
     end
 
