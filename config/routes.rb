@@ -17,12 +17,14 @@ Rails.application.routes.draw do
   resources :sessions
   
   get '/invite/:invite_token' => 'sessions#invite'
-  get '/results/:invite_token' => 'sessions#results'
+  get '/show_results/:invite_token' => 'sessions#results'
+  get '/logout' => 'sessions#destroy'
+  
+
   get '/grouping' => 'users#index'
   get '/grouping/*url' => 'users#index'
   get '/results' => 'users#index'
-
-  get '/logout' => 'sessions#destroy'
+  get '/results/*url' => 'users#index'
 
   root to: 'application#index'
 
