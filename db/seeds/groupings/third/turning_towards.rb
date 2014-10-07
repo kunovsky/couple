@@ -31,9 +31,11 @@ module TurningTowards
 
   turning_towards_products = []
 
-  turning_towards_products << Product.create!(name: "Heart Box", data: {url: "https://www.gottmanreferralnetwork.com/"}, description: "Receive custom tailored relationship enhancement products delivered right to your door every month. The point of heart box is to spend an one evening every month with your partner to take time and reconnect with them and practice a fun and profound relationship skill.")
-  
-  turning_towards_products << Product.create!(name: "Stress Reducing Conversation", data: {url: "http://www.gottmanblog.com/2013/06/exercise-how-to-have-stress-reducing.html"}, description: "An excellent opportunity to connect and turn towards your partner is to talk with them and give them support with the daily stresses which they face. The purpose of this process is to assist you in the management of daily external stress—stress that comes from outside the relationship, such as job stressors.Research has shown that the couples who buffered their relationship from external stresses were able to maintain their positive changes over time.")
+  turning_towards_products << Product.create!(name: "Heart Box", data: {url: "https://www.gottmanreferralnetwork.com/", showcase: true}, description: "Receive custom tailored relationship enhancement products delivered right to your door every month. The point of heart box is to spend an one evening every month with your partner to take time and reconnect with them and practice a fun and profound relationship skill.")
+
+  turning_towards_products << Product.create!(name: "Stress Reducing Conversation", data: {url: "http://www.gottmanblog.com/2013/06/exercise-how-to-have-stress-reducing.html", showcase: true}, description: "An excellent opportunity to connect and turn towards your partner is to talk with them and give them support with the daily stresses which they face. The purpose of this process is to assist you in the management of daily external stress—stress that comes from outside the relationship, such as job stressors.Research has shown that the couples who buffered their relationship from external stresses were able to maintain their positive changes over time.")
+
+  puts "Created Turning TowardsProducts #{turning_towards_products[0].name} & #{turning_towards_products[1].name}"
 
   #Results#
 

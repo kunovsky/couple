@@ -43,9 +43,11 @@ module GeneralHappiness
 
   general_happiness_products = []
 
-  general_happiness_products << Product.create!(name: "The 5 & 1/2 hours a week app", data: {url: "#"}, description: "Our fun and easy to use app gives you personalized Relationship Informatics that let you know how your relationship is doing day to day. By getting to know you and your partner, we are able to understand the exact strengths and weaknesses of your relation ship and help you enhance your system of love and connection.")
+  general_happiness_products << Product.create!(name: "The 5 & 1/2 hours a week app", data: {url: "#", showcase: false}, description: "Our fun and easy to use app gives you personalized Relationship Informatics that let you know how your relationship is doing day to day. By getting to know you and your partner, we are able to understand the exact strengths and weaknesses of your relation ship and help you enhance your system of love and connection.")
 
-  general_happiness_products << Product.create!(name: "Personalized Therapy Help", data: {url: "https://www.gottmanreferralnetwork.com/"}, description: "A therapist! The very name makes you want cringe and reaffirm that your relationship is actually pretty good and that while maybe other couples might need professional help, you do not. Wrong. It's completely normal for couples in committed relationships to have issues that they need to work on. A therapist is like a doctor for your relationship and it's time for your yearly physical. Find one now:")
+  general_happiness_products << Product.create!(name: "Personalized Therapy Help", data: {url: "https://www.gottmanreferralnetwork.com/", showcase: true}, description: "A therapist! The very name makes you want cringe and reaffirm that your relationship is actually pretty good and that while maybe other couples might need professional help, you do not. Wrong. It's completely normal for couples in committed relationships to have issues that they need to work on. A therapist is like a doctor for your relationship and it's time for your yearly physical. Let us help you find one now and tailor the experience to your personal preferences:")
+
+  puts "Created General Happiness Products #{general_happiness_products[0].name} & #{general_happiness_products[1].name}"
 
   #Results#
 
