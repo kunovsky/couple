@@ -15,7 +15,7 @@ CP.module "Views.User.Results.Invites", (Invites, CP, Backbone, Marionette, $, _
 
     takeAsPartner: ->
       $.ajax
-        url: ['api', 'users'].join('/')
+        url: ['/api', 'users'].join('/')
         type: "POST"
         success: (respObj) =>
           window.location.href = respObj.path

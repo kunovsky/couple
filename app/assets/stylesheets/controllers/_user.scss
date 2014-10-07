@@ -91,15 +91,15 @@
 .result__container--content {
   background-color: #F2F2F2;
   width: 100%;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
 }
 
 .result__container {
   width: inherit;
   .result__header__name {
       width: 100%;
-      font-size: 25px;
-      margin: 0px 0px 20px 20px;
+      font-size: 30px;
+      margin-bottom: 30px;
       font-weight: bold;
       font-family: $proxima-nova;
       color: #000;
@@ -240,7 +240,7 @@
 //Invites//
 
 .invite__container {
-  margin: 140px 0px;
+  margin: 115px 0px;
   color: #000;
   .invite__message {
     padding-bottom: 15px;
@@ -257,7 +257,7 @@
   padding-bottom: 30px;
   }
   .success-checkbox {
-    margin: 210px auto 20px;
+    margin: 180px auto 20px;
     text-align: center;
     width: 85px; height: 85px;
     line-height: 85px;
@@ -267,3 +267,29 @@
     font-size: 60px;
   }
 }
+
+// App //
+
+.app__container {
+  width: 100%; min-height: 300px;
+  color: #000;
+  margin: 50px 0px;
+  .app__container__title {
+    font-size: 25px;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  .app__container__text {
+    width: 80%;
+    margin-left: 100px;
+    text-align: center;
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  .app__container__image {
+    height: 400px;
+    background-color: #af61d3;
+  }
+}
+// Products //
+

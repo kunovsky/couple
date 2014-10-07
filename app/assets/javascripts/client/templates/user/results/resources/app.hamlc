@@ -1,0 +1,7 @@
+.site-wrap
+  .app__container
+    .app__container__title
+      Our App: The 5 & 1/2 Hours A Week
+    .app__container__text
+      Our fun and easy to use app gives you personalized Relationship Informatics that let you know how your relationship is doing day to day. By getting to know you and your partner, we are able to understand the exact strengths and weaknesses of your relation ship and help you enhance your system of love and connection.
+    .app__container__image
