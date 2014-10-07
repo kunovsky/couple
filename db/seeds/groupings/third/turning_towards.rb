@@ -31,8 +31,9 @@ module TurningTowards
 
   turning_towards_products = []
 
+  turning_towards_products << Product.create!(name: "Heart Box", data: {url: "https://www.gottmanreferralnetwork.com/"}, description: "Receive custom tailored relationship enhancement products delivered right to your door every month. The point of heart box is to spend an one evening every month with your partner to take time and reconnect with them and practice a fun and profound relationship skill.")
+  
   turning_towards_products << Product.create!(name: "Stress Reducing Conversation", data: {url: "http://www.gottmanblog.com/2013/06/exercise-how-to-have-stress-reducing.html"}, description: "An excellent opportunity to connect and turn towards your partner is to talk with them and give them support with the daily stresses which they face. The purpose of this process is to assist you in the management of daily external stress—stress that comes from outside the relationship, such as job stressors.Research has shown that the couples who buffered their relationship from external stresses were able to maintain their positive changes over time.")
-  turning_towards_products << Product.create!(name: "Personalized Therapy Help", data: {url: "https://www.gottmanreferralnetwork.com/"}, description: "A therapist! The very name makes you want cringe and reaffirm that your relationship is actually pretty good and that while maybe other couples might need professional help, you do not. Wrong. It's completely normal for couples in committed relationships to have issues that they need to work on. A therapist is like a doctor for your relationship and it's time for your yearly physical. Find one now:")
 
   #Results#
 
