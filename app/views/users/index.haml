@@ -2,3 +2,6 @@
   :javascript
     CP.CurrentUser = new CP.Models.User();
     CP.CurrentUser.bootstrap(#{render(text: UserSerializer.new(current_user).to_json).html_safe});
+
+  :javascript
+    CP.Products = new CP.Models.Products(#{ActiveModel::ArraySerializer.new(@products, each_serializer: ProductSerializer).to_json});
