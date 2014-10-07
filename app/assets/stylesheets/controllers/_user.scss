@@ -292,4 +292,30 @@
   }
 }
 // Products //
-
+.products__name {
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  color: #000;
+}
+.products__container {
+  margin-bottom: 50px;
+  padding-left: 25px;
+}
+.product__container {
+  width: 48%; min-height: 280px;
+  display: inline-block;
+  background-color: #F2F2F2;
+  border: 5px solid #FFF;
+  font-size: 16px;
+  color: #000;
+  cursor: pointer;
+  .product__name  {
+    text-align: center;
+    padding-top: 40px;
+  }
+  .product__image {
+    width: 100%; min-height: 280px;
+    background-repeat: no-repeat;
+  }
+}
