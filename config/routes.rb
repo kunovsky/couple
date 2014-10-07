@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   scope 'api' do
     get '/grouping/:id' => 'groupings#show'
+    resources :products, only: [:index, :show]
     resources :invites, only: [:create]
     resources :users do
       post '/completed_questionnaires' => 'completed_questionnaires#create'
