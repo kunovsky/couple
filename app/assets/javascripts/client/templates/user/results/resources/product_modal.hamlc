@@ -1,0 +1,5 @@
+.close-modal.js-modal-close
+.modal-header
+  %h3=@name
+.modal-body
+  Text goes here

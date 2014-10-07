@@ -1,1 +1,4 @@
-Here is the template
+.site-wrap
+  .products__name Products
+
+  .products__container.js-products-container
