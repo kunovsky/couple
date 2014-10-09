@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 20140904234357) do
     t.string   "name"
     t.text     "description"
     t.json     "data",        default: {}, null: false
+    t.json     "summary",     default: {}, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

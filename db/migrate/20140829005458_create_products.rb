@@ -4,6 +4,7 @@ class CreateProducts < ActiveRecord::Migration
       t.string :name
       t.text :description
       t.json :data, null: false, default: {}
+      t.json :summary, null: false, default: {}
 
       t.timestamps
     end
