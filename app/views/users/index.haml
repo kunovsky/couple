@@ -4,4 +4,7 @@
     CP.CurrentUser.bootstrap(#{render(text: UserSerializer.new(current_user).to_json).html_safe});
 
   :javascript
-    CP.Products = new CP.Models.Products(#{ActiveModel::ArraySerializer.new(@products, each_serializer: ProductSerializer).to_json});
+    CP.Products = new CP.Models.Products(#{(ActiveModel::ArraySerializer.new(@products, each_serializer: ProductSerializer).to_json).html_safe});
+
+  :javascript
+    CP.MobileApp = new CP.Models.Product(#{ProductSerializer.new(@app).to_json.html_safe});
