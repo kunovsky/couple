@@ -4,6 +4,7 @@ class UsersController < ApplicationController
     #TODO: add can can can and get rid of the below code
     redirect_to '/' unless current_user
     @products = Product.all.select {|p|p.data['showcase']}
+    @app = Product.find(1) # Change this once we have more info about the app
   end
 
   def create
