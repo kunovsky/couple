@@ -41,13 +41,8 @@ module GeneralHappiness
 
   #Products#
 
-  general_happiness_products = []
-
-  general_happiness_products << Product.create!(name: "The 5 & 1/2 hours a week app", data: {url: "#", showcase: false, primary_image_url: 'app_placeholder.png', secondary_image_url: 'app_placeholder.png'}, description: "What separates successful relationships from failing ones? Surprisingly, the answer is five hours a week. Our fun and easy to use app gives you personalized relationship informatics that let you know how your relationship is doing day to day. By getting to know you and your partner, we are able to understand the exact strengths and weaknesses of your relationship and help you enhance your love by building rituals of connection.", summary: {title: "Here's how to work the 5 & 1/2 hours into your relationship", points: {"Partings" => "This takes a mere 2 minutes, for 5 workdays per week:  a total of 10 minutes per week.", "Greetings" => "Have a debriefing conversation together at the end of each workday.  Allow for a 20 minute chat, for 5 workdays:  a total of 1 hour 40 minutes per week.", "Admiration And Appreciation" => "Find a way to compliment your spouse every day and to show them you appreciate them – a 5 minute task, 7 days a week:  a total of 35 minutes.", "Affection" => "Show physical affection for your spouse.  Hug, pat, kiss, touch.  We specifically advise goodnight kisses!  5 minutes a day, 7 days a week:  a total of 35 minutes.", "Weekly Date" => "This is the big one, time-wise.  Allow for 2 hours, once per week, to connect, chat, dream, plan, and enjoy each other's company."}})
-
-  general_happiness_products << Product.create!(name: "Personalized Therapy Help", data: {url: "https://www.gottmanreferralnetwork.com/", showcase: true}, description: "A therapist! The very name makes you want cringe and reaffirm that your relationship is actually pretty good and that while maybe other couples might need professional help, you do not. Wrong. It's completely normal for couples in committed relationships to have issues that they need to work on. A therapist is like a doctor for your relationship and it's time for your yearly physical. Let us help you find one now and tailor the experience to your personal preferences:")
-
-  puts "Created General Happiness Products #{general_happiness_products[0].name} & #{general_happiness_products[1].name}"
+  general_happiness_products = [Product.find(1), Product.find(2)]
+  puts "Created General Happiness Products: #{general_happiness_products[0].name} & #{general_happiness_products[1].name}"
 
   #Results#
 

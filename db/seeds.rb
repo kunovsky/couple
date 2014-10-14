@@ -2,6 +2,7 @@
 
 #TODO:refactor this http://stackoverflow.com/questions/735073/best-way-to-require-all-files-from-a-directory-in-ruby
 require File.expand_path('../seeds/possible_response_choices', __FILE__)
+require File.expand_path('../seeds/products', __FILE__)
 require File.expand_path('../seeds/groupings/first/general_happiness', __FILE__)
 require File.expand_path('../seeds/groupings/second/love_maps', __FILE__)
 require File.expand_path('../seeds/groupings/third/fondness_and_admiration', __FILE__)
