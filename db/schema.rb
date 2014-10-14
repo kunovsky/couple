@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 20140904234357) do
 
   create_table "products", force: true do |t|
     t.string   "name"
+    t.string   "tagline"
     t.text     "description"
     t.json     "data",        default: {}, null: false
     t.json     "summary",     default: {}, null: false
