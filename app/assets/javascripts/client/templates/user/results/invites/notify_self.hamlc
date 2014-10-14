@@ -15,6 +15,6 @@
             %td
               %input{type: @type, name: @type}
 
-      .form--invite__buttons.right
+      .form--invite__buttons
         %button.purple.no-icon.ladda-button.js-invite{type: 'submit', value: 'Invite'} Send Me A #{@type} Notification
         %button.light-gray.no-icon.ladda-button.js-cancel No Thanks
