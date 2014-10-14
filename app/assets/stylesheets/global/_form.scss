@@ -38,12 +38,12 @@ button, .btn, input[type='submit'] {
 
 
   &.light-gray {
-    background: #C0C0C0;
+    background: #656565;
     color: #fff;
-    @include box-shadow(0 2px 0 #C0C0C0);
+    @include box-shadow(0 2px 0 #656565);
     &:hover {
-      background-color: #656565;
-       @include box-shadow(0 2px 0 #656565);
+      background-color: #C0C0C0;
+       @include box-shadow(0 2px 0 #C0C0C0);
     }
   }
 
