@@ -2,4 +2,4 @@
 .modal-header
   %h3=@name
 .modal-body
-  Text goes here
+  Coming soon
