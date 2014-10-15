@@ -124,6 +124,7 @@
       }
     }
     .result__body__stats{
+        margin-bottom: 20px;
       .result__body__score {
         min-height: 40px; width: 25%;
         padding-top: 20px;
@@ -132,16 +133,18 @@
         font-size: 18px;
         text-align: center;
         display: inline-block;
-        margin-bottom: 20px;
       }
-      .result__body__graph {
-        min-height: 40px;
-        padding-top: 20px;
-        background-color: #542F64;
-        font-size: 20px;
-        text-align: center;
+      .result__body__background {
+        min-height: 40px; width: 74.5%;
         display: inline-block;
-        margin-bottom: 20px;
+        background-color: #F2F2F2;
+        .result__body__graph {
+          min-height: 40px;
+          padding-top: 20px;
+          background-color: #542F64;
+          font-size: 20px;
+          text-align: center;
+        }
       }
     }
     .result__body__recommendations {
