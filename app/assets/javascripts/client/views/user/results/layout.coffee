@@ -9,18 +9,9 @@ CP.module "Views.User.Results", (Results, CP, Backbone, Marionette, $, _) ->
       layoutRegion: '#layout-region'
 
     initialize: (@options = options = {}) ->
-      @listenTo CP.vent, 'show:resource', @showResource
 
-    onRender: ->
-      @setMenu()
-      @setPage()
+    onRender: -> @setMenu(); @setPage()
 
-    setMenu: ->
-      @subMenuRegion.show new Results.SubMenu active: @options.page
+    setMenu: -> @subMenuRegion.show new Results.SubMenu active: @options.page
 
-    setPage: ->
-      @layoutRegion.show new Results["#{_.str.capitalize(@options.page)}Layout"]
-
-    showResource: (id) ->
-      CP.ActiveRouters.User.navigate '/results/resources'
-      @layoutRegion.show new Results.ResourcesLayout productId: id
+    setPage: -> @layoutRegion.show new Results["#{_.str.capitalize(@options.page)}Layout"]
