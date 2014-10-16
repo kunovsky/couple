@@ -2,7 +2,7 @@ CP.module "Views.Common.User.Resources", (Resources, CP, Backbone, Marionette, $
 
   class @Product extends Backbone.Marionette.ItemView
     template: CPT['common/resources/product']
-    className: 'product__container'
+    className: 'site-wrap'
     events:
       'mouseover'       : 'changeBackGroundImage'
       'mouseleave'      : 'revertBackgroundImage'
