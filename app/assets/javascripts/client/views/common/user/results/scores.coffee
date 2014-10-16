@@ -44,6 +44,6 @@ CP.module "Views.Common.User.Results", (Results, CP, Backbone, Marionette, $, _)
       if partnerWidth = @determineWidth(@results.partnerPercentage)
         @animate $(@el).find('.js-partner-percentage'), partnerWidth
 
-    determineWidth: (percentage) -> if percentage > 15 then "#{percentage}%" else "15%"
+    determineWidth: (percentage) -> if percentage > 10 then "#{percentage}%" else "10%"
 
     animate: (element, width) -> element.animate {width: width}, 2000

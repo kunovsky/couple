@@ -23,8 +23,4 @@ CP.module "Views.User.Resources", (Resources, CP, Backbone, Marionette, $, _) ->
 
     showProduct: (product) ->  @resourceRegion.show new CP.Views.Common.User.Resources.Product model: product
 
-    showTherapy: (therapy) -> @resourceRegion.show new CP.Views.Common.User.Resources.Product model: therapy 
-
-
-
-      
+    showTherapy: (therapy) -> @resourceRegion.show new CP.Views.Common.User.Resources.Product model: therapy
