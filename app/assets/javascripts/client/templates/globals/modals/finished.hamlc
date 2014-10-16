@@ -1,6 +1,7 @@
-.modal-header
-.modal-body
-  .action-words
-    Success! We will let you know when you partner is finished
-  %button.green.no-icon.js-done
-    Great
+.confirm-modal
+  .modal-header
+  .modal-body
+    .action-words
+      Success! We will let you know when you partner is finished
+    %button.purple.no-icon.js-done.confirm
+      Great

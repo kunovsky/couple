@@ -4,4 +4,8 @@ Backbone.Marionette.Renderer.render = (template, data) ->
 
 window.CP = new Backbone.Marionette.Application()
 
-window.CP.Settings = {lastQuestionnaireNumber: 5, lastGroupingNumber: 3}
+window.CP.Settings = {
+  lastQuestionnaireNumber: 5,
+  lastGroupingNumber: 3,
+  personalizedTherapyHelpId: 2,
+}

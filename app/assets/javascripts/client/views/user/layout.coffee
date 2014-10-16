@@ -20,7 +20,12 @@ CP.module "Views.User", (User, CP, Backbone, Marionette, $, _) ->
 
     #Handle Routing
     fireRouter: (page) ->
-      @["show#{_.str.capitalize(page)}"]()
+      if _.isArray page
+        root_page = page[0]
+        @["show#{_.str.capitalize(root_page)}"](_.rest(page))
+      else
+        root_page = page
+        @["show#{_.str.capitalize(page)}"]()
 
     showIndex: ->
       @bodyRegion.show new User.Welcome.Layout
@@ -28,5 +33,8 @@ CP.module "Views.User", (User, CP, Backbone, Marionette, $, _) ->
     showGrouping: ->
       @bodyRegion.show new User.Section.Grouping id: @options.id
 
-    showResults: ->
-      @bodyRegion.show new User.Results.Layout
+    showResults: (subPage) ->
+      @bodyRegion.show new User.Results.Layout page: subPage[0]
+
+    showResources: (productId) ->
+      @bodyRegion.show new User.Resources.Layout productId: productId[0]

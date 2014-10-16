@@ -1,0 +1,5 @@
+.site-wrap
+  %nav
+    %ul
+      %li{data: {link: 'sections'}} Results
+      %li{data: {link: 'resources'}} Resources
