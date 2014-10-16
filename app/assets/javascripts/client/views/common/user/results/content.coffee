@@ -39,4 +39,4 @@ CP.module "Views.Common.User.Results", (Results, CP, Backbone, Marionette, $, _)
 
     displayResource: (e) ->
       productId = $(e.target).data('product-id') or $(e.target).parent().data('product-id')
-      CP.vent.trigger 'show:resource', productId
+      CP.ActiveRouters.User.navigate "/resources/#{productId}", true
