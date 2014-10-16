@@ -35,3 +35,6 @@ CP.module "Views.User", (User, CP, Backbone, Marionette, $, _) ->
 
     showResults: (subPage) ->
       @bodyRegion.show new User.Results.Layout page: subPage[0]
+
+    showResources: (productId) ->
+      @bodyRegion.show new User.Resources.Layout productId: productId[0]
