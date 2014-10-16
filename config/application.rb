@@ -25,6 +25,8 @@ module Couple
 
     config.action_dispatch.perform_deep_munge = false
 
+    config.assets.precompile +=%w{application.js application.css}
+
     # HamlCoffee Assets
     if defined? ::HamlCoffeeAssets
       config.hamlcoffee.namespace = 'window.CPT'

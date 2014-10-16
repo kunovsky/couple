@@ -1,6 +1,3 @@
-// @import "animate";
-//@include animate;
-
 @mixin placeholder {
   &.placeholder { @content }
   &:-moz-placeholder { @content }

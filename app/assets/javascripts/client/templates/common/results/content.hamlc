@@ -16,7 +16,6 @@
             .result__body__product
               .result__body__product__name=product.name
               .result__body__product__description.valign-top=product.description
-            .result__body__product__link.valign-top
-              %a{href: product.data.url, target: '_blank'}
-                .link__title Learn More About
-                .link__name=product.name
+            .result__body__product__link.js-resource-link.valign-top{data: {product_id: product.id}}
+              .link__title Learn More About
+              .link__name.js-name=product.name
