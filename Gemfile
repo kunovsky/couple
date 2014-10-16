@@ -46,6 +46,7 @@ gem 'haml'
 gem 'active_model_serializers'
 
 gem 'twilio-ruby'
+gem 'stripe'
 
 gem 'unicorn'
 gem 'sidekiq'

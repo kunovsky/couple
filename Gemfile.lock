@@ -184,6 +184,8 @@ GEM
     redis-store (1.1.4)
       redis (>= 2.2)
     ref (1.0.5)
+    rest-client (1.6.7)
+      mime-types (>= 1.16)
     rspec-core (3.0.4)
       rspec-support (~> 3.0.0)
     rspec-expectations (3.0.4)
@@ -228,6 +230,10 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (~> 2.8)
+    stripe (1.11.0)
+      json (~> 1.8.1)
+      mime-types (~> 1.25)
+      rest-client (~> 1.4)
     therubyracer (0.12.1)
       libv8 (~> 3.16.14.0)
       ref
@@ -287,6 +293,7 @@ DEPENDENCIES
   sass-rails (~> 4.0.3)
   sidekiq
   sidekiq_mailer
+  stripe
   therubyracer
   twilio-ruby
   uglifier
