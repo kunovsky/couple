@@ -21,7 +21,6 @@ group :development do
 end
 
 group :development, :test do
-  gem 'debugger'
   gem 'dotenv-rails'
 end
 
