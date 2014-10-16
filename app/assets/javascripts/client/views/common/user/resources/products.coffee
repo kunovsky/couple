@@ -1,7 +1,7 @@
-CP.module "Views.User.Results.Resources", (Resources, CP, Backbone, Marionette, $, _) ->
+CP.module "Views.Common.User.Resources", (Resources, CP, Backbone, Marionette, $, _) ->
 
   class @Products extends Backbone.Marionette.CompositeView
-    template: CPT['user/results/resources/products']
+    template: CPT['common/resources/products']
     itemView: Resources.Product
     itemViewContainer: '.js-products-container'
 

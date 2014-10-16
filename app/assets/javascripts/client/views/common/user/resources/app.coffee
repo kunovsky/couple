@@ -1,10 +1,11 @@
-CP.module "Views.User.Results.Resources", (Resources, CP, Backbone, Marionette, $, _) ->
+CP.module "Views.Common.User.Resources", (Resources, CP, Backbone, Marionette, $, _) ->
 
   class @App extends Backbone.Marionette.ItemView
-    template: CPT['user/results/resources/app']
+    template: CPT['common/resources/app']
+
     events:
-      'click .js-image'      : 'showProduct'
-      'click a'       : 'showProduct'
+      'click .js-image' : 'showProduct'
+      'click a'         : 'showProduct'
 
     initialize: ->
       @model = CP.MobileApp

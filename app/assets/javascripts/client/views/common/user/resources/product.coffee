@@ -1,7 +1,7 @@
-CP.module "Views.User.Results.Resources", (Resources, CP, Backbone, Marionette, $, _) ->
+CP.module "Views.Common.User.Resources", (Resources, CP, Backbone, Marionette, $, _) ->
 
   class @Product extends Backbone.Marionette.ItemView
-    template: CPT['user/results/resources/product']
+    template: CPT['common/resources/product']
     className: 'product__container'
     events:
       'mouseover'       : 'changeBackGroundImage'

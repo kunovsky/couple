@@ -1,7 +1,7 @@
-CP.module "Views.User.Results.Resources", (Resources, CP, Backbone, Marionette, $, _) ->
+CP.module "Views.Common.User.Resources", (Resources, CP, Backbone, Marionette, $, _) ->
 
   class @ProductModal extends Backbone.Marionette.ItemView
-    template: CPT['user/results/resources/product_modal']
+    template: CPT['common/resources/product_modal']
     events:
       'click .js-modal-close' : 'closeModal'
 
@@ -14,4 +14,3 @@ CP.module "Views.User.Results.Resources", (Resources, CP, Backbone, Marionette, 
 
     closeModal: ->
       CP.modalRegion.close()
-
