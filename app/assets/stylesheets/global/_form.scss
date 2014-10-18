@@ -50,10 +50,10 @@ button, .btn, input[type='submit'] {
   &.purple {
     background: #542F64;
     color: #f2f9f3;
-    @include box-shadow(0 2px 0 #000);
+    @include box-shadow(0 2px 0 #542F64);
     &:hover {
       background-color: #af61d3;
-       @include box-shadow(0 2px 0 #000);
+       @include box-shadow(0 2px 0 #af61d3);
        &:disabled {
         background-color: #d8d8d8;
         @include box-shadow(0 2px 0 #c7c7c7);
