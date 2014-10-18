@@ -11,6 +11,6 @@
       -if @results.partnerPercentage
 
         .result__body__stats
-          .result__body__score Your Partner Scored:
-          .result__body__graph.js-partner-percentage.valign-top #{@results.partnerPercentage}%
-          .result__body__remaining
+          .result__body__score.valign-top Your Partner Scored:
+          .result__body__background
+            .result__body__graph.js-partner-percentage.valign-top #{@results.partnerPercentage}%
