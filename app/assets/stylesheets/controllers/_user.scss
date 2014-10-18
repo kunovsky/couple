@@ -75,7 +75,7 @@
 
 // Questionnaire Groupings //
 
-.groupings-container {
+.groupings__container {
   padding: 10px 0px 10px 10px; 
   margin-bottom: 20px;
   color: #000;
@@ -83,21 +83,26 @@
     font-size: 25px;
     margin-bottom: 10px;
   }
-  .question-container {
+  .question__container {
     max-width: 650px;
     padding-left: 10px;
     .explanation-text {
       font-size: 16px;
       padding: 10px 0px;
     }
-    .button-container {
+    .button__container {
+      display: inline-block;
       .selected {
         background-color: #af61d3;
-        @include box-shadow(0 2px 0 #000);
+        @include box-shadow(0 2px 0 #af61d3);
       }
     }
+    .feedback-container {
+      display: inline-block;
+      margin: 9px 0px 0px 9px
+    }
   }
-  .next-questionnaire-button {
+  .next-grouping-button {
     margin: 20px 0px 10px 10px;
   }
 }
