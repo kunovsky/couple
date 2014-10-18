@@ -11,3 +11,4 @@
           .feedback-container.js-feedback-container.valign-top
 
     %button.purple.next-grouping-button.js-next-grouping-button{disabled: true} Continue To The Next Section
+    .message__container One or more question has not been answered

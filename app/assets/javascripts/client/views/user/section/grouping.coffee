@@ -4,15 +4,28 @@ CP.module "Views.User.Section", (Section, CP, Backbone, Marionette, $, _) ->
     template: CPT["common/grouping"]
 
     events: 
-      'click .js-response-button'           : 'setActualResponse'
-      'click .js-next-grouping-button' : 'createCompletedQuestionnaire'
+      'click .js-response-button'              : 'setActualResponse'
+      'click .js-next-grouping-button'         : 'createCompletedQuestionnaire'
 
-    #TODO: on render we need to indent all the button who we have responses for already
+    #TODO: break this down to use composition
     initialize: (@options = options = {}) ->
       @url = ['/api', 'grouping', @options.id].join('/')
   
       @fetchCollection()
       @questions = []
+
+    onRender: -> @fillExistingResponses()
+
+    fillExistingResponses: ->
+      return if !@actualResponses
+      answers = 0
+
+      for key, value of @actualResponses
+        answers+=1
+        @handleButtonState parent if parent = $(@el).find("[data-qid=\"#{key}\"]").parent().find("[data-rid=\"#{value}\"]")
+
+      @sectionCompleted = true if answers == @questions.length
+      @enableNextSection() if @sectionCompleted
 
     templateHelpers: ->
       sectionData = @sectionData()
@@ -33,7 +46,8 @@ CP.module "Views.User.Section", (Section, CP, Backbone, Marionette, $, _) ->
         type: 'GET'
         url: @url
         success: (response) =>
-          @questions = response
+          @questions = response.questions
+          @actualResponses = response.actual_responses
           @render()
 
     saveActualResponse: (data, target) ->
@@ -66,14 +80,16 @@ CP.module "Views.User.Section", (Section, CP, Backbone, Marionette, $, _) ->
       if (@nextGroupingNumber() < (CP.Settings.lastGroupingNumber + 1)) then return @nextSection() 
       @handleProcessCompletion()
 
-    enableNextSection: -> $(@el).find('.next-grouping-button').attr('disabled', false)
+    enableNextSection: ->
+      $(@el).find('.next-grouping-button').attr('disabled', false)
+      $(@el).find('.message__container').text('')
 
     nextGroupingNumber: -> Number(@options.id) + 1
 
     handleButtonState: (target) ->
       target.addClass('selected').removeClass('purple').siblings().removeClass('selected').addClass('purple')
       target.parent().next().addClass('icon-good result--good--icon')
-      
+
     handleRequestData: (target) -> {response_id: target.data('rid'), question_id: target.data('qid')}
 
     nextSection: -> CP.ActiveRouters.User.navigate @nextSectionUrl(), true
