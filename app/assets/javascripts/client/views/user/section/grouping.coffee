@@ -7,33 +7,49 @@ CP.module "Views.User.Section", (Section, CP, Backbone, Marionette, $, _) ->
       'click .js-response-button'              : 'setActualResponse'
       'click .js-next-grouping-button'         : 'createCompletedQuestionnaire'
 
-    #TODO: break this down to use composition
+    #TODO: break this down to use composition (all ajax one file)
     initialize: (@options = options = {}) ->
       @url = ['/api', 'grouping', @options.id].join('/')
-  
       @fetchCollection()
       @questions = []
 
     onRender: -> @fillExistingResponses()
 
-    fillExistingResponses: ->
-      return if !@actualResponses
-      answers = 0
-
-      for key, value of @actualResponses
-        answers+=1
-        @handleButtonState parent if parent = $(@el).find("[data-qid=\"#{key}\"]").parent().find("[data-rid=\"#{value}\"]")
-
-      @sectionCompleted = true if answers == @questions.length
-      @enableNextSection() if @sectionCompleted
-
     templateHelpers: ->
       sectionData = @sectionData()
-      return {@questions, sectionData}
+      totalQuestions = CP.Settings.totalQuestionCount
+      return {@questions, sectionData, totalQuestions, @totalAnswered}
 
     saveUrl: -> ['/api','users', CP.CurrentUser.get('id'), 'actual_responses'].join('/')
     scoreResultsUrl: ->['/api', 'users', CP.CurrentUser.get('id'), 'score'].join('/')
     completedSurveyUrl: ->['/api','users', CP.CurrentUser.get('id'), 'completed_questionnaires'].join('/')
+
+    fillExistingResponses: ->
+      return if !@actualResponses
+      answered = 0
+  
+      for responseSet in @actualResponses
+        for key, value of responseSet
+          answered+=1
+          @handleButtonState parent if parent = $(@el).find("[data-qid=\"#{key}\"]").parent().find("[data-rid=\"#{value}\"]")
+
+      @additionalSetup(answered)
+
+    additionalSetup: (answered) ->
+      @updateProgress()
+      @sectionCompleted = true if answered == @questions.length
+      @enableNextSection() if @sectionCompleted
+
+    fetchCollection: (range) ->
+      $.ajax
+        type: 'GET'
+        url: @url
+        success: (response) =>
+          #TODO: actual response and total answered need to be moved to a different ajax call
+          @questions = response.questions
+          @actualResponses = response.actual_responses
+          @totalAnswered = response.total_answered
+          @render()
 
     setActualResponse: (e) ->
       e.preventDefault()
@@ -41,23 +57,16 @@ CP.module "Views.User.Section", (Section, CP, Backbone, Marionette, $, _) ->
       data = @handleRequestData(target)
       @saveActualResponse(data, target)
 
-    fetchCollection: (range) ->
-      $.ajax
-        type: 'GET'
-        url: @url
-        success: (response) =>
-          @questions = response.questions
-          @actualResponses = response.actual_responses
-          @render()
-
     saveActualResponse: (data, target) ->
       $.ajax
         type: 'POST'
         url: @saveUrl()
         data: data
-        success: (respObj) =>
+        success: (response) =>
           @handleButtonState(target)
-          if respObj.completed
+          @totalAnswered = response.total_answered
+          @updateProgress()
+          if response.completed
             @sectionCompleted = true
             @enableNextSection()
 
@@ -89,6 +98,8 @@ CP.module "Views.User.Section", (Section, CP, Backbone, Marionette, $, _) ->
     handleButtonState: (target) ->
       target.addClass('selected').removeClass('purple').siblings().removeClass('selected').addClass('purple')
       target.parent().next().addClass('icon-good result--good--icon')
+
+    updateProgress: -> $(@el).find('.js-answered').text(@totalAnswered)
 
     handleRequestData: (target) -> {response_id: target.data('rid'), question_id: target.data('qid')}
 
