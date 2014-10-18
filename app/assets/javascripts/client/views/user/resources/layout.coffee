@@ -12,7 +12,8 @@ CP.module "Views.User.Resources", (Resources, CP, Backbone, Marionette, $, _) ->
 
     onRender: -> @setMenu(); @setPage(); @scrollTop
 
-    setMenu: -> @subMenuRegion.show new Resources.BreadCrumb
+    #TODO: Need a link that is back to home page if you have not completed the questionnaire yet
+    setMenu: -> @subMenuRegion.show new Resources.BreadCrumb 
 
     setPage: ->
       return @showApp() if _.find CP.MobileApp, (app) => app.id is @productId
