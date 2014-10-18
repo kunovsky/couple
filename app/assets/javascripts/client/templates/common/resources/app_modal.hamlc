@@ -1,0 +1,7 @@
+.close-modal.js-modal-close
+.modal-header
+  %h3=@title
+.modal-body
+  .modal-text--information
+    .access_instructons #{@data.access_instructions}
+    %button.purple.confirm-button.js-modal-close Got It
