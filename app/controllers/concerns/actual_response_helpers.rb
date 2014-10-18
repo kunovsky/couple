@@ -1,4 +1,11 @@
 module ActualResponseHelpers
+
+  def get_actual_response_count
+    response_count = 0
+    current_user.actual_response.responses.map {|response| response_count+= response[1].length}
+    response_count
+  end
+
   class Saver #TODO: Move this saver class into a service
     def initialize(params)
       @response_id, @question_id, @user_id = params[:response_id], params[:question_id], params[:user_id]
