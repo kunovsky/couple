@@ -5,9 +5,9 @@ Rails.application.routes.draw do
     resources :products, only: [:index, :show]
     resources :invites, only: [:create]
     resources :users do
+      resources :actual_responses
       post '/completed_questionnaires' => 'completed_questionnaires#create'
       post '/notification' => 'users#notification'
-      post '/actual_responses' => 'actual_responses#create'
       post '/score' => 'users#score'
       get '/scores/:id' => 'users#scores'
       get '/content/:id' => 'users#content'
