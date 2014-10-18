@@ -2,7 +2,7 @@ module GroupingHelpers
 
   #TODO: change this method to use map instead of an each
   def select_and_format_all_questionnaires(grouping_id)
-    question_data = {questions: [], actual_responses: []}
+    question_data = {questions: [], actual_responses: [], total_answered: get_actual_response_count}
     Grouping.find(grouping_id).questionnaires.each do |questionnaire|
       question_data[:questions] << format_questionnaire(questionnaire.id)
       question_data[:actual_responses] = get_actual_responses(questionnaire.id)
@@ -31,5 +31,11 @@ module GroupingHelpers
 
   def get_actual_responses(id)
     current_user.actual_response.responses[id.to_s]
+  end
+
+  def get_actual_response_count
+    response_count = 0
+    current_user.actual_response.responses.map {|response| response_count+= response[1].length}
+    response_count
   end
 end
