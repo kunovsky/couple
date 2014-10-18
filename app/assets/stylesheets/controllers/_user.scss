@@ -76,8 +76,10 @@
 // Questionnaire Groupings //
 
 .groupings__container {
+  width: 650px;
   padding: 10px 0px 10px 10px; 
   margin-bottom: 20px;
+  display: inline-block;
   color: #000;
   .title-text {
     font-size: 25px;
@@ -92,6 +94,9 @@
     }
     .button__container {
       display: inline-block;
+      .possible-response__container {
+        display: inline-block;
+      }
       .selected {
         background-color: #af61d3;
         @include box-shadow(0 2px 0 #af61d3);
@@ -112,11 +117,24 @@
   }
 }
 
-.possible-response__container {
+.progress__container {
+  margin: 10px 20px 0px 0px;
   display: inline-block;
+  font-family: bold;
+  font-family: $proxima-nova;
+  font-size: 20px;
+  color: #000;
+  .questions-answered {
+    display: inline-block;
+  }
+  .spacer {
+    display: inline-block;
+  }
+  .total-questions {
+    display: inline-block;
+    font-size: 30px;
+  }
 }
-
-
 //Results//
 
 .result__container--content {
