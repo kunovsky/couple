@@ -1,11 +1,13 @@
 module GroupingHelpers
 
   #TODO: change this method to use map instead of an each
+  #TODO: move the actual response methods out of here into the actual response helper
+
   def select_and_format_all_questionnaires(grouping_id)
     question_data = {questions: [], actual_responses: [], total_answered: get_actual_response_count}
     Grouping.find(grouping_id).questionnaires.each do |questionnaire|
       question_data[:questions] << format_questionnaire(questionnaire.id)
-      question_data[:actual_responses] = get_actual_responses(questionnaire.id)
+      question_data[:actual_responses] << get_actual_responses(questionnaire.id)
     end
     question_data[:questions].flatten!
     question_data
