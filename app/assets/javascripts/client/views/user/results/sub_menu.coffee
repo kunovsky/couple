@@ -14,3 +14,4 @@ CP.module "Views.User.Results", (Results, CP, Backbone, Marionette, $, _) ->
 
     onRender: ->
       @$el.find("li[data-link='#{@options.active}']").addClass('active').siblings().removeClass('active')
+      $(@el).scrollTop (1000)
