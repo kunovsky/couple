@@ -46,4 +46,4 @@ CP.module "Views.Common.User.Results", (Results, CP, Backbone, Marionette, $, _)
 
     determineWidth: (percentage) -> if percentage > 10 then "#{percentage}%" else "10%"
 
-    animate: (element, width) -> element.animate {width: width}, 2000
+    animate: (element, width) -> element.delay(500).animate {width: width}, 2000
