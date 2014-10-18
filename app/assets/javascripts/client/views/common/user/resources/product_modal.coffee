@@ -20,6 +20,8 @@ CP.module "Views.Common.User.Resources", (Resources, CP, Backbone, Marionette, $
 
     closeModal: -> CP.modalRegion.close()
 
-    visitPage: -> window.open @url if @url != ""
+    visitPage: ->
+      window.open @url if @url != ""
+      @closeModal()
 
     handlePurchase: -> console.log "Purchasing"
