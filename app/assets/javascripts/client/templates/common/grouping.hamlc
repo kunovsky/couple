@@ -1,0 +1,13 @@
+.site-wrap
+  .groupings__container
+    .title-text Please answer the following questions (Section #{@sectionData}):
+    - if @questions?.length > 0
+      -for question in @questions
+        .question__container
+          .explanation-text=question.content
+          .button__container
+            - for response in question.possible_responses
+              %button.purple.possible-response__container.js-response-button{data: {rid: response.id, qid: question.id}}=response.content
+          .feedback-container.js-feedback-container.valign-top
+
+    %button.purple.next-grouping-button.js-next-grouping-button{disabled: true} Continue To The Next Section
