@@ -12,3 +12,8 @@
 
     %button.purple.next-grouping-button.js-next-grouping-button{disabled: true} Continue To The Next Section
     .message__container One or more question has not been answered
+
+  .progress__container.right.valign-top
+    .questions-answered.js-answered=@totalAnswered
+    .spacer /
+    .total-questions #{@totalQuestions}
