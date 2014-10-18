@@ -8,4 +8,5 @@ window.CP.Settings = {
   lastQuestionnaireNumber: 5,
   lastGroupingNumber: 3,
   personalizedTherapyHelpId: 2,
+  totalQuestionCount: 45
 }
