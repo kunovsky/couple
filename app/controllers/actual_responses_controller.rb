@@ -9,7 +9,7 @@ class ActualResponsesController < ApplicationController
     if !user_same
       render json: {path: '/logout'}, status: 403
     else
-      render json: {completed: Saver.new(params).process_actual_response}, status: 200
+      render json: {completed: Saver.new(params).process_actual_response, total_answered: get_actual_response_count}, status: 200
     end
   end
   
