@@ -17,4 +17,4 @@ CP.module "Views.Common.User.Resources", (Resources, CP, Backbone, Marionette, $
 
     showProduct: (e) ->
       e.preventDefault()
-      CP.modalRegion.show new Resources.ProductModal model: @model
+      CP.modalRegion.show new Resources.AppModal model: @model

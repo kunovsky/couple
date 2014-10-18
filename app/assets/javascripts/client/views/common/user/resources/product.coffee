@@ -4,8 +4,6 @@ CP.module "Views.Common.User.Resources", (Resources, CP, Backbone, Marionette, $
     template: CPT['common/resources/product']
     className: 'site-wrap'
     events:
-      'mouseover'       : 'changeBackGroundImage'
-      'mouseleave'      : 'revertBackgroundImage'
       'click a'         : 'showProduct'
       'click .js-image' : 'showProduct'
 
@@ -15,13 +13,14 @@ CP.module "Views.Common.User.Resources", (Resources, CP, Backbone, Marionette, $
 
     onRender: ->
       # $(@el).find('.js-product-image').css('background-image', "url(/assets/#{@primaryImage})")
-      $(@el).find('.js-product-container').attr('id', "product-#{@model.get('id')}")
+      # $(@el).find('.js-product-container').attr('id', "product-#{@model.get('id')}")
 
-    revertBackgroundImage: ->
-      # $(@el).find('.js-product-image').css('background-image', "url(/assets/#{@primaryImage})")
+    templateHelpers: ->
+      action = @model.get('data')['action'] + " " + @model.get('name')
+      video = @checkForVideoId()
+      {action, video}
 
-    changeBackGroundImage: ->
-      # $(@el).find('.js-product-image').css('background-image', "url(/assets/#{@secondaryImage})")
+    checkForVideoId: -> (@model.get('id') == CP.Settings.personalizedTherapyHelpId)
 
     showProduct: (e) ->
       e.preventDefault()

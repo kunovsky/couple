@@ -2,12 +2,15 @@
   .js-product-container
   .product__name=@name
 
-  .main-product-image
+  - if @video
+    !=CPT['partials/overview_video'](@)
+  - else 
+    .main-product-image
 
   .product__content
     .product__tagline=@tagline
     .product__description=@description
-    %a{href: "#"} Learn more about #{@name} >
+    %a{href: "#"} #{@action} >
 
   .image-content-divider
 
@@ -20,6 +23,6 @@
           %span #{title}:
           #{description}
     .link-container
-      %a{href: "#"} Learn more about #{@name} >
+      %a{href: "#"} #{@action} >
 
   .secondary-product-image.js-image.valign-top
