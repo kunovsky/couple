@@ -37,71 +37,65 @@
       background: inline-image('close-modal.png') no-repeat;
     }
     .modal-header {
-      padding-top: 34px;
+      padding: 20px 0px;
+      margin-bottom: 10px;
+      text-align: center;
+      color: #FFF;
+      background: #542F64;
       width: 100%;
       border-top-right-radius: $modal-border-radius;
       border-top-left-radius: $modal-border-radius;
-      &.blue {
-        background: #ebf2fb;
-        color: #8797ad;
-      }
       h3 {
         font-size: 24px; 
         font-family: $proxima-nova; 
-        font-weight: 200; 
-        color: #60728c;
-        margin-bottom: 10px;        
+        font-weight: 200;
+      }
+    }
+    .modal-body {
+      padding: 0px 34px;
+    }
+    .action-words {
+      font-size: 17px;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .modal-text--information {
+      max-width: 600px;
+      font-size: 16px; 
+      font-family: $proxima-nova; 
+      font-weight: 200; 
+      color: #60728c;
+      a {
+        color: #FFF;
+        text-decoration: none;
+        &:hover {color: #9b9b9b;}
+      }
+      .confirm-button {
+        margin-top: 10px;
+      }
+      .price-information {
+        margin: 20px 0px;
+      }
+      .access-instructions  {
+        margin-bottom: 20px;
+      }
+    }
+    .modal-text--steps {
+      max-width: 600px;
+      ol {
+        list-style-type: disc;
+        padding: 10px 0px 0px 25px;
+        li {
+          font-size: 16px; 
+          font-family: $proxima-nova; 
+          font-weight: 200; 
+          color: #60728c;
+          padding-bottom: 10px;
+        }
       }
     }
   }
 }
-
-.modal {
-  .modal-header, .modal-body {
-    padding: 0px 34px;
-  }
-  .action-words {
-    font-size: 17px;
-    text-align: center;
-    margin-bottom: 30px;
-  }
-  .modal-text--information {
-    max-width: 600px;
-    font-size: 16px; 
-    font-family: $proxima-nova; 
-    font-weight: 200; 
-    color: #60728c;
-    a {
-      color: #FFF;
-      text-decoration: none;
-      &:hover {color: #9b9b9b;}
-    }
-    .confirm-button {
-      margin-top: 10px;
-    }
-    .price-information {
-      margin: 20px 0px;
-    }
-    .access-instructions  {
-      margin-bottom: 20px;
-    }
-  }
-  .modal-text--steps {
-    max-width: 600px;
-    ol {
-      list-style-type: disc;
-      padding: 10px 0px 0px 25px;
-      li {
-        font-size: 16px; 
-        font-family: $proxima-nova; 
-        font-weight: 200; 
-        color: #60728c;
-        padding-bottom: 10px;
-      }
-    }
-  }
-}
-
 
 p.invite__information {
   font-size: 14px; 
