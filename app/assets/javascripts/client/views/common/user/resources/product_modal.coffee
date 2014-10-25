@@ -3,10 +3,8 @@ CP.module "Views.Common.User.Resources", (Resources, CP, Backbone, Marionette, $
   class @ProductModal extends Backbone.Marionette.ItemView
     template: CPT['common/resources/product_modal']
     events:
-      'click .js-purchase'                 : 'handlePurchase'
       'click .js-modal-close'              : 'closeModal'
       'click .js-access-external-resource' : 'visitPage'
-
 
     initialize: (@options = options = {}) ->
       @model = @options.model
@@ -23,5 +21,3 @@ CP.module "Views.Common.User.Resources", (Resources, CP, Backbone, Marionette, $
     visitPage: ->
       window.open @url if @url != ""
       @closeModal()
-
-    handlePurchase: -> console.log "Purchasing"
