@@ -3,3 +3,12 @@ CP.module "Views.Common", (Common, CP, Backbone, Marionette, $, _) ->
     template: CPT['partials/footer']
     tagName: 'footer'
     className: 'global-footer'
+
+    events: 
+      'click .js-link' : 'displayInfoModal'
+
+    displayInfoModal: (e) ->
+      e.preventDefault()
+      title = $(e.target).data('name') || "Social Media"
+      CP.modalRegion.show new CP.Views.Globals.Modals.InfoModal title: title
+
