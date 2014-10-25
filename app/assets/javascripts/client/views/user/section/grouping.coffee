@@ -93,7 +93,7 @@ CP.module "Views.User.Section", (Section, CP, Backbone, Marionette, $, _) ->
       $(@el).find('.next-grouping-button').attr('disabled', false)
       $(@el).find('.message__container').text('')
 
-    nextGroupingNumber: -> Number(@options.id) + 1
+    nextGroupingNumber: -> parseInt(@options.id) + 1
 
     handleButtonState: (target) ->
       target.addClass('selected').removeClass('purple').siblings().removeClass('selected').addClass('purple')
@@ -107,6 +107,6 @@ CP.module "Views.User.Section", (Section, CP, Backbone, Marionette, $, _) ->
 
     nextSectionUrl: ->
       return 'results' if @nextGroupingNumber() > CP.Settings.lastGroupingNumber
-      ['grouping', @nextGroupingNumber()].join('/')
+      ['user','grouping', @nextGroupingNumber()].join('/')
 
     sectionData: -> [@options.id, 'of', CP.Settings.lastGroupingNumber].join(' ')
