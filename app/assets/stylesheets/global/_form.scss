@@ -32,11 +32,6 @@ button, .btn, input[type='submit'] {
     background-position: center center;
   }
 
-  &.with-bottom-left-margin {
-    margin: 0px 0px 10px 10px;
-  }
-
-
   &.light-gray {
     background: #656565;
     color: #fff;
@@ -66,6 +61,9 @@ button, .btn, input[type='submit'] {
     @include box-shadow(0 2px 0 #c7c7c7);
   }
 
+  &.purchase-button {
+    margin-bottom: 10px;
+  }
   //Icons
   &.no-icon {padding-left: 16px;}
 
@@ -208,4 +206,8 @@ form label, form .label {
   fieldset {
     padding-bottom: 20px;
   }
+}
+
+#purchase-form {
+border: 1px solid black;
 }
