@@ -4,10 +4,14 @@ CP.module "Views.Common.User.Resources", (Resources, CP, Backbone, Marionette, $
     template: CPT['common/resources/purchase']
     className: 'purchase__product__container'
     events:
-      'click .js-purchase' : 'handlePurchase'
+      'submit #purchase-form' : 'handlePurchase'
 
     initialize: (@options = options = {}) ->
       @model = @options.model
+      @secondaryImage = @model.get('data')['secondary_image_url']
+
+    onRender: ->
+      @addImage(@secondaryImage, '.js-product').fadeIn(1500) 
 
     templateHelpers: ->
       name = @model.get('name')
@@ -15,6 +19,22 @@ CP.module "Views.Common.User.Resources", (Resources, CP, Backbone, Marionette, $
       data = @model.get('data')
       {name, title, data}
 
+    addImage: (image, selector) ->
+      $(@el).find(selector).css('background-image', "url(/assets/#{image})")
+
+    purchaseUrl: -> ['/api', 'purchases'].join('/')
+
+    #TODO: Add data validations to everything here
     handlePurchase: (e)  ->
       e.preventDefault()
-      console.log "purchasing"
+      data =  $(e.target).formParams()
+      # return unless @validParams()
+      @tryPurchase(data)
+
+    #TODO: Implement web hooks
+    tryPurchase: (data) ->
+      $.ajax
+        type: "POST"
+        url: @purchaseUrl()
+        data: name
+        success: => console.log "purchased"

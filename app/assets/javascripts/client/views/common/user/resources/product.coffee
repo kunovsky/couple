@@ -12,7 +12,7 @@ CP.module "Views.Common.User.Resources", (Resources, CP, Backbone, Marionette, $
     initialize: (@options = options = {})->
       @primaryImage = @model.get('data')['primary_image_url']
       @secondaryImage = @model.get('data')['secondary_image_url']
-      @thridImage = @model.get('data')['third_image_url']
+      @thirdImage = @model.get('data')['third_image_url']
 
     onRender: ->
       @addImage(@primaryImage,'.js-main-image').fadeIn(1500) if @primaryImage
@@ -26,7 +26,7 @@ CP.module "Views.Common.User.Resources", (Resources, CP, Backbone, Marionette, $
     addImage: (image, selector = '.js-secondary-image') ->
       $(@el).find(selector).css('background-image', "url(/assets/#{image})")
 
-    swapImages: -> @addImage(@thridImage)
+    swapImages: -> @addImage(@thirdImage)
 
     revertImages: -> @addImage(@secondaryImage)
 

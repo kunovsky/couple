@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   scope 'api' do
     get '/grouping/:id' => 'groupings#show'
     resources :products, only: [:index, :show]
+    resources :purchases, only: [:create]
     resources :invites, only: [:create]
     resources :users do
       resources :actual_responses

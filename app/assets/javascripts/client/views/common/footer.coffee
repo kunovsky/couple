@@ -10,5 +10,6 @@ CP.module "Views.Common", (Common, CP, Backbone, Marionette, $, _) ->
     displayInfoModal: (e) ->
       e.preventDefault()
       title = $(e.target).data('name') || "Social Media"
-      CP.modalRegion.show new CP.Views.Globals.Modals.InfoModal title: title
+      message = "Coming Soon"
+      CP.modalRegion.show new CP.Views.Globals.Modals.InfoModal title: title, message: message
 

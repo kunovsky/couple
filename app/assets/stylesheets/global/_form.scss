@@ -3,7 +3,6 @@ $form-element-height: 38px;
 form table.two-up {
   td {padding-bottom: 21px;}
   input[type='text'], input[type='email'], select {width: 370px; margin-right: 6px;}
-  tr:last-of-type td {padding-bottom: 41px; line-height: 50px;}
   tr.error-highlight {
     label {color: #d75858;}
     input, select {border: 1px solid #e09a9a;}
@@ -33,12 +32,12 @@ button, .btn, input[type='submit'] {
   }
 
   &.light-gray {
-    background: #656565;
+    background: #C0C0C0;
     color: #fff;
-    @include box-shadow(0 2px 0 #656565);
+    @include box-shadow(0 2px 0 #C0C0C0);
     &:hover {
-      background-color: #C0C0C0;
-       @include box-shadow(0 2px 0 #C0C0C0);
+      background-color: #999;
+       @include box-shadow(0 2px 0 #999);
     }
   }
 
@@ -59,10 +58,6 @@ button, .btn, input[type='submit'] {
   &:disabled {
     background-color: #d8d8d8;
     @include box-shadow(0 2px 0 #c7c7c7);
-  }
-
-  &.purchase-button {
-    margin-bottom: 10px;
   }
   //Icons
   &.no-icon {padding-left: 16px;}
@@ -156,6 +151,7 @@ textarea {
 form label, form .label {
   text-transform: uppercase;
   font-weight: bold;
+  padding-right: 10px;
 }
 
 //Errors
@@ -206,8 +202,4 @@ form label, form .label {
   fieldset {
     padding-bottom: 20px;
   }
-}
-
-#purchase-form {
-border: 1px solid black;
 }

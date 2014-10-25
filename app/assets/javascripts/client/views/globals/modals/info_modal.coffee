@@ -6,11 +6,12 @@ CP.module "Views.Globals.Modals", (Modals, CP, Backbone, Marionette, $, _) ->
     events: 'click .js-modal-close' : 'closeModal'
 
     initialize: (@option = options = {})->
-      @title = @options.title
+      @title = @options.title if @options.title
+      @message = @options.message if @options.message
 
     templateHelpers: ->
-      {@title}
-      
+      {@title, @message}
+
     closeModal: (e) ->
       e.preventDefault()
       CP.modalRegion.close()

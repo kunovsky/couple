@@ -9,10 +9,10 @@
         %table
           %tr
             %td
-              %label{for: @type}  Invite Via #{@type} :
+              %label{for: @type}  Invite Via #{@type} : &nbsp;
             %td
               %input{type: @type, name: @type, required: "true"}
 
-      .form--invite__buttons.right
+      .form--invite__buttons
         %button.purple.no-icon.ladda-button.js-invite{type: 'submit', value: 'Send Invite'} #{@type} Partner Invite
         %button.light-gray.no-icon.ladda-button.js-cancel Cancel

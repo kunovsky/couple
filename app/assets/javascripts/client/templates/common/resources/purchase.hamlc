@@ -1,7 +1,8 @@
 .site-wrap
-  .purchase-instructions 
-    In order to #{(@data.action).toLowerCase()} #{@name} 
-    %br
-    #{@data.access_instructions}
-  !=CPT['partials/purchase_form'](@)
-  / need pictures on this page
+  .purchase-form__container.valign-top
+    .purchase-instructions 
+      In order to #{(@data.action).toLowerCase()} #{@name} #{@data.access_instructions}
+    !=CPT['partials/purchase_form'](@)
+  .purchase-form__side-region.valight-top
+    !=CPT['partials/purchase_info'](@)
+    .product-image.js-product

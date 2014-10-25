@@ -2,4 +2,4 @@
 .modal-header
   %h3=@title
 .modal-body
-  .modal-text--information Coming Soon
+  .modal-text--information=@message

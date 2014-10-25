@@ -11,7 +11,7 @@
         %table
           %tr
             %td
-              %label{for: @type}  Notify Me Via #{@type} :
+              %label{for: @type}  Notify Me Via #{@type} : &nbsp;
             %td
               %input{type: @type, name: @type}
 
