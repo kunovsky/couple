@@ -4,5 +4,5 @@
       Couple Analytics
     %nav.right
       %ul<
-        %li.js-option
+        %li.js-research
           Thousands of Couples: 40 Years of Research
