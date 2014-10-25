@@ -27,14 +27,12 @@ CP.module "Views.User", (User, CP, Backbone, Marionette, $, _) ->
         root_page = page
         @["show#{_.str.capitalize(page)}"]()
 
-    showIndex: ->
-      @bodyRegion.show new User.Welcome.Layout
+    showIndex: -> @bodyRegion.show new User.Welcome.Layout
 
-    showGrouping: ->
-      @bodyRegion.show new User.Section.Grouping id: @options.id
+    showGrouping: -> @bodyRegion.show new User.Section.Grouping id: @options.id
 
-    showResults: (subPage) ->
-      @bodyRegion.show new User.Results.Layout page: subPage[0]
+    showResults: (subPage) -> @bodyRegion.show new User.Results.Layout page: subPage[0]
 
-    showResources: (productId) ->
-      @bodyRegion.show new User.Resources.Layout productId: productId[0]
+    showResources: (productId) -> @bodyRegion.show new User.Resources.Layout productId: productId[0]
+
+    showPurchase: (productId) -> @bodyRegion.show new User.Resources.Layout productId: productId[0], purchase: true
