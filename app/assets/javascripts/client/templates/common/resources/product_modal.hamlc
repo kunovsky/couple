@@ -1,14 +1,10 @@
-.close-modal.js-modal-close
+.close-modal.icon-close-modal.js-modal-close
 .modal-header
   %h3=@title
 .modal-body
+
   .modal-text--information
     .price-information Price: #{@data.price}
     .access-instructions In order to #{(@data.action).toLowerCase()} #{@name} #{@data.access_instructions}
 
-    - if @data.remote_access
-      %button.purple.js-access-external-resource=@title
-      %button.purple.js-modal-close Cancel
-
-    - else
-      !=CPT['partials/purchase_form'](@)
+    %button.purple.js-access-external-resource=@title

@@ -1,7 +1,8 @@
-.close-modal.js-modal-close
+.close-modal.icon-close-modal.js-modal-close
 .modal-header
   %h3=@title
 .modal-body
   .modal-text--information
     .access_instructons #{@data.access_instructions}
-    %button.purple.confirm-button.js-modal-close Got It
+    .confirm-button--app
+      %button.purple.js-modal-close Got It
