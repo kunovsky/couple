@@ -30,11 +30,12 @@
     @include transition(margin-top 0.2s);
     .close-modal {
       width: 28px; height: 28px;
+      font-size: 27px;
+      color: #fff;
       position: absolute;
       top: 20px; right: 20px;
       cursor: pointer;
       z-index: 100;
-      background: inline-image('close-modal.png') no-repeat;
     }
     .modal-header {
       padding: 20px 0px;
@@ -70,8 +71,13 @@
         text-decoration: none;
         &:hover {color: #9b9b9b;}
       }
-      .confirm-button {
-        margin-top: 10px;
+      .confirm-button--app {
+        width: 75px;
+        margin: 20px auto 0px;
+      }
+      .confirm-button--begin {
+        width: 134px;
+        margin: 20px auto 0px;
       }
       .price-information {
         margin: 20px 0px;
