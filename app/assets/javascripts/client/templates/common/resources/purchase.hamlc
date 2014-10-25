@@ -1,0 +1,7 @@
+.site-wrap
+  .purchase-instructions 
+    In order to #{(@data.action).toLowerCase()} #{@name} 
+    %br
+    #{@data.access_instructions}
+  !=CPT['partials/purchase_form'](@)
+  / need pictures on this page
