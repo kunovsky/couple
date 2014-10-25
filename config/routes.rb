@@ -22,8 +22,8 @@ Rails.application.routes.draw do
   get '/logout' => 'sessions#destroy'
   
   #TODO: simplify so we just have /user and /user/*url
-  get '/grouping' => 'users#index'
-  get '/grouping/*url' => 'users#index'
+  get '/user' => 'users#index'
+  get '/user/*url' => 'users#index'
 
   get '/results' => 'users#index'
   get '/results/*url' => 'users#index'

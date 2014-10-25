@@ -34,6 +34,6 @@ class SessionsController < ApplicationController
   end
 
   def return_path
-    ['/grouping', '1'].join('/')
+    ['/user','grouping', '1'].join('/')
   end
 end
