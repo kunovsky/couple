@@ -5,7 +5,8 @@
   - if @video
     !=CPT['partials/overview_video'](@)
   - else 
-    .main-product-image
+
+    .main-product-image.js-main-image
 
   .product__content
     .product__tagline=@tagline
@@ -25,4 +26,4 @@
     .link-container
       %a{href: "#"} #{@action} >
 
-  .secondary-product-image.js-image.valign-top
+  .secondary-product-image.js-secondary-image.valign-top{style: "display: inline-block;"}
