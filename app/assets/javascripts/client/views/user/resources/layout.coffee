@@ -23,10 +23,14 @@ CP.module "Views.User.Resources", (Resources, CP, Backbone, Marionette, $, _) ->
       return @showProduct(product) if product = _.find CP.Products.models, (p) => p.id is @productId
       @showTherapy(therapy) if therapy = _.find CP.Products.models, (p) => p.id is CP.Settings.personalizedTherapyHelpId
 
-    showPurchasePage: (product) -> @resourceRegion.show new CP.Views.Common.User.Resources.Purchase model: product
+    showPurchasePage: (product) ->
+      @resourceRegion.show new CP.Views.Common.User.Resources.Purchase model: product
 
-    showApp: -> @resourceRegion.show new CP.Views.Common.User.Resources.App
+    showApp: ->
+      @resourceRegion.show new CP.Views.Common.User.Resources.App
 
-    showProduct: (product) ->  @resourceRegion.show new CP.Views.Common.User.Resources.Product model: product
+    showProduct: (product) ->
+      @resourceRegion.show new CP.Views.Common.User.Resources.Product model: product
 
-    showTherapy: (therapy) -> @resourceRegion.show new CP.Views.Common.User.Resources.Product model: therapy
+    showTherapy: (therapy) ->
+      @resourceRegion.show new CP.Views.Common.User.Resources.Product model: therapy
