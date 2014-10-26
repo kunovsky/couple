@@ -106,7 +106,7 @@ CP.module "Views.User.Section", (Section, CP, Backbone, Marionette, $, _) ->
     nextSection: -> CP.ActiveRouters.User.navigate @nextSectionUrl(), true
 
     nextSectionUrl: ->
-      return 'results' if @nextGroupingNumber() > CP.Settings.lastGroupingNumber
-      ['user','grouping', @nextGroupingNumber()].join('/')
+      return ['/user', 'results'].join ('/') if @nextGroupingNumber() > CP.Settings.lastGroupingNumber
+      ['/user','grouping', @nextGroupingNumber()].join('/')
 
     sectionData: -> [@options.id, 'of', CP.Settings.lastGroupingNumber].join(' ')

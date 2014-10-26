@@ -14,10 +14,10 @@ CP.module "Controllers", (Controllers, CP, Backbone, Marionette, $, _) ->
 
     #TODO: Change all of these routes to be prefixed with /user, need to change the rails routes as well.
     appRoutes:
-      ''                       : 'index'
-      'user/grouping'          : 'grouping'
-      'user/grouping/:id'      : 'grouping'
-      'results'                : 'results'
-      'results/:page'          : 'results'
-      'resources/:id'          : 'resources'
-      'resources/:id/purchase' : 'purchase'
+      ''                            : 'index'
+      'user/grouping'               : 'grouping'
+      'user/grouping/:id'           : 'grouping'
+      'user/results'                : 'results'
+      'user/results/:page'          : 'results'
+      'user/resources/:id'          : 'resources'
+      'user/resources/:id/purchase' : 'purchase'

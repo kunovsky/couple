@@ -10,7 +10,7 @@ CP.module "Views.User.Results", (Results, CP, Backbone, Marionette, $, _) ->
 
     navigate: (e) ->
       page = $(e.target).data('link')
-      CP.ActiveRouters.User.navigate "/results/#{page}", true
+      CP.ActiveRouters.User.navigate ['/user','results', page].join('/'), true
 
     onRender: ->
       @$el.find("li[data-link='#{@options.active}']").addClass('active').siblings().removeClass('active')

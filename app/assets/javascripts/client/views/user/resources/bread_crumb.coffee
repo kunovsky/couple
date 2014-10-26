@@ -3,7 +3,7 @@ CP.module "Views.User.Resources", (Resources, CP, Backbone, Marionette, $, _) ->
   class @BreadCrumb  extends Backbone.Marionette.ItemView
     template: CPT["user/resources/bread_crumb"]
     className: "results-sub-menu"
-    url: ["/results","sections"].join("/")
+    url: ['/user', 'results', 'sections'].join("/")
     events:
       'click li' : 'backToResults'
 

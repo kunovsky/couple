@@ -35,4 +35,4 @@ CP.module "Views.Common.User.Resources", (Resources, CP, Backbone, Marionette, $
     showPurchaseInstructions: (e) ->
       e.preventDefault()
       return CP.modalRegion.show new Resources.ProductModal model: @model if @model.get('data')['remote_access']
-      CP.ActiveRouters.User.navigate ["/resources", @model.get('id'), "purchase"].join("/"), true
+      CP.ActiveRouters.User.navigate ['/user', 'resources', @model.get('id'), 'purchase'].join('/'), true
