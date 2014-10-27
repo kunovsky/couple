@@ -1,6 +1,6 @@
 .site-wrap
   .app__container.js-app-container
-    .app__container__image.js-image
+    .app__container__image.js-image{style: "display: inline-block;"}
     .app__container__content.valign-top
       .content__name Our App: #{@name}
       .content__description=@description
