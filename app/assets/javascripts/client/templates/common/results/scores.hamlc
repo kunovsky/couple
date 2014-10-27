@@ -1,5 +1,5 @@
-.site-wrap
-  .js-page-container
+.js-page-container
+  .site-wrap
     .result__container
       .result__header__name=@name
 
