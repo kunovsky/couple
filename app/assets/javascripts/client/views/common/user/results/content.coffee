@@ -7,8 +7,9 @@ CP.module "Views.Common.User.Results", (Results, CP, Backbone, Marionette, $, _)
 
     initialize: (@options = options = {}) ->
       @url = @options.url
+      @name = @options.name
       @results = {}
-      @fetchContent()
+      @listenToOnce @, 'render', @fetchContent
 
     onRender: ->
       @setResultIcon()
@@ -17,12 +18,16 @@ CP.module "Views.Common.User.Results", (Results, CP, Backbone, Marionette, $, _)
       {@name, @results}
 
     fetchContent: ->
+      @startLoading()
       $.ajax
         method: 'GET'
         url: @url
         success: (response) =>
           @results = @formatResponse(response)
           @render()
+
+    startLoading: ->
+      @$el.find('.js-page-container').html("")
 
     formatResponse: (response) ->
 

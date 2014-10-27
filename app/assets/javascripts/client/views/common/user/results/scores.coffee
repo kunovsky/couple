@@ -7,7 +7,7 @@ CP.module "Views.Common.User.Results", (Results, CP, Backbone, Marionette, $, _)
       @url = @options.url
       @name = @options.name
       @results = {}
-      @fetchScores()
+      @listenToOnce @, 'render', @fetchScores
 
     onRender: ->
       @setPercentageColors()
@@ -17,12 +17,17 @@ CP.module "Views.Common.User.Results", (Results, CP, Backbone, Marionette, $, _)
       {@name, @results}
 
     fetchScores: ->
+      @startLoading()
       $.ajax
         method: 'GET'
         url: @url
         success: (response) =>
           @results = @formatScores(response)
           @render()
+
+    startLoading: ->
+      @$el.find('.js-page-container').html(CPT['partials/_loading_overlay'](@))
+      new Spinner(CP.Mixins.UI.Spinner.Settings).spin($(@el).find('.js-loading-spinner')[0])
 
     formatScores: (response) ->
       currentUserPercentage = response.percentage_data.current_user_percentage
