@@ -9,4 +9,4 @@ CP.module "Views.Common.User", (User, CP, Backbone, Marionette, $, _) ->
 
     onRender: ->
       @scoresRegion.show new User.Results.Scores url: @scoresUrl(), name: @name
-      @contentRegion.show new User.Results.Content url: @contentUrl()
+      @contentRegion.show new User.Results.Content url: @contentUrl(), name: @name
