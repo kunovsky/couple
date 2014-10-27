@@ -1,10 +1,10 @@
 class UsersController < ApplicationController
 
   def index
-    #TODO: add can can can and get rid of the below code
+    #TODO: add can can can and get rid of all the unless current_user the below code
     redirect_to '/' unless current_user
     @products = Product.all.select {|p|p.data['showcase']}
-    @app = Product.find(1) # Change this once we have more info about the app
+    @app = Product.find(1)
   end
 
   def create
