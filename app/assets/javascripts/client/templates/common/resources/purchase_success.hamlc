@@ -1,0 +1,4 @@
+.site-wrap
+  .icon-good.success-checkbox
+  .success__message It worked!
+  .order-number #{@orderNumber}
