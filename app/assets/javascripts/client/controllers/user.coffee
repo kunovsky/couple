@@ -12,7 +12,6 @@ CP.module "Controllers", (Controllers, CP, Backbone, Marionette, $, _) ->
   class @UserRoutes extends Controllers.BaseRouter
     controller: new Controllers.AppController
 
-    #TODO: Change all of these routes to be prefixed with /user, need to change the rails routes as well.
     appRoutes:
       ''                            : 'index'
       'user/grouping'               : 'grouping'

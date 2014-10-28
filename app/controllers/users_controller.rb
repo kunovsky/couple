@@ -38,7 +38,6 @@ class UsersController < ApplicationController
   end
 
   def scores
-    sleep 1
     redirect_to '/' unless current_user
     render json: Results::Scores.new(params[:id], current_user.id).format_result, status: 200
   end
