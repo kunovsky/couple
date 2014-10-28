@@ -2,10 +2,10 @@
   .more-info__title Purchasing With Us
   .more-info__content
     %ul
+      %li We partner with Stripe, a leading on-line payment merchant, in order to ensure secure payment
       %li All products come with a 100%, 30 day money back guarantee. Just email us with any issues
       %li You'll be billed on your statement by Couple Analytics Inc
-      %li After purchasing a confirmation email will be sent to the email provided
+      %li After initial billing, billing for subscription services commences on the 1st of the month
       %li For physical products all shipments will ship withing 24 hours
       %li For digital products access is immediate
-      %li We partner with Stripe, a leading on-line payment merchant, in order to ensure secure payment
       
