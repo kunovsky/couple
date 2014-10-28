@@ -12,6 +12,8 @@ CP.module "Views.User.Resources", (Resources, CP, Backbone, Marionette, $, _) ->
       @productId = parseInt(@options.productId)
       @purchase = @options.purchase
 
+      @listenTo CP.vent, 'purchase:complete', @showPurchaseSuccess
+
     onRender: -> @setMenu(); @setPage(); @scrollTop
 
     #TODO: Need a link that is back to home page if you have not completed the questionnaire yet
@@ -34,3 +36,7 @@ CP.module "Views.User.Resources", (Resources, CP, Backbone, Marionette, $, _) ->
 
     showTherapy: (therapy) ->
       @resourceRegion.show new CP.Views.Common.User.Resources.Product model: therapy
+
+    #TODO: Start Here
+    showPurchaseSuccess: (orderNumber) ->
+      @resourceRegion.show new CP.Views.Common.User.Resources.PurchaseSuccess orderNumber: orderNumber
