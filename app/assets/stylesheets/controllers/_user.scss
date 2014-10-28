@@ -276,7 +276,6 @@
 
 // Result Colors //
 
-
 .result--good {
   color: #CDF7AF;
   }
@@ -285,6 +284,17 @@
 }
 .result--bad {
   color:#FF8080;
+}
+
+.success-checkbox {
+  margin: 180px auto 20px;
+  text-align: center;
+  width: 85px; height: 85px;
+  line-height: 85px;
+  background: #98ba9d;
+  color: #708f74;
+  border-radius: 85px;
+  font-size: 60px;
 }
 
 // Icons//
@@ -333,16 +343,6 @@
   font-size: 80px;
   text-align: center;
   padding-bottom: 30px;
-  }
-  .success-checkbox {
-    margin: 180px auto 20px;
-    text-align: center;
-    width: 85px; height: 85px;
-    line-height: 85px;
-    background: #98ba9d;
-    color: #708f74;
-    border-radius: 85px;
-    font-size: 60px;
   }
 }
 
@@ -461,7 +461,7 @@
     width: 55%;
     display: inline-block;
     margin-top: 20px;
-    padding: 0px 26px 0px 20px;
+    padding: 0px 24px 0px 20px;
     .summary__title {
       text-align: center;
       font-weight: bold;
