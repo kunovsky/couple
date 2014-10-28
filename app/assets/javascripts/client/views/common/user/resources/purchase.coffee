@@ -17,7 +17,8 @@ CP.module "Views.Common.User.Resources", (Resources, CP, Backbone, Marionette, $
       name = @model.get('name')
       title = @model.get('data')['action'] + " " + @model.get('name')
       data = @model.get('data')
-      {name, title, data}
+      @price = @model.get('data')['price']
+      {name, title, data, @price}
 
     addImage: (image, selector) ->
       $(@el).find(selector).css('background-image', "url(/assets/#{image})")
@@ -33,10 +34,12 @@ CP.module "Views.Common.User.Resources", (Resources, CP, Backbone, Marionette, $
 
     #TODO: Implement web hooks
     tryPurchase: (data) ->
+      _data = _.extend({}, data, price: @price, id: @model.get('id'))
       $.ajax
         type: "POST"
         url: @purchaseUrl()
-        data: name
-        success: (orderNumber) =>
-          #set bread crumb to go back to product
-          CP.vent.trigger 'purchase:complete', orderNumber
+        data: _data
+        success: (orderData) =>
+          CP.vent.trigger 'purchase:complete', orderData
+        error: (respObj) ->
+          #add errors to page

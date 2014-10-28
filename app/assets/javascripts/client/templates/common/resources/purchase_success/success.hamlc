@@ -1,0 +1,4 @@
+.site-wrap
+  .icon-good.success-checkbox
+  .product__name Thank you for purchasing #{@name}
+  .success__message Your order is is being processed and will be shipped soon. Expect a confirmation email shortly.

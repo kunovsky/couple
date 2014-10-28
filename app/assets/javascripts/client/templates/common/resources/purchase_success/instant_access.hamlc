@@ -1,0 +1,4 @@
+.site-wrap
+  .icon-good.success-checkbox
+  .success__message Your order has been successful and you are now able to access #{@name}
+  %button.purple.access-button.js-access-button Access #{@name}

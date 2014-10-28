@@ -1,12 +1,12 @@
 class PurchasesController < ApplicationController
   def create
     #TODO: Implement the integration with stripe
-    render json: order_number, status: 200
+    render json: {instant_access: instant_access, product_id: params[:id]}, status: 200
   end
 
   private
 
-  def order_number
-    123456789
+  def instant_access
+    params[:id] == "9"
   end
 end

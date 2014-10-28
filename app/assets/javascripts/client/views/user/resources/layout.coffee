@@ -37,6 +37,5 @@ CP.module "Views.User.Resources", (Resources, CP, Backbone, Marionette, $, _) ->
     showTherapy: (therapy) ->
       @resourceRegion.show new CP.Views.Common.User.Resources.Product model: therapy
 
-    #TODO: Start Here
-    showPurchaseSuccess: (orderNumber) ->
-      @resourceRegion.show new CP.Views.Common.User.Resources.PurchaseSuccess orderNumber: orderNumber
+    showPurchaseSuccess: (orderData) ->
+      @resourceRegion.show new CP.Views.Common.User.Resources.PurchaseSuccess orderData
