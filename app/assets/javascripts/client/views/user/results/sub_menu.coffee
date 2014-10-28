@@ -8,10 +8,18 @@ CP.module "Views.User.Results", (Results, CP, Backbone, Marionette, $, _) ->
 
     initialize: (@options = options = {}) ->
 
-    navigate: (e) ->
-      page = $(e.target).data('link')
-      CP.ActiveRouters.User.navigate ['/user','results', page].join('/'), true
-
     onRender: ->
       @$el.find("li[data-link='#{@options.active}']").addClass('active').siblings().removeClass('active')
       $(@el).scrollTop (1000)
+
+    navigate: (e) ->
+      page = $(e.target).data('link')
+      @setBreadCrumbLink(page)
+      CP.ActiveRouters.User.navigate ['/user','results', page].join('/'), true
+
+    setBreadCrumbLink: (page) ->
+      switch page
+        when 'sections'
+          CP.Settings.breadCrumbResults = true
+        when 'resources'
+          CP.Settings.breadCrumbResults = false

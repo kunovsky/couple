@@ -9,7 +9,8 @@ window.CP.Settings = {
   lastGroupingNumber: 3,
   couplesWorkshopId: 12,
   personalizedTherapyHelpId : 2,
-  totalQuestionCount: 45
+  totalQuestionCount: 45,
+  breadCrumbResults: true
 }
 
 window.CP.States = {

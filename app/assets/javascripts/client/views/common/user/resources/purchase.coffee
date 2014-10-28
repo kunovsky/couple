@@ -37,4 +37,6 @@ CP.module "Views.Common.User.Resources", (Resources, CP, Backbone, Marionette, $
         type: "POST"
         url: @purchaseUrl()
         data: name
-        success: => console.log "purchased"
+        success: (orderNumber) =>
+          #set bread crumb to go back to product
+          CP.vent.trigger 'purchase:complete', orderNumber
