@@ -1,4 +1,4 @@
-.close-modal.js-modal-close
+.close-modal.icon-close-modal.js-modal-close
 .modal-header
   %h3 How It Works (Yes, it's free)
 .modal-body

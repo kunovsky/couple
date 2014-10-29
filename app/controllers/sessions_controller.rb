@@ -23,7 +23,7 @@ class SessionsController < ApplicationController
     invite = Invite.find_by(invite_token: params[:invite_token])
     session[:auth_token] = invite.user.auth_token
     invite.update_attribute(:invite_token, nil)
-    redirect_to '/results'
+    redirect_to '/user/results'
   end
 
   private
@@ -34,6 +34,6 @@ class SessionsController < ApplicationController
   end
 
   def return_path
-    ['/grouping', '1'].join('/')
+    ['/user','grouping', '1'].join('/')
   end
 end

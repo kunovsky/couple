@@ -2,6 +2,7 @@
   width: 100%; height: 100%;
   background: #000;
   padding-top: 41px;
+  color: $text-off-white;
   
   .footer-col {
     display: inline-block;
@@ -9,12 +10,11 @@
     width: 164px;
     li {
       margin-bottom: 20px;
-      a {color: $text-off-white;}
+      a {cursor: pointer;}
       &.title {
         text-transform: uppercase;
         font-weight: bold;
-        color: #869dbd;
-        margin-bottom: 38px;
+        color: #AF61D3;
       }
     }
   }
@@ -22,7 +22,6 @@
     width: 290px; height: 24px;
     text-align: right;
     font-size: 11px;
-    color: #9ea5ae;
     padding-top: 45px;
   }
 }

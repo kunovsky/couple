@@ -16,7 +16,7 @@ module Invites
     end
 
     def url(invite_token)
-      ['http://107.170.195.201/', '/show_results/', invite_token].join
+      ['http://107.170.221.100/', '/show_results/', invite_token].join
     end
   end
 end

@@ -21,7 +21,6 @@ group :development do
 end
 
 group :development, :test do
-  gem 'debugger'
   gem 'dotenv-rails'
 end
 
@@ -46,6 +45,7 @@ gem 'haml'
 gem 'active_model_serializers'
 
 gem 'twilio-ruby'
+gem 'stripe'
 
 gem 'unicorn'
 gem 'sidekiq'

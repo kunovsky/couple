@@ -6,8 +6,10 @@ CP.module "Views.User.Welcome", (Welcome, CP, Backbone, Marionette, $, _) ->
     regions:
       takeRegion: "#take-region"
       moreInfoRegion: "#more-info-region"
+      videoRegion: "#video-region"
 
 
     onRender: ->
       @takeRegion.show new Welcome.Take
       @moreInfoRegion.show new Welcome.MoreInfo.Layout
+      @videoRegion.show new Welcome.Video

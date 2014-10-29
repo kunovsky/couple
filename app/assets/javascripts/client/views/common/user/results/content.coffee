@@ -7,8 +7,9 @@ CP.module "Views.Common.User.Results", (Results, CP, Backbone, Marionette, $, _)
 
     initialize: (@options = options = {}) ->
       @url = @options.url
+      @name = @options.name
       @results = {}
-      @fetchContent()
+      @listenToOnce @, 'render', @fetchContent
 
     onRender: ->
       @setResultIcon()
@@ -17,12 +18,16 @@ CP.module "Views.Common.User.Results", (Results, CP, Backbone, Marionette, $, _)
       {@name, @results}
 
     fetchContent: ->
+      @startLoading()
       $.ajax
         method: 'GET'
         url: @url
         success: (response) =>
           @results = @formatResponse(response)
           @render()
+
+    startLoading: ->
+      @$el.find('.js-page-container').html("")
 
     formatResponse: (response) ->
 
@@ -39,4 +44,4 @@ CP.module "Views.Common.User.Results", (Results, CP, Backbone, Marionette, $, _)
 
     displayResource: (e) ->
       productId = $(e.target).data('product-id') or $(e.target).parent().data('product-id')
-      CP.ActiveRouters.User.navigate "/resources/#{productId}", true
+      CP.ActiveRouters.User.navigate ['/user', 'resources', productId].join('/') , true

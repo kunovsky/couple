@@ -1,51 +1,74 @@
 CP.module "Views.User.Section", (Section, CP, Backbone, Marionette, $, _) ->
 
   class @Grouping extends Marionette.ItemView
-    template: CPT["common/questionnaire"]
+    template: CPT["common/grouping"]
 
     events: 
-      'click .js-response-button'           : 'setActualResponse'
-      'click .js-next-questionnaire-button' : 'createCompletedQuestionnaire'
+      'click .js-response-button'              : 'setActualResponse'
+      'click .js-next-grouping-button'         : 'createCompletedQuestionnaire'
 
+    #TODO: break this down to use composition (all ajax one file)
     initialize: (@options = options = {}) ->
       @url = ['/api', 'grouping', @options.id].join('/')
-  
       @fetchCollection()
       @questions = []
 
+    onRender: -> @fillExistingResponses()
+
     templateHelpers: ->
       sectionData = @sectionData()
-      return {@questions, sectionData}
+      totalQuestions = CP.Settings.totalQuestionCount
+      return {@questions, sectionData, totalQuestions, @totalAnswered}
 
     saveUrl: -> ['/api','users', CP.CurrentUser.get('id'), 'actual_responses'].join('/')
     scoreResultsUrl: ->['/api', 'users', CP.CurrentUser.get('id'), 'score'].join('/')
     completedSurveyUrl: ->['/api','users', CP.CurrentUser.get('id'), 'completed_questionnaires'].join('/')
 
-    setActualResponse: (e) ->
-      e.preventDefault()
-      target = $(e.target)
-      @handleButtonState(target)
-      data = @handleRequestData(target)
-      @saveActualResponse(data)
+    fillExistingResponses: ->
+      return if !@actualResponses
+      answered = 0
+  
+      for responseSet in @actualResponses
+        for key, value of responseSet
+          answered+=1
+          @handleButtonState parent if parent = $(@el).find("[data-qid=\"#{key}\"]").parent().find("[data-rid=\"#{value}\"]")
+
+      @additionalSetup(answered)
+
+    additionalSetup: (answered) ->
+      @updateProgress()
+      @sectionCompleted = true if answered == @questions.length
+      @enableNextSection() if @sectionCompleted
 
     fetchCollection: (range) ->
       $.ajax
         type: 'GET'
         url: @url
         success: (response) =>
-          @questions = response
+          #TODO: actual response and total answered need to be moved to a different ajax call
+          @questions = response.questions
+          @actualResponses = response.actual_responses
+          @totalAnswered = response.total_answered
           @render()
 
-    saveActualResponse: (data) ->
+    setActualResponse: (e) ->
+      e.preventDefault()
+      target = $(e.target)
+      data = @handleRequestData(target)
+      @saveActualResponse(data, target)
+
+    saveActualResponse: (data, target) ->
       $.ajax
         type: 'POST'
         url: @saveUrl()
         data: data
-        success: (respObj) =>
-          if respObj.completed
+        success: (response) =>
+          @handleButtonState(target)
+          @totalAnswered = response.total_answered
+          @updateProgress()
+          if response.completed
             @sectionCompleted = true
             @enableNextSection()
-        error: (respObj) => @logout(respObj.path)
 
     createCompletedQuestionnaire: ->
       return unless @sectionCompleted
@@ -55,7 +78,6 @@ CP.module "Views.User.Section", (Section, CP, Backbone, Marionette, $, _) ->
         url: @completedSurveyUrl()
         data: {grouping_id: @options.id}
         success: => @handleNextSection()
-        error: (respObj) => @logout(respObj.path)
 
     handleProcessCompletion: ->
       $.ajax
@@ -68,24 +90,23 @@ CP.module "Views.User.Section", (Section, CP, Backbone, Marionette, $, _) ->
       @handleProcessCompletion()
 
     enableNextSection: ->
-      $(@el).find('.next-questionnaire-button').attr('disabled', false)
+      $(@el).find('.next-grouping-button').attr('disabled', false)
+      $(@el).find('.message__container').text('')
 
-    nextGroupingNumber: -> Number(@options.id) + 1
+    nextGroupingNumber: -> parseInt(@options.id) + 1
 
     handleButtonState: (target) ->
       target.addClass('selected').removeClass('purple').siblings().removeClass('selected').addClass('purple')
+      target.parent().next().addClass('icon-good result--good--icon')
 
-    handleRequestData: (target) ->
-      {response_id: target.data('rid'), question_id: target.data('qid')}
+    updateProgress: -> $(@el).find('.js-answered').text(@totalAnswered)
+
+    handleRequestData: (target) -> {response_id: target.data('rid'), question_id: target.data('qid')}
 
     nextSection: -> CP.ActiveRouters.User.navigate @nextSectionUrl(), true
 
     nextSectionUrl: ->
-      return 'results' if @nextGroupingNumber() > CP.Settings.lastGroupingNumber
-      ['grouping', @nextGroupingNumber()].join('/')
-
-    logout: (path) ->
-      CP.ActiveRouters.User.navigate path
-      window.location.href = ''
+      return ['/user', 'results'].join ('/') if @nextGroupingNumber() > CP.Settings.lastGroupingNumber
+      ['/user','grouping', @nextGroupingNumber()].join('/')
 
     sectionData: -> [@options.id, 'of', CP.Settings.lastGroupingNumber].join(' ')

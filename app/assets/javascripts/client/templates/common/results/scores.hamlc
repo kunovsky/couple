@@ -1,16 +1,17 @@
-.site-wrap
-  .result__container
-    .result__header__name=@name
+.js-page-container
+  .site-wrap
+    .result__container
+      .result__header__name=@name
 
-    .result__body
-      .result__body__stats
-        .result__body__score.valign-top You Scored:
-        .result__body__background
-          .result__body__graph.js-current-user-percentage.valign-top #{@results.currentUserPercentage}%
-
-      -if @results.partnerPercentage
-
+      .result__body
         .result__body__stats
-          .result__body__score Your Partner Scored:
-          .result__body__graph.js-partner-percentage.valign-top #{@results.partnerPercentage}%
-          .result__body__remaining
+          .result__body__score.valign-top You Scored:
+          .result__body__background
+            .result__body__graph.js-current-user-percentage.valign-top #{@results.currentUserPercentage}%
+
+        -if @results.partnerPercentage
+
+          .result__body__stats
+            .result__body__score.valign-top Your Partner Scored:
+            .result__body__background
+              .result__body__graph.js-partner-percentage.valign-top #{@results.partnerPercentage}%

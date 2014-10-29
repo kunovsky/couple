@@ -3,30 +3,30 @@
     %ul.footer-col
       %li.title How it works
       %li
-        %a{href: '#'} The Process
+        %a.js-link{data: {name: "The Process"}} The Process
       %li
-        %a{href: '#'} The Research
+        %a.js-link{data: {name: "The Research"}} The Research
       %li
-        %a{href: '#'} Who we are
+        %a.js-link{data: {name: "Who We Are"}} Who we are
 
     %ul.footer-col
       %li.title Company
       %li
-        %a.js-jobs{href: '#'} Jobs
+        %a.js-link{data: {name: "Jobs"}} Jobs
       %li
-        %a.js-tos{href: '#'} Terms of Use
+        %a.js-link{data: {name: "Terms of Use"}} Terms of Use
       %li
-        %a.js-privacy{href: '#'} Privacy Policy
+        %a.js-link{data: {name: "Privacy Policy"}} Privacy Policy
 
 
     %ul.footer-col
       %li.title Connect
       %li
-        %a.js-contact{href: '#'} Contact Us
+        %a.js-link{data: {name: "Contact Us"}} Contact Us
       %li
-        %a.js-facebook{href: '#', target: '_BLANK'} Facebook
+        %a.js-link{target: '_BLANK'} Facebook
       %li
-        %a.js-twitter{href: '#', target: '_BLANK'} Twitter
+        %a.js-link{target: '_BLANK'} Twitter
 
 
   .right

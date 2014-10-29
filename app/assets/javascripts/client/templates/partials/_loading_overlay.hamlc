@@ -1,0 +1,3 @@
+.loading-overlay
+  .spinner-info Loading Results
+  .js-loading-spinner{style: 'padding-left: 30px;'}
