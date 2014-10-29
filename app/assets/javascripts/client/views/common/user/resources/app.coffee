@@ -12,7 +12,7 @@ CP.module "Views.Common.User.Resources", (Resources, CP, Backbone, Marionette, $
       @primaryImage = @model.get('data')['primary_image_url']
 
     onRender: ->
-      $(@el).find('.js-image').css('background-image', "url(/assets/#{@primaryImage})").fadeIn(1500)
+      $(@el).find('.js-image').css('background-image', "url(#{@primaryImage})").fadeIn(1500)
       $(@el).find('.js-app-container').attr('id', "product-#{@model.get('id')}")
 
     showProduct: (e) ->

@@ -24,7 +24,7 @@ CP.module "Views.Common.User.Resources", (Resources, CP, Backbone, Marionette, $
       {action, video}
 
     addImage: (image, selector = '.js-secondary-image') ->
-      $(@el).find(selector).css('background-image', "url(/assets/#{image})")
+      $(@el).find(selector).css('background-image', "url(#{image})")
 
     swapImages: -> @addImage(@thirdImage)
 

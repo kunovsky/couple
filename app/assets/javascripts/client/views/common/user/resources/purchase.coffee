@@ -21,7 +21,7 @@ CP.module "Views.Common.User.Resources", (Resources, CP, Backbone, Marionette, $
       {name, title, data, @price}
 
     addImage: (image, selector) ->
-      $(@el).find(selector).css('background-image', "url(/assets/#{image})")
+      $(@el).find(selector).css('background-image', "url(#{image})")
 
     purchaseUrl: -> ['/api', 'purchases'].join('/')
 
