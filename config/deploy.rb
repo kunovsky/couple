@@ -1,7 +1,7 @@
 require "bundler/capistrano"
 require "rvm/capistrano"
 
-server '107.170.195.201', :web, :app, :db, primary: true
+server '107.170.221.100', :web, :app, :db, primary: true
 
 set :application, "couple"
 set :user, "tkunovsky"
@@ -12,7 +12,7 @@ set :use_sudo, false
 
 set :scm, "git"
 set :repository, "git@github.com:kunovsky/couple.git"
-set :branch, "master"
+set :branch, "f/payments"
 
 default_run_options[:pty] = true
 ssh_options[:forward_agent] = true

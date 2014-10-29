@@ -9,12 +9,12 @@ CP.module "Views.Common.User.Resources", (Resources, CP, Backbone, Marionette, $
 
     initialize: ->
       @model = CP.MobileApp
-      @primaryImage = @model.get('data').primary_image_url
+      @primaryImage = @model.get('data')['primary_image_url']
 
     onRender: ->
-      $(@el).find('.js-image').css('background-image', "url(/assets/#{@primaryImage})")
+      $(@el).find('.js-image').css('background-image', "url(/assets/#{@primaryImage})").fadeIn(1500)
       $(@el).find('.js-app-container').attr('id', "product-#{@model.get('id')}")
 
     showProduct: (e) ->
       e.preventDefault()
-      CP.modalRegion.show new Resources.ProductModal model: @model
+      CP.modalRegion.show new Resources.AppModal model: @model

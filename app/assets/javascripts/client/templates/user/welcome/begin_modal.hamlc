@@ -1,0 +1,8 @@
+.close-modal.icon-close-modal.js-modal-close
+.modal-header
+  %h3 Take the test
+.modal-body
+  .modal-text--information
+    .access_instructons The test is 45 questions total. In case you're wondering it's totally free.
+    .confirm-button--begin
+      %button.purple.js-begin-questionnaire Begin The Test

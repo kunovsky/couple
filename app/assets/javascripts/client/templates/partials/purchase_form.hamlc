@@ -1,0 +1,63 @@
+%form#purchase-form
+  %fieldset
+    %table.two-up
+      %tr
+        %td.valign-top
+          %label{for: 'first_name'} Name:
+        %td
+          %input{type: 'text', name: 'first_name', placeholder: 'First Name', style: 'width: 123px;'}
+          %input{type: 'text', name: 'middle_initial',placeholder: 'Initial', style: 'width: 52px;'}
+          %input{type: 'text', name: 'last_name', placeholder: 'Last Name', style: 'width: 123px;'}
+      %tr
+        %td.valign-top
+          %label{for: 'email'} Email:
+        %td
+          %input{type: 'email', name: 'email', style: 'width: 354px;'}
+
+      %tr
+        %td.valign-top
+          %label{for: 'billing'} Billing:
+        %td
+          %input{type: 'text', name: 'billing[ln1]', placeholder: 'Street Address', style: 'width: 354px;'}
+          %br/
+          %input{type: 'text', name: 'billing[ln2]', placeholder: 'Street Address 2', style: 'width: 354px;'}
+          %br/
+          %input{type: 'text', name: 'billing[city]', style: 'width: 185px;', placeholder: 'City'}
+          %select{name: 'billing[state]', style: 'width: 60px; height: 42px;'}
+            -for s in _.keys(CP.States)
+              %option{value: s}=s
+          %input{type: 'text', name: 'billing[zip]', style: 'width: 71px;', placeholder: 'Zip Code'}
+
+      %tr
+        %td.valign-top
+          %label{for: 'shipping'} Shipping:
+        %td
+          %input{type: 'text', name: 'shipping[ln1]', placeholder: 'Street Address', style: 'width: 354px;'}
+          %br/
+          %input{type: 'text', name: 'shipping[ln2]', placeholder: 'Street Address 2', style: 'width: 354px;'}
+          %br/
+          %input{type: 'text', name: 'shipping[city]', style: 'width: 185px;', placeholder: 'City'}
+          %select{name: 'shipping[state]', style: 'width: 60px; height: 42px;'}
+            -for s in _.keys(CP.States)
+              %option{value: s}=s
+          %input{type: 'text', name: 'shipping[zip]', style: 'width: 71px;', placeholder: 'Zip Code'}
+
+      %tr
+        %td.valign-top
+          %label{for: 'cc'} Credit Card:
+        %td
+          %input{type: 'text', name: 'cc[first_name]', placeholder: 'First Name', style: 'width: 123px;'}
+          %input{type: 'text', name: 'cc[middle_initial]', placeholder: 'Initial', style: 'width: 52px;'}
+          %input{type: 'text', name: 'cc[last_name]', placeholder: 'Last Name', style: 'width: 123px;'}
+          %br/
+          %input{type: 'text', name: 'cc[number]', placeholder: "Credit Card Number", style: 'width: 354px;'}
+          %br/
+          %select{name: 'cc[month]', style: 'width: 81px; height: 42px;'}
+            -for key, value of CP.Months
+              %option{value: key}=value
+          %select{name: 'cc[year]', style: 'width: 81px; height: 42px;'}
+            -for year in CP.Years
+              %option{value: year}=year
+          %input{type: 'text', name: 'cc[ccv]', placeholder: "Code On Back", style: 'width: 107px;'}
+
+  %button.purple{type: 'submit'}=@title

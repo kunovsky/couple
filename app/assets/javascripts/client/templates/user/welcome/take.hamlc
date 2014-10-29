@@ -7,5 +7,4 @@
         Does your relationship
       .sub-text 
         pass the test?
-      .welcome-buttons
-        %button.purple.with-bottom-left-margin.js-begin-questionnaire Take the test
+      .begin-questionnaire.js-begin-questionnaire Take the test

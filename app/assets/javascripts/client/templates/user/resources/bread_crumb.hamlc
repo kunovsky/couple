@@ -1,4 +1,4 @@
 .site-wrap
   %nav
     %ul
-      %li << Back To Your Results
+      %li << Back To #{@message}

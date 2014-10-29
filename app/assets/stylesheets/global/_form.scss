@@ -3,7 +3,6 @@ $form-element-height: 38px;
 form table.two-up {
   td {padding-bottom: 21px;}
   input[type='text'], input[type='email'], select {width: 370px; margin-right: 6px;}
-  tr:last-of-type td {padding-bottom: 41px; line-height: 50px;}
   tr.error-highlight {
     label {color: #d75858;}
     input, select {border: 1px solid #e09a9a;}
@@ -32,28 +31,23 @@ button, .btn, input[type='submit'] {
     background-position: center center;
   }
 
-  &.with-bottom-left-margin {
-    margin: 0px 0px 10px 10px;
-  }
-
-
   &.light-gray {
-    background: #656565;
+    background: #C0C0C0;
     color: #fff;
-    @include box-shadow(0 2px 0 #656565);
+    @include box-shadow(0 2px 0 #C0C0C0);
     &:hover {
-      background-color: #C0C0C0;
-       @include box-shadow(0 2px 0 #C0C0C0);
+      background-color: #999;
+       @include box-shadow(0 2px 0 #999);
     }
   }
 
   &.purple {
     background: #542F64;
     color: #f2f9f3;
-    @include box-shadow(0 2px 0 #000);
+    @include box-shadow(0 2px 0 #542F64);
     &:hover {
       background-color: #af61d3;
-       @include box-shadow(0 2px 0 #000);
+       @include box-shadow(0 2px 0 #af61d3);
        &:disabled {
         background-color: #d8d8d8;
         @include box-shadow(0 2px 0 #c7c7c7);
@@ -65,7 +59,6 @@ button, .btn, input[type='submit'] {
     background-color: #d8d8d8;
     @include box-shadow(0 2px 0 #c7c7c7);
   }
-
   //Icons
   &.no-icon {padding-left: 16px;}
 
@@ -158,6 +151,7 @@ textarea {
 form label, form .label {
   text-transform: uppercase;
   font-weight: bold;
+  padding-right: 10px;
 }
 
 //Errors

@@ -4,7 +4,7 @@ module ValidationHelpers
     valid_number?(params.fetch(:text, nil)) || valid_email?(params.fetch(:email, nil))
   end
 
-  def valid_number?(number) #TODO: figure out how we do this on the front end for real
+  def valid_number?(number)
     return unless number.present?
     number
   end
