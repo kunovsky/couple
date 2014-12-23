@@ -46,7 +46,7 @@ CP.module "Views.User.Section", (Section, CP, Backbone, Marionette, $, _) ->
         url: @url
         success: (response) =>
           #TODO: actual response and total answered need to be moved to a different ajax call
-          @questions = response.questions
+          @questions = _.shuffle(response.questions)
           @actualResponses = response.actual_responses
           @totalAnswered = response.total_answered
           @render()
