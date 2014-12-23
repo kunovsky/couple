@@ -23,10 +23,10 @@ module LoveMaps
   love_maps.questions.create! content: "I can describe in detail my partner's day either today or yesterday"
   love_maps.questions.create! content: "I know what makes my partner feel most competent"
   love_maps.questions.create! content: "I can list the relatives my partner likes the least"
-  love_maps.questions.create! content: "I know my partner's major current worries"
-  love_maps.questions.create! content: "I know what personal improvements my partner wants to make in their life?"
-  love_maps.questions.create! content: "My partner is familiar with what are my current stresses"
-  love_maps.questions.create! content: "I can tell you some of my partner's life dreams"
+  love_maps.questions.create! content: "I know my partner's current worries"
+  love_maps.questions.create! content: "I know what personal improvements my partner wants to make in their life"
+  love_maps.questions.create! content: "My partner is familiar with my current stressors"
+  love_maps.questions.create! content: "I know some of my partner's life dreams"
 
   #PossibleResponses#
 
@@ -46,7 +46,7 @@ module LoveMaps
 
   #Results#
   
-  love_maps.results.create!(quadrant_type: "individual_good", overall: "good", content: "Congratulations, you have an excellent understanding of your partner and their internal world!", recommendation: "We call the idea of knowing your partner 'Love Mapping' and it's an important part of having close friendship and a good relationship overall. Love Mapping is more than simply knowing their favorite food or type of movie – it's a continual download of your partner's inner world into your brain.  Knowing what their stressors are, their current worries, their major fears (and continuously updating that knowledge). And it is important to having both good friendship and a good relationship overall. Make sure to constantly update your love maps by asking your partner open ended questions about their life.") # you scored good - no problems
+  love_maps.results.create!(quadrant_type: "individual_good", overall: "good", content: "Congratulations, you have an excellent understanding of your partner and their internal world!", recommendation: "We call the idea of knowing your partner 'Love Mapping' and it's an important part of having close friendship and a good relationship overall. Love Mapping is more than simply knowing their favorite food or type of movie – it's a continual download of your partner's inner world into your brain.  Knowing what their stressors are, their current worries, their major fears (and continuously updating that knowledge). And it's important to having good friendship and a good relationship overall. Make sure to constantly update your love maps by asking your partner open ended questions about their life.") # you scored good - no problems
 
   ok = love_maps.results.create!(quadrant_type: "individual_ok", overall: "ok", content: "You know your partner's life and inner world pretty well, but you think you can do better.", recommendation: "We call the idea of knowing your partner 'Love Mapping' and it's an important part of having close friendship and a good relationship overall. Love Mapping is more than simply knowing their favorite food or type of movie – it's a continuous download of your partner's inner world into your brain. Knowing the relevant information about your partner, such as their worries, hopes, and goals in life; their history; and the facts and feelings that constitute their being is extremely important. Happy couples use their love maps to express not only their understanding of each other, but their fondness and admiration as well. In an effort to better understand your partner, we strongly suggest the following resources:")# you scored ok -- you need to learn your partner's love maps better
   ok.products << love_maps_products[0]
