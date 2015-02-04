@@ -83,7 +83,6 @@ window.CP.Months = {
 }
 
 window.CP.Years = [
-  "2014",
   "2015",
   "2016",
   "2017",
